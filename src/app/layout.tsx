@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Epilogue } from "next/font/google";
 import "./globals.css";
+import Nav from "@/components/Nav/Nav";
 
 const epilogue = Epilogue({
   weight: ["400", "500", "600", "700"],
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${epilogue.variable} `}>
+        {/* <Nav /> */}
         <div>{children}</div>
       </body>
     </html>
