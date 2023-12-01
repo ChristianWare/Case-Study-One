@@ -4,7 +4,8 @@ import styles from "./Nav.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-// import Button from "../Button/Button";
+import Button from "../Button/Button";
+import House from "../../../public/icons/house.svg";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,20 +44,20 @@ function Nav() {
       href: "/",
     },
     {
-      text: "About",
-      href: "/about",
-    },
-    {
-      text: "Features",
-      href: "/features",
-    },
-    {
-      text: "Contact",
-      href: "/contact",
+      text: "Properties",
+      href: "/properties",
     },
     {
       text: "Blog",
       href: "/blog",
+    },
+    {
+      text: "About",
+      href: "/about",
+    },
+    {
+      text: "Contact",
+      href: "/contact",
     },
   ];
 
@@ -65,7 +66,7 @@ function Nav() {
       <nav className={styles.navbar}>
         <div className={styles.logo}>
           <Link href='/' className={styles.logo}>
-            CWA
+            <House width={30} height={30} className={styles.icon} /> Homix
           </Link>
         </div>
         <ul
@@ -75,11 +76,6 @@ function Nav() {
               : `${styles.navMenu} ${styles.active}`
           }
         >
-          {/* {isOpen === true && (
-            <Link href='/' className={styles.logoii}>
-              Chris Ware Agency
-            </Link>
-          )} */}
           {navItems.map((navItem, index) => (
             <li
               key={index}
@@ -98,10 +94,10 @@ function Nav() {
               </Link>
             </li>
           ))}
-          <div className={styles.btnContainer}>
-            {/* <Button href='/' text='480-623-6780' btnType='navBtn' /> */}
-          </div>
         </ul>
+        <div className={styles.btnContainer}>
+          <Button href='/' text='Contact Us' btnType='navBtn' />
+        </div>
         <span
           className={
             isOpen === false

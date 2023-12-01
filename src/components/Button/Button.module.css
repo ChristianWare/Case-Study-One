@@ -1,0 +1,87 @@
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  text-align: center;
+  font-size: 1.6rem;
+  white-space: nowrap;
+  border-radius: 5px;
+  user-select: none;
+  transition: all 0.1s ease-in;
+  display: inline-block;
+  padding: 8px 25px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.primary {
+  color: var(--black);
+  background-color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.primaryii {
+  color: var(--green);
+  background-color: transparent;
+  border: 2px solid var(--green);
+}
+
+.primary:hover {
+  color: var(--green);
+  background-color: transparent;
+  border: 2px solid var(--green);
+}
+
+.secondary {
+  color: var(--black);
+  background-color: var(--green);
+  border: 1px solid var(--border2);
+}
+
+.tertiary {
+  color: var(--black);
+  background-color: var(--green);
+  border: 2px solid var(--border2);
+}
+
+.tertiaryii {
+  color: var(--black);
+  background-color: transparent;
+  border: 1px solid var(--black);
+}
+
+.tertiaryii:hover {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.navBtn {
+  padding: 15px 25px;
+  font-weight: 600;
+  color: var(--white);
+  background-color: var(--black);
+  border: 1px solid var(--black);
+  font-size: 1.4rem;
+}
+
+.navBtnii {
+  padding: 5px 25px;
+  font-weight: 600;
+  color: var(--black);
+  font-size: 1.4rem;
+  border: 1px solid var(--border2);
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    font-size: 2rem;
+  }
+}
