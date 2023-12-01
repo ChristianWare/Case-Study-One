@@ -1,6 +1,7 @@
 import Button from "../Button/Button";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import PropPreview from "../PropPreview/PropPreview";
 import styles from "./Featured.module.css";
 
 const Featured = () => {
@@ -15,7 +16,7 @@ const Featured = () => {
             </div>
           </div>
           <div className={styles.bottom}>
-            
+            <PropPreview />
           </div>
         </div>
       </ContentPadding>
