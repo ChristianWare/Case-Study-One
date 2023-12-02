@@ -17,6 +17,7 @@ const Featured = () => {
           </div>
           <div className={styles.bottom}>
             <PropPreview />
+            <PropPreview />
           </div>
         </div>
       </ContentPadding>
