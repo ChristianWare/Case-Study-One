@@ -11,9 +11,10 @@
 
 @media screen and (max-width: 568px) {
   .content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 4rem;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 }
