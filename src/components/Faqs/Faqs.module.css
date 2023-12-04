@@ -119,9 +119,12 @@
     justify-content: center;
   }
 
-  .heading,
-  .topText {
+  .heading {
     text-align: center;
+  }
+
+  .copy {
+    width: 80%;
   }
 }
 
@@ -131,8 +134,8 @@
     padding-right: 0rem;
   }
 
-  .top .topText {
-    width: 100%;
+  .copy {
+    width: 90%;
   }
 }
 
