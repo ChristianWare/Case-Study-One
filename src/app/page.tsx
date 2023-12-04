@@ -8,6 +8,7 @@ import Properties from "@/components/Properties/Properties";
 import Owner from "@/components/Owner/Owner";
 import Faqs from "@/components/Faqs/Faqs";
 import FinalCTA1 from "@/components/FinalCTA1/FinalCTA1";
+import FinalCTA2 from "@/components/FinalCTA2/FinalCTA2";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Owner />
       <Faqs />
       <FinalCTA1 />
+      <FinalCTA2 />
     </div>
   );
 }
