@@ -1,0 +1,116 @@
+.bgColor {
+  background-color: var(--purple);
+  border-radius: 20px;
+}
+
+.quote {
+  color: var(--purple3);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.right,
+.left {
+  flex: 1;
+  width: 100%;
+}
+
+.heading {
+  color: var(--white);
+}
+
+.copy {
+  width: 80%;
+  color: var(--white);
+  font-size: 1.8rem;
+  margin-top: 3rem;
+  font-weight: 500;
+  line-height: 1.8em;
+}
+
+.right {
+  position: relative;
+}
+
+.imgContainer {
+  position: relative;
+  height: 450px;
+  z-index: 1;
+}
+
+.imgContainer::after {
+  position: absolute;
+  content: "";
+  top: 10px;
+  left: 10px;
+  background-color: var(--white);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.img {
+  object-fit: cover;
+  border: 2px solid var(--white);
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 968px) {
+  .quote {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heading,
+  .copy {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btnContainer {
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .imgContainer {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imgContainer {
+    height: 375px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .quote {
+    margin-left: 0rem;
+  }
+
+  .heading,
+  .copy {
+    text-align: left;
+    margin-left: 0rem;
+  }
+
+  .btnContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5rem;
+  }
+}

@@ -5,6 +5,7 @@ import PostHero from "@/components/PostHero/PostHero";
 import Featured from "@/components/Featured/Featured";
 import Discover from "@/components/Discover/Discover";
 import Properties from "@/components/Properties/Properties";
+import Owner from "@/components/Owner/Owner";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Featured />
       <Discover />
       <Properties />
+      <Owner />
     </div>
   );
 }
