@@ -48,6 +48,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  letter-spacing: -.05em;
 }
 
 .perDay {
