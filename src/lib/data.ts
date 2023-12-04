@@ -1,32 +1,26 @@
-export const benefits = [
+export const faqs = [
   {
-    heading: "Lower Fees",
-    description:
-      "When you have your own website, you have full control over your property listings, pricing, and booking policies. You can set your own rules and policies without being subject to the platforms' terms and conditions.",
+    id: 36,
+    question: "Why should I use a direct booking website instead of Airbnb?",
+    answer:
+      "Direct booking websites offer more control over your property, lower fees, and personalized branding. You have direct communication with guests and can build a loyal customer base.",
   },
   {
-    heading: "Greater Control",
-    description:
-      "Airbnb and VRBO charge hosts various fees, including service fees, host fees, and payment processing fees. These can significantly eat into your profits. With your own website, you can avoid or minimize these fees.",
+    id: 36.1,
+    question: "How does the booking process work on a direct booking website?",
+    answer:
+      "Guests can browse your property, view details, and make reservations directly through your website. You have the flexibility to set your own booking policies and payment processes.",
   },
   {
-    heading: "No Competing Listings",
-    description:
-      "On third-party platforms, your property is often listed alongside numerous competing properties, making it harder to stand out. On your website, you can focus solely on your property, giving it the undivided attention it deserves.",
+    id: 36.2,
+    question: "What features can I customize on my direct booking website?",
+    answer:
+      "You can customize the website design, branding elements, property details, pricing, and policies. We offer flexibility to tailor the platform to your unique needs.",
   },
   {
-    heading: "Diversification",
-    description:
-      "Relying solely on Airbnb and VRBO can be risky, as their policies and algorithms can change at any time. Having your own website provides a level of diversification and independence.",
-  },
-  {
-    heading: "Long-Term Cost Savings",
-    description:
-      "While building and maintaining a website may involve an initial investment, it can save you money in the long run compared to paying ongoing fees to third-party platforms.",
-  },
-  {
-    heading: "Data Ownership",
-    description:
-      "When you use Airbnb and VRBO, they own and control the guest data. With your own website, you own and control this valuable information, allowing you to build a list of past guests for marketing purposes.",
+    id: 36.3,
+    question: "Is it easy for guests to find my direct booking website?",
+    answer:
+      "We implement SEO strategies to improve the visibility of your website on search engines. Additionally, we can assist with marketing strategies to drive traffic to your platform.",
   },
 ] as const;

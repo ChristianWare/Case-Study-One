@@ -6,6 +6,7 @@ import Featured from "@/components/Featured/Featured";
 import Discover from "@/components/Discover/Discover";
 import Properties from "@/components/Properties/Properties";
 import Owner from "@/components/Owner/Owner";
+import Faqs from "@/components/Faqs/Faqs";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Discover />
       <Properties />
       <Owner />
+      <Faqs />
     </div>
   );
 }
