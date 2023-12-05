@@ -23,7 +23,7 @@ export default function Home() {
       <Faqs />
       <FinalCTA1 />
       <FinalCTA2 />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
