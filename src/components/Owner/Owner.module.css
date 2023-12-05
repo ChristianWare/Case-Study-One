@@ -14,6 +14,10 @@
   gap: 3rem;
 }
 
+.reverse {
+  flex-direction: row-reverse;
+}
+
 .right,
 .left {
   flex: 1;
@@ -24,13 +28,32 @@
   color: var(--white);
 }
 
-.copy {
+.copy,
+.copyii {
   width: 80%;
   color: var(--white);
   font-size: 1.8rem;
   margin-top: 3rem;
   font-weight: 500;
   line-height: 1.8em;
+}
+
+.copyii {
+  margin-top: 0rem;
+  /* text-align: center; */
+  width: 100%;
+}
+
+.aboutContainer {
+  margin-left: 5rem;
+}
+
+.statsBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .right {
@@ -117,6 +140,14 @@
     margin-right: auto;
   }
 
+  .aboutContainer {
+    margin-left: 0rem;
+  }
+
+  .copyii {
+    text-align: center;
+  }
+
   .btnContainer {
     justify-content: center;
     margin-bottom: 3rem;
@@ -142,6 +173,10 @@
   .copy {
     text-align: left;
     margin-left: 0rem;
+  }
+
+  .copyii {
+    text-align: left;
   }
 
   .btnContainer {

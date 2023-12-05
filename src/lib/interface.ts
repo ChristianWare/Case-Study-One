@@ -9,3 +9,9 @@ export interface PageIntroProps {
   heading: string;
   copy: string;
 }
+
+export interface OwnerProps {
+  heading?: string;
+  copy?: string;
+  reverse?: string;
+}

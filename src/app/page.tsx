@@ -19,7 +19,13 @@ export default function Home() {
       <Featured />
       <Discover />
       <Properties />
-      <Owner />
+      <Owner
+        heading='“People now recognise that having a good performance
+                conversation means that something happens as a result.”'
+        copy='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
+                nibh pretium nunc mauris sed adipiscing. Lorem ipsum dolor sit
+                amet, consectetur adipiscing'
+      />
       <Faqs />
       <FinalCTA1 />
       <FinalCTA2 />

@@ -1,29 +1,56 @@
+"use client";
+
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Owner.module.css";
 import Image from "next/image";
 import Img from "../../../public/images/img1.jpg";
 import Quote from "../../../public/icons/quote.svg";
+import { usePathname } from "next/navigation";
+import { FC } from "react";
+import { OwnerProps } from "@/lib/interface";
 
-const Owner = () => {
+const Owner: FC<OwnerProps> = ({ heading, copy, reverse = "" }) => {
+  const pathname = usePathname();
+
   return (
     <div className={styles.bgColor}>
       <LayoutWrapper>
         <ContentPadding>
-          <div className={styles.top}>
-            <Quote width={130} height={130} className={styles.quote} />
-          </div>
-          <div className={styles.content}>
+          {pathname === "/" && (
+            <div className={styles.top}>
+              <Quote width={130} height={130} className={styles.quote} />
+            </div>
+          )}
+          <div className={`${styles.content} ${styles[reverse]} `}>
             <div className={styles.left}>
-              <h3 className={styles.heading}>
-                “People now recognise that having a good performance
-                conversation means that something happens as a result.”
-              </h3>
-              <p className={styles.copy}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-                nibh pretium nunc mauris sed adipiscing. Lorem ipsum dolor sit
-                amet, consectetur adipiscing
-              </p>
+              <h3 className={styles.heading}>{heading}</h3>
+              <p className={styles.copy}>{copy}</p>
+              {pathname === "/about" && (
+                <div className={styles.aboutContainer}>
+                  <h2 className={styles.heading}>
+                    We have created a real and lasting impact
+                  </h2>
+                  <div className={styles.statsBox}>
+                    <div className={styles.box}>
+                      <h2 className={styles.heading}>10+</h2>
+                      <p className={styles.copyii}>Years in Business</p>
+                    </div>
+                    <div className={styles.box}>
+                      <h2 className={styles.heading}>195</h2>
+                      <p className={styles.copyii}>Countries</p>
+                    </div>
+                    <div className={styles.box}>
+                      <h2 className={styles.heading}>35 + </h2>
+                      <p className={styles.copyii}>Intergration Partners</p>
+                    </div>
+                    <div className={styles.box}>
+                      <h2 className={styles.heading}>1M + </h2>
+                      <p className={styles.copyii}>Users</p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
             <div className={styles.right}>
               <div className={styles.imgContainer}>
