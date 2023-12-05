@@ -4,3 +4,8 @@ export interface ButtonProps {
   btnType: string;
   target?: string;
 }
+
+export interface PageIntroProps {
+  heading: string;
+  copy: string;
+}

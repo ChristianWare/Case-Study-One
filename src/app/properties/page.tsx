@@ -6,16 +6,19 @@ import styles from "./properties.module.css";
 import Faqs from "@/components/Faqs/Faqs";
 import FinalCTA1 from "@/components/FinalCTA1/FinalCTA1";
 import FinalCTA2 from "@/components/FinalCTA2/FinalCTA2";
+import PageIntro from "@/components/PageIntro/PageIntro";
 
 const page = () => {
   return (
     <>
-      <Nav />
       <LayoutWrapper>
         <ContentPadding>
-          <div className={styles.top}>
-            <h1 className={styles.heading}>All properties for rent</h1>
-          </div>
+          <PageIntro
+            heading='All properties for rent'
+            copy='Lorem ipsum dolor sit amet consectetur adipisicing elit. Et sit
+              ipsam repudiandae corrupti temporibus voluptate! A neque debitis
+              omnis reprehenderit?'
+          />
           <div className={styles.bottom}>
             <PropPreviewii />
             <PropPreviewii />

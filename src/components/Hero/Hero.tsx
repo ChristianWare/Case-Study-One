@@ -9,7 +9,7 @@ import Button from "../Button/Button";
 const Hero = () => {
   return (
     <div className={styles.container}>
-      <Nav />
+      {/* <Nav /> */}
       <LayoutWrapper>
         <ContentPadding>
           <div className={styles.content}>
