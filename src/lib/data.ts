@@ -81,19 +81,19 @@ const footer = [
     section: [
       {
         id: 7,
-        name: "Best Clubs",
+        name: "Things to do in Phx",
       },
       {
         id: 8,
-        name: "Drivers",
+        name: "Best Places to Eat",
       },
       {
         id: 9,
-        name: "Putters",
+        name: "How to choose a Vaca Rental",
       },
       {
         id: 10,
-        name: "Hybrids",
+        name: "Car Rental Services",
       },
     ],
   },
@@ -103,19 +103,19 @@ const footer = [
     section: [
       {
         id: 12,
-        name: "United States",
+        name: "Our Story",
       },
       {
         id: 13,
-        name: "Europe",
+        name: "Mission",
       },
       {
         id: 14,
-        name: "Canada",
+        name: "Vision",
       },
       {
         id: 15,
-        name: "Asia",
+        name: "Values",
       },
     ],
   },
@@ -125,19 +125,19 @@ const footer = [
     section: [
       {
         id: 17,
-        name: "PGA",
+        name: "Phone",
       },
       {
         id: 18,
-        name: "U.S. Open",
+        name: "Email",
       },
       {
         id: 19,
-        name: "Masters",
+        name: "Instagram",
       },
       {
         id: 20,
-        name: "Ryder Cup",
+        name: "Facebook",
       },
     ],
   },
