@@ -182,7 +182,7 @@
   }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 668px) {
   .blogSection,
   .gallery {
     grid-template-columns: repeat(1, 1fr);

@@ -1,8 +1,6 @@
 "use client";
 
 import { footer } from "@/lib/data";
-import ContentPadding from "../ContentPadding/ContentPadding";
-import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Footer.module.css";
 import Link from "next/link";
 import { useState } from "react";
@@ -21,8 +19,6 @@ const Footer = () => {
   };
 
   return (
-    <>
-      {/* <ContentPadding> */}
       <footer className={styles.contanier}>
         <div className={styles.content}>
           <Link href='/' className={styles.logo}>
@@ -91,13 +87,11 @@ const Footer = () => {
               </p>
             </div>
             <div className={styles.bottomRight}>
-              {/* <Socials borderSize='smallBorder' iconSize='smallIcon' /> */}
             </div>
           </div>
         </div>
       </footer>
-      {/* </ContentPadding> */}
-    </>
+
   );
 };
 export default Footer;

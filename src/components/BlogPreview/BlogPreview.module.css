@@ -70,7 +70,7 @@
   font-weight: 500;
   background-color: var(--purple);
   color: var(--white);
-  padding:10px;
+  padding: 10px;
   padding-top: 13px;
   border-radius: 20px;
   line-height: 100%;
@@ -80,7 +80,7 @@
 
 .title {
   font-size: 1.8rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .copy {
@@ -90,7 +90,6 @@
 
 .featuresBox {
   margin-top: 2rem;
-  /* border-top: 1px solid var(--gray); */
   width: 100%;
   display: flex;
   align-items: center;
@@ -106,22 +105,8 @@
   .container {
     grid-template-columns: repeat(1, 1fr);
   }
-
-  .imgContainer {
-    height: 350px;
-  }
-
-  .img {
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 0px;
-  }
 }
 
-@media screen and (max-width: 768px) {
-  .imgContainer {
-    height: 300px;
-  }
-}
 @media screen and (max-width: 768px) {
   .imgContainer {
     height: 300px;

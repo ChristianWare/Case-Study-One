@@ -55,7 +55,7 @@ export const methodologies = [
 const footer = [
   {
     id: 1,
-    heading: "About",
+    heading: "Properties",
     section: [
       {
         id: 2,
@@ -77,7 +77,7 @@ const footer = [
   },
   {
     id: 6,
-    heading: "Reviews",
+    heading: "Blog",
     section: [
       {
         id: 7,
@@ -99,7 +99,7 @@ const footer = [
   },
   {
     id: 11,
-    heading: "Courses",
+    heading: "About",
     section: [
       {
         id: 12,
@@ -121,7 +121,7 @@ const footer = [
   },
   {
     id: 16,
-    heading: "Tours",
+    heading: "Contact",
     section: [
       {
         id: 17,
