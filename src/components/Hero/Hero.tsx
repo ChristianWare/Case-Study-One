@@ -14,7 +14,7 @@ const Hero = () => {
           <div className={styles.content}>
             <div className={styles.left}>
               <h1 className={styles.heading}>
-                We have t`he Best Vacation rentals in Phoenix, AZ.
+                We have the Best Vacation rentals in Phoenix, AZ.
               </h1>
               <p className={styles.copy}>
                 Discover a curated selection of meticulously designed houses,
