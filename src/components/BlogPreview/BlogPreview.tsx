@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Img from '../../../public/images/img1.jpg'
-import styles from './BlogPreview.module.css'
+import Image from "next/image";
+import Img from "../../../public/images/img1.jpg";
+import styles from "./BlogPreview.module.css";
 
 const BlogPreview = () => {
   return (
@@ -11,21 +11,15 @@ const BlogPreview = () => {
         </div>
       </div>
       <div className={styles.right}>
-        <div className={styles.rightTop}>
-          <span className={styles.price}>
-            $350 <span className={styles.perDay}>/ per day</span>
-          </span>
-          <div className={styles.available}>Available</div>
-        </div>
-        <h3 className={styles.title}>Seaside Serenity</h3>
-        <span className={styles.perDay}>New York</span>
-        <div className={styles.featuresBox}>
-          <div className={styles.feature}>3 Beds</div>
-          <div className={styles.feature}>1 Bathroom</div>
-          <div className={styles.feature}>57 m2</div>
+        <h3 className={styles.title}>Blog Title Here</h3>
+        <span className={styles.perDay}>Dec 6th, 2023</span>
+        <div className={styles.feature}>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit,
+          magni?
         </div>
       </div>
+      <div className={styles.available}>Read More</div>
     </div>
   );
-}
-export default BlogPreview
+};
+export default BlogPreview;
