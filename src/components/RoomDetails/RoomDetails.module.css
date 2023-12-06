@@ -1,0 +1,66 @@
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.topLeft,
+.topRight {
+  flex: 1;
+  width: 100%;
+}
+
+.featuresBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  background-color: var(--purple2);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--purple);
+  padding: 1.5rem 2rem;
+  border-radius: 5px;
+}
+
+
+.price {
+  background: rgb(161, 155, 246);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(161, 155, 246, 1) 0%,
+    rgba(112, 101, 240, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(161, 155, 246, 1) 0%,
+    rgba(112, 101, 240, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(161, 155, 246, 1) 0%,
+    rgba(112, 101, 240, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a19bf6",endColorstr="#7065f0",GradientType=1);
+  width: fit-content;
+  padding: 2rem;
+  color: var(--white);
+  border-radius: 5px;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.perNight {
+    color: var(--white);
+    font-size: 1.6rem;
+}
