@@ -59,7 +59,7 @@ const Owner: FC<OwnerProps> = ({ heading, copy, reverse = "" }) => {
               <div className={styles.statsContainer}>
                 <div className={styles.statsLeft}>
                   <h4 className={styles.statsHeading}>Kristin Watson</h4>
-                  <p className={styles.statsTitle}>Product manager at Joon</p>
+                  <p className={styles.statsTitle}>Property Manager</p>
                 </div>
                 <div className={styles.statsRight}>
                   <Image

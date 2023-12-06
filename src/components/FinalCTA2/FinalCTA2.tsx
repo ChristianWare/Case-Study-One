@@ -13,11 +13,15 @@ const FinalCTA2 = () => {
           <div className={styles.content}>
             <div className={styles.left}>
               <h3 className={styles.heading}>
-                The best place to discover amazing properties at great prices.
-                Are you looking to buy or sell a property? Get in touch today
+                We are here to take care of all your vacation rental needs in
+                the Phoenix, AZ area. Explore all of our properties for rent.
               </h3>
               <div className={styles.btnContainer}>
-                <Button text='Find apartments' href='/' btnType='secondary' />
+                <Button
+                  text='All properties'
+                  href='/properties'
+                  btnType='secondary'
+                />
               </div>
             </div>
             <div className={styles.right}>
