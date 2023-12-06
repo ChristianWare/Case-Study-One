@@ -20,11 +20,8 @@ export default function Home() {
       <Discover />
       <Properties />
       <Owner
-        heading='“People now recognise that having a good performance
-                conversation means that something happens as a result.”'
-        copy='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-                nibh pretium nunc mauris sed adipiscing. Lorem ipsum dolor sit
-                amet, consectetur adipiscing'
+        heading='“Revolutionizing luxury rentals, we own and manage our properties, ensuring unparalleled design, service, and a cohesive experience across our distinctive collection.”'
+        copy='We redefine the holiday rental experience by directly owning and managing our properties, allowing for unparalleled design, service, and a cohesive experience across our distinctive collection, standing out in the evolving landscape of luxury accommodations.'
       />
       <Faqs />
       <FinalCTA1 />

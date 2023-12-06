@@ -44,23 +44,11 @@
 
 .right {
   height: 100%;
-  background: rgb(161, 155, 246);
-  background: -moz-linear-gradient(
-    180deg,
-    rgba(161, 155, 246, 1) 0%,
-    rgba(112, 101, 240, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    180deg,
-    rgba(161, 155, 246, 1) 0%,
-    rgba(112, 101, 240, 1) 100%
-  );
-  background: linear-gradient(
-    180deg,
-    rgba(161, 155, 246, 1) 0%,
-    rgba(112, 101, 240, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a19bf6",endColorstr="#7065f0",GradientType=1);
+  background: rgb(158,200,185);
+background: -moz-linear-gradient(180deg, rgba(158,200,185,1) 0%, rgba(27,66,66,1) 100%);
+background: -webkit-linear-gradient(180deg, rgba(158,200,185,1) 0%, rgba(27,66,66,1) 100%);
+background: linear-gradient(180deg, rgba(158,200,185,1) 0%, rgba(27,66,66,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9ec8b9",endColorstr="#1b4242",GradientType=1);
   border-radius: 20px;
 }
 

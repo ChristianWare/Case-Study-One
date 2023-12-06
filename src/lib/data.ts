@@ -1,27 +1,27 @@
 export const faqs = [
   {
     id: 36,
-    question: "Why should I use a direct booking website instead of Airbnb?",
+    question: "How can I book a vacation rental property on your site?",
     answer:
-      "Direct booking websites offer more control over your property, lower fees, and personalized branding. You have direct communication with guests and can build a loyal customer base.",
+      "Booking is easy! Simply navigate to the property of your choice, select your dates, and follow the prompts to complete the reservation process securely on our website.",
   },
   {
     id: 36.1,
-    question: "How does the booking process work on a direct booking website?",
+    question: "What sets your vacation rental properties apart from others?",
     answer:
-      "Guests can browse your property, view details, and make reservations directly through your website. You have the flexibility to set your own booking policies and payment processes.",
+      "Our properties are directly owned and managed, allowing us to prioritize unique design, exceptional service, and an overall distinctive experience. We aim to create a connection among all our properties, offering a curated and memorable stay.",
   },
   {
     id: 36.2,
-    question: "What features can I customize on my direct booking website?",
+    question: "Are your vacation rental homes pet-friendly?",
     answer:
-      "You can customize the website design, branding elements, property details, pricing, and policies. We offer flexibility to tailor the platform to your unique needs.",
+      "We understand that pets are family too! Some of our properties are pet-friendly, while others may have specific policies. Be sure to check the property details or contact us directly to inquire about pet accommodations.",
   },
   {
     id: 36.3,
-    question: "Is it easy for guests to find my direct booking website?",
+    question: " What happens if I need assistance during my stay?",
     answer:
-      "We implement SEO strategies to improve the visibility of your website on search engines. Additionally, we can assist with marketing strategies to drive traffic to your platform.",
+      " Your comfort is our priority. Our dedicated support team is available 24/7 to assist you. Whether you have questions, concerns, or need local recommendations, we're here to ensure your stay is seamless and enjoyable.",
   },
 ] as const;
 

@@ -3,7 +3,6 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./RoomDetails.module.css";
 import Image from "next/image";
 import Img from "../../../public/images/img1.jpg";
-import Faqs from "../Faqs/Faqs";
 import FinalCTA2 from "../FinalCTA2/FinalCTA2";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
 import BlogPreview from "../BlogPreview/BlogPreview";

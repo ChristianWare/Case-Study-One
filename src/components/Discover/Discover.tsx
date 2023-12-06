@@ -14,14 +14,20 @@ const Discover = () => {
           <div className={styles.content}>
             <div className={styles.left}>
               <h3 className={styles.heading}>
-                <span className={styles.highlight}>Discover properties</span>
-                <br /> that will improve your life and that of your family
+                <span className={styles.highlight}>Our vacation homes</span>
+                <br />
+                will improve your stay in Phoenix.
               </h3>
               <p className={styles.copy}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-                nibh pretium nunc mauris sed adipiscing.
+                Immerse yourself in a personalized booking experience, ensuring
+                that your getaway is not just a vacation but an unforgettable
+                journey in your very own dream house.
               </p>
-              <Button btnType='navBtn' text='To catelog' href='/' />
+              <Button
+                btnType='navBtn'
+                text='All Properties'
+                href='/properties'
+              />
             </div>
             <div className={styles.right}></div>
           </div>

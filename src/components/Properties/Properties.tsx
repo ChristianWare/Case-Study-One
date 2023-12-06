@@ -11,8 +11,8 @@ const Properties = () => {
         <div className={styles.top}>
           <h2 className={styles.heading}>More Listings</h2>
           <p className={styles.copy}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Perferendis aliquam mollitia natus dolores, eveniet qui.
+            Here is a comprehensive list of all the properties we have available
+            for you to enjoy. Feel free to reach out with questions.
           </p>
         </div>
         <div className={styles.bottom}>

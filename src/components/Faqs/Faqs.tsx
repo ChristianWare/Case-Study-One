@@ -7,7 +7,6 @@ import { faqs } from "@/lib/data";
 import { useState } from "react";
 import Arrow from "../../../public/icons/downArrow.svg";
 
-
 const Faqs = () => {
   const [selected, setSelected] = useState<null | number>(null);
   const toggle = (i: any) => {
@@ -24,8 +23,10 @@ const Faqs = () => {
           <div className={styles.top}>
             <h2 className={styles.heading}>Frequently asked questions</h2>
             <p className={styles.copy}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit nibh
-              pretium nunc mauris sed adipiscing.
+              Welcome to our FAQ section, designed to make your experience
+              seamless. Explore common inquiries about booking, unique property
+              features, pet policies, and our dedicated 24/7 support, ensuring
+              your stay with us is as straightforward as it is enjoyable.
             </p>
           </div>
           <div className={styles.bottom}>
