@@ -25,6 +25,33 @@ export const faqs = [
   },
 ] as const;
 
+export const methodologies = [
+  {
+    heading: "Driven by ambition",
+    desc: "We’re all driven by the same goal to change the way the world hires in whatever part we play.",
+  },
+  {
+    heading: "A big heart",
+    desc: "Our people, clients and employees alike, are the heart and core of who we are.",
+  },
+  {
+    heading: "Positively charged",
+    desc: "Whatever we do, we do with a positive attitude and lots of energy.",
+  },
+  {
+    heading: "Driven by ambition",
+    desc: "We work hard to achieve our clients’ objectives as well as our own individual goals.",
+  },
+  {
+    heading: "Driven by ambition",
+    desc: "We’re there for each other through the challenges and make sure to celebrate the good times too.",
+  },
+  {
+    heading: "Driven by ambition",
+    desc: "We’re known for being a fun, light-hearted bunch and that shows through all our work.",
+  },
+] as const;
+
 const footer = [
   {
     id: 1,
