@@ -11,7 +11,13 @@ const FinalCTA1 = () => {
       <ContentPadding>
         <div className={styles.content}>
           <div className={styles.imgContainer}>
-            <Image src={Img} alt='image' width={60} height={60} className={styles.img} />
+            <Image
+              src={Img}
+              alt='image'
+              width={60}
+              height={60}
+              className={styles.img}
+            />
           </div>
           <h3 className={styles.heading}>Still have questions?</h3>
           <p className={styles.copy}>
@@ -19,7 +25,7 @@ const FinalCTA1 = () => {
             friendly team.
           </p>
           <div className={styles.btnContainer}>
-            <Button text='More Questions' btnType='secondary' href='/' />
+            <Button text='Contact us' btnType='secondary' href='/contact' />
           </div>
         </div>
       </ContentPadding>
