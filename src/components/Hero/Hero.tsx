@@ -14,16 +14,20 @@ const Hero = () => {
           <div className={styles.content}>
             <div className={styles.left}>
               <h1 className={styles.heading}>
-                The best place to find your dream house
+                We have t`he Best Vacation rentals in Phoenix, AZ.
               </h1>
               <p className={styles.copy}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit
-                nibh pretium nunc mauris sed adipiscing. Lorem ipsum dolor sit
-                amet
+                Discover a curated selection of meticulously designed houses,
+                each offering a unique blend of modern amenities and scenic
+                beauty.
               </p>
               <div className={styles.btnContainer}>
-                <Button text='Learn More' btnType='primary' href='/' />
-                <Button text='About us' btnType='secondary' href='/' />
+                <Button
+                  text='See all properties'
+                  btnType='primary'
+                  href='/properties'
+                />
+                <Button text='About us' btnType='secondary' href='/about' />
               </div>
             </div>
             <div className={styles.right}>
