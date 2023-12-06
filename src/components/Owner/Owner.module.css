@@ -62,7 +62,7 @@
 
 .imgContainer {
   position: relative;
-  height: 450px;
+  height: 650px;
   z-index: 1;
 }
 
@@ -154,13 +154,13 @@
   }
 
   .imgContainer {
-    height: 400px;
+    height: 800px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .imgContainer {
-    height: 375px;
+    height: 775px;
   }
 }
 
@@ -187,6 +187,10 @@
 
   .statsContainer {
     width: 300px;
+  }
+
+  .imgContainer {
+    height: 475px;
   }
 }
 
