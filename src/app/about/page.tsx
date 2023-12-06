@@ -1,5 +1,6 @@
 import ContentPadding from "@/components/ContentPadding/ContentPadding";
 import LayoutWrapper from "@/components/LayoutWrapper/LayoutWrapper";
+import Methodology from "@/components/Methodology/Methodology";
 import Owner from "@/components/Owner/Owner";
 import PageIntro from "@/components/PageIntro/PageIntro";
 
@@ -14,7 +15,8 @@ const about = () => {
           />
         </ContentPadding>
       </LayoutWrapper>
-      <Owner reverse="reverse" />
+      <Owner reverse='reverse' />
+      <Methodology />
     </>
   );
 };
