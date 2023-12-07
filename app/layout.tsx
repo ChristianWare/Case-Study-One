@@ -23,11 +23,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${epilogue.variable} `}>
-        {/* <Nav />
-        <div>{children}</div>
-        <Footer /> */}
         <Globalprovider>
-          <Header />
           <Nav />
           {children}
           <Footer />

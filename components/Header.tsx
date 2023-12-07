@@ -26,7 +26,7 @@ const Header = () => {
   };
 
   return (
-    <nav className='navbar sticky-top py-2'>
+    <nav className={styles.container}>
       <div className='container'>
         <div className='col-6 col-lg-3 p-0'>
           <div className='navbar-brand'>
@@ -89,7 +89,7 @@ const Header = () => {
               {data === undefined && (
                 <div className='placeholder-glow'>
                   <figure className='avatar avatar-nv placeholder bg-secondary'></figure>
-                  <span className='placeholder w-25 bg-secondaru ms-2'></span>
+                  <span className='placeholder w-25 bg-secondary ms-2'></span>
                 </div>
               )}
               {data === null && (

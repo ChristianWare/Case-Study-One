@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { useRegisterMutation } from "@/redux/api/authApi";
+import { useRegisterMutation } from "../../redux/api/authApi";
 import { useRouter } from "next/navigation";
 import { ChangeEventHandler, FormEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
