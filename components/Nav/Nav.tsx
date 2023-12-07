@@ -10,7 +10,6 @@ import House from "../../public/icons/house.svg";
 import { setIsAuthenticated, setUser } from "../../redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 
 function Nav() {
   const dispatch = useAppDispatch();
@@ -84,7 +83,7 @@ function Nav() {
   return (
     <header className={styles.header}>
       <nav className={styles.navbar}>
-        <div className={styles.logo}>
+        <div className={styles.logoContainer}>
           <Link href='/' className={styles.logo}>
             <House width={30} height={30} className={styles.icon} /> Elite
             Retreat Rentals
@@ -115,75 +114,43 @@ function Nav() {
               </Link>
             </li>
           ))}
-        </ul>
-        {/* <div className={styles.btnContainer}>
-          <Button href='/' text='Login' btnType='navBtn' />
-        </div> */}
-        {user ? (
-          <div className='ml-4 dropdown d-line'>
-            <button
-              className='btn dropdown-toggle'
-              type='button'
-              id='dropdownMenuButton1'
-              data-bs-toggle='dropdown'
-              aria-expanded='false'
-            >
-              <figure className='avatar avatar-nav'>
-                <Image
-                  src={
-                    user?.avatar
-                      ? user?.avatar?.url
-                      : "/images/default_avatar.jpg"
-                  }
-                  alt='John Doe'
-                  className='rounded-circle placeholder-glow'
-                  height='50'
-                  width='50'
-                />
-              </figure>
-              <span className='placeholder-glow ps-1'>{user?.name}</span>
-            </button>
 
-            <div
-              className='dropdown-menu w-100'
-              aria-labelledby='dropdownMenuButton1'
-            >
-              {user?.role === "admin" && (
-                <Link href='/admin/dashboard' className='dropdown-item'>
-                  Dashboard
-                </Link>
-              )}
-              <Link href='/bookings/me' className='dropdown-item'>
-                My Bookings
-              </Link>
-              <Link href='/me/update' className='dropdown-item'>
-                Profile
-              </Link>
-              <Link
+          {isOpen === true ? (
+            <div className={styles.btnContainerMobile}>
+              <Button
+                href='/account'
+                text='My account'
+                btnType='primaryii'
+                onClick={() => setIsOpen(false)}
+              />
+              <Button
                 href='/'
-                className='dropdown-item text-danger'
-                onClick={logoutHandler}
-              >
-                Logout
-              </Link>
+                text='Log out'
+                btnType='secondary'
+                onClick={signOut}
+              />
             </div>
+          ) : (
+            <div className={styles.btnContainerMobile}>
+              <Button href='/login' text='Login' btnType='primaryii' />
+            </div>
+          )}
+        </ul>
+        {!user ? (
+          <div className={styles.btnContainer}>
+            <Button href='/login' text='Login' btnType='navBtn' />
           </div>
         ) : (
           <>
-            {data === undefined && (
-              <div className='placeholder-glow'>
-                <figure className='avatar avatar-nv placeholder bg-secondary'></figure>
-                <span className='placeholder w-25 bg-secondary ms-2'></span>
-              </div>
-            )}
-            {data === null && (
-              <Link
-                href='/login'
-                className='btn btn-danger px-4 text-white login-header-btn float-right'
-              >
-                Login
-              </Link>
-            )}
+            <div className={styles.btnContainer}>
+              <Button href='/account' text='My account' btnType='navBtn' />
+              <Button
+                href='/'
+                text='Log out'
+                btnType='navBtnii'
+                onClick={signOut}
+              />
+            </div>
           </>
         )}
         <span

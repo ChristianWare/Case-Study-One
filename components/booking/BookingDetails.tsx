@@ -1,8 +1,8 @@
 "use client";
 
-import { IBooking } from "@/backend/models/booking";
-import user from "@/backend/models/user";
-import { useAppSelector } from "@/redux/hooks";
+import { IBooking } from "../../backend/models/booking";
+import user from "../../backend/models/user";
+import { useAppSelector } from "../../redux/hooks";
 import Image from "next/image";
 import Link from "next/link";
 

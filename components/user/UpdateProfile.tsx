@@ -3,13 +3,13 @@
 import {
   useLazyUpdateSessionQuery,
   useUpdateProfileMutation,
-} from "@/redux/api/userApi";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+} from "../../redux/api/userApi";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
-import { setUser } from "@/redux/features/userSlice";
+import { setUser } from "../../redux/features/userSlice";
 
 const UpdateProfile = () => {
   const [name, setName] = useState("");

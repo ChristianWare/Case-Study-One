@@ -3,6 +3,7 @@ export interface ButtonProps {
   text: string;
   btnType: string;
   target?: string;
+  onClick?: any;
 }
 
 export interface PageIntroProps {

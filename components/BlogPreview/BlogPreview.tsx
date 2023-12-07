@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Img from "../../../public/images/img1.jpg";
+import Img from "../../public/images/img1.jpg";
 import styles from "./BlogPreview.module.css";
 
 const BlogPreview = () => {

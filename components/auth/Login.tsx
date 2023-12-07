@@ -46,7 +46,7 @@ const Login = () => {
           <h1 className='mb-3'>Login</h1>
           {session ? (
             <>
-              <p>you are alread logged in</p>
+              <p>you are now logged in</p>
               <hr />
               <Link
                 href='/'

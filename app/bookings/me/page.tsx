@@ -1,6 +1,8 @@
 import Error from "../../error";
 import MyBookings from "../../../components/booking/MyBookings";
-import { getAuthHeader } from "@/helpers/authHeaders";
+import { getAuthHeader } from "../../../helpers/authHeaders";
+import LayoutWrapper from "../../../components/LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../../../components/ContentPadding/ContentPadding";
 
 export const metadata = {
   title: "My Bookings - BookIT",
@@ -22,8 +24,12 @@ export default async function MyBookingsPage() {
   }
 
   return (
-    <div className='container'>
-      <MyBookings data={data} />
-    </div>
+    <LayoutWrapper>
+      <ContentPadding>
+        <div className='container'>
+          <MyBookings data={data} />
+        </div>
+      </ContentPadding>
+    </LayoutWrapper>
   );
 }

@@ -2,7 +2,7 @@ import { methodologies } from "../../lib/data";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Methodology.module.css";
-import House from "../../../public/icons/house.svg";
+import House from "../../public/icons/house.svg";
 
 const Methodology = () => {
   return (

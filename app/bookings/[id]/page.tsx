@@ -1,6 +1,6 @@
 import Error from "../../error";
 import BookingDetails from "../../../components/booking/BookingDetails";
-import { getAuthHeader } from "@/helpers/authHeaders";
+import { getAuthHeader } from "../../../helpers/authHeaders";
 
 export const metadata = {
   title: "My Bookings Details - BookIT",
