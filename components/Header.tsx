@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import styles from './Header.module.css'
+import styles from "./Header.module.css";
 
 const Header = () => {
   const dispatch = useAppDispatch();

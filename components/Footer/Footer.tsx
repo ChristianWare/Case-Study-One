@@ -86,7 +86,11 @@ const Footer = () => {
         <div className={styles.bottom}>
           <div className={styles.bottomLeft}>
             <p className={styles.copy}>
-              &copy; {currentYear} Elite Retreat Rentals. All Rights Reserved{" "}
+              &copy; {currentYear} Elite Retreat Rentals. All Rights Reserved .
+            </p>
+            {/* <br /> */}
+            <p className={styles.copy}>
+              Designed and Developed by The Chris Ware Agency.
             </p>
           </div>
           <div className={styles.bottomRight}></div>

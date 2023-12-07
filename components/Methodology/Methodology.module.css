@@ -56,6 +56,10 @@
   padding: 3rem;
 }
 
+.box::hover {
+  background-color: var(--purple);
+}
+
 .icon {
   color: var(--white);
   margin-bottom: 1rem;
@@ -90,8 +94,8 @@
   .container {
     padding-bottom: 3rem;
   }
-  
-    .copy {
+
+  .copy {
     width: 90%;
   }
 
