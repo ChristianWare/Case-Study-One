@@ -106,6 +106,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 5rem;
   margin-top: 5rem;
 }
 
@@ -168,6 +169,10 @@
 
   .price {
     margin-left: 0rem;
+  }
+
+  .propDetails {
+    flex-direction: column;
   }
 
   .imgGrid,

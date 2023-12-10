@@ -16,7 +16,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import styles from "./BookingDatePicker.module.css";
-import Button from "../Button/Button";
 
 interface Props {
   room: IRoom;
@@ -131,77 +130,80 @@ const BookingDatePicker = ({ room }: Props) => {
   };
 
   return (
-    <div className='booking-card shadow p-4'>
+    <>
       <p className='price-per-night'>
         <b>${room?.pricePerNight}</b> / night
       </p>
       <hr />
       <p className='mt-5 mb-3'>Select Your Dates:</p>
+      <div className={styles.container}>
+        <DatePicker
+          selected={checkInDate}
+          onChange={onChange}
+          startDate={checkInDate}
+          endDate={checkOutDate}
+          minDate={new Date()}
+          excludeDates={excludeDates}
+          selectsRange
+          inline
+        />
 
-      <DatePicker
-        selected={checkInDate}
-        onChange={onChange}
-        startDate={checkInDate}
-        endDate={checkOutDate}
-        minDate={new Date()}
-        excludeDates={excludeDates}
-        selectsRange
-        inline
-      />
-
-      {isAvailable === true && checkInDate && checkOutDate && (
-        <>
-          <div className='alert alert-success my-3'>
-            Room is available. Book now.
+        {isAvailable === true && checkInDate && checkOutDate && (
+          <>
+            <div className='alert alert-success my-3'>
+              Room is available. Book now.
+            </div>
+            <div>
+              <b>Length of stay: </b>
+              {daysOfStay} {daysOfStay === 1 ? "day" : "days"}
+              <hr />
+              <b>Check-In:</b> {formatDate(checkInDate)} @ 10:00 AM
+              <hr />
+              <b>Check-Out:</b> {formatDate(checkOutDate)} @ 10:00 AM
+              <hr />
+              <b>Total Cost: </b> $
+              {totalCost.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+              <hr />
+              {/* <b>Total Cost: </b> 300.00 $ */}
+            </div>
+          </>
+        )}
+        {isAvailable === false && (
+          <div className='alert alert-danger my-3'>
+            Room not available. Try different dates.
           </div>
-          <div>
-            <b>Length of stay: </b>
-            {daysOfStay} {daysOfStay === 1 ? "day" : "days"}
-            <hr />
-            <b>Check-In:</b> {formatDate(checkInDate)} @ 10:00 AM
-            <hr />
-            <b>Check-Out:</b> {formatDate(checkOutDate)} @ 10:00 AM
-            <hr />
-            <b>Total Cost: </b> $
-            {totalCost.toLocaleString("en-US", {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
-            <hr />
-            {/* <b>Total Cost: </b> 300.00 $ */}
-          </div>
-        </>
-      )}
-      {isAvailable === false && (
-        <div className='alert alert-danger my-3'>
-          Room not available. Try different dates.
-        </div>
-      )}
+        )}
 
-      {isAvailable && !isAuthenticated && (
-        <div className='alert alert-danger' my-3>
-          Login to book room.
-        </div>
-      )}
-      {/* {checkInDate && checkOutDate && (
+        {isAvailable && !isAuthenticated && (
+          <div className='alert alert-danger' my-3>
+            Login to book room.
+          </div>
+        )}
+        {/* {checkInDate && checkOutDate && (
         <button
-          className='btn py-3 form-btn w-100'
-          onClick={clearDates}
-          disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
+        className='btn py-3 form-btn w-100'
+        onClick={clearDates}
+        disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
         >
-          Clear
+        Clear
         </button>
       )} */}
-      <div className={styles.btnContainer}>
-        <button
-          className={styles.btn}
-          onClick={bookRoom}
-          disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
-        >
-          Book Now
-        </button>
+        <div className={styles.btnContainer}>
+          <button
+            className={styles.btn}
+            onClick={bookRoom}
+            disabled={
+              !checkInDate || !checkOutDate || !isAvailable || isLoading
+            }
+          >
+            Book Now
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default BookingDatePicker;

@@ -443,15 +443,6 @@ input:focus {
 
 /* Room Details Page */
 
-.booking-card .booking-btn:hover {
-  color: white;
-  background-color: #e61e4d;
-}
-
-.price-per-night {
-  font-size: 1.3rem;
-}
-
 .booking-card {
   border: 1px solid #e3e3e3;
   border-radius: 20px;
@@ -541,14 +532,19 @@ input:focus {
 
 .booking-card {
   padding: 2rem;
+  width: 100% !important;
 }
-/* 
+
+.react-datepicker {
+  width: 350px !important;
+}
+
 .react-datepicker__month-container {
-  width: 350px;
-} */
+}
 
 .react-datepicker__header {
   padding-top: 2rem !important;
+  /* width: 350px !important; */
 }
 
 .react-datepicker__navigation {
@@ -562,6 +558,7 @@ input:focus {
 .react-datepicker__current-month {
   font-size: 1.6rem !important;
   margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 
 .react-datepicker__day-names,
@@ -586,14 +583,42 @@ input:focus {
 }
 
 .react-datepicker__day--selected,
-.react-datepicker__day--today {
-  background-color: var(--purple) !important;
-  color: var(--white) !important;
-  padding: 1rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 50% !important;
-  width: 30px !important;
-  height: 30px !important;
+.react-datepicker__day--today,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--selecting-range-start,
+.react-datepicker__day--selecting-range-end,
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+  /* background-color: var(--purple) !important; */
+}
+
+/* 
+react-datepicker__day react-datepicker__day--018 react-datepicker__day--selected react-datepicker__day--in-selecting-range react-datepicker__day--selecting-range-start react-datepicker__day--selecting-range-end */
+
+@media screen and (max-width: 568px) {
+  .react-datepicker {
+    width: 300px !important;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  .react-datepicker {
+    width: 250px !important;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .react-datepicker {
+    width: 225px !important;
+  }
 }
