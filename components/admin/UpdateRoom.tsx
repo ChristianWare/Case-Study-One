@@ -1,10 +1,10 @@
 "use client";
-import { useUpdateRoomMutation } from "@/redux/api/roomApi";
+import { useUpdateRoomMutation } from "../../redux/api/roomApi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
-import { IRoom } from "@/backend/models/room";
+import { IRoom } from "../../backend/models/room";
 
 interface Props {
   data: {

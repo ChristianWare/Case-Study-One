@@ -1,6 +1,6 @@
 import Error from "../../error";
 import AllUsers from "../../../components/admin/AllUsers";
-import { getAuthHeader } from "@/helpers/authHeaders";
+import { getAuthHeader } from "../../../helpers/authHeaders";
 
 export const metadata = {
   title: "All Users - Admin || BookIT",

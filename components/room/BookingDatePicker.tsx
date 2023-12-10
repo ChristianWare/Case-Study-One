@@ -1,20 +1,22 @@
 "use client";
 
-import { IRoom } from "@/backend/models/room";
-import { calculateDaysOfStay } from "@/helpers/helpers";
+import { IRoom } from "../../backend/models/room";
+import { calculateDaysOfStay } from "../../helpers/helpers";
 import {
   useGetBookedDatesQuery,
   useLazyCheckBookingAvailabilityQuery,
   useLazyStripeCheckoutQuery,
   useNewBookingsMutation,
-} from "@/redux/api/bookingApi";
-import { useAppSelector } from "@/redux/hooks";
+} from "../../redux/api/bookingApi";
+import { useAppSelector } from "../../redux/hooks";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
+import styles from "./BookingDatePicker.module.css";
+import Button from "../Button/Button";
 
 interface Props {
   room: IRoom;
@@ -137,7 +139,6 @@ const BookingDatePicker = ({ room }: Props) => {
       <p className='mt-5 mb-3'>Select Your Dates:</p>
 
       <DatePicker
-        className='w-100'
         selected={checkInDate}
         onChange={onChange}
         startDate={checkInDate}
@@ -191,13 +192,15 @@ const BookingDatePicker = ({ room }: Props) => {
           Clear
         </button>
       )} */}
-      <button
-        className='btn py-3 form-btn w-100'
-        onClick={bookRoom}
-        disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
-      >
-        Book Now
-      </button>
+      <div className={styles.btnContainer}>
+        <button
+          className={styles.btn}
+          onClick={bookRoom}
+          disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
+        >
+          Book Now
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,14 +1,16 @@
 "use client";
 
-import { IReview } from "@/backend/models/room";
+import { IReview } from "../../backend/models/room";
 import {
   useDeleteReviewMutation,
   useLazyGetRoomReviewsQuery,
-} from "@/redux/api/roomApi";
+} from "../../redux/api/roomApi";
 import { MDBDataTable } from "mdbreact";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
 
 const RoomReviews = () => {
   const [roomId, setRoomId] = useState("");
@@ -90,41 +92,43 @@ const RoomReviews = () => {
   };
 
   return (
-    <div>
-      <div className='row justify-content-center mt-5'>
-        <div className='col-6'>
-          <div className='form-check'>
-            <label htmlFor='roomId_field'>Enter Room ID</label>
-            <input
-              type='text'
-              id='roomId_field'
-              className='form-control'
-              value={roomId}
-              onChange={(e) => setRoomId(e.target.value)}
-            />
+    <LayoutWrapper>
+      <ContentPadding>
+        <div className='row justify-content-center mt-5'>
+          <div className='col-6'>
+            <div className='form-check'>
+              <label htmlFor='roomId_field'>Enter Room ID</label>
+              <input
+                type='text'
+                id='roomId_field'
+                className='form-control'
+                value={roomId}
+                onChange={(e) => setRoomId(e.target.value)}
+              />
 
-            <button
-              className='btn form-btn w-100 py-2 mt-3'
-              onClick={getRoomReviewsHandler}
-            >
-              Fetch Reviews
-            </button>
+              <button
+                className='btn form-btn w-100 py-2 mt-3'
+                onClick={getRoomReviewsHandler}
+              >
+                Fetch Reviews
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {reviews?.length > 0 ? (
-        <MDBDataTable
-          data={setReviews()}
-          className='px-3'
-          bordered
-          striped
-          hover
-        />
-      ) : (
-        <h5 className='mt-5 text-center'>No Reviews</h5>
-      )}
-    </div>
+        {reviews?.length > 0 ? (
+          <MDBDataTable
+            data={setReviews()}
+            className='px-3'
+            bordered
+            striped
+            hover
+          />
+        ) : (
+          <h5 className='mt-5 text-center'>No Reviews</h5>
+        )}
+      </ContentPadding>
+    </LayoutWrapper>
   );
 };
 export default RoomReviews;

@@ -29,6 +29,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  background-color: var(--purple);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .rightTop {
@@ -41,20 +44,19 @@
 
 .price {
   display: block;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
-  color: var(--purple);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
 }
 
 .perDay {
-  font-size: 1.6rem;
-  color: var(--black);
-  opacity: 0.7;
+  font-size: 1.8rem;
+  color: var(--white);
   font-weight: 500;
 }
 
@@ -65,15 +67,20 @@
   padding: 3px 10px;
   padding-top: 7px;
   border-radius: 20px;
+  border: 1px solid var(--white);
   line-height: 100%;
 }
 
 .title {
+  color: var(--white);
   font-size: 1.8rem;
   margin-top: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .copy {
+  color: var(--white);
   opacity: 0.7;
   margin: 2rem 0rem;
 }
@@ -89,13 +96,17 @@
 }
 
 .feature {
-  padding: 1rem;
-  background-color: var(--purple2);
+  padding: 1rem 2rem;
+  background-color: var(--white);
   color: var(--purple);
   font-weight: 600;
   font-size: 1.4rem;
   border-radius: 5px;
   margin-top: 2rem;
+}
+
+.btnContainer {
+  margin-top: 3rem;
 }
 
 @media screen and (max-width: 968px) {
@@ -111,11 +122,26 @@
     border-top-right-radius: 20px;
     border-bottom-left-radius: 0px;
   }
+
+  .right {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 20px;
+  }
+
+  .featuresBox {
+    justify-content: space-between;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .imgContainer {
     height: 300px;
+  }
+
+  .btnContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {

@@ -1,7 +1,7 @@
 "use client";
 
-import { IBooking } from "@/backend/models/booking";
-import { useDeleteBookingMutation } from "@/redux/api/bookingApi";
+import { IBooking } from "../../backend/models/booking";
+import { useDeleteBookingMutation } from "../../redux/api/bookingApi";
 import { MDBDataTable } from "mdbreact";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

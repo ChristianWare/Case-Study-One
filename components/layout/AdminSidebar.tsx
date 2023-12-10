@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
 
 const AdminSidebar = () => {
   const pathname = usePathname();
@@ -42,7 +44,7 @@ const AdminSidebar = () => {
   };
 
   return (
-    <div className='list-group mt-5 pl-4'>
+    <>
       {menuItem.map((x, index) => (
         <Link
           key={index}
@@ -57,7 +59,7 @@ const AdminSidebar = () => {
           {x.name}
         </Link>
       ))}
-    </div>
+    </>
   );
 };
 export default AdminSidebar;

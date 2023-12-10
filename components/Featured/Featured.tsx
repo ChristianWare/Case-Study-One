@@ -1,14 +1,26 @@
+import { IRoom } from "../../backend/models/room";
 import Button from "../Button/Button";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import PropPreview from "../PropPreview/PropPreview";
 import styles from "./Featured.module.css";
 
-const Featured = () => {
+interface Props {
+  data: {
+    success: boolean;
+    resPerPage: number;
+    filteredRoomsCount: number;
+    rooms: IRoom[];
+  };
+}
+
+const Featured = ({ data }: Props) => {
+  const { rooms } = data;
+
   return (
     <LayoutWrapper>
       <ContentPadding>
-        <div className={styles.content}>
+        <section className={styles.content}>
           <div className={styles.top}>
             <h2>Featured properties</h2>
             <div className={styles.btnContainer}>
@@ -16,10 +28,17 @@ const Featured = () => {
             </div>
           </div>
           <div className={styles.bottom}>
-            <PropPreview />
-            <PropPreview />
+            <div className='row mt-4'>
+              {rooms?.length === 0 ? (
+                <div className='alret alret-danger mt-5 w-100'>
+                  <b>No Rooms.</b>
+                </div>
+              ) : (
+                rooms?.map((room) => <PropPreview key={room._id} room={room} />)
+              )}
+            </div>
           </div>
-        </div>
+        </section>
       </ContentPadding>
     </LayoutWrapper>
   );

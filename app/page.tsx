@@ -38,7 +38,7 @@ export default async function Home() {
     <div>
       <Hero />
       <PostHero />
-      <Featured />
+      <Featured data={data} />
       <Discover />
       <Properties />
       <Owner

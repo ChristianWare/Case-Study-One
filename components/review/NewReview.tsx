@@ -1,8 +1,8 @@
-import { revalidateTag } from "@/helpers/revalidate";
+import { revalidateTag } from "../../helpers/revalidate";
 import {
   useCanUserReviewQuery,
   usePostReviewMutation,
-} from "@/redux/api/roomApi";
+} from "../../redux/api/roomApi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";

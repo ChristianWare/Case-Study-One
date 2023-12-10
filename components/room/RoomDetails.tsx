@@ -1,7 +1,7 @@
 "use client";
 
 import StarRatings from "react-star-ratings";
-import { IRoom } from "@/backend/models/room";
+import { IRoom } from '../../backend/models/room'
 import RoomImageSlider from "./RoomImageSlider";
 import RoomFeatures from "./RoomFeatures";
 import BookingDatePicker from "./BookingDatePicker";

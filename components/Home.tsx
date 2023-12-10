@@ -1,5 +1,5 @@
 import RoomItem from "./room/RoomItem";
-import { IRoom } from "@/backend/models/room";
+import { IRoom } from "../backend/models/room";
 
 interface Props {
   data: {

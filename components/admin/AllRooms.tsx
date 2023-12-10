@@ -1,7 +1,7 @@
 "use client";
 
-import { IRoom } from "@/backend/models/room";
-import { useDeleteRoomMutation } from "@/redux/api/roomApi";
+import { IRoom } from "../../backend/models/room";
+import { useDeleteRoomMutation } from "../../redux/api/roomApi";
 import { MDBDataTable } from "mdbreact";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

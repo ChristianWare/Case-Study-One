@@ -2,12 +2,24 @@ import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./RoomDetails.module.css";
 import Image from "next/image";
-import Img from "../../../public/images/img1.jpg";
+import Img from "../../public/images/img1.jpg";
 import FinalCTA2 from "../FinalCTA2/FinalCTA2";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
 import BlogPreview from "../BlogPreview/BlogPreview";
+import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
+import { IRoom } from "../../backend/models/room";
+import BookingDatePicker from "../room/BookingDatePicker";
 
-const RoomDetails = () => {
+interface Props {
+  data: {
+    room: IRoom;
+  };
+}
+
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+
+const RoomDetails = ({ data }: Props) => {
+  const { room } = data;
   return (
     <>
       <LayoutWrapper>
@@ -16,14 +28,21 @@ const RoomDetails = () => {
           <div className={styles.top}>
             <div className={styles.topLeft}>
               <div className={styles.featuresBox}>
-                <div className={styles.feature}>3 Beds</div>
-                <div className={styles.feature}>1 bathroom</div>
-                <div className={styles.feature}>2500 Sq Ft</div>
+                <div className={styles.feature}>
+                  Guests: {room?.guestCapacity}
+                </div>
+                <div className={styles.feature}>
+                  Number of beds: {room?.numOfBeds}
+                </div>
+                <div className={styles.feature}>
+                  Total Ratings: {room?.ratings}
+                </div>
               </div>
             </div>
             <div className={styles.topRight}>
               <div className={styles.price}>
-                $340 <span className={styles.perNight}>/ per night</span>
+                $ {room?.pricePerNight}{" "}
+                <span className={styles.perNight}>/ per night</span>
               </div>
             </div>
           </div>
@@ -43,26 +62,13 @@ const RoomDetails = () => {
             </div>
           </div>
           <div className={styles.propDetails}>
-            <h2 className={styles.heading2}>About property</h2>
-            <p className={styles.copy}>
-              Believe it or not, copywriting is one of the most important
-              content-creation skills a designer can possess. If you think about
-              it, design exists to support and deliver content—not the other way
-              around.
-            </p>
-            <br />
-            <p className={styles.copy}>
-              As a designer, content should be the driving force behind many of
-              your decisions, whether you’re creating the content or someone
-              else is. So if you can understand how to write effective copy (and
-              understand the purpose that it serves), you’ll be able to better
-              serve your clients and ultimately create better designs.
-            </p>
-            <br />
-            <p className={styles.copy}>
-              In this article, we’ll cover some helpful copywriting tips for
-              designers to help you build better experiences.
-            </p>
+            <div className={styles.left}>
+              <h2 className={styles.heading2}>About property</h2>
+              <p className={styles.copy}>{room?.description}</p>
+            </div>
+            <div className={styles.right}>
+              <BookingDatePicker room={room} />
+            </div>
           </div>
           <br />
           <br />

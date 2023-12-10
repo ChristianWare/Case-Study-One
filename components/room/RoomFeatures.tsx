@@ -1,4 +1,4 @@
-import { IRoom } from "@/backend/models/room";
+import { IRoom } from "../../backend/models/room";
 
 interface Props {
   room: IRoom;

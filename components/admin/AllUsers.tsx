@@ -1,7 +1,7 @@
 "use client";
 
-import { IUser } from "@/backend/models/user";
-import { useDeleteUserMutation } from "@/redux/api/userApi";
+import { IUser } from "../../backend/models/user";
+import { useDeleteUserMutation } from "../../redux/api/userApi";
 import { MDBDataTable } from "mdbreact";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

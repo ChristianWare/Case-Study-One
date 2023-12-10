@@ -1,5 +1,5 @@
 "use client";
-import { useNewRoomMutation } from "@/redux/api/roomApi";
+import { useNewRoomMutation } from "../../redux/api/roomApi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
