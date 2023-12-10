@@ -130,80 +130,81 @@ const BookingDatePicker = ({ room }: Props) => {
   };
 
   return (
-    <>
-      <p className='price-per-night'>
-        <b>${room?.pricePerNight}</b> / night
-      </p>
-      <hr />
-      <p className='mt-5 mb-3'>Select Your Dates:</p>
-      <div className={styles.container}>
-        <DatePicker
-          selected={checkInDate}
-          onChange={onChange}
-          startDate={checkInDate}
-          endDate={checkOutDate}
-          minDate={new Date()}
-          excludeDates={excludeDates}
-          selectsRange
-          inline
-        />
+    <div className={styles.container}>
+      <DatePicker
+        selected={checkInDate}
+        onChange={onChange}
+        startDate={checkInDate}
+        endDate={checkOutDate}
+        minDate={new Date()}
+        excludeDates={excludeDates}
+        selectsRange
+        inline
+      />
 
-        {isAvailable === true && checkInDate && checkOutDate && (
-          <>
-            <div className='alert alert-success my-3'>
-              Room is available. Book now.
-            </div>
-            <div>
+      {isAvailable === true && checkInDate && checkOutDate && (
+        <>
+          <div className='alert alert-success my-3'>
+            Room is available. Book now.
+          </div>
+          <br />
+          <div className={styles.info}>
+            <div className={styles.box}>
               <b>Length of stay: </b>
               {daysOfStay} {daysOfStay === 1 ? "day" : "days"}
-              <hr />
-              <b>Check-In:</b> {formatDate(checkInDate)} @ 10:00 AM
-              <hr />
-              <b>Check-Out:</b> {formatDate(checkOutDate)} @ 10:00 AM
-              <hr />
+            </div>
+            <div className={styles.box}>
+              <b>Check-In:</b> {formatDate(checkInDate)} @ 12:00 PM
+            </div>
+            <div className={styles.box}>
+              <b>Check-Out:</b> {formatDate(checkOutDate)} @ 12:00 PM
+            </div>
+            <div className={styles.box}>
               <b>Total Cost: </b> $
               {totalCost.toLocaleString("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
               })}
-              <hr />
-              {/* <b>Total Cost: </b> 300.00 $ */}
             </div>
-          </>
-        )}
-        {isAvailable === false && (
-          <div className='alert alert-danger my-3'>
-            Room not available. Try different dates.
+            <hr />
+            {/* <b>Total Cost: </b> 300.00 $ */}
           </div>
-        )}
+        </>
+      )}
+      {isAvailable === false && (
+        <div className='alert alert-danger my-3'>
+          Room not available. Try different dates.
+        </div>
+      )}
 
-        {isAvailable && !isAuthenticated && (
-          <div className='alert alert-danger' my-3>
-            Login to book room.
-          </div>
-        )}
-        {/* {checkInDate && checkOutDate && (
-        <button
-        className='btn py-3 form-btn w-100'
-        onClick={clearDates}
-        disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
-        >
-        Clear
-        </button>
-      )} */}
-        <div className={styles.btnContainer}>
+      {isAvailable && !isAuthenticated && (
+        <div className='alert alert-danger' my-3>
+          Login to book room.
+        </div>
+      )}
+      {checkInDate && checkOutDate && (
+        <div className={styles.btnContainerii}>
           <button
-            className={styles.btn}
-            onClick={bookRoom}
+            className={styles.btnii}
+            onClick={clearDates}
             disabled={
               !checkInDate || !checkOutDate || !isAvailable || isLoading
             }
           >
-            Book Now
+            Clear Dates
           </button>
         </div>
+      )}
+      <div className={styles.btnContainer}>
+        <button
+          className={styles.btn}
+          onClick={bookRoom}
+          disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
+        >
+          Book Now
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 export default BookingDatePicker;
