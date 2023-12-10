@@ -607,11 +607,13 @@ react-datepicker__day react-datepicker__day--018 react-datepicker__day--selected
 
 @media screen and (max-width: 568px) {
   .react-datepicker {
-    width: 300px !important;
+    width: calc(80vw - 10px) !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-@media screen and (max-width: 368px) {
+/* @media screen and (max-width: 368px) {
   .react-datepicker {
     width: 250px !important;
   }
@@ -621,4 +623,4 @@ react-datepicker__day react-datepicker__day--018 react-datepicker__day--selected
   .react-datepicker {
     width: 225px !important;
   }
-}
+} */
