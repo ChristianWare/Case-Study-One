@@ -110,7 +110,6 @@ const RoomDetails = ({ data }: Props) => {
               className={styles.test}
             ></iframe>
           </div>
-          {/* <Faqs /> */}
           <br />
           <br />
           <h2 className={styles.heading2}>Lastes Articles</h2>

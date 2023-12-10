@@ -5,6 +5,26 @@
   width: fit-content;
 }
 
+.available {
+  font-weight: 600;
+  color: green;
+  background-color: #b3fab3;
+  padding: 1.5rem;
+  border-radius: 5px;
+  line-height: 1;
+  margin-top: 1rem;
+}
+
+.notAvailable {
+  font-weight: 600;
+  color: red;
+  background-color: #fbb6b6;
+  padding: 1.5rem;
+  border-radius: 5px;
+  line-height: 1;
+  margin-top: 1rem;
+}
+
 .info {
   margin-bottom: 2rem;
   display: flex;
