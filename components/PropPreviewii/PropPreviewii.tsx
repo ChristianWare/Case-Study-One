@@ -1,6 +1,5 @@
 import styles from "./PropPreviewii.module.css";
 import Image from "next/image";
-import Img from "../../public/images/img1.jpg";
 import { IRoom } from "../../backend/models/room";
 import Button from "../Button/Button";
 
@@ -37,17 +36,20 @@ const PropPreviewii = ({ room }: Props) => {
         <span className={styles.perDay}>
           {room.location.city}, {room.location.state}
         </span>
+        <div className={styles.feature}>
+          {room.description.slice(0, 150)} ...
+        </div>
         <div className={styles.featuresBox}>
           <div className={styles.feature}>{room.numOfBeds} Beds</div>
           <div className={styles.feature}>{room.guestCapacity} Guests</div>
         </div>
-      <div className={styles.btnContainer}>
-        <Button
-          text='View Details'
-          btnType='secondary'
-          href={`/properties/${room?._id}`}
-        />
-      </div>
+        <div className={styles.btnContainer}>
+          <Button
+            text='View Details'
+            btnType='secondary'
+            href={`/properties/${room?._id}`}
+          />
+        </div>
       </div>
     </div>
   );

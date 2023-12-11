@@ -44,7 +44,8 @@ const Properties = ({ data }: Props) => {
             </div>
           ) : (
             rooms
-              ?.slice(2, 6)
+              ?.slice(-3)
+              .reverse()
               .map((room) => <PropPreviewii key={room._id} room={room} />)
           )}
         </div>
