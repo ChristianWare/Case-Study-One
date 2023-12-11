@@ -62,7 +62,11 @@ const Properties = ({ data }: Props) => {
         )}
         <div className={styles.btnContainer}>
           {pathname === "/" && (
-            <Button text='Explore All Listings' btnType='secondary' href='/' />
+            <Button
+              text='Explore All Listings'
+              btnType='secondary'
+              href='/properties'
+            />
           )}
         </div>
       </ContentPadding>

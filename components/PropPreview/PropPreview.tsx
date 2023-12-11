@@ -1,6 +1,5 @@
 import styles from "./PropPreview.module.css";
 import Image from "next/image";
-import Img from "../../public/images/img1.jpg";
 import { IRoom } from "../../backend/models/room";
 import Link from "next/link";
 import Button from "../Button/Button";
