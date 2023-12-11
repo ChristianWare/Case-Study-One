@@ -3,16 +3,14 @@
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./RoomDetails.module.css";
-import Image from "next/image";
-import Img from "../../public/images/img1.jpg";
 import FinalCTA2 from "../FinalCTA2/FinalCTA2";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
 import BlogPreview from "../BlogPreview/BlogPreview";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import { IRoom } from "../../backend/models/room";
 import BookingDatePicker from "../room/BookingDatePicker";
-import { useState } from "react";
 import ImageGrid from "../ImageGrid/ImageGrid";
+import GalleryGrid from "../GalleryGrid/GalleryGrid";
 
 interface Props {
   data: {
@@ -62,13 +60,7 @@ const RoomDetails = ({ data }: Props) => {
           </div>
           <br />
           <br />
-          <h2 className={styles.heading2}>Featured gallery</h2>
-          <div className={styles.gallery}>
-            
-            <div className={styles.imgContainer4}>
-              <Image src={Img} alt='image' fill className={styles.img} />
-            </div>
-          </div>
+          <GalleryGrid images={room?.images} />
           <div className={styles.location}>
             <br />
             <br />
