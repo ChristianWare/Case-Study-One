@@ -55,7 +55,7 @@
   font-size: 1.6rem;
   color: var(--black);
   opacity: 0.7;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .available {
@@ -68,9 +68,16 @@
   line-height: 100%;
 }
 
+.box {
+  background-color: var(--purple2);
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: 10px;
+}
+
 .title {
   font-size: 1.8rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .copy {
@@ -97,6 +104,18 @@
   font-size: 1.4rem;
   border-radius: 10px;
   margin-top: 2rem;
+  overflow: hidden;
+}
+
+.featureii {
+  margin-top: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 1.6rem;
+  color: var(--purple);
+  font-weight: 600;
 }
 
 .btnContainer {
