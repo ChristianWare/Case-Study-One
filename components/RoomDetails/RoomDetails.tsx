@@ -1,3 +1,5 @@
+"use client";
+
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./RoomDetails.module.css";
@@ -9,6 +11,8 @@ import BlogPreview from "../BlogPreview/BlogPreview";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import { IRoom } from "../../backend/models/room";
 import BookingDatePicker from "../room/BookingDatePicker";
+import { useState } from "react";
+import ImageGrid from "../ImageGrid/ImageGrid";
 
 interface Props {
   data: {
@@ -24,7 +28,7 @@ const RoomDetails = ({ data }: Props) => {
     <>
       <LayoutWrapper>
         <ContentPadding>
-          <h1 className={styles.heading}>Seaside Serenity</h1>
+          <h1 className={styles.heading}>{room?.name}</h1>
           <div className={styles.top}>
             <div className={styles.topLeft}>
               <div className={styles.featuresBox}>
@@ -46,21 +50,7 @@ const RoomDetails = ({ data }: Props) => {
               </div>
             </div>
           </div>
-          <div className={styles.imgGrid}>
-            <div className={styles.gridLeft}>
-              <div className={styles.imgContainer}>
-                <Image src={Img} alt='image' fill className={styles.img} />
-              </div>
-            </div>
-            <div className={styles.gridRight}>
-              <div className={styles.imgContainer2}>
-                <Image src={Img} alt='image' fill className={styles.img} />
-              </div>
-              <div className={styles.imgContainer3}>
-                <Image src={Img} alt='image' fill className={styles.img} />
-              </div>
-            </div>
-          </div>
+          <ImageGrid images={room?.images} />
           <div className={styles.propDetails}>
             <div className={styles.left}>
               <h2 className={styles.heading2}>About property</h2>
@@ -74,24 +64,7 @@ const RoomDetails = ({ data }: Props) => {
           <br />
           <h2 className={styles.heading2}>Featured gallery</h2>
           <div className={styles.gallery}>
-            <div className={styles.imgContainer4}>
-              <Image src={Img} alt='image' fill className={styles.img} />
-            </div>
-            <div className={styles.imgContainer4}>
-              <Image src={Img} alt='image' fill className={styles.img} />
-            </div>
-            <div className={styles.imgContainer4}>
-              <Image src={Img} alt='image' fill className={styles.img} />
-            </div>
-            <div className={styles.imgContainer4}>
-              <Image src={Img} alt='image' fill className={styles.img} />
-            </div>
-            <div className={styles.imgContainer4}>
-              <Image src={Img} alt='image' fill className={styles.img} />
-            </div>
-            <div className={styles.imgContainer4}>
-              <Image src={Img} alt='image' fill className={styles.img} />
-            </div>
+            
             <div className={styles.imgContainer4}>
               <Image src={Img} alt='image' fill className={styles.img} />
             </div>

@@ -479,7 +479,6 @@ input:focus {
   vertical-align: middle;
 }
 
-
 /* Booking Details */
 .booking-details p {
   margin-left: 1.5rem;
@@ -517,11 +516,18 @@ input:focus {
 }
 
 .react-datepicker {
+  border: 1px solid var(--gray) !important;
+  border-radius: 10px !important;
+}
+
+.react-datepicker {
   width: 375px !important;
 }
 
 .react-datepicker__header {
   padding-top: 2rem !important;
+  border-top-right-radius: 10px !important;
+  border-top-left-radius: 10px !important;
 }
 
 .react-datepicker__navigation {
@@ -561,9 +567,9 @@ input:focus {
   position: relative;
   z-index: 1;
 }
-
+/* 
 .react-datepicker__day::after {
-}
+} */
 
 .react-datepicker__day--selected,
 .react-datepicker__day--today,
