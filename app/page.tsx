@@ -35,6 +35,30 @@ export default async function Home() {
   if (data?.errMessage) {
     return <Error error={data} />;
   }
+
+  const fs = require("fs");
+  const path = require("path");
+  const matter = require("gray-matter");
+
+  // Determine the correct path to the 'blogs' directory
+  const blogsDirectory = path.join(process.cwd(), "blogs");
+
+  // Use readdirSync to list files in the 'blogs' directory
+  const files = fs.readdirSync(blogsDirectory);
+
+  const blogs = files.map((filename: any) => {
+    const fileContent = fs.readFileSync(
+      path.join(blogsDirectory, filename),
+      "utf-8"
+    );
+
+    const { data: frontMatter } = matter(fileContent);
+    return {
+      meta: frontMatter,
+      slug: filename.replace(".mdx", ""),
+    };
+  });
+
   return (
     <div>
       <Hero />
@@ -47,7 +71,7 @@ export default async function Home() {
         copy='We redefine the holiday rental experience by directly owning and managing our properties, allowing for unparalleled design, service, and a cohesive experience across our distinctive collection, standing out in the evolving landscape of luxury accommodations.'
       />
       <Faqs />
-      <BlogSection />
+      <BlogSection blogData={blogs} />
       <FinalCTA1 />
       <FinalCTA2 />
     </div>

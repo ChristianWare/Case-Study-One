@@ -16,3 +16,24 @@ export interface OwnerProps {
   copy?: string;
   reverse?: string;
 }
+
+export interface BlogSectionProps {
+  blogData: any;
+}
+
+export interface BlogData {
+  meta: {
+    category: string;
+    thumbnaillUrl: string;
+    date: string;
+    readingTime: number;
+    title: string;
+    description: string;
+  };
+  slug: string;
+}
+
+export interface BlogPreviewProps {
+  mapData: BlogData;
+  key: number;
+}

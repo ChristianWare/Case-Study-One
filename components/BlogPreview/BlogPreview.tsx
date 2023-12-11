@@ -1,22 +1,29 @@
 import Image from "next/image";
 import Img from "../../public/images/img1.jpg";
 import styles from "./BlogPreview.module.css";
+import { BlogPreviewProps } from "../../lib/interface";
+import { FC } from "react";
+import Link from "next/link";
 
-const BlogPreview = () => {
+const BlogPreview: FC<BlogPreviewProps> = ({ mapData, key }) => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
         <div className={styles.imgContainer}>
-          <Image src={Img} alt='image' fill className={styles.img} />
+          <Link href={`/blog/${mapData.slug}`}>
+            <Image
+              src={mapData.meta.thumbnaillUrl}
+              alt='image'
+              fill
+              className={styles.img}
+            />
+          </Link>
         </div>
       </div>
       <div className={styles.right}>
-        <h3 className={styles.title}>Blog Title Here</h3>
-        <span className={styles.perDay}>Dec 6th, 2023</span>
-        <div className={styles.feature}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit,
-          magni?
-        </div>
+        <h3 className={styles.title}>{mapData.meta.title}</h3>
+        <span className={styles.perDay}>{mapData.meta.date}</span>
+        <div className={styles.feature}>{mapData.meta.description}</div>
       </div>
       <div className={styles.available}>Read More</div>
     </div>
