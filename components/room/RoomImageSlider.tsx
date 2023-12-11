@@ -1,4 +1,4 @@
-import { IImage } from "@/backend/models/room";
+import { IImage } from "../../backend/models/room";
 import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 

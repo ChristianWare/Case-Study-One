@@ -145,6 +145,10 @@
   margin-bottom: 8rem;
 }
 
+.mapBox {
+  border-radius: 20px;
+}
+
 .blogSection {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

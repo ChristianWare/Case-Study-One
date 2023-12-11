@@ -630,6 +630,12 @@ input:focus {
   color: var(--white) !important;
 }
 
+.mapboxgl-canvas {
+  border-radius: 20px;
+  height: 350px;
+  width: 100%;
+}
+
 @media screen and (max-width: 968px) {
   .react-datepicker {
     width: calc(80vw - 10px) !important;
