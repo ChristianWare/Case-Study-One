@@ -1,4 +1,4 @@
-import { IReview } from "@/backend/models/room";
+import { IReview } from "../../backend/models/room";
 import Image from "next/image";
 import StarRatings from "react-star-ratings";
 

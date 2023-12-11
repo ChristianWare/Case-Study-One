@@ -1,6 +1,6 @@
 "use client";
 
-import { IBooking } from "@/backend/models/booking";
+import { IBooking } from "../../backend/models/booking";
 import { MDBDataTable } from "mdbreact";
 import Link from "next/link";
 

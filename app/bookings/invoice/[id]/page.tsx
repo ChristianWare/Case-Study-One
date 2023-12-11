@@ -1,6 +1,6 @@
 import Error from "../../../error";
 import Invoice from "../../../../components/invoice/Invoice";
-import { getAuthHeader } from "@/helpers/authHeaders";
+import { getAuthHeader } from "../../../../helpers/authHeaders";
 
 export const metadata = {
   title: "Booking Invoice - BookIT",
