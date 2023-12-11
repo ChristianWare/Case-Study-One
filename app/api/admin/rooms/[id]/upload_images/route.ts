@@ -1,9 +1,9 @@
-import { dbConnect } from "@/backend/config/dbConnect";
-import { uploadRoomImages } from "@/backend/controllers/roomControllers";
+import { dbConnect } from "../../../../../../backend/config/dbConnect";
+import { uploadRoomImages } from "../../../../../../backend/controllers/roomControllers";
 import {
   authorizeRoles,
   isAuthenticatedUser,
-} from "@/backend/middlewares/auth";
+} from "../../../../../../backend/middlewares/auth";
 import { createEdgeRouter } from "next-connect";
 import { NextRequest } from "next/server";
 
@@ -25,4 +25,3 @@ export async function PUT(
 ): Promise<void | Response> {
   return router.run(request, ctx) as Promise<void | Response>;
 }
-

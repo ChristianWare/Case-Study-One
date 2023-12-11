@@ -1,11 +1,11 @@
 "use client";
 
-import { IImage, IRoom } from "@/backend/models/room";
-import { revalidateTag } from "@/helpers/revalidate";
+import { IImage, IRoom } from "../../backend/models/room";
+import { revalidateTag } from "../../helpers/revalidate";
 import {
   useDeleteRoomImageMutation,
   useUploadRoomImagesMutation,
-} from "@/redux/api/roomApi";
+} from "../../redux/api/roomApi";
 import { useRouter } from "next/navigation";
 import { ChangeEventHandler, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
@@ -29,8 +29,6 @@ const UploadRoomImages = ({ data }: Props) => {
       setUploadImages(data?.room?.images);
     }
   }, [data]);
-
-  
 
   const router = useRouter();
 
@@ -151,7 +149,9 @@ const UploadRoomImages = ({ data }: Props) => {
                           src={img}
                           alt='Image Preview'
                           className='card-img-top p-2'
-                          style={{ width: "100%", height: "80px" }}
+                          width='200'
+                          height='200'
+                          // style={{ width: "100%", height: "80px" }}
                         />
                         <button
                           style={{
@@ -182,7 +182,9 @@ const UploadRoomImages = ({ data }: Props) => {
                           src={img?.url}
                           alt={img?.url}
                           className='card-img-top p-2'
-                          style={{ width: "100%", height: "80px" }}
+                          width='200'
+                          height='200'
+                          // style={{ width: "100%", height: "80px" }}
                         />
                         <button
                           style={{
