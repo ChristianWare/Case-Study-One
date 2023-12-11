@@ -19,6 +19,71 @@
 .img {
   object-fit: cover;
   border-radius: 20px;
+  border: 2px solid var(--white);
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.img:hover {
+  border: 2px solid var(--purple);
+  border-radius: 20px;
+  transition: all 0.1s ease-in;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.fullScreenImage {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.modalImg {
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.prev {
+  margin-right: 3rem;
+  color: var(--white);
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  left: -70px;
+  bottom: 50%;
+}
+
+.next {
+  margin-left: 3rem;
+  color: var(--white);
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  right: -70px;
+  bottom: 50%;
+}
+
+.close {
+  margin-bottom: 3.5rem;
+  color: var(--white);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 968px) {
@@ -31,5 +96,24 @@
   .gallery {
     grid-template-columns: repeat(1, 1fr);
     margin-bottom: 5rem;
+  }
+
+  .prev {
+    left: -50px;
+  }
+
+  .next {
+    right: -50px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .prev {
+    left: -35px;
+  }
+
+  .next {
+    right: -35px;
   }
 }
