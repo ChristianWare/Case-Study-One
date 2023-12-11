@@ -4,7 +4,6 @@ import "./globals.css";
 import Nav from "../components/Nav/Nav";
 import Footer from "../components/Footer/Footer";
 import { Globalprovider } from "../GlobalProvider";
-import Header from "../components/Header";
 import Script from "next/script";
 
 const epilogue = Epilogue({
