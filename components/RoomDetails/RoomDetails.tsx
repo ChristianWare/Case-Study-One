@@ -13,6 +13,7 @@ import ImageGrid from "../ImageGrid/ImageGrid";
 import GalleryGrid from "../GalleryGrid/GalleryGrid";
 import { useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
+import Discover from "../Discover/Discover";
 
 interface Props {
   data: {
@@ -70,7 +71,7 @@ const RoomDetails = ({ data }: Props) => {
           <ImageGrid images={room?.images} />
           <div className={styles.propDetails}>
             <div className={styles.left}>
-              <h2 className={styles.heading2}>About property</h2>
+              {/* <h2 className={styles.heading2}>About property</h2> */}
               <p className={styles.copy}>{room?.description}</p>
             </div>
             <div className={styles.right}>
@@ -94,12 +95,10 @@ const RoomDetails = ({ data }: Props) => {
           </div>
           <br />
           <br />
-          <h2 className={styles.heading2}>Lastes Articles</h2>
-          <br />
         </ContentPadding>
       </LayoutWrapper>
+      <Discover />
       <FinalCTA1 />
-      <FinalCTA2 />
     </>
   );
 };
