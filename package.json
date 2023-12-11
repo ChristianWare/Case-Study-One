@@ -22,7 +22,7 @@
     "moment": "^2.29.4",
     "moment-range": "^4.0.2",
     "mongoose": "^8.0.2",
-    "next": "14.0.3",
+    "next": "13.5.4",
     "next-auth": "^4.24.5",
     "next-connect": "^1.0.0",
     "node-geocoder": "^4.2.0",

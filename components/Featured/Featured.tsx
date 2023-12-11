@@ -34,7 +34,7 @@ const Featured = ({ data }: Props) => {
                   <b>No Rooms.</b>
                 </div>
               ) : (
-                rooms?.map((room) => <PropPreview key={room._id} room={room} />)
+                rooms?.slice(0, 2).map((room) => <PropPreview key={room._id} room={room} />)
               )}
             </div>
           </div>

@@ -3,6 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   box-shadow: var(--shadow);
   border-radius: 20px;
+  margin-bottom: 5rem;
 }
 
 .left,
