@@ -6,6 +6,7 @@ import styles from "./BlogPage.module.css";
 import FinalCTA2 from "../../components/FinalCTA2/FinalCTA2";
 import FinalCTA1 from "../../components/FinalCTA1/FinalCTA1";
 import Faqs from "../../components/Faqs/Faqs";
+import BlogSection from "../../components/BlogSection/BlogSection";
 
 const page = () => {
   return (
@@ -17,11 +18,7 @@ const page = () => {
             copy='The latest industry news, interviews, technologies, and resources.'
           />
         </ContentPadding>
-        <div className={styles.bottom}>
-          <BlogPreview />
-          <BlogPreview />
-          <BlogPreview />
-        </div>
+        <BlogSection />
       </LayoutWrapper>
       <Faqs />
       <FinalCTA1 />

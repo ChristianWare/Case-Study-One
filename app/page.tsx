@@ -10,6 +10,7 @@ import Faqs from "../components/Faqs/Faqs";
 import FinalCTA1 from "../components/FinalCTA1/FinalCTA1";
 import FinalCTA2 from "../components/FinalCTA2/FinalCTA2";
 import Error from "./error";
+import BlogSection from "../components/BlogSection/BlogSection";
 
 export const metadata = {
   title: "Home - Elite Retreat Rentals",
@@ -46,6 +47,7 @@ export default async function Home() {
         copy='We redefine the holiday rental experience by directly owning and managing our properties, allowing for unparalleled design, service, and a cohesive experience across our distinctive collection, standing out in the evolving landscape of luxury accommodations.'
       />
       <Faqs />
+      <BlogSection />
       <FinalCTA1 />
       <FinalCTA2 />
     </div>

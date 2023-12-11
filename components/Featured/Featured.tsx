@@ -24,7 +24,7 @@ const Featured = ({ data }: Props) => {
           <div className={styles.top}>
             <h2>Featured properties</h2>
             <div className={styles.btnContainer}>
-              <Button text='Explore all listings' btnType='tertiary' href='/' />
+              <Button text='Explore all listings' btnType='tertiary' href='/properties' />
             </div>
           </div>
           <div className={styles.bottom}>

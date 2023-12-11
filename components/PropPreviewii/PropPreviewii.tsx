@@ -9,7 +9,6 @@ interface Props {
 }
 
 const PropPreviewii = ({ room }: Props) => {
-  console.log(room)
   return (
     <div className={styles.container}>
       <div className={styles.left}>
