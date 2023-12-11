@@ -85,13 +85,10 @@ const RoomDetails = ({ data }: Props) => {
             <br />
             <h2 className={styles.heading2}>Location</h2>
             <br />
-        
+
             {room?.location && (
               <div className='my-5'>
-                <div
-                  id='room-map'
-                  style={{ height: 350, width: "100%" }}
-                ></div>
+                <div id='room-map' style={{ height: 350, width: "100%" }}></div>
               </div>
             )}
           </div>
@@ -99,11 +96,6 @@ const RoomDetails = ({ data }: Props) => {
           <br />
           <h2 className={styles.heading2}>Lastes Articles</h2>
           <br />
-          <div className={styles.blogSection}>
-            <BlogPreview />
-            <BlogPreview />
-            <BlogPreview />
-          </div>
         </ContentPadding>
       </LayoutWrapper>
       <FinalCTA1 />
