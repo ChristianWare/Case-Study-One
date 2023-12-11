@@ -1,6 +1,6 @@
 "use client";
 
-import { useForgotPasswordMutation } from "@/redux/api/authApi";
+import { useForgotPasswordMutation } from "../../redux/api/authApi";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";

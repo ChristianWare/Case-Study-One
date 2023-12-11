@@ -1,7 +1,7 @@
 "use client";
 
-import { IUser } from "@/backend/models/user";
-import { useUpdateUserMutation } from "@/redux/api/userApi";
+import { IUser } from "../../backend/models/user";
+import { useUpdateUserMutation } from "../../redux/api/userApi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ButtonLoader from "../layout/ButtonLoader";

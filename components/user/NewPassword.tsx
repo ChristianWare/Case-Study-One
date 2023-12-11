@@ -1,7 +1,7 @@
 "use client";
 
-import { resetPassword } from "@/backend/controllers/authControllers";
-import { useResetPasswordMutation } from "@/redux/api/authApi";
+import { resetPassword } from "../../backend/controllers/authControllers";
+import { useResetPasswordMutation } from "../../redux/api/authApi";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";

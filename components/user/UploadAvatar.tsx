@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useRouter } from "next/navigation";
 import {
   useLazyUpdateSessionQuery,
   useUploadAvatarMutation,
-} from "@/redux/api/userApi";
-import { setUser } from "@/redux/features/userSlice";
+} from "../../redux/api/userApi";
+import { setUser } from "../../redux/features/userSlice";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
 import Image from "next/image";

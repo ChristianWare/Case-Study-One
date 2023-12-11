@@ -1,6 +1,6 @@
 "use client";
 
-import { useUpdatePasswordMutation } from "@/redux/api/userApi";
+import { useUpdatePasswordMutation } from "../../redux/api/userApi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
