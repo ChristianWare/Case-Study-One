@@ -63,9 +63,9 @@ export default async function Home() {
     <div>
       <Hero />
       <PostHero />
-      <Featured data={data} />
+      {/* <Featured data={data} /> */}
       <Discover />
-      <Properties data={data} />
+      {/* <Properties data={data} /> */}
       <Owner
         heading='“Revolutionizing luxury rentals, we own and manage our properties, ensuring unparalleled design, service, and a cohesive experience across our distinctive collection.”'
         copy='We redefine the holiday rental experience by directly owning and managing our properties, allowing for unparalleled design, service, and a cohesive experience across our distinctive collection, standing out in the evolving landscape of luxury accommodations.'
