@@ -1,12 +1,10 @@
 import RoomDetails from "../../../components/RoomDetails/RoomDetails";
 import Error from "../../error";
-import styles from "./RoomDetailsPage.module.css";
 
 interface Props {
   params: { id: string };
 }
 
-export const dynamic = "force-static";
 
 const getRoom = async (id: string) => {
   const res = await fetch(`${process.env.API_URI}/api/rooms/${id}`, {
