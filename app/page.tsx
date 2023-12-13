@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Hero from "../components/Hero/Hero";
 import PostHero from "../components/PostHero/PostHero";
 import Featured from "../components/Featured/Featured";
@@ -17,7 +15,9 @@ export const metadata = {
   description: "This is the description for the home page of this application.",
 };
 
-export const revalidate = 0;
+// export const revalidate = 0;
+export const dynamic = "force-static";
+
 
 const getRooms = async () => {
   try {
