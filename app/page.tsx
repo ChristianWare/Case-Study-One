@@ -15,13 +15,16 @@ export const metadata = {
   description: "This is the description for the home page of this application.",
 };
 
-export const revalidate = 0;
 export const dynamic = "force-static";
-
 
 const getRooms = async () => {
   try {
-    const res = await fetch(`${process.env.API_URI}/api/rooms`);
+    const res = await fetch(`${process.env.API_URI}/api/rooms`, {
+      cache: "no-store",
+      next: {
+        revalidate: 0,
+      },
+    });
     const data = res.json();
     return data;
   } catch (error) {
