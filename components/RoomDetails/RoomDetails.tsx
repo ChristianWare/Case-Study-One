@@ -71,7 +71,6 @@ const RoomDetails = ({ data }: Props) => {
           <ImageGrid images={room?.images} />
           <div className={styles.propDetails}>
             <div className={styles.left}>
-              {/* <h2 className={styles.heading2}>About property</h2> */}
               <p className={styles.copy}>{room?.description}</p>
             </div>
             <div className={styles.right}>

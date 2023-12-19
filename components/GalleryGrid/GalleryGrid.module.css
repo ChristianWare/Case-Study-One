@@ -66,8 +66,10 @@
   cursor: pointer;
   user-select: none;
   position: absolute;
-  left: -70px;
+  left: 0px;
   bottom: 50%;
+  z-index: 999;
+
 }
 
 .next {
@@ -76,14 +78,18 @@
   cursor: pointer;
   user-select: none;
   position: absolute;
-  right: -70px;
+  right: 0px;
   bottom: 50%;
+  z-index: 999;
 }
 
 .close {
-  margin-bottom: 3.5rem;
+  /* margin-bottom: 3.5rem; */
   color: var(--white);
   cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 @media screen and (max-width: 968px) {
@@ -97,23 +103,5 @@
     grid-template-columns: repeat(1, 1fr);
     margin-bottom: 5rem;
   }
-
-  .prev {
-    left: -50px;
-  }
-
-  .next {
-    right: -50px;
-  }
 }
 
-@media screen and (max-width: 480px) {
-
-  .prev {
-    left: -35px;
-  }
-
-  .next {
-    right: -35px;
-  }
-}
