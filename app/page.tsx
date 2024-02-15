@@ -9,7 +9,7 @@ import FinalCTA1 from "../components/FinalCTA1/FinalCTA1";
 import FinalCTA2 from "../components/FinalCTA2/FinalCTA2";
 import Error from "./error";
 import BlogSection from "../components/BlogSection/BlogSection";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 export const metadata = {
   title: "Home - Elite Retreat Rentals",
@@ -19,15 +19,11 @@ export const metadata = {
 export const revalidate = 0;
 export const dynamic = "force-static";
 
-revalidateTag("room-item");
-
 const getRooms = async () => {
   try {
-    const res = await fetch(`${process.env.API_URI}/api/rooms`, {
-      next: { tags: ["room-item"], revalidate: 360 },
-    });
+    const res = await fetch(`${process.env.API_URI}/api/rooms`);
     const data = res.json();
-    // revalidatePath("/api/rooms");
+    revalidatePath("/api/rooms");
     return data;
   } catch (error) {
     console.log("error => ", error);
