@@ -5,10 +5,11 @@ interface Props {
   params: { id: string };
 }
 
-export const dynamic = "force-static";
 
 const getRoom = async (id: string) => {
-  const res = await fetch(`${process.env.API_URI}/api/rooms/${id}`);
+  const res = await fetch(`${process.env.API_URI}/api/rooms/${id}`, {
+    cache: "no-cache",
+  });
   return res.json();
 };
 
