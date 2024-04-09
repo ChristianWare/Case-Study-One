@@ -1,3 +1,5 @@
+"use client";
+
 import { revalidateTag } from "../../helpers/revalidate";
 import {
   useCanUserReviewQuery,
@@ -79,7 +81,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
                 starRatedColor='#e61e4d'
                 numberOfStars={5}
                 // starDimension='18px'
-                // starSpacing='1px'
+                starSpacing='1px'
                 name='rating'
                 changeRating={(e: any) => setRating(e)}
               />

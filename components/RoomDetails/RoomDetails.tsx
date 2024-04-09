@@ -14,6 +14,7 @@ import GalleryGrid from "../GalleryGrid/GalleryGrid";
 import { useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Discover from "../Discover/Discover";
+import NewReview from "../review/NewReview";
 
 interface Props {
   data: {
@@ -51,14 +52,16 @@ const RoomDetails = ({ data }: Props) => {
             <div className={styles.topLeft}>
               <div className={styles.featuresBox}>
                 <div className={styles.feature}>
-                  Guests: {room?.guestCapacity}
+                  Max Guests: {room?.guestCapacity}
                 </div>
                 <div className={styles.feature}>
                   Number of beds: {room?.numOfBeds}
                 </div>
-                <div className={styles.feature}>
-                  Total Ratings: {room?.ratings}
-                </div>
+                {room?.ratings > 0 && (
+                  <div className={styles.feature}>
+                    Total Ratings: {room?.ratings}
+                  </div>
+                )}
               </div>
             </div>
             <div className={styles.topRight}>
@@ -92,6 +95,7 @@ const RoomDetails = ({ data }: Props) => {
               </div>
             )}
           </div>
+          <NewReview roomId={room?._id} />
           <br />
           <br />
         </ContentPadding>
