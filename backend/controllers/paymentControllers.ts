@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { catchAsycnErrors } from "../middlewares/catchAsyncErrors";
+import { catchAsyncErrors } from "../middlewares/catchAsyncErrors";
 import Room from "../models/room";
 import User from "../models/user";
 import { headers } from "next/headers";
@@ -8,7 +8,7 @@ import Booking from "../models/booking";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // Genereate stripe checkout session => /api/payment/checkout_session/:roomId
-export const stripeCheckoutSession = catchAsycnErrors(
+export const stripeCheckoutSession = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const { searchParams } = new URL(req.url);
 

@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import Room, { IImage, IReview, IRoom } from "../models/room";
 import ErrorHandler from "../utils/errorHandler";
-import { catchAsycnErrors } from "../middlewares/catchAsyncErrors";
+import { catchAsyncErrors } from "../middlewares/catchAsyncErrors";
 import APIFilters from "../utils/apiFilters";
 import Booking from "../models/booking";
 import { delete_file, upload_file } from "../utils/cloudinary";
 
 // Get all rooms => /api/rooms
-export const allRoooms = catchAsycnErrors(async (req: NextRequest) => {
+export const allRoooms = catchAsyncErrors(async (req: NextRequest) => {
   // const resPerPage: number = 8;
 
   const { searchParams } = new URL(req.url);
@@ -35,7 +35,7 @@ export const allRoooms = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Create new room => /api/admin/rooms
-export const newRoom = catchAsycnErrors(async (req: NextRequest) => {
+export const newRoom = catchAsyncErrors(async (req: NextRequest) => {
   const body = await req.json();
 
   body.user = req.user._id;
@@ -49,7 +49,7 @@ export const newRoom = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Get room details => /api/rooms/:id
-export const getRoomDetails = catchAsycnErrors(
+export const getRoomDetails = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const room = await Room.findById(params.id).populate("reviews.user");
 
@@ -65,7 +65,7 @@ export const getRoomDetails = catchAsycnErrors(
 );
 
 // Update room details => /api/admin/rooms/:id
-export const updateRoom = catchAsycnErrors(
+export const updateRoom = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     let room = await Room.findById(params.id);
     const body = await req.json();
@@ -86,7 +86,7 @@ export const updateRoom = catchAsycnErrors(
 );
 
 // Upload room images => /api/admin/rooms/:id/uplaod_images
-export const uploadRoomImages = catchAsycnErrors(
+export const uploadRoomImages = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const room = await Room.findById(params.id);
     const body = await req.json();
@@ -112,7 +112,7 @@ export const uploadRoomImages = catchAsycnErrors(
 );
 
 // Delete room image => /api/admin/rooms/:id/delete_image
-export const deleteRoomImage = catchAsycnErrors(
+export const deleteRoomImage = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const room = await Room.findById(params.id);
     const body = await req.json();
@@ -139,7 +139,7 @@ export const deleteRoomImage = catchAsycnErrors(
 );
 
 // Delete room details => /api/admin/rooms/:id
-export const deleteRoom = catchAsycnErrors(
+export const deleteRoom = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     let room = await Room.findById(params.id);
 
@@ -161,7 +161,7 @@ export const deleteRoom = catchAsycnErrors(
 );
 
 // Create/Update Room review => /api/reviews
-export const createRoomReview = catchAsycnErrors(async (req: NextRequest) => {
+export const createRoomReview = catchAsyncErrors(async (req: NextRequest) => {
   const body = await req.json();
   const { rating, comment, roomId } = body;
 
@@ -173,11 +173,11 @@ export const createRoomReview = catchAsycnErrors(async (req: NextRequest) => {
 
   const room = await Room.findById(roomId);
 
-  const isReviewd = room?.reviews?.find(
+  const isReviewed = room?.reviews?.find(
     (r: IReview) => r.user?.toString() === req?.user?._id?.toString()
   );
 
-  if (isReviewd) {
+  if (isReviewed) {
     room?.reviews?.forEach((review: IReview) => {
       if (review.user?.toString() === req?.user?._id?.toString()) {
         review.comment = comment;
@@ -189,7 +189,7 @@ export const createRoomReview = catchAsycnErrors(async (req: NextRequest) => {
     room.numOfReviews = room.reviews.length;
   }
 
-  room.rating =
+  room.ratings =
     room?.reviews?.reduce(
       (acc: number, item: { rating: number }) => item.rating + acc,
       0
@@ -202,8 +202,10 @@ export const createRoomReview = catchAsycnErrors(async (req: NextRequest) => {
   });
 });
 
+
+
 // Can user review room? => /api/reviews/can_review
-export const canReview = catchAsycnErrors(async (req: NextRequest) => {
+export const canReview = catchAsyncErrors(async (req: NextRequest) => {
   const { searchParams } = new URL(req.url);
   const roomId = searchParams.get("roomId");
 
@@ -217,7 +219,7 @@ export const canReview = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Get all rooms - ADMIN => /api/admin/rooms
-export const allAdminRooms = catchAsycnErrors(async (req: NextRequest) => {
+export const allAdminRooms = catchAsyncErrors(async (req: NextRequest) => {
   const rooms = await Room.find();
 
   return NextResponse.json({
@@ -226,7 +228,7 @@ export const allAdminRooms = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Get room reviews - ADMIN => /api/admin/rooms/reviews
-export const getRoomReviews = catchAsycnErrors(async (req: NextRequest) => {
+export const getRoomReviews = catchAsyncErrors(async (req: NextRequest) => {
   const { searchParams } = new URL(req.url);
 
   const room = await Room.findById(searchParams.get("roomId"));
@@ -237,7 +239,7 @@ export const getRoomReviews = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Delete room review - ADMIN => /api/admin/rooms/reviews
-export const deleteRoomReview = catchAsycnErrors(async (req: NextRequest) => {
+export const deleteRoomReview = catchAsyncErrors(async (req: NextRequest) => {
   const { searchParams } = new URL(req.url);
 
   const roomId = searchParams.get("roomId");

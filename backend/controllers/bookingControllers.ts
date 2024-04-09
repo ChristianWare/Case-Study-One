@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { catchAsycnErrors } from "../middlewares/catchAsyncErrors";
+import { catchAsyncErrors } from "../middlewares/catchAsyncErrors";
 import Booking, { IBooking } from "../models/booking";
 import Moment from "moment";
 import { extendMoment } from "moment-range";
@@ -8,7 +8,7 @@ import ErrorHandler from "../utils/errorHandler";
 const moment = extendMoment(Moment);
 
 // Create New Booking => /api/bookings
-export const newBooking = catchAsycnErrors(async (req: NextRequest) => {
+export const newBooking = catchAsyncErrors(async (req: NextRequest) => {
   const body = await req.json();
 
   const {
@@ -37,7 +37,7 @@ export const newBooking = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Check Room Booking Availability => /api/bookings/check
-export const checkRoomBookingAvailability = catchAsycnErrors(
+export const checkRoomBookingAvailability = catchAsyncErrors(
   async (req: NextRequest) => {
     const { searchParams } = new URL(req.url);
     const roomId = searchParams.get("roomId");
@@ -66,7 +66,7 @@ export const checkRoomBookingAvailability = catchAsycnErrors(
 );
 
 // Get room booked dates => /api/bookings/get_booked_dates
-export const getRoomBookedDates = catchAsycnErrors(async (req: NextRequest) => {
+export const getRoomBookedDates = catchAsyncErrors(async (req: NextRequest) => {
   const { searchParams } = new URL(req.url);
   const roomId = searchParams.get("roomId");
 
@@ -86,7 +86,7 @@ export const getRoomBookedDates = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Get current user bookings => /api/bookings/me
-export const myBookings = catchAsycnErrors(async (req: NextRequest) => {
+export const myBookings = catchAsyncErrors(async (req: NextRequest) => {
   const bookings = await Booking.find({ user: req.user._id });
 
   return NextResponse.json({
@@ -95,7 +95,7 @@ export const myBookings = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Get booking details => /api/bookings/:id
-export const getBookingDetails = catchAsycnErrors(
+export const getBookingDetails = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const booking = await Booking.findById(params.id).populate("user room");
 
@@ -162,7 +162,7 @@ const getLastSixMonthsSales = async () => {
 };
 
 // Get sales stats => /api/admin/sales_stats
-export const getSalesStats = catchAsycnErrors(async (req: NextRequest) => {
+export const getSalesStats = catchAsyncErrors(async (req: NextRequest) => {
   const { searchParams } = new URL(req.url);
 
   const startDate = new Date(searchParams.get("startDate") as string);
@@ -190,7 +190,7 @@ export const getSalesStats = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Get admin bookings => /api/admin/bookings
-export const allAdminBookings = catchAsycnErrors(async (req: NextRequest) => {
+export const allAdminBookings = catchAsyncErrors(async (req: NextRequest) => {
   const bookings = await Booking.find();
 
   return NextResponse.json({
@@ -199,7 +199,7 @@ export const allAdminBookings = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Delete Booking => /api/admin/bookings/:id
-export const deleteBooking = catchAsycnErrors(
+export const deleteBooking = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const booking = await Booking.findById(params.id);
 

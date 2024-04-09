@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { catchAsycnErrors } from "../middlewares/catchAsyncErrors";
+import { catchAsyncErrors } from "../middlewares/catchAsyncErrors";
 import User from "../models/user";
 import ErrorHandler from "../utils/errorHandler";
 import { delete_file, upload_file } from "../utils/cloudinary";
@@ -8,7 +8,7 @@ import sendEmail from "../utils/sendEmail";
 import crypto from "crypto";
 
 // Register User => /api/auth/register
-export const registerUser = catchAsycnErrors(async (req: NextRequest) => {
+export const registerUser = catchAsyncErrors(async (req: NextRequest) => {
   const body = await req.json();
 
   const { name, email, password } = body;
@@ -25,7 +25,7 @@ export const registerUser = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Update User Profile => /api/me/update
-export const updateProfile = catchAsycnErrors(async (req: NextRequest) => {
+export const updateProfile = catchAsyncErrors(async (req: NextRequest) => {
   const body = await req.json();
 
   const userData = {
@@ -42,7 +42,7 @@ export const updateProfile = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Update Password => /api/me/update_password
-export const updatePassword = catchAsycnErrors(async (req: NextRequest) => {
+export const updatePassword = catchAsyncErrors(async (req: NextRequest) => {
   const body = await req.json();
 
   const user = await User.findById(req?.user?._id).select("+password");
@@ -62,7 +62,7 @@ export const updatePassword = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Update user avatar => /api/me/upload_avatar
-export const uploadAvatar = catchAsycnErrors(async (req: NextRequest) => {
+export const uploadAvatar = catchAsyncErrors(async (req: NextRequest) => {
   const body = await req.json();
 
   const avatarResponse = await upload_file(body?.avatar, "bookit/avatars");
@@ -83,7 +83,7 @@ export const uploadAvatar = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Forgot password => /api/password/forgot
-export const forgotPassword = catchAsycnErrors(async (req: NextRequest) => {
+export const forgotPassword = catchAsyncErrors(async (req: NextRequest) => {
   const body = await req.json();
 
   const user = await User.findOne({ email: body.email });
@@ -124,7 +124,7 @@ export const forgotPassword = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Reset password => /api/password/reset/:token
-export const resetPassword = catchAsycnErrors(
+export const resetPassword = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { token: string } }) => {
     const body = await req.json();
 
@@ -165,7 +165,7 @@ export const resetPassword = catchAsycnErrors(
 );
 
 // Get all users => /api/admin/users
-export const allAdminUsers = catchAsycnErrors(async (req: NextRequest) => {
+export const allAdminUsers = catchAsyncErrors(async (req: NextRequest) => {
   const users = await User.find();
 
   return NextResponse.json({
@@ -174,7 +174,7 @@ export const allAdminUsers = catchAsycnErrors(async (req: NextRequest) => {
 });
 
 // Get user details => /api/admin/users/:id
-export const getUserDetails = catchAsycnErrors(
+export const getUserDetails = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const user = await User.findById(params.id);
 
@@ -189,7 +189,7 @@ export const getUserDetails = catchAsycnErrors(
 );
 
 // Update user details => /api/admin/users/:id
-export const updateUser = catchAsycnErrors(
+export const updateUser = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const body = await req.json();
 
@@ -208,7 +208,7 @@ export const updateUser = catchAsycnErrors(
 );
 
 // Delete user details => /api/admin/users/:id
-export const deleteUser = catchAsycnErrors(
+export const deleteUser = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
     const user = await User.findById(params.id);
 

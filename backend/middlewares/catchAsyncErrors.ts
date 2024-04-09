@@ -6,7 +6,7 @@ interface IValidationError {
   message: string;
 }
 
-export const catchAsycnErrors =
+export const catchAsyncErrors =
   (handler: HandlerFunction) => async (req: NextRequest, params: any) => {
     try {
       return await handler(req, params);
@@ -23,9 +23,9 @@ export const catchAsycnErrors =
         error.statusCode = 400;
       }
 
-      // Handling mongoose duplicate key error:
+      // Handling mongoose duplicate key error
       if (error.code === 11000) {
-        error.message = "Email is invalid or already taken";
+        error.message = `Duplicate ${Object.keys(error.keyValue)} entered`;
       }
 
       return NextResponse.json(
