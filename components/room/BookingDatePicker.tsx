@@ -198,7 +198,8 @@ const BookingDatePicker = ({ room }: Props) => {
           onClick={bookRoom}
           disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
         >
-          Book Now
+          {/* Book Now */}
+          {!checkInDate || !checkOutDate ? "Select Dates" : "Book Now"}
         </button>
       </div>
     </div>
