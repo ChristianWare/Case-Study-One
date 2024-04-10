@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Discover from "../Discover/Discover";
 import NewReview from "../review/NewReview";
+import ListReviews from "../review/ListReviews";
 
 interface Props {
   data: {
@@ -96,6 +97,7 @@ const RoomDetails = ({ data }: Props) => {
             )}
           </div>
           <NewReview roomId={room?._id} />
+          <ListReviews reviews={room?.reviews} />
           <br />
           <br />
         </ContentPadding>
