@@ -1,11 +1,9 @@
 "use client";
 
 import { IBooking } from "../../backend/models/booking";
-import user from "../../backend/models/user";
 import { useAppSelector } from "../../redux/hooks";
 import Image from "next/image";
 import Link from "next/link";
-
 interface Props {
   data: {
     booking: IBooking;
@@ -23,7 +21,7 @@ const BookingDetails = ({ data }: Props) => {
       <div className='row d-flex justify-content-center'>
         <div className='col-12 col-lg-9 mt-5 booking-details'>
           <div className='d-flex justify-content-between align-items-center my-5'>
-            <h2>Booking # {booking._id}</h2>
+            <h2>Booking # {booking?._id}</h2>
             <Link
               className='btn btn-success'
               href={`/bookings/invoice/${booking?._id}`}
@@ -45,13 +43,7 @@ const BookingDetails = ({ data }: Props) => {
               </tr>
               <tr>
                 <th scope='row'>Amount Paid:</th>
-                <td>
-                  $
-                  {booking?.amountPaid?.toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })}
-                </td>
+                <td>${booking?.amountPaid}</td>
               </tr>
             </tbody>
           </table>
@@ -62,18 +54,18 @@ const BookingDetails = ({ data }: Props) => {
               <tr>
                 <th scope='row'>Check In:</th>
                 <td>
-                  {new Date(booking?.checkInDate).toLocaleString("en-us")}
+                  {new Date(booking?.checkInDate).toLocaleString("en-US")}
                 </td>
               </tr>
               <tr>
                 <th scope='row'>Check Out:</th>
                 <td>
-                  {new Date(booking?.checkOutDate).toLocaleString("en-us")}
+                  {new Date(booking?.checkOutDate).toLocaleString("en-US")}
                 </td>
               </tr>
               <tr>
                 <th scope='row'>Days of Stay:</th>
-                <td>{booking?.daysOfStay} Days(s)</td>
+                <td>{booking?.daysOfStay}</td>
               </tr>
             </tbody>
           </table>
@@ -103,6 +95,7 @@ const BookingDetails = ({ data }: Props) => {
           <h4 className='mt-5 mb-4'>Booked Room:</h4>
 
           <hr />
+
           {booking?.room ? (
             <div className='cart-item my-1'>
               <div className='row my-5'>
@@ -122,22 +115,16 @@ const BookingDetails = ({ data }: Props) => {
                 </div>
 
                 <div className='col-4 col-lg-2 mt-4 mt-lg-0'>
-                  <p>
-                    $
-                    {booking?.room?.pricePerNight.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </p>
+                  <p>${booking?.room?.pricePerNight}</p>
                 </div>
 
                 <div className='col-4 col-lg-3 mt-4 mt-lg-0'>
-                  <p>4 Day(s)</p>
+                  <p>{booking?.daysOfStay} Day(s)</p>
                 </div>
               </div>
             </div>
           ) : (
-            <div className='alert alert-danger'>Room no longer exists.</div>
+            <div className='alert alert-danger'>Room no longer exist</div>
           )}
           <hr />
         </div>
@@ -145,4 +132,5 @@ const BookingDetails = ({ data }: Props) => {
     </div>
   );
 };
+
 export default BookingDetails;

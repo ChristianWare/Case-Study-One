@@ -12,7 +12,7 @@ export const metadata = {
 const getRoom = async (id: string) => {
   const authHeaders = getAuthHeader();
 
-  const res = await fetch(`${process.env.API_URI}/api/rooms/${id}`, {
+  const res = await fetch(`${process.env.API_URL}/api/rooms/${id}`, {
     headers: authHeaders.headers,
   });
   return res.json();

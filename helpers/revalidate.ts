@@ -4,7 +4,7 @@ export const revalidateTag = async (tag: string) => {
     return;
   }
   await fetch(
-    `${process.env.API_URI}/api/revalidate?tag=${tag}&secret=${process.env.REVALIDATE_TOKEN}`,
+    `${process.env.API_URL}/api/revalidate?tag=${tag}&secret=${process.env.REVALIDATE_TOKEN}`,
     { method: "POST" }
   );
 };

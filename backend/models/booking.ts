@@ -1,7 +1,6 @@
 import mongoose, { Document, Schema } from "mongoose";
-import { IRoom } from "./room";
 import { IUser } from "./user";
-
+import { IRoom } from "./room";
 export interface IBooking extends Document {
   room: IRoom;
   user: IUser;

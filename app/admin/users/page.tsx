@@ -10,7 +10,7 @@ export const metadata = {
 const getUsers = async () => {
   const authHeaders = getAuthHeader();
 
-  const res = await fetch(`${process.env.API_URI}/api/admin/users`, {
+  const res = await fetch(`${process.env.API_URL}/api/admin/users`, {
     headers: authHeaders.headers,
   });
   return res.json();

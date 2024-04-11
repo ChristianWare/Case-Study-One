@@ -11,7 +11,6 @@ export interface IReview extends Document {
   user: IUser;
   rating: number;
   comment: string;
-  createdAt: string;
 }
 
 export interface ILocation {
@@ -173,6 +172,8 @@ roomSchema.pre("save", async function (next) {
   }
 
   const loc = await geoCoder.geocode(this.address);
+
+  // console.log("location", loc);
 
   this.location = {
     type: "Point",

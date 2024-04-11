@@ -11,7 +11,7 @@ const getBooking = async (id: string) => {
   const authHeader = getAuthHeader();
 
   const res = await fetch(
-    `${process.env.API_URI}/api/bookings/${id}`,
+    `${process.env.API_URL}/api/bookings/${id}`,
     authHeader
   );
   return res.json();
@@ -28,9 +28,5 @@ export default async function MyBookingsPage({
     return <Error error={data} />;
   }
 
-  return (
-    <div className='container'>
-      <Invoice data={data} />
-    </div>
-  );
+  return <Invoice data={data} />;
 }

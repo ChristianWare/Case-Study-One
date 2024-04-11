@@ -23,8 +23,8 @@ export const stripeCheckoutSession = catchAsyncErrors(
     // Create stripe checkout session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
-      success_url: `${process.env.API_URI}/bookings/me`,
-      cancel_url: `${process.env.API_URI}/room/${room?._id}`,
+      success_url: `${process.env.API_URL}/bookings/me`,
+      cancel_url: `${process.env.API_URL}/room/${room?._id}`,
       customer_email: req.user.email,
       client_reference_id: params?.id,
       metadata: { checkInDate, checkOutDate, daysOfStay },

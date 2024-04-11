@@ -11,7 +11,7 @@ export const metadata = {
 const getRooms = async () => {
   const authHeaders = getAuthHeader();
 
-  const res = await fetch(`${process.env.API_URI}/api/admin/rooms`, {
+  const res = await fetch(`${process.env.API_URL}/api/admin/rooms`, {
     headers: authHeaders.headers,
   });
   return res.json();

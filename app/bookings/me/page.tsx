@@ -12,7 +12,7 @@ export const metadata = {
 const getBookings = async () => {
   const authHeader = getAuthHeader();
 
-  const res = await fetch(`${process.env.API_URI}/api/bookings/me`, authHeader);
+  const res = await fetch(`${process.env.API_URL}/api/bookings/me`, authHeader);
   return res.json();
 };
 

@@ -14,7 +14,7 @@ const getUser = async (id: string) => {
   const authHeader = getAuthHeader();
 
   const res = await fetch(
-    `${process.env.API_URI}/api/admin/users/${id}`,
+    `${process.env.API_URL}/api/admin/users/${id}`,
     authHeader
   );
   return res.json();
