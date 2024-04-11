@@ -1,3 +1,52 @@
-/* .container {
-  background-color: red;
-} */
+.container {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+
+.heading {
+  margin-bottom: 3rem;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3rem;
+  border: 2px solid var(--purple2);
+  padding: 3rem;
+  border-radius: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.imgContainer {
+  position: relative;
+  min-width: 60px;
+  min-height: 60px;
+  /* flex: 1; */
+}
+
+.img {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+.reviewerName {
+  font-weight: 700;
+}
+
+.date {
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+.comment {
+  /* width: 70%; */
+}

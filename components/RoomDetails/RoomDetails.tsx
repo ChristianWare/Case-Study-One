@@ -58,7 +58,9 @@ const RoomDetails = ({ data }: Props) => {
                 </div>
                 {room?.ratings > 0 && (
                   <div className={styles.feature}>
-                    Average Rating: <b>{room?.ratings}</b> out of 5 Stars
+                    Average Rating:{" "}
+                    <b>{(Math.floor(room?.ratings * 10) / 10).toFixed(1)}</b>{" "}
+                    out of 5 Stars
                   </div>
                 )}
               </div>
@@ -94,8 +96,8 @@ const RoomDetails = ({ data }: Props) => {
               </div>
             )}
           </div>
-          <NewReview roomId={room?._id} />
           <ListReviews reviews={room?.reviews} />
+          <NewReview roomId={room?._id} />
           <br />
           <br />
         </ContentPadding>

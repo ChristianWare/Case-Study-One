@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import StarRatings from "react-star-ratings";
 import Modal from "../Modal/Modal";
+import FalseButton from "../FalseButton/FalseButton";
+import styles from "./NewReview.module.css";
 
 const NewReview = ({ roomId }: { roomId: string }) => {
   const [rating, setRating] = useState(0);
@@ -46,18 +48,16 @@ const NewReview = ({ roomId }: { roomId: string }) => {
   };
 
   return (
-    <>
-      <button
-        type='button'
-        className='btn form-btn mt-4 mb-5'
-        data-bs-toggle='modal'
-        data-bs-target='#ratingModal'
-        onClick={() => {
-          setIsModalOpen(true);
-        }}
-      >
-        Submit Your Review
-      </button>
+    <section className={styles.container}>
+      <div className={styles.btnContainer}>
+        <FalseButton
+          text='Submit your review'
+          btnType='secondary'
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        />
+      </div>
       <Modal
         onClose={() => {
           setIsModalOpen(false);
@@ -67,14 +67,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
         {canReview && (
           <>
             <div className='box'>
-              <div
-                className='modal fade'
-                id='ratingModal'
-                tabIndex={-1}
-                role='dialog'
-                aria-labelledby='ratingModalLabel'
-                aria-hidden='true'
-              >
+              <div>
                 <div className='modal-dialog' role='document'>
                   <div className='modal-content'>
                     <div className='modal-header'>
@@ -128,7 +121,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
           </>
         )}
       </Modal>
-    </>
+    </section>
   );
 };
 export default NewReview;

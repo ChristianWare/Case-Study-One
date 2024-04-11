@@ -10,42 +10,55 @@ interface Props {
 const ListReviews = ({ reviews }: Props) => {
   return (
     <section className={styles.container}>
-      <div className='reviews w-75 mb-5'>
-        <h3>{reviews?.length} Reviews</h3>
-        <hr />
-
-        {reviews?.map((review, index) => (
-          <div className='review-card my-3' key={index}>
-            <div className='row'>
-              <div className='col-3 col-lg-1'>
-                <Image
-                  src={
-                    review?.user?.avatar
-                      ? review?.user?.avatar?.url
-                      : "/images/default_avatar.jpg"
-                  }
-                  alt={review?.user?.name}
-                  width={60}
-                  height={60}
-                  className='rounded-circle'
-                />
-              </div>
-              <div className='col-9 col-lg-11'>
-                <StarRatings
-                  rating={review?.rating}
-                  starRatedColor='#e61e4d'
-                  numberOfStars={5}
-                  starDimension='24px'
-                  starSpacing='1px'
-                  name='rating'
-                />
-                <p className='review_user mt-1'>by {review?.user?.name}</p>
-                <p className='review_comment'>{review?.comment}</p>
-              </div>
-              <hr />
-            </div>
+      <div className=''>
+        <h2 className={styles.heading}>
+          {reviews.length > 0 ? "Reviews" : "No Reviews Yet"}
+        </h2>
+        {reviews.length > 0 && (
+          <div className={styles.bottom}>
+            <>
+              {reviews?.map((review, index) => (
+                <div className={styles.reviewContainer} key={index}>
+                  <div className={styles.content}>
+                    <div className={styles.imgContainer}>
+                      <Image
+                        src={
+                          review?.user?.avatar
+                            ? review?.user?.avatar?.url
+                            : "/images/default_avatar.jpg"
+                        }
+                        alt={review?.user?.name}
+                        fill
+                        className={styles.img}
+                      />
+                    </div>
+                    <div className={styles.topRight}>
+                      <p className={styles.reviewerName}>
+                        {review?.user?.name}
+                      </p>
+                      <p className={styles.date}>
+                        Member Since{" "}
+                        {new Date(review?.user?.createdAt).toLocaleDateString(
+                          "en-US",
+                          { month: "2-digit", year: "numeric" }
+                        )}
+                      </p>
+                      <StarRatings
+                        rating={review?.rating}
+                        starRatedColor='#7065f0'
+                        numberOfStars={5}
+                        starDimension='24px'
+                        starSpacing='1px'
+                        name='rating'
+                      />
+                      <p className={styles.comment}>{review?.comment}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </>
           </div>
-        ))}
+        )}
       </div>
     </section>
   );

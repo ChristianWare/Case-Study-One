@@ -11,6 +11,7 @@ import { setUser } from "../../redux/features/userSlice";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
 import Image from "next/image";
+import styles from "./UploadAvatar.module.css";
 
 const UploadAvatar = () => {
   const dispatch = useAppDispatch();
@@ -74,22 +75,21 @@ const UploadAvatar = () => {
     <div className='row wrapper'>
       <div className='col-10 col-lg-8'>
         <form className='shadow rounded bg-body' onSubmit={submitHandler}>
-          <h2 className='mb-4'>Upload Avatar</h2>
+          <h2 className='mb-4'>Current Avatar</h2>
 
           <div className='form-group'>
             <div className='d-flex align-items-center'>
-              <div className='me-3'>
-                <figure className='avatar item-rtl'>
-                  <Image
-                    src={avatarPreview}
-                    className='rounded-circle'
-                    alt='image'
-                  />
-                </figure>
+              <div className={styles.avatarContainer}>
+                <Image
+                  src={avatarPreview}
+                  className={styles.img}
+                  alt='image'
+                  fill
+                />
               </div>
               <div className='input-foam'>
                 <label className='form-label' htmlFor='customFile'>
-                  Choose Avatar
+                  Choose a new Avatar
                 </label>
                 <input
                   type='file'
