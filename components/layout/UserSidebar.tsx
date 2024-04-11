@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import styles from "./UserSidebar.module.css";
 
 const UserSidebar = () => {
-
   const pathname = usePathname();
 
   const menuItem = [
@@ -33,14 +33,12 @@ const UserSidebar = () => {
   };
 
   return (
-    <div className='list-group mt-5 pl-4'>
+    <div className={styles.container}>
       {menuItem.map((x, index) => (
         <Link
           key={index}
           href={x.url}
-          className={`fw-bold list-group-item list-group-item-action ${
-            activeMenuItem === x.url ? "active" : ""
-          }`}
+          className={activeMenuItem === x.url ? styles.active : styles.btn}
           onClick={() => handleMenuItemClick(x.url)}
           aria-current={activeMenuItem === x.url ? "true" : "false"}
         >

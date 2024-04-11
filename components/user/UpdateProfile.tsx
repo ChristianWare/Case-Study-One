@@ -10,6 +10,8 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
 import { setUser } from "../../redux/features/userSlice";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
 
 const UpdateProfile = () => {
   const [name, setName] = useState("");
@@ -49,7 +51,6 @@ const UpdateProfile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser, error, isSuccess, router]);
 
-
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -70,8 +71,8 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className='row wrapper'>
-      <div className='col-10 col-lg-8'>
+    <LayoutWrapper>
+      <ContentPadding>
         <form className='shadow rounded bg-body' onSubmit={submitHandler}>
           <h2 className='mb-4'>Update Profile</h2>
 
@@ -110,8 +111,8 @@ const UpdateProfile = () => {
             {isLoading ? <ButtonLoader /> : "Update"}
           </button>
         </form>
-      </div>
-    </div>
+      </ContentPadding>
+    </LayoutWrapper>
   );
 };
 export default UpdateProfile;
