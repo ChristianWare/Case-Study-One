@@ -17,7 +17,7 @@ const BookingDetails = ({ data }: Props) => {
   const isPaid = booking?.paymentInfo?.status === "paid" ? true : false;
 
   return (
-    <div className='container'>
+    <div className=''>
       <div className='row d-flex justify-content-center'>
         <div className='col-12 col-lg-9 mt-5 booking-details'>
           <div className='d-flex justify-content-between align-items-center my-5'>

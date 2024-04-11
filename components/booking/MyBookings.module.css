@@ -7,6 +7,10 @@
   overflow: scroll;
 }
 
+.dataTable table {
+  width: 100%;
+}
+
 .dataTable label {
   font-weight: 500;
   text-transform: capitalize;
