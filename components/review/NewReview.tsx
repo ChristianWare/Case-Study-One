@@ -51,7 +51,10 @@ const NewReview = ({ roomId }: { roomId: string }) => {
     <section className={styles.container}>
       <div className={styles.btnContainer}>
         <FalseButton
-          text='Submit your review'
+          // text='Submit your review'
+          text={
+            canReview ? "Submit your review" : "Make a reservation to review"
+          }
           btnType='secondary'
           onClick={() => {
             setIsModalOpen(true);
@@ -64,7 +67,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
         }}
         isOpen={isModalOpen}
       >
-        {canReview && (
+        {canReview ? (
           <>
             <div className='box'>
               <div>
@@ -118,6 +121,12 @@ const NewReview = ({ roomId }: { roomId: string }) => {
                 </div>
               </div>
             </div>
+          </>
+        ) : (
+          <>
+            <h5 className='modal-title' id='ratingModalLabel'>
+              Make a reservation to review
+            </h5>
           </>
         )}
       </Modal>

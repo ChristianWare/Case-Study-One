@@ -152,10 +152,10 @@ const BookingDatePicker = ({ room }: Props) => {
               {daysOfStay} {daysOfStay === 1 ? "day" : "days"}
             </div>
             <div className={styles.box}>
-              <b>Check-In:</b> {formatDate(checkInDate)} @ 12:00 PM
+              <b>Check-In:</b> {formatDate(checkInDate)} @ 10:00 AM
             </div>
             <div className={styles.box}>
-              <b>Check-Out:</b> {formatDate(checkOutDate)} @ 12:00 PM
+              <b>Check-Out:</b> {formatDate(checkOutDate)} @ 3:00 PM
             </div>
             <div className={styles.box}>
               <b>Total Cost: </b> $
@@ -199,7 +199,7 @@ const BookingDatePicker = ({ room }: Props) => {
           disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
         >
           {/* Book Now */}
-          {!checkInDate || !checkOutDate ? "Select Dates" : "Book Now"}
+          {!checkInDate || !checkOutDate ? "Select Dates to Book" : "Book Now"}
         </button>
       </div>
     </div>

@@ -59,7 +59,11 @@ const RoomDetails = ({ data }: Props) => {
                 {room?.ratings > 0 && (
                   <div className={styles.feature}>
                     Average Rating:{" "}
-                    <b>{(Math.floor(room?.ratings * 10) / 10).toFixed(1)}</b>{" "}
+                    <b>
+                      {(Math.floor(room?.ratings * 10) / 10).toFixed(1) === "5.0"
+                        ? "5"
+                        : (Math.floor(room?.ratings * 10) / 10).toFixed(1)}
+                    </b>{" "}
                     out of 5 Stars
                   </div>
                 )}

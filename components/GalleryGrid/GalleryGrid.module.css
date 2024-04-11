@@ -66,10 +66,9 @@
   cursor: pointer;
   user-select: none;
   position: absolute;
-  left: 0px;
+  left: -50px;
   bottom: 50%;
   z-index: 999;
-
 }
 
 .next {
@@ -78,18 +77,17 @@
   cursor: pointer;
   user-select: none;
   position: absolute;
-  right: 0px;
+  right: -50px;
   bottom: 50%;
   z-index: 999;
 }
 
 .close {
-  /* margin-bottom: 3.5rem; */
   color: var(--white);
   cursor: pointer;
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 40px;
+  top: 40px;
 }
 
 @media screen and (max-width: 968px) {
@@ -105,3 +103,16 @@
   }
 }
 
+@media screen and (max-width: 568px) {
+  .prev {
+    left: -40px;
+  }
+  .next {
+    right: -40px;
+  }
+
+  .close {
+    right: 20px;
+    top: 20px;
+  }
+}

@@ -36,6 +36,14 @@ const ImageGrid = ({ images }: Props) => {
             className={styles.img}
           />
         </div>
+        <div className={styles.imgContainer3}>
+          <Image
+            src={images[3]?.url}
+            alt={images[3]?.url}
+            fill
+            className={styles.img}
+          />
+        </div>
       </div>
     </div>
   );
