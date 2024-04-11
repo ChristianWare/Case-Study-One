@@ -3,12 +3,10 @@
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./RoomDetails.module.css";
-import FinalCTA2 from "../FinalCTA2/FinalCTA2";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
-import BlogPreview from "../BlogPreview/BlogPreview";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import { IRoom } from "../../backend/models/room";
-import BookingDatePicker from "../room/BookingDatePicker";
+import BookingDatePicker from "../BookingDatePicker/BookingDatePicker";
 import ImageGrid from "../ImageGrid/ImageGrid";
 import GalleryGrid from "../GalleryGrid/GalleryGrid";
 import { useEffect } from "react";
@@ -60,7 +58,7 @@ const RoomDetails = ({ data }: Props) => {
                 </div>
                 {room?.ratings > 0 && (
                   <div className={styles.feature}>
-                    Total Ratings: {room?.ratings}
+                    Average Rating: <b>{room?.ratings}</b> out of 5 Stars
                   </div>
                 )}
               </div>
