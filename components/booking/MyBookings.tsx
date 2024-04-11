@@ -76,7 +76,7 @@ const MyBookings = ({ data }: Props) => {
             maximumFractionDigits: 2,
           })}`,
           actions: (
-            <div className={styles.test}>
+            <div className={styles.actions}>
               <Link
                 href={`/bookings/${booking._id}`}
                 className='btn btn-primary'

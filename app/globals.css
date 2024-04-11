@@ -666,3 +666,10 @@ input:focus {
     left: -7px;
   }
 }
+
+
+.dataTables_info {
+  /* display: none; */
+  margin-top: 3rem;
+  font-weight: 500;
+}
