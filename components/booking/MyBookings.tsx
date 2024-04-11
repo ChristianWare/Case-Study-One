@@ -3,6 +3,7 @@
 import { IBooking } from "../../backend/models/booking";
 import { MDBDataTable } from "mdbreact";
 import Link from "next/link";
+import styles from "./MyBookings.module.css";
 
 interface Props {
   data: {
@@ -25,32 +26,33 @@ const MyBookings = ({ data }: Props) => {
     const data: { columns: any[]; rows: any[] } = {
       columns: [
         {
-          label: "ID",
+          // label: "ID",
+          label: <div className={styles.theadContainer}>ID</div>,
           field: "id",
           sort: "asc",
         },
         {
-          label: "Date Booked",
+          label: <div className={styles.theadContainer}>Date Booked</div>,
           field: "datebooked",
           sort: "asc",
         },
         {
-          label: "Check In",
+          label: <div className={styles.theadContainer}>Check In</div>,
           field: "checkin",
           sort: "asc",
         },
         {
-          label: "Check Out",
+          label: <div className={styles.theadContainer}>Check Out</div>,
           field: "checkout",
           sort: "asc",
         },
         {
-          label: "Amount Paid",
+          label: <div className={styles.theadContainer}>Amount Paid</div>,
           field: "amountpaid",
           sort: "asc",
         },
         {
-          label: "Actions",
+          label: <div className={styles.theadContainer}>Actions</div>,
           field: "actions",
           sort: "asc",
         },
@@ -74,7 +76,7 @@ const MyBookings = ({ data }: Props) => {
             maximumFractionDigits: 2,
           })}`,
           actions: (
-            <>
+            <div className={styles.test}>
               <Link
                 href={`/bookings/${booking._id}`}
                 className='btn btn-primary'
@@ -87,7 +89,7 @@ const MyBookings = ({ data }: Props) => {
               >
                 <i className='fa fa-receipt'></i>
               </Link>
-            </>
+            </div>
           ),
         });
       });
@@ -100,7 +102,7 @@ const MyBookings = ({ data }: Props) => {
       <h1 className='my-5'>My Bookings</h1>
       <MDBDataTable
         data={setBookings()}
-        className='px-3'
+        className={styles.dataTable}
         bordered
         striped
         hover
