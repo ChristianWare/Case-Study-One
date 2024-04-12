@@ -23,11 +23,11 @@ const getRooms = async () => {
 };
 
 export default async function PropertiesPage() {
-  // const data = await getRooms();
+  const data = await getRooms();
 
-  // if (data?.errMessage) {
-  //   return <Error error={data} />;
-  // }
+  if (data?.errMessage) {
+    return <Error error={data} />;
+  }
 
   return (
     <>
@@ -39,7 +39,7 @@ export default async function PropertiesPage() {
                 available for you to enjoy. Feel free to reach out with
                 questions.'
           />
-          {/* <Properties data={data} /> */}
+          <Properties data={data} />
         </ContentPadding>
       </LayoutWrapper>
       <Faqs />
