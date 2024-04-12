@@ -8,7 +8,7 @@ import Error from "../error";
 import Properties from "../../components/Properties/Properties";
 import { revalidatePath } from "next/cache";
 
-// export const revalidate = 0;
+export const revalidate = 0;
 export const dynamic = "force-static";
 
 const getRooms = async () => {
