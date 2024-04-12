@@ -34,8 +34,8 @@ const Header = () => {
                 style={{ cursor: "pointer" }}
                 src='/images/bookit_logo.png'
                 alt='BookIT'
-                width='145'
-                height='33'
+                width={145}
+                height={33}
               />
             </Link>
           </div>

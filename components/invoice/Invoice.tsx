@@ -50,7 +50,12 @@ const Invoice = ({ data }: Props) => {
           <div id='booking_invoice' className='px-4 border border-secondary'>
             <header className='clearfix'>
               <div id='logo' className='my-4'>
-                <Image src='/images/bookit_logo.png' alt='bookingLogo' />
+                <Image
+                  src='/images/bookit_logo.png'
+                  alt='bookingLogo'
+                  width={50}
+                  height={50}
+                />
               </div>
               <h1>INVOICE # {booking?._id}</h1>
               <div id='company' className='clearfix'>

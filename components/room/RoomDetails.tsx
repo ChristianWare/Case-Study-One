@@ -4,7 +4,7 @@ import StarRatings from "react-star-ratings";
 import { IRoom } from "../../backend/models/room";
 import RoomImageSlider from "./RoomImageSlider";
 import RoomFeatures from "./RoomFeatures";
-import BookingDatePicker from "./BookingDatePicker";
+import BookingDatePicker from "../BookingDatePicker/BookingDatePicker";
 import ListReviews from "../review/ListReviews";
 import NewReview from "../review/NewReview";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
