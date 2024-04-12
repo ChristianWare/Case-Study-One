@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
-import ContentPadding from "../ContentPadding/ContentPadding";
+import styles from "./UserSidebar.module.css";
 
 const AdminSidebar = () => {
   const pathname = usePathname();
@@ -44,14 +43,12 @@ const AdminSidebar = () => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       {menuItem.map((x, index) => (
         <Link
           key={index}
           href={x.url}
-          className={`fw-bold list-group-item list-group-item-action ${
-            activeMenuItem.includes(x.url) ? "active" : ""
-          }`}
+          className={activeMenuItem === x.url ? styles.active : styles.btn}
           onClick={() => handleMenuItemClick(x.url)}
           aria-current={activeMenuItem.includes(x.url) ? "true" : "false"}
         >
@@ -59,7 +56,7 @@ const AdminSidebar = () => {
           {x.name}
         </Link>
       ))}
-    </>
+    </div>
   );
 };
 export default AdminSidebar;

@@ -237,7 +237,7 @@ input:focus {
   width: 80px;
   height: 80px;
   margin: 110px auto 0;
-  border: solid 6px #e61e4d;
+  border: solid 6px var(--purple);
   border-radius: 50%;
   border-right-color: transparent;
   border-bottom-color: transparent;
@@ -666,7 +666,6 @@ input:focus {
     left: -7px;
   }
 }
-
 
 .dataTables_info {
   /* display: none; */

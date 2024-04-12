@@ -9,6 +9,9 @@ import { SalesChart } from "../charts/SalesCharts";
 import { useLazyGetSalesStatsQuery } from "../../redux/api/bookingApi";
 import toast from "react-hot-toast";
 import Loading from "../../app/loading";
+import styles from "./AllBookings";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
 
 const Dashboard = () => {
   const [startDate, setStartDate] = useState(new Date());
