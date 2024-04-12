@@ -37,7 +37,7 @@ export default async function PropertiesPage() {
             heading='All properties for rent'
             copy='Here is a comprehensive list of all the properties we have
                 available for you to enjoy. Feel free to reach out with
-                questions.'
+                questions. '
           />
           <Properties data={data} />
         </ContentPadding>
