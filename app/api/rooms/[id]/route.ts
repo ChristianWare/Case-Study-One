@@ -18,6 +18,6 @@ router.get(getRoomDetails);
 export async function GET(
   request: NextRequest,
   ctx: RequestContext
-): Promise<void | Response> {
-  return router.run(request, ctx) as Promise<void | Response>;
+): Promise<Response> {
+  return router.run(request, ctx) as Promise<Response>;
 }
