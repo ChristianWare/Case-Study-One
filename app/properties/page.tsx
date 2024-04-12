@@ -8,7 +8,7 @@ import Error from "../error";
 import Properties from "../../components/Properties/Properties";
 
 export const revalidate = 0;
-export const dynamic = "force-static";
+// export const dynamic = "force-static";
 
 const getRooms = async () => {
   try {
