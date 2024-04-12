@@ -14,4 +14,4 @@ export const dbConnect = async () => {
   }
 };
 
-export default models; // Export the initialized models for use in other parts of your application
+export default models;
