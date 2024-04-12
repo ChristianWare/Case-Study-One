@@ -1,4 +1,9 @@
 import mongoose from "mongoose";
+import room, { IRoom } from "../models/room";
+
+const models = {
+  Room: mongoose.models.Room || mongoose.model<IRoom>("Room", room as any),
+};
 
 export const dbConnect = async () => {
   try {
@@ -8,3 +13,5 @@ export const dbConnect = async () => {
     console.log(error);
   }
 };
+
+export default models; // Export the initialized models for use in other parts of your application
