@@ -1,4 +1,4 @@
-import UpdateProfile from "../../../components/user/UpdateProfile";
+import UpdateProfile from "../../../components/UpdateProfile/UpdateProfile";
 
 export const metadata = {
   title: "Update Profile",

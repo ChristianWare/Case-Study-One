@@ -2,6 +2,7 @@ import UserSidebar from "../../components/layout/UserSidebar";
 import { ReactNode } from "react";
 import LayoutWrapper from "../../components/LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../../components/ContentPadding/ContentPadding";
+import FinalCTA1 from "../../components/FinalCTA1/FinalCTA1";
 
 interface Props {
   children: ReactNode;
@@ -9,22 +10,25 @@ interface Props {
 
 const UserLayout = ({ children }: Props) => {
   return (
-    <LayoutWrapper>
-      <ContentPadding>
-        <div className='mt-2 mb-4 bg-light py-4'>
-          <h2 className='text-secondary text-center'>User Settings</h2>
-        </div>
-
-        <div className='container'>
-          <div className='row justify-content-around'>
-            <div className='col-12 col-lg-3'>
-              <UserSidebar />
-            </div>
-            <div className='col-12 col-lg-8 user-dashboard'>{children}</div>
+    <>
+      <LayoutWrapper>
+        <ContentPadding>
+          <div className='mt-2 mb-4 bg-light py-4'>
+            <h1 className='text-secondary text-center'>User Settings</h1>
           </div>
-        </div>
-      </ContentPadding>
-    </LayoutWrapper>
+
+          <div className='container'>
+            <div className='row justify-content-around'>
+              <div className='col-12 col-lg-3'>
+                <UserSidebar />
+              </div>
+              <div className='col-12 col-lg-8 user-dashboard'>{children}</div>
+            </div>
+          </div>
+      <FinalCTA1 />
+        </ContentPadding>
+      </LayoutWrapper>
+    </>
   );
 };
 export default UserLayout;

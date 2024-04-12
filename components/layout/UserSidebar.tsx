@@ -42,7 +42,7 @@ const UserSidebar = () => {
           onClick={() => handleMenuItemClick(x.url)}
           aria-current={activeMenuItem === x.url ? "true" : "false"}
         >
-          <i className={`${x.icon} fa-fw pe-2`}></i>
+          <i className={`${x.icon} fa-fw pe-2 mr-10`}></i>
           {x.name}
         </Link>
       ))}

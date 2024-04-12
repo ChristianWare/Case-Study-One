@@ -9,9 +9,11 @@ import {
 } from "../../redux/api/userApi";
 import { setUser } from "../../redux/features/userSlice";
 import toast from "react-hot-toast";
-import ButtonLoader from "../layout/ButtonLoader";
 import Image from "next/image";
 import styles from "./UploadAvatar.module.css";
+import FalseButton from "../FalseButton/FalseButton";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
 
 const UploadAvatar = () => {
   const dispatch = useAppDispatch();
@@ -72,13 +74,12 @@ const UploadAvatar = () => {
   };
 
   return (
-    <div className='row wrapper'>
-      <div className='col-10 col-lg-8'>
-        <form className='shadow rounded bg-body' onSubmit={submitHandler}>
-          <h2 className='mb-4'>Current Avatar</h2>
-
+    <LayoutWrapper>
+      <ContentPadding>
+        <h2 className={styles.heading}>Update Profile Picture</h2>
+        <form className={styles.container} onSubmit={submitHandler}>
           <div className='form-group'>
-            <div className='d-flex align-items-center'>
+            <div className={styles.box}>
               <div className={styles.avatarContainer}>
                 <Image
                   src={avatarPreview}
@@ -87,7 +88,7 @@ const UploadAvatar = () => {
                   fill
                 />
               </div>
-              <div className='input-foam'>
+              <div className={styles.lableInputBox}>
                 <label className='form-label' htmlFor='customFile'>
                   Choose a new Avatar
                 </label>
@@ -102,17 +103,16 @@ const UploadAvatar = () => {
               </div>
             </div>
           </div>
-
-          <button
-            type='submit'
-            className='btn form-btn w-100 py-2'
-            disabled={isLoading}
-          >
-            {isLoading ? <ButtonLoader /> : "Upload"}
-          </button>
+          <div className={styles.btnContainer}>
+            <FalseButton
+              btnType='secondary'
+              text={isLoading ? "Loading..." : "Upload"}
+              disabled={isLoading}
+            />
+          </div>
         </form>
-      </div>
-    </div>
+      </ContentPadding>
+    </LayoutWrapper>
   );
 };
 export default UploadAvatar;

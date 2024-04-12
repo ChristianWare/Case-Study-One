@@ -18,6 +18,10 @@
   line-height: 100%;
   white-space: nowrap;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .btn:hover {
@@ -32,10 +36,9 @@
   border-radius: 5px;
   line-height: 100%;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   transition: all 0.2s ease;
-}
-
-.active:hover {
-  background-color: var(--white);
-  color: var(--black);
 }

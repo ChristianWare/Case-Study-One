@@ -12,12 +12,14 @@ import ButtonLoader from "../layout/ButtonLoader";
 import { setUser } from "../../redux/features/userSlice";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
+import styles from "./UpdateProfile.module.css";
+import FalseButton from "../FalseButton/FalseButton";
 
 const UpdateProfile = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
+  // const [nameError, setNameError] = useState("");
+  // const [emailError, setEmailError] = useState("");
 
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -71,48 +73,41 @@ const UpdateProfile = () => {
   };
 
   return (
-    <LayoutWrapper>
-      <ContentPadding>
-        <form className='shadow rounded bg-body' onSubmit={submitHandler}>
-          <h2 className='mb-4'>Update Profile</h2>
+      <LayoutWrapper>
+        <ContentPadding>
+          <h2 className={styles.heading}>Update Profile Name</h2>
+          <form className={styles.container} onSubmit={submitHandler}>
+            <div className={styles.lableInputBox}>
+              <label htmlFor='name_field'>Name</label>
+              <input
+                type='text'
+                id='name_field'
+                name='name'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
 
-          <div className='mb-3'>
-            <label htmlFor='name_field' className='form-label'>
-              Name
-            </label>
-            <input
-              type='text'
-              id='name_field'
-              className='form-control'
-              name='name'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-
-          <div className='mb-3'>
-            <label htmlFor='email_field' className='form-label'>
-              Email
-            </label>
-            <input
-              type='email'
-              id='email_field'
-              className='form-control'
-              name='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <button
-            type='submit'
-            className='btn form-btn w-100 py-2'
-            disabled={isLoading}
-          >
-            {isLoading ? <ButtonLoader /> : "Update"}
-          </button>
-        </form>
-      </ContentPadding>
-    </LayoutWrapper>
+            <div className={styles.lableInputBox}>
+              <label htmlFor='email_field'>Email</label>
+              <input
+                type='email'
+                id='email_field'
+                name='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className={styles.btnContainer}>
+              <FalseButton
+                btnType='secondary'
+                text={isLoading ? "Loading..." : "Update"}
+              />
+            </div>
+          </form>
+        </ContentPadding>
+      </LayoutWrapper>
   );
+  2;
 };
 export default UpdateProfile;

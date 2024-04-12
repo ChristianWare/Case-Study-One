@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
+import styles from "./UpdatePassword.module.css";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
+import FalseButton from "../FalseButton/FalseButton";
 
 const UpdatePassword = () => {
   const [password, setPassword] = useState("");
@@ -38,12 +42,12 @@ const UpdatePassword = () => {
   };
 
   return (
-    <div className='row wrapper'>
-      <div className='col-10 col-lg-8'>
-        <form className='shadow rounded bg-body' onSubmit={submitHandler}>
-          <h2 className='mb-4'>Change Password</h2>
+    <LayoutWrapper>
+      <ContentPadding>
+        <h2 className={styles.heading}>Change Password</h2>
 
-          <div className='mb-3'>
+        <form className={styles.container} onSubmit={submitHandler}>
+          <div className={styles.lableInputBox}>
             <label className='form-label' htmlFor='old_password_field'>
               Old Password
             </label>
@@ -57,7 +61,7 @@ const UpdatePassword = () => {
             />
           </div>
 
-          <div className='mb-3'>
+          <div className={styles.lableInputBox}>
             <label className='form-label' htmlFor='new_password_field'>
               New Password
             </label>
@@ -71,16 +75,22 @@ const UpdatePassword = () => {
             />
           </div>
 
-          <button
+          {/* <button
             type='submit'
             className='btn form-btn w-100 py-2'
             disabled={isLoading}
           >
             {isLoading ? <ButtonLoader /> : "Set Password"}
-          </button>
+          </button> */}
+          <div className={styles.btnContainer}>
+            <FalseButton
+              btnType='secondary'
+              text={isLoading ? "Loading..." : "Set Password"}
+            />
+          </div>
         </form>
-      </div>
-    </div>
+      </ContentPadding>
+    </LayoutWrapper>
   );
 };
 export default UpdatePassword;
