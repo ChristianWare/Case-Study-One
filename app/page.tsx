@@ -74,6 +74,7 @@ export default async function Home() {
       <BlogSection blogData={blogs} />
       <FinalCTA1 />
       <FinalCTA2 />
+      
     </div>
   );
 }
