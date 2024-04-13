@@ -37,17 +37,3 @@
 .btnContainer {
   width: 100%;
 }
-
-@media screen and (max-width: 1268px) {
-  .container {
-    padding-left: 10rem;
-    padding-right: 10rem;
-  }
-}
-
-@media screen and (max-width: 968px) {
-  .container {
-    padding-left: 0rem;
-    padding-right: 0rem;
-  }
-}

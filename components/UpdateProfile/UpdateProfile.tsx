@@ -73,7 +73,7 @@ const UpdateProfile = () => {
   };
 
   return (
-      <LayoutWrapper>
+      <>
         <ContentPadding>
           <h2 className={styles.heading}>Update Profile Name</h2>
           <form className={styles.container} onSubmit={submitHandler}>
@@ -106,7 +106,7 @@ const UpdateProfile = () => {
             </div>
           </form>
         </ContentPadding>
-      </LayoutWrapper>
+      </>
   );
   2;
 };
