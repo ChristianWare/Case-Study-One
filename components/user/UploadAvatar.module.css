@@ -1,11 +1,10 @@
 .heading {
   text-align: center;
+  font-size: 3rem;
   margin-bottom: 3rem;
 }
 
 .container {
-  padding-left: 30rem;
-  padding-right: 30rem;
   width: 100%;
 }
 

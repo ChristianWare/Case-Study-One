@@ -1,0 +1,5 @@
+.bottom {
+  display: grid;
+  grid-template-columns:2fr 4fr;
+  grid-gap: 2rem;
+}
