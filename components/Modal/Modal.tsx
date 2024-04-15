@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import styles from "./Modal.module.css";
+import Close from "../../public/icons/close.svg";
 
 interface Props {
   isOpen: Boolean;
@@ -34,8 +35,13 @@ export default function Modal({ isOpen, onClose, children }: Props) {
   return (
     <div className={styles.modalBackdrop}>
       <div className={styles.modalContent}>
-        <button onClick={onClose}>Close</button>
-        {children}
+        <button
+          onClick={onClose}
+          style={{ marginBottom: "10px", cursor: "pointer" }}
+        >
+          <Close width={30} height={30} />
+        </button>
+        <div className={styles.children}>{children}</div>
       </div>
     </div>
   );

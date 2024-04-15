@@ -5,8 +5,12 @@ import { useDeleteRoomMutation } from "../../redux/api/roomApi";
 import { MDBDataTable } from "mdbreact";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
+import styles from "./AllRooms.module.css";
+import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
+import FalseButton from "../FalseButton/FalseButton";
 
 interface Props {
   data: {
@@ -17,6 +21,7 @@ interface Props {
 const AllRooms = ({ data }: Props) => {
   const rooms = data?.rooms;
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [deleteRoom, { error, isSuccess }] = useDeleteRoomMutation();
 
@@ -35,17 +40,17 @@ const AllRooms = ({ data }: Props) => {
     const data: { columns: any[]; rows: any[] } = {
       columns: [
         {
-          label: "Room ID",
+          label: <div className={styles.theadContainer}>Room ID</div>,
           field: "id",
           sort: "asc",
         },
         {
-          label: "Name",
+          label: <div className={styles.theadContainer}>Name</div>,
           field: "name",
           sort: "asc",
         },
         {
-          label: "Actions",
+          label: <div className={styles.theadContainer}>Actions</div>,
           field: "actions",
           sort: "asc",
         },
@@ -63,26 +68,47 @@ const AllRooms = ({ data }: Props) => {
           id: room._id,
           name: room.name,
           actions: (
-            <>
-              <Link
-                href={`/admin/rooms/${room._id}`}
-                className='btn btn-outline-primary'
-              >
+            <div className={styles.actions}>
+              <Link href={`/admin/rooms/${room._id}`} className=''>
                 <i className='fa fa-pencil'></i>
               </Link>
               <Link
                 href={`/admin/rooms/${room._id}/upload_images`}
-                className='btn btn-outline-success ms-2'
+                className=''
               >
                 <i className='fa fa-images'></i>
               </Link>
-              <button
-                className='btn btn-outline-danger ms-2'
-                onClick={() => deleteRoomHandler(room._id)}
+              <Modal
+                onClose={() => {
+                  setIsModalOpen(false);
+                }}
+                isOpen={isModalOpen}
               >
-                <i className='fa fa-trash'></i>
-              </button>
-            </>
+                <p>
+                  Are you sure you want to delete room? This can not be undone.{" "}
+                </p>
+                <div className={styles.btnContainer}>
+                  <FalseButton
+                    btnType='secondary'
+                    text='Delete Room'
+                    onClick={() => deleteRoomHandler(room._id)}
+                  />
+                  <FalseButton
+                    btnType='primary'
+                    text='Cancel'
+                    onClick={() => setIsModalOpen(false)}
+                  />
+                </div>{" "}
+              </Modal>
+              <div className={styles.trash}>
+                <i
+                  onClick={() => {
+                    setIsModalOpen(true);
+                  }}
+                  className='fa fa-trash'
+                ></i>
+              </div>
+            </div>
           ),
         });
       });
@@ -92,21 +118,34 @@ const AllRooms = ({ data }: Props) => {
 
   const deleteRoomHandler = (id: string) => {
     deleteRoom(id);
+    setIsModalOpen(false);
   };
 
   return (
     <div>
-      <h1 className='my-5 position-relative'>
-        {`${rooms?.length} Rooms`}
-        <Link
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "50px",
+        }}
+      >
+        <h2 className=''>{`${rooms?.length} Rooms`}</h2>
+        <Button
+          text='Create room'
+          btnType='secondary'
           href='/admin/rooms/new'
-          className='mt-0 btn text-white position-absolute end-0 form-btn'
-        >
-          Create Room
-        </Link>
-      </h1>
+        />
+      </div>
 
-      <MDBDataTable data={setRooms()} className='px-3' bordered striped hover />
+      <MDBDataTable
+        data={setRooms()}
+        className={styles.dataTable}
+        bordered
+        striped
+        hover
+      />
     </div>
   );
 };
