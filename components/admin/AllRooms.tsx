@@ -22,6 +22,7 @@ interface Props {
 const AllRooms = ({ data }: Props) => {
   const rooms = data?.rooms;
   const router = useRouter();
+  const [modalRoomId, setModalRoomId] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenii, setIsModalOpenii] = useState(false);
 
@@ -37,6 +38,15 @@ const AllRooms = ({ data }: Props) => {
       toast.success("Room deleted");
     }
   }, [error, isSuccess, router]);
+
+  const deleteRoomHandler = (id: string) => {
+    deleteRoom(id);
+  };
+
+  const handleDeleteModal = (id: string) => {
+    setModalRoomId(id);
+    setIsModalOpen(true);
+  };
 
   const setRooms = () => {
     const data: { columns: any[]; rows: any[] } = {
@@ -80,36 +90,9 @@ const AllRooms = ({ data }: Props) => {
               >
                 <i className='fa fa-images'></i>
               </Link>
-              <Modal
-                onClose={() => {
-                  setIsModalOpen(false);
-                }}
-                isOpen={isModalOpen}
-              >
-                <p>
-                  Are you sure you want to delete room? This can not be undone.{" "}
-                </p>
-                <div className={styles.btnContainer}>
-                  <FalseButton
-                    btnType='secondary'
-                    text='Delete Room'
-                    onClick={() => {
-                      deleteRoomHandler(room._id);
-                      setIsModalOpen(false);
-                    }}
-                  />
-                  <FalseButton
-                    btnType='primary'
-                    text='Cancel'
-                    onClick={() => setIsModalOpen(false)}
-                  />
-                </div>{" "}
-              </Modal>
               <div className={styles.trash}>
                 <i
-                  onClick={() => {
-                    setIsModalOpen(true);
-                  }}
+                  onClick={() => handleDeleteModal(room._id)}
                   className='fa fa-trash'
                 ></i>
               </div>
@@ -119,11 +102,6 @@ const AllRooms = ({ data }: Props) => {
       });
 
     return data;
-  };
-
-  const deleteRoomHandler = (id: string) => {
-    deleteRoom(id);
-    // setIsModalOpen(false);
   };
 
   return (
@@ -137,16 +115,38 @@ const AllRooms = ({ data }: Props) => {
         }}
       >
         <h2 className=''>{`${rooms?.length} Rooms`}</h2>
-        {/* <Button
-          text='Create room'
-          btnType='secondary'
-          href='/admin/rooms/new'
-        /> */}
         <FalseButton
           btnType='secondary'
           text='Create Room'
           onClick={() => setIsModalOpenii(true)}
         />
+        <Modal
+          isOpen={isModalOpen && modalRoomId !== null}
+          onClose={() => {
+            setIsModalOpen(false);
+            setModalRoomId(null);
+          }}
+        >
+          <p>Are you sure you want to delete room? This can not be undone. </p>
+          <div className={styles.btnContainer}>
+            <FalseButton
+              btnType='secondary'
+              text='Delete Room'
+              onClick={() => {
+                deleteRoomHandler(modalRoomId!);
+                setIsModalOpen(false);
+              }}
+            />
+            <FalseButton
+              btnType='primary'
+              text='Cancel'
+              onClick={() => {
+                setIsModalOpen(false);
+                setModalRoomId(null);
+              }}
+            />
+          </div>{" "}
+        </Modal>
         <Modal
           onClose={() => {
             setIsModalOpenii(false);
