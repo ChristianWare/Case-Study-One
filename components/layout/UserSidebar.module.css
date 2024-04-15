@@ -9,21 +9,21 @@
   background-color: var(--purple2);
   padding: 2rem;
   border-radius: 10px;
-  flex-wrap: wrap;
 }
 
-.btn {
+.btn,
+.active {
   background-color: var(--white);
   padding: 1.5rem;
   border-radius: 5px;
   line-height: 100%;
   white-space: nowrap;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   width: 100%;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
@@ -34,14 +34,25 @@
 .active {
   background-color: var(--purple);
   color: var(--white);
-  padding: 1.5rem;
-  border-radius: 5px;
-  line-height: 100%;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
-  transition: all 0.2s ease;
+}
+
+@media screen and (max-width: 968px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .active,
+  .btn {
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 668px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .active, .btn {
+    width: 100%
+  }
 }

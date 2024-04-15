@@ -14,7 +14,7 @@ const UserLayout = ({ children }: Props) => {
     <LayoutWrapper>
       <ContentPadding>
         <div className='mt-2 mb-4 bg-light py-4'>
-          <h1 className='text-secondary text-center'>User Settings</h1>
+          <h1 className={styles.heading}>User Settings</h1>
         </div>
 
         <div className={styles.bottom}>

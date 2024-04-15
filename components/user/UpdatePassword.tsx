@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import styles from "./UpdatePassword.module.css";
-import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import FalseButton from "../FalseButton/FalseButton";
 
@@ -41,7 +40,6 @@ const UpdatePassword = () => {
   };
 
   return (
-    <LayoutWrapper>
       <ContentPadding>
         <h2 className={styles.heading}>Change Password</h2>
 
@@ -89,7 +87,6 @@ const UpdatePassword = () => {
           </div>
         </form>
       </ContentPadding>
-    </LayoutWrapper>
   );
 };
 export default UpdatePassword;

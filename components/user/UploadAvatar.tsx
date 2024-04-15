@@ -12,7 +12,6 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 import styles from "./UploadAvatar.module.css";
 import FalseButton from "../FalseButton/FalseButton";
-import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 
 const UploadAvatar = () => {
@@ -74,45 +73,43 @@ const UploadAvatar = () => {
   };
 
   return (
-    <LayoutWrapper>
-      <ContentPadding>
-        <h2 className={styles.heading}>Update Profile Picture</h2>
-        <form className={styles.container} onSubmit={submitHandler}>
-          <div className='form-group'>
-            <div className={styles.box}>
-              <div className={styles.avatarContainer}>
-                <Image
-                  src={avatarPreview}
-                  className={styles.img}
-                  alt='image'
-                  fill
-                />
-              </div>
-              <div className={styles.lableInputBox}>
-                <label className='form-label' htmlFor='customFile'>
-                  Choose a new Avatar
-                </label>
-                <input
-                  type='file'
-                  name='avatar'
-                  className='form-control'
-                  id='customFile'
-                  accept='images/*'
-                  onChange={onChange}
-                />
-              </div>
+    <ContentPadding>
+      <h2 className={styles.heading}>Update Profile Picture</h2>
+      <form className={styles.container} onSubmit={submitHandler}>
+        <div className='form-group'>
+          <div className={styles.box}>
+            <div className={styles.avatarContainer}>
+              <Image
+                src={avatarPreview}
+                className={styles.img}
+                alt='image'
+                fill
+              />
+            </div>
+            <div className={styles.lableInputBox}>
+              <label className='form-label' htmlFor='customFile'>
+                Choose a new Avatar
+              </label>
+              <input
+                type='file'
+                name='avatar'
+                className='form-control'
+                id='customFile'
+                accept='images/*'
+                onChange={onChange}
+              />
             </div>
           </div>
-          <div className={styles.btnContainer}>
-            <FalseButton
-              btnType='secondary'
-              text={isLoading ? "Loading..." : "Upload"}
-              disabled={isLoading}
-            />
-          </div>
-        </form>
-      </ContentPadding>
-    </LayoutWrapper>
+        </div>
+        <div className={styles.btnContainer}>
+          <FalseButton
+            btnType='secondary'
+            text={isLoading ? "Loading..." : "Upload"}
+            disabled={isLoading}
+          />
+        </div>
+      </form>
+    </ContentPadding>
   );
 };
 export default UploadAvatar;
