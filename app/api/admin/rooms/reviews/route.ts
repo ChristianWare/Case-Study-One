@@ -28,11 +28,9 @@ export async function GET(
   return router.run(request, ctx) as Promise<void | Response>;
 }
 
-
 export async function DELETE(
   request: NextRequest,
   ctx: RequestContext
 ): Promise<void | Response> {
   return router.run(request, ctx) as Promise<void | Response>;
 }
-

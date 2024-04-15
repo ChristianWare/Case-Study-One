@@ -4,8 +4,14 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
+import FalseButton from "../FalseButton/FalseButton";
 
-const NewRoom = () => {
+interface Props {
+  onClick?: () => void;
+  onClose?: () => void;
+}
+
+const NewRoom = ({ onClick, onClose }: Props) => {
   const [roomDetails, setRoomDetails] = useState({
     name: "",
     price: 0,
@@ -46,10 +52,12 @@ const NewRoom = () => {
     }
 
     if (isSuccess) {
-      router.push("/admin/rooms");
+      // router.push("/admin/rooms");
+      router.refresh();
       toast.success("Room created");
+       onClose?.();
     }
-  }, [error, isSuccess, router]);
+  }, [error, isSuccess, router, onClose]);
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -237,13 +245,19 @@ const NewRoom = () => {
             </div>
           ))}
 
-          <button
+          <FalseButton
+            btnType='secondary'
+            text='Create Room'
+            onClick={onClick}
+          />
+
+          {/* <button
             type='submit'
             className='btn form-btn w-100 py-2'
             disabled={isLoading}
           >
             {isLoading ? <ButtonLoader /> : "CREATE"}
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

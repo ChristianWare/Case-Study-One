@@ -141,7 +141,7 @@ export const deleteRoomImage = catchAsyncErrors(
 // Delete room details  =>  /api/admin/rooms/:id
 export const deleteRoom = catchAsyncErrors(
   async (req: NextRequest, { params }: { params: { id: string } }) => {
-    const room = await Room.findById(params.id);
+    let room = await Room.findById(params.id);
 
     if (!room) {
       throw new ErrorHandler("Room not found", 404);

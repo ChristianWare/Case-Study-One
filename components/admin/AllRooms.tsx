@@ -11,6 +11,7 @@ import styles from "./AllRooms.module.css";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import FalseButton from "../FalseButton/FalseButton";
+import NewRoom from "./NewRoom";
 
 interface Props {
   data: {
@@ -22,6 +23,7 @@ const AllRooms = ({ data }: Props) => {
   const rooms = data?.rooms;
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenii, setIsModalOpenii] = useState(false);
 
   const [deleteRoom, { error, isSuccess }] = useDeleteRoomMutation();
 
@@ -91,7 +93,10 @@ const AllRooms = ({ data }: Props) => {
                   <FalseButton
                     btnType='secondary'
                     text='Delete Room'
-                    onClick={() => deleteRoomHandler(room._id)}
+                    onClick={() => {
+                      deleteRoomHandler(room._id);
+                      setIsModalOpen(false);
+                    }}
                   />
                   <FalseButton
                     btnType='primary'
@@ -118,7 +123,7 @@ const AllRooms = ({ data }: Props) => {
 
   const deleteRoomHandler = (id: string) => {
     deleteRoom(id);
-    setIsModalOpen(false);
+    // setIsModalOpen(false);
   };
 
   return (
@@ -132,11 +137,24 @@ const AllRooms = ({ data }: Props) => {
         }}
       >
         <h2 className=''>{`${rooms?.length} Rooms`}</h2>
-        <Button
+        {/* <Button
           text='Create room'
           btnType='secondary'
           href='/admin/rooms/new'
+        /> */}
+        <FalseButton
+          btnType='secondary'
+          text='Create Room'
+          onClick={() => setIsModalOpenii(true)}
         />
+        <Modal
+          onClose={() => {
+            setIsModalOpenii(false);
+          }}
+          isOpen={isModalOpenii}
+        >
+          <NewRoom onClose={() => setIsModalOpenii(false)} />
+        </Modal>
       </div>
 
       <MDBDataTable
