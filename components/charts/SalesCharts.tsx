@@ -32,8 +32,6 @@ interface Props {
 }
 
 export function SalesChart({ salesData }: Props) {
-  console.log(salesData);
-
   const options = {
     responsive: true,
     interaction: {
