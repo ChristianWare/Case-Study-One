@@ -4,13 +4,14 @@
 }
 
 .bottom {
-  display: grid;
-  grid-template-columns: 2fr 4fr;
-  grid-gap: 2rem;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 968px) {
+  
   .bottom {
-    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
   }
 }
