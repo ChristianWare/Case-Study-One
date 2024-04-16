@@ -37,18 +37,21 @@ const Properties = ({ data }: Props) => {
             </>
           )}
         </div>
-        <div className={styles.bottom}>
-          {rooms?.length === 0 ? (
-            <div className='alret alret-danger mt-5 w-100'>
-              <b>No Rooms.</b>
-            </div>
-          ) : (
-            rooms
-              ?.slice(-3)
-              .reverse()
-              .map((room) => <PropPreviewii key={room._id} room={room} />)
-          )}
-        </div>
+        {pathname === "/" && (
+          <div className={styles.bottom}>
+            {rooms?.length === 0 ? (
+              <div className='alret alret-danger mt-5 w-100'>
+                <b>No Rooms.</b>
+              </div>
+            ) : (
+              rooms
+                ?.slice(-3)
+                .reverse()
+                .map((room) => <PropPreviewii key={room._id} room={room} />)
+            )}
+          </div>
+        )}
+
         {pathname === "/properties" && (
           <div className={styles.bottom}>
             {rooms?.length === 0 ? (
