@@ -9,8 +9,10 @@ import {
 import { useRouter } from "next/navigation";
 import { ChangeEventHandler, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import ButtonLoader from "../layout/ButtonLoader";
 import Image from "next/image";
+import styles from "./UploadRoomImages.module.css";
+import FalseButton from "../FalseButton/FalseButton";
+import Close from "../../public/icons/close.svg";
 
 interface Props {
   data: {
@@ -54,6 +56,7 @@ const UploadRoomImages = ({ data }: Props) => {
       setImagesPreview([]);
       router.refresh();
       toast.success("Images uploaded");
+      // router.push("/admin/rooms");
     }
   }, [error, isSuccess, router]);
 
@@ -114,109 +117,105 @@ const UploadRoomImages = ({ data }: Props) => {
   };
 
   return (
-    <div className='row wrapper'>
-      <div className='col-10 col-lg-7 mt-5 mt-lg-0'>
-        <form className='shadow rounded bg-body'>
-          <h2 className='mb-4'>Upload Room Images</h2>
+    <div>
+      <form className={styles.container}>
+        <h2 className={styles.heading}>Upload Room Images</h2>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='customFile' className='form-label'>
+            Choose New Images
+          </label>
+          <input
+            ref={fileInputRef}
+            type='file'
+            name='product_images'
+            id='customFile'
+            onChange={onChange}
+            onClick={handleResetFileInput}
+            multiple
+            required
+          />
 
-          <div className='form-group'>
-            <label htmlFor='customFile' className='form-label'>
-              Choose Images
-            </label>
-
-            <div className='custom-file'>
-              <input
-                ref={fileInputRef}
-                type='file'
-                name='product_images'
-                className='form-control'
-                id='customFile'
-                onChange={onChange}
-                onClick={handleResetFileInput}
-                multiple
-                required
-              />
+          {imagesPreview?.length > 0 && (
+            <div>
+              <span className={styles.msg}>New Images:</span>
+              <div className={styles.newImageGrid}>
+                {imagesPreview?.map((img, index) => (
+                  <div key={index}>
+                    <div className={styles.imgContainer}>
+                      <Image
+                        src={img}
+                        alt='Image Preview'
+                        className={styles.img}
+                        fill
+                      />
+                    </div>
+                    <button
+                      type='button'
+                      onClick={() => removeImagePreview(img)}
+                      className={styles.closeBtn}
+                    >
+                      <Close width={30} height={30} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.btnContainer}>
+                <FalseButton
+                  btnType='secondary'
+                  text={isLoading ? "Uploading..." : "Upload"}
+                  onClick={submitHandler}
+                  disabled={isLoading || isDeleteLoading}
+                />
+              </div>
             </div>
+          )}
 
-            {imagesPreview?.length > 0 && (
-              <div className='new-images mt-4'>
-                <p className='text-warning'>New Images:</p>
-                <div className='row mt-4'>
-                  {imagesPreview?.map((img, index) => (
-                    <div className='col-md-3 mt-2' key={index}>
-                      <div className='card'>
-                        <Image
-                          src={img}
-                          alt='Image Preview'
-                          className='card-img-top p-2'
-                          width='200'
-                          height='200'
-                          // style={{ width: "100%", height: "80px" }}
-                        />
-                        <button
-                          style={{
-                            backgroundColor: "#dc3545",
-                            borderColor: "#dc3545",
-                          }}
-                          type='button'
-                          className='btn btn-block btn-danger cross-button mt-1 py-0'
-                          onClick={() => removeImagePreview(img)}
-                        >
-                          <i className='fa fa-times'></i>
-                        </button>
-                      </div>
+          {uploadImages?.length > 0 && (
+            <div className={styles.imgGridContainer}>
+              <span>Current Images:</span>
+              <div className={styles.imageGrid}>
+                {uploadImages?.map((img, index) => (
+                  <div key={index}>
+                    <div className={styles.imgContainer}>
+                      <Image
+                        src={img?.url}
+                        alt={img?.url}
+                        className={styles.img}
+                        fill
+                      />
                     </div>
-                  ))}
-                </div>
+                    <button
+                      onClick={() => handleImageDelete(img.public_id)}
+                      disabled={isDeleteLoading || isLoading}
+                      className={styles.closeBtn}
+                    >
+                      <Close width={30} height={30} />
+                    </button>
+                  </div>
+                ))}
               </div>
-            )}
+            </div>
+          )}
+        </div>
 
-            {uploadImages?.length > 0 && (
-              <div className='uploaded-images mt-4'>
-                <p className='text-success'>Room Uploaded Images:</p>
-                <div className='row mt-1'>
-                  {uploadImages?.map((img, index) => (
-                    <div className='col-md-3 mt-2' key={index}>
-                      <div className='card'>
-                        <Image
-                          src={img?.url}
-                          alt={img?.url}
-                          className='card-img-top p-2'
-                          width='200'
-                          height='200'
-                          // style={{ width: "100%", height: "80px" }}
-                        />
-                        <button
-                          style={{
-                            backgroundColor: "#dc3545",
-                            borderColor: "#dc3545",
-                          }}
-                          className='btn btn-block btn-danger cross-button mt-1 py-0'
-                          onClick={() => handleImageDelete(img.public_id)}
-                          disabled={isDeleteLoading || isLoading}
-                        >
-                          <i className='fa fa-trash'></i>
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
-          <button
-            id='register_button'
-            type='submit'
-            className='btn form-btn w-100 py-2'
+        {/* <button
+          id='register_button'
+          type='submit'
+          className='btn form-btn w-100 py-2'
+          onClick={submitHandler}
+          disabled={isLoading || isDeleteLoading}
+        >
+          {isLoading ? <ButtonLoader /> : "Upload"}
+        </button> */}
+        {/* <div className={styles.btnContainer}>
+          <FalseButton
+            btnType='secondary'
+            text={isLoading ? "Uploading..." : "Upload"}
             onClick={submitHandler}
             disabled={isLoading || isDeleteLoading}
-          >
-            {isLoading ? <ButtonLoader /> : "Upload"}
-            {/* Upload */}
-          </button>
-        </form>
-      </div>
+          />
+        </div> */}
+      </form>
     </div>
   );
 };

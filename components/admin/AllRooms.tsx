@@ -142,7 +142,7 @@ const AllRooms = ({ data }: Props) => {
           <div className={styles.btnContainer}>
             <FalseButton
               btnType='secondary'
-              text={isLoading ? "Deleting..." : "Delete Room"}
+              text={isLoading ? "Deleting..." : "Delete Property"}
               onClick={() => deleteRoomHandler(modalRoomId!)}
               disabled={isLoading}
             />

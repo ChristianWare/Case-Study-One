@@ -12,10 +12,9 @@ interface Props {
     room: IRoom;
   };
   onClick?: () => void;
-  onClose?: () => void;
 }
 
-const UpdateRoom = ({ data, onClick, onClose }: Props) => {
+const UpdateRoom = ({ data, onClick }: Props) => {
   const room = data?.room;
 
   const [roomDetails, setRoomDetails] = useState({
@@ -62,7 +61,7 @@ const UpdateRoom = ({ data, onClick, onClose }: Props) => {
     if (isSuccess) {
       router.refresh();
       toast.success("Room updated");
-      router.push("/admin/rooms");
+      // router.push("/admin/rooms");
     }
   }, [error, isSuccess, router]);
 
