@@ -238,7 +238,6 @@ const NewRoom = ({ onClick, onClose }: Props) => {
         <div className={styles.btnContainer}>
           <FalseButton
             btnType='secondary'
-            // text='Create Property'
             text={isLoading ? "Creating..." : "Create Property"}
             onClick={onClick}
           />

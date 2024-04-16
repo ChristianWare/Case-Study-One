@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
+import styles from "./RoomReviews.module.css";
+import FalseButton from "../FalseButton/FalseButton";
 
 const RoomReviews = () => {
   const [roomId, setRoomId] = useState("");
@@ -41,22 +43,22 @@ const RoomReviews = () => {
     const data: { columns: any[]; rows: any[] } = {
       columns: [
         {
-          label: "ID",
+          label: <div className={styles.theadContainer}>ID</div>,
           field: "id",
           sort: "asc",
         },
         {
-          label: "Rating",
+          label: <div className={styles.theadContainer}>Rating</div>,
           field: "rating",
           sort: "asc",
         },
         {
-          label: "Comment",
+          label: <div className={styles.theadContainer}>Comment</div>,
           field: "comment",
           sort: "asc",
         },
         {
-          label: "Actions",
+          label: <div className={styles.theadContainer}>Actions</div>,
           field: "actions",
           sort: "asc",
         },
@@ -73,7 +75,6 @@ const RoomReviews = () => {
         actions: (
           <div className='d-flex'>
             <button
-              className='btn btn-outline-danger mx-2'
               disabled={isLoading}
               onClick={() => deleteReviewHandler(review?._id)}
             >
@@ -94,38 +95,32 @@ const RoomReviews = () => {
   return (
     <LayoutWrapper>
       <ContentPadding>
-        <div className='row justify-content-center mt-5'>
-          <div className='col-6'>
-            <div className='form-check'>
+        <div>
+          <div>
+            <div className={styles.lableInputBox}>
               <label htmlFor='roomId_field'>Enter Room ID</label>
               <input
                 type='text'
                 id='roomId_field'
-                className='form-control'
                 value={roomId}
                 onChange={(e) => setRoomId(e.target.value)}
               />
 
-              <button
-                className='btn form-btn w-100 py-2 mt-3'
-                onClick={getRoomReviewsHandler}
-              >
-                Fetch Reviews
-              </button>
+              <div className={styles.btnContainer}>
+                <FalseButton
+                  btnType='secondary'
+                  text={isLoading ? "Fetching..." : "Fetch Reviews"}
+                  onClick={getRoomReviewsHandler}
+                />
+              </div>
             </div>
           </div>
         </div>
 
         {reviews?.length > 0 ? (
-          <MDBDataTable
-            data={setReviews()}
-            className='px-3'
-            bordered
-            striped
-            hover
-          />
+          <MDBDataTable data={setReviews()} className={styles.dataTable} />
         ) : (
-          <h5 className='mt-5 text-center'>No Reviews</h5>
+          <div>No Reviews</div>
         )}
       </ContentPadding>
     </LayoutWrapper>

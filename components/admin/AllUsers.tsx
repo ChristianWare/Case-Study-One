@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import styles from "./AllUsers.module.css";
 
 interface Props {
   data: {
@@ -42,28 +43,28 @@ const AllUsers = ({ data }: Props) => {
     const data: { columns: any[]; rows: any[] } = {
       columns: [
         {
-          label: "ID",
+          label: <div className={styles.theadContainer}>ID</div>,
           field: "id",
           sort: "asc",
         },
         {
-          label: "Name",
+          label: <div className={styles.theadContainer}>Name</div>,
           field: "name",
           sort: "asc",
         },
         {
-          label: "Email",
+          label: <div className={styles.theadContainer}>Email</div>,
           field: "email",
           sort: "asc",
         },
         {
-          label: "Role",
+          label: <div className={styles.theadContainer}>Role</div>,
           field: "role",
           sort: "asc",
         },
 
         {
-          label: "Actions",
+          label: <div className={styles.theadContainer}>Actions</div>,
           field: "actions",
           sort: "asc",
         },
@@ -84,7 +85,7 @@ const AllUsers = ({ data }: Props) => {
           role: user?.role,
 
           actions: (
-            <div className='d-flex'>
+            <div className={styles.actions}>
               <Link
                 href={`/admin/users/${user._id}`}
                 className='btn btn-outline-primary'
@@ -114,7 +115,7 @@ const AllUsers = ({ data }: Props) => {
   return (
     <div className='container'>
       <h1 className='my-5'>{users?.length} Users</h1>
-      <MDBDataTable data={setUsers()} className='px-3' bordered striped hover />
+      <MDBDataTable data={setUsers()} className={styles.dataTable} />
     </div>
   );
 };
