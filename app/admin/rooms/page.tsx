@@ -1,5 +1,4 @@
 import Error from "../../error";
-import Home from "../../../components/Home";
 import AllRooms from "../../../components/admin/AllRooms";
 import { getAuthHeader } from "../../../helpers/authHeaders";
 

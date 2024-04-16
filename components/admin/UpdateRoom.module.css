@@ -13,6 +13,9 @@
   justify-content: flex-start;
   gap: 2rem;
   width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10rem;
 }
 
 .lableInputBox {
@@ -45,12 +48,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    width: 80vw;
-  }
-}
-
-@media screen and (max-width: 568px) {
-  .container {
-    width: 70vw;
+    width: 100%;
+    padding: 3rem;
   }
 }

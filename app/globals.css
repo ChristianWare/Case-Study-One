@@ -98,8 +98,10 @@ textarea {
   line-height: 1.8em;
 }
 
-input:focus {
-  outline: none;
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1px solid var(--purple);
 }
 
 /* ::-webkit-scrollbar-thumb {

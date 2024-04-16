@@ -13,7 +13,9 @@ const AdminLayout = ({ children }: Props) => {
   return (
     <LayoutWrapper>
       <ContentPadding>
-        <h1 className={styles.heading}>Admin Dashboard</h1>
+        <div>
+          <h1 className={styles.heading}>Admin Dashboard</h1>
+        </div>
         <div className={styles.content}>
           <div>
             <AdminSidebar />

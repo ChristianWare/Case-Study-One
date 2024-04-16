@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import styles from "./AllRooms.module.css";
-import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import FalseButton from "../FalseButton/FalseButton";
 import NewRoom from "./NewRoom";
@@ -26,7 +25,7 @@ const AllRooms = ({ data }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpenii, setIsModalOpenii] = useState(false);
 
-  const [deleteRoom, { error, isSuccess }] = useDeleteRoomMutation();
+  const [deleteRoom, { isLoading, error, isSuccess }] = useDeleteRoomMutation();
 
   useEffect(() => {
     if (error && "data" in error) {
@@ -39,8 +38,14 @@ const AllRooms = ({ data }: Props) => {
     }
   }, [error, isSuccess, router]);
 
-  const deleteRoomHandler = (id: string) => {
-    deleteRoom(id);
+  const deleteRoomHandler = async (id: string) => {
+    try {
+      await deleteRoom(id);
+      setIsModalOpen(false); // Close the modal after successful deletion
+    } catch (error) {
+      // Handle any errors, such as network issues or server errors
+      console.error("Error deleting room:", error);
+    }
   };
 
   const handleDeleteModal = (id: string) => {
@@ -116,12 +121,12 @@ const AllRooms = ({ data }: Props) => {
       >
         <h2 className=''>
           {rooms?.length > 1
-            ? rooms?.length + "Properties"
+            ? rooms?.length + " Properties"
             : rooms?.length + " Property"}
         </h2>
         <FalseButton
           btnType='secondary'
-          text='Create Room'
+          text='New Property'
           onClick={() => setIsModalOpenii(true)}
         />
         <Modal
@@ -131,15 +136,15 @@ const AllRooms = ({ data }: Props) => {
             setModalRoomId(null);
           }}
         >
-          <p>Are you sure you want to delete room? This can not be undone. </p>
+          <p>
+            Are you sure you want to delete property? This can not be undone.{" "}
+          </p>
           <div className={styles.btnContainer}>
             <FalseButton
               btnType='secondary'
-              text='Delete Room'
-              onClick={() => {
-                deleteRoomHandler(modalRoomId!);
-                setIsModalOpen(false);
-              }}
+              text={isLoading ? "Deleting..." : "Delete Room"}
+              onClick={() => deleteRoomHandler(modalRoomId!)}
+              disabled={isLoading}
             />
             <FalseButton
               btnType='primary'

@@ -108,7 +108,7 @@ const NewRoom = ({ onClick, onClose }: Props) => {
 
   return (
     <div>
-      <h2 className={styles.heading}>New Room</h2>
+      <h2 className={styles.heading}>New Property</h2>
       <form
         onSubmit={submitHandler}
         encType='multipart/form-data'
@@ -238,7 +238,8 @@ const NewRoom = ({ onClick, onClose }: Props) => {
         <div className={styles.btnContainer}>
           <FalseButton
             btnType='secondary'
-            text='Create Room'
+            // text='Create Property'
+            text={isLoading ? "Creating..." : "Create Property"}
             onClick={onClick}
           />
         </div>
