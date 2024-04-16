@@ -150,7 +150,7 @@ const AllBookings = ({ data }: Props) => {
           setModalBookingId(null);
         }}
       >
-        <p>Are you sure you want to delete this booking?</p>
+        <p>Are you sure you want to delete booking? This can not be undone.</p>
         <div className={styles.btnContainer}>
           <FalseButton
             btnType='secondary'

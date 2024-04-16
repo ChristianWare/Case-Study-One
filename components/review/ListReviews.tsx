@@ -8,6 +8,7 @@ interface Props {
 }
 
 const ListReviews = ({ reviews }: Props) => {
+  console.log(reviews)
   return (
     <section className={styles.container}>
       <div className=''>
@@ -19,41 +20,43 @@ const ListReviews = ({ reviews }: Props) => {
             <>
               {reviews?.map((review, index) => (
                 <div className={styles.reviewContainer} key={index}>
-                  <div className={styles.content}>
-                    <div className={styles.imgContainer}>
-                      <Image
-                        src={
-                          review?.user?.avatar
-                            ? review?.user?.avatar?.url
-                            : "/images/default_avatar.jpg"
-                        }
-                        alt={review?.user?.name}
-                        fill
-                        className={styles.img}
-                      />
+                  {review?.user !== null && (
+                    <div className={styles.content}>
+                      <div className={styles.imgContainer}>
+                        <Image
+                          src={
+                            review?.user?.avatar
+                              ? review?.user?.avatar?.url
+                              : "/images/default_avatar.jpg"
+                          }
+                          alt={review?.user?.name}
+                          fill
+                          className={styles.img}
+                        />
+                      </div>
+                      <div className={styles.topRight}>
+                        <p className={styles.reviewerName}>
+                          {review?.user?.name}
+                        </p>
+                        <p className={styles.date}>
+                          Member Since{" "}
+                          {new Date(review?.user?.createdAt).toLocaleDateString(
+                            "en-US",
+                            { month: "2-digit", year: "numeric" }
+                          )}
+                        </p>
+                        <StarRatings
+                          rating={review?.rating}
+                          starRatedColor='#7065f0'
+                          numberOfStars={5}
+                          starDimension='24px'
+                          starSpacing='1px'
+                          name='rating'
+                        />
+                        <p className={styles.comment}>{review?.comment}</p>
+                      </div>
                     </div>
-                    <div className={styles.topRight}>
-                      <p className={styles.reviewerName}>
-                        {review?.user?.name}
-                      </p>
-                      <p className={styles.date}>
-                        Member Since{" "}
-                        {new Date(review?.user?.createdAt).toLocaleDateString(
-                          "en-US",
-                          { month: "2-digit", year: "numeric" }
-                        )}
-                      </p>
-                      <StarRatings
-                        rating={review?.rating}
-                        starRatedColor='#7065f0'
-                        numberOfStars={5}
-                        starDimension='24px'
-                        starSpacing='1px'
-                        name='rating'
-                      />
-                      <p className={styles.comment}>{review?.comment}</p>
-                    </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </>

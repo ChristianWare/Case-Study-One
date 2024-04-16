@@ -5,9 +5,11 @@ import { useDeleteUserMutation } from "../../redux/api/userApi";
 import { MDBDataTable } from "mdbreact";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import styles from "./AllUsers.module.css";
+import FalseButton from "../FalseButton/FalseButton";
+import Modal from "../Modal/Modal";
 
 interface Props {
   data: {
@@ -18,6 +20,9 @@ interface Props {
 const AllUsers = ({ data }: Props) => {
   const users = data?.users;
   const router = useRouter();
+  const [modalUserId, setModalUserId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [deleteUser, { error, isLoading, isSuccess }] = useDeleteUserMutation();
 
   const formatDate = (date: any) => {
@@ -36,8 +41,18 @@ const AllUsers = ({ data }: Props) => {
     if (isSuccess) {
       router.refresh();
       toast.success("User deleted");
+      setIsModalOpen(false);
     }
   }, [error, isSuccess, router]);
+
+  const deleteUserHandler = (id: string) => {
+    deleteUser(id);
+  };
+
+  const handleDeleteModal = (id: string) => {
+    setModalUserId(id);
+    setIsModalOpen(true);
+  };
 
   const setUsers = () => {
     const data: { columns: any[]; rows: any[] } = {
@@ -94,9 +109,9 @@ const AllUsers = ({ data }: Props) => {
               </Link>
 
               <button
-                className='btn btn-outline-danger mx-2'
+                className={styles.trash}
                 disabled={isLoading}
-                onClick={() => deleteUserHandler(user?._id)}
+                onClick={() => handleDeleteModal(user?._id)}
               >
                 <i className='fa fa-trash'></i>
               </button>
@@ -108,14 +123,35 @@ const AllUsers = ({ data }: Props) => {
     return data;
   };
 
-  const deleteUserHandler = (id: string) => {
-    deleteUser(id);
-  };
-
   return (
     <div className='container'>
       <h2 className={styles.heading}>{users?.length} Users</h2>
       <MDBDataTable data={setUsers()} className={styles.dataTable} />
+      <Modal
+        isOpen={isModalOpen && modalUserId !== null}
+        onClose={() => {
+          setIsModalOpen(false);
+          setModalUserId(null);
+        }}
+      >
+        <p>Are you sure you want to delete user? This can not be undone.</p>
+        <div className={styles.btnContainer}>
+          <FalseButton
+            btnType='secondary'
+            text={isLoading ? "Deleting..." : "Delete User"}
+            onClick={() => deleteUserHandler(modalUserId!)}
+            disabled={isLoading}
+          />
+          <FalseButton
+            btnType='primary'
+            text='Cancel'
+            onClick={() => {
+              setIsModalOpen(false);
+              setModalUserId(null);
+            }}
+          />
+        </div>
+      </Modal>
     </div>
   );
 };

@@ -13,9 +13,12 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import styles from "./RoomReviews.module.css";
 import FalseButton from "../FalseButton/FalseButton";
+import Modal from "../Modal/Modal";
 
 const RoomReviews = () => {
   const [roomId, setRoomId] = useState("");
+  const [modalReviewId, setModalReviewId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const router = useRouter();
 
@@ -28,6 +31,15 @@ const RoomReviews = () => {
     getRoomReviews(roomId);
   };
 
+  const deleteReviewHandler = (id: string) => {
+    deleteReview({ id, roomId });
+  };
+
+  const handleDeleteModal = (id: string) => {
+    setModalReviewId(id);
+    setIsModalOpen(true);
+  };
+
   useEffect(() => {
     if (error && "data" in error) {
       toast.error(error?.data?.errMessage);
@@ -36,6 +48,7 @@ const RoomReviews = () => {
     if (isSuccess) {
       router.refresh();
       toast.success("Review deleted");
+      setIsModalOpen(false);
     }
   }, [error, isSuccess, router]);
 
@@ -76,7 +89,8 @@ const RoomReviews = () => {
           <div className='d-flex'>
             <button
               disabled={isLoading}
-              onClick={() => deleteReviewHandler(review?._id)}
+              onClick={() => handleDeleteModal(review?._id)}
+              className={styles.trash}
             >
               <i className='fa fa-trash'></i>
             </button>
@@ -86,10 +100,6 @@ const RoomReviews = () => {
     });
 
     return data;
-  };
-
-  const deleteReviewHandler = (id: string) => {
-    deleteReview({ id, roomId });
   };
 
   return (
@@ -120,8 +130,33 @@ const RoomReviews = () => {
         {reviews?.length > 0 ? (
           <MDBDataTable data={setReviews()} className={styles.dataTable} />
         ) : (
-          <div>No Reviews</div>
+          <div></div>
         )}
+        <Modal
+          isOpen={isModalOpen && modalReviewId !== null}
+          onClose={() => {
+            setIsModalOpen(false);
+            setModalReviewId(null);
+          }}
+        >
+          <p>Are you sure you want to delete review? This can not be undone.</p>
+          <div className={styles.btnContainer}>
+            <FalseButton
+              btnType='secondary'
+              text={isLoading ? "Deleting..." : "Delete Review"}
+              onClick={() => deleteReviewHandler(modalReviewId!)}
+              disabled={isLoading}
+            />
+            <FalseButton
+              btnType='primary'
+              text='Cancel'
+              onClick={() => {
+                setIsModalOpen(false);
+                setModalReviewId(null);
+              }}
+            />
+          </div>
+        </Modal>
       </ContentPadding>
     </LayoutWrapper>
   );

@@ -110,8 +110,15 @@
 }
 
 .btnContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
+}
+
+.trash {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
