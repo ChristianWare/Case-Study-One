@@ -13,17 +13,12 @@ const UserLayout = ({ children }: Props) => {
   return (
     <LayoutWrapper>
       <ContentPadding>
-        <div>
-          <h1 className={styles.heading}>User Settings</h1>
-        </div>
-        <div className={styles.top}>
+        <h1 className={styles.heading}>User Settings</h1>
+        <div className={styles.content}>
           <div className={styles.left}>
             <UserSidebar />
           </div>
-        </div>
-
-        <div className={styles.bottom}>
-          {children}
+          <div className={styles.right}>{children}</div>
         </div>
         <FinalCTA1 />
       </ContentPadding>
