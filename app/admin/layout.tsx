@@ -17,10 +17,10 @@ const AdminLayout = ({ children }: Props) => {
           <h1 className={styles.heading}>Admin Dashboard</h1>
         </div>
         <div className={styles.content}>
-          <div>
+          <div className={styles.left}>
             <AdminSidebar />
           </div>
-          <div>{children}</div>
+          <div className={styles.right}>{children}</div>
         </div>
         <FinalCTA1 />
       </ContentPadding>

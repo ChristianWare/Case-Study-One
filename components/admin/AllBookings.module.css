@@ -41,13 +41,13 @@
   display: block;
   padding: 2rem;
   cursor: pointer;
-  /* margin-top: 3rem; */
   white-space: nowrap;
 }
 
 .dataTable td {
   padding: 1rem;
   border: 1px solid var(--purple2);
+  /* word-break: break-all; */
 }
 
 .actions {

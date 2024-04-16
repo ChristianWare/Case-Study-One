@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import styles from "./AllBookings.module.css";
 
 interface Props {
   data: {
@@ -45,27 +46,27 @@ const AllBookings = ({ data }: Props) => {
     const data: { columns: any[]; rows: any[] } = {
       columns: [
         {
-          label: "ID",
+          label: <div className={styles.theadContainer}>Room ID</div>,
           field: "id",
           sort: "asc",
         },
         {
-          label: "Date Booked",
+          label: <div className={styles.theadContainer}>Date Booked</div>,
           field: "datebooked",
           sort: "asc",
         },
         {
-          label: "Check In",
+          label: <div className={styles.theadContainer}>Check In</div>,
           field: "checkin",
           sort: "asc",
         },
         {
-          label: "Check Out",
+          label: <div className={styles.theadContainer}>Check Out</div>,
           field: "checkout",
           sort: "asc",
         },
         {
-          label: "Actions",
+          label: <div className={styles.theadContainer}>Actions</div>,
           field: "actions",
           sort: "asc",
         },
@@ -85,27 +86,20 @@ const AllBookings = ({ data }: Props) => {
           checkin: formatDate(booking?.checkInDate),
           checkout: formatDate(booking?.checkOutDate),
           actions: (
-            <>
-              <Link
-                href={`/bookings/${booking._id}`}
-                className='btn btn-outline-primary'
-              >
+            <div className={styles.actions}>
+              <Link href={`/bookings/${booking._id}`}>
                 <i className='fa fa-eye'></i>
               </Link>
-              <Link
-                href={`/bookings/invoice/${booking._id}`}
-                className='btn btn-outline-success ms-2'
-              >
+              <Link href={`/bookings/invoice/${booking._id}`}>
                 <i className='fa fa-receipt'></i>
               </Link>
               <button
-                className='btn btn-outline-danger mx-2'
                 disabled={isLoading}
                 onClick={() => deleteBookingHandler(booking?._id)}
               >
                 <i className='fa fa-trash'></i>
               </button>
-            </>
+            </div>
           ),
         });
       });
@@ -118,15 +112,22 @@ const AllBookings = ({ data }: Props) => {
   };
 
   return (
-    <div className='container'>
-      <h1 className='my-5'>{bookings?.length} Bookings</h1>
-      <MDBDataTable
-        data={setBookings()}
-        className='px-3'
-        bordered
-        striped
-        hover
-      />
+    <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "50px",
+        }}
+      >
+        <h2 className={styles.heading}>
+          {bookings?.length > 1
+            ? bookings?.length + " Bookings"
+            : bookings?.length + " Bookings"}
+        </h2>
+      </div>
+      <MDBDataTable data={setBookings()} className={styles.dataTable} />
     </div>
   );
 };

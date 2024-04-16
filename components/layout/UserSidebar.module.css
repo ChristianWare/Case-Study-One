@@ -1,6 +1,5 @@
 .container {
   display: flex;
-  flex-direction: column;
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
@@ -36,19 +35,26 @@
   color: var(--white);
 }
 
-@media screen and (max-width: 968px) {
-  .container {
+@media screen and (max-width: 900px) {
+  /* .container {
     flex-direction: row;
+  } */
+
+  .btn,
+  .active {
+    flex: 1;
+  }
+
+  .container {
+    flex-wrap: wrap;
+    /* width: fit-content; */
   }
 }
 
-@media screen and (max-width: 868px) {
+@media screen and (max-width: 568px) {
   .container {
     flex-direction: column;
-  }
-
-  .active,
-  .btn {
+    flex-wrap: nowrap;
     width: 100%;
   }
 }

@@ -12,6 +12,10 @@
 
 .container {
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20rem;
+  padding-right: 20rem;
 }
 
 .box {
@@ -59,4 +63,26 @@
 .btnContainer {
   width: 100%;
   margin-top: 2rem;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .container {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
 }

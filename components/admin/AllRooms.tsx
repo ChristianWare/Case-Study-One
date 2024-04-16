@@ -41,9 +41,8 @@ const AllRooms = ({ data }: Props) => {
   const deleteRoomHandler = async (id: string) => {
     try {
       await deleteRoom(id);
-      setIsModalOpen(false); // Close the modal after successful deletion
+      setIsModalOpen(false);
     } catch (error) {
-      // Handle any errors, such as network issues or server errors
       console.error("Error deleting room:", error);
     }
   };
@@ -86,13 +85,10 @@ const AllRooms = ({ data }: Props) => {
           name: room.name,
           actions: (
             <div className={styles.actions}>
-              <Link href={`/admin/rooms/${room._id}`} className=''>
+              <Link href={`/admin/rooms/${room._id}`}>
                 <i className='fa fa-pencil'></i>
               </Link>
-              <Link
-                href={`/admin/rooms/${room._id}/upload_images`}
-                className=''
-              >
+              <Link href={`/admin/rooms/${room._id}/upload_images`}>
                 <i className='fa fa-images'></i>
               </Link>
               <div className={styles.trash}>
@@ -119,7 +115,7 @@ const AllRooms = ({ data }: Props) => {
           marginBottom: "50px",
         }}
       >
-        <h2 className=''>
+        <h2 className={styles.heading}>
           {rooms?.length > 1
             ? rooms?.length + " Properties"
             : rooms?.length + " Property"}
@@ -165,14 +161,7 @@ const AllRooms = ({ data }: Props) => {
           <NewRoom onClose={() => setIsModalOpenii(false)} />
         </Modal>
       </div>
-
-      <MDBDataTable
-        data={setRooms()}
-        className={styles.dataTable}
-        bordered
-        striped
-        hover
-      />
+      <MDBDataTable data={setRooms()} className={styles.dataTable} />
     </div>
   );
 };
