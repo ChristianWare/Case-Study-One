@@ -28,6 +28,7 @@ export interface IRoom extends Document {
   description: string;
   pricePerNight: number;
   address: string;
+  googleMapsUrl: string;
   location: ILocation;
   guestCapacity: number;
   numOfBeds: number;
@@ -64,6 +65,10 @@ const roomSchema: Schema<IRoom> = new Schema({
   address: {
     type: String,
     required: [true, "Please enter room address"],
+  },
+  googleMapsUrl: {
+    type: String,
+    required: [true, "Please enter Google Maps Url"],
   },
   location: {
     type: {
@@ -173,7 +178,7 @@ roomSchema.pre("save", async function (next) {
 
   const loc = await geoCoder.geocode(this.address);
 
-  // console.log("location", loc);
+  console.log("location", loc);
 
   this.location = {
     type: "Point",

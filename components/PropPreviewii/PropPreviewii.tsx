@@ -41,9 +41,9 @@ const PropPreviewii = ({ room }: Props) => {
         </div>
         <div className={styles.box}>
           <h3 className={styles.title}>{room?.name}</h3>
-          <span className={styles.perDay}>
-            {room.location.city}, {room.location.state}
-          </span>
+          {/* <span className={styles.perDay}>
+            hey!
+          </span> */}
           <div className={styles.featureii}>{room.description}</div>
         </div>
 

@@ -9,7 +9,6 @@ import { IRoom } from "../../backend/models/room";
 import BookingDatePicker from "../BookingDatePicker/BookingDatePicker";
 import ImageGrid from "../ImageGrid/ImageGrid";
 import GalleryGrid from "../GalleryGrid/GalleryGrid";
-import { useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Discover from "../Discover/Discover";
 import NewReview from "../review/NewReview";
@@ -25,28 +24,14 @@ mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 const RoomDetails = ({ data }: Props) => {
   const { room } = data;
+  console.log(room);
 
-  useEffect(() => {
-    const setMap = async () => {
-      const coordinates = room?.location?.coordinates;
-
-      const map = new mapboxgl.Map({
-        container: "room-map",
-        style: "mapbox://styles/mapbox/streets-v11",
-        center: coordinates,
-        zoom: 12,
-      });
-
-      // Add marker to the map:
-      new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
-    };
-    if (room?.location) setMap();
-  }, [room?.location]);
   return (
     <>
       <LayoutWrapper>
         <ContentPadding>
           <h1 className={styles.heading}>{room?.name}</h1>
+          <p>{room.address}</p>
           <div className={styles.top}>
             <div className={styles.topLeft}>
               <div className={styles.featuresBox}>
@@ -60,7 +45,8 @@ const RoomDetails = ({ data }: Props) => {
                   <div className={styles.feature}>
                     Average Rating:{" "}
                     <b>
-                      {(Math.floor(room?.ratings * 10) / 10).toFixed(1) === "5.0"
+                      {(Math.floor(room?.ratings * 10) / 10).toFixed(1) ===
+                      "5.0"
                         ? "5"
                         : (Math.floor(room?.ratings * 10) / 10).toFixed(1)}
                     </b>{" "}
@@ -95,10 +81,20 @@ const RoomDetails = ({ data }: Props) => {
             <br />
 
             {room?.location && (
-              <div className='my-5'>
+              <div>
                 <div id='room-map' style={{ height: 350, width: "100%" }}></div>
               </div>
             )}
+            <iframe
+              src={room.googleMapsUrl}
+              width='100%'
+              height='450'
+              allowFullScreen={true}
+              loading='lazy'
+              referrerPolicy='no-referrer-when-downgrade'
+              className={styles.map}
+              style={{ height: 350, width: "100%" }}
+            ></iframe>
           </div>
           <ListReviews reviews={room?.reviews} />
           <NewReview roomId={room?._id} />

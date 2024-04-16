@@ -9,6 +9,8 @@ import ListReviews from "../review/ListReviews";
 import NewReview from "../review/NewReview";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { useEffect } from "react";
+import styles from "./RoomDetails.module.css";
 
 interface Props {
   data: {
@@ -20,6 +22,25 @@ mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 const RoomDetails = ({ data }: Props) => {
   const { room } = data;
+  console.log(room.location);
+
+  useEffect(() => {
+    const setMap = async () => {
+      const coordinates = room?.location?.coordinates;
+
+      const map = new mapboxgl.Map({
+        container: "room-map",
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: coordinates,
+        zoom: 12,
+      });
+
+      // Add marker to the map
+      new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+    };
+
+    if (room?.location) setMap();
+  }, [room?.location]);
 
   return (
     <div className='container container-fluid'>

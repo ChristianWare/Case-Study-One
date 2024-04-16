@@ -17,6 +17,7 @@ const NewRoom = ({ onClick, onClose }: Props) => {
     price: 0,
     description: "",
     address: "",
+    googleMapsUrl: "",
     category: "King",
     guestCapacity: 1,
     numOfBeds: 1,
@@ -32,6 +33,7 @@ const NewRoom = ({ onClick, onClose }: Props) => {
     price,
     description,
     address,
+    googleMapsUrl,
     category,
     guestCapacity,
     numOfBeds,
@@ -55,7 +57,7 @@ const NewRoom = ({ onClick, onClose }: Props) => {
       // router.push("/admin/rooms");
       router.refresh();
       toast.success("Room created");
-       onClose?.();
+      onClose?.();
     }
   }, [error, isSuccess, router, onClose]);
 
@@ -67,6 +69,7 @@ const NewRoom = ({ onClick, onClose }: Props) => {
       pricePerNight: price,
       description,
       address,
+      googleMapsUrl,
       category,
       guestCapacity: Number(guestCapacity),
       numOfBeds: Number(numOfBeds),
@@ -167,6 +170,20 @@ const NewRoom = ({ onClick, onClose }: Props) => {
               required
             />
           </div>
+          <div className='mb-3'>
+            <label htmlFor='googleMapsUrl_field' className='form-label'>
+              Google Maps URL
+            </label>
+            <input
+              type='text'
+              id='googleMapsUrl_field'
+              className='form-control'
+              name='googleMapsUrl'
+              value={googleMapsUrl}
+              onChange={onChange}
+              required
+            />
+          </div>
 
           <div className='mb-3'>
             <label htmlFor='room_type_field' className='form-label'>
@@ -227,9 +244,9 @@ const NewRoom = ({ onClick, onClose }: Props) => {
             </div>
           </div>
 
-          <label className='mb-3'>Room Features</label>
+          {/* <label className='mb-3'>Room Features</label> */}
 
-          {roomFeatures?.map((feature) => (
+          {/* {roomFeatures?.map((feature) => (
             <div className='form-check' key={feature.name}>
               <input
                 className='form-check-input'
@@ -243,7 +260,7 @@ const NewRoom = ({ onClick, onClose }: Props) => {
                 {feature.name}
               </label>
             </div>
-          ))}
+          ))} */}
 
           <FalseButton
             btnType='secondary'

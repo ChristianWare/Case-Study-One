@@ -28,6 +28,7 @@ const UpdateRoom = ({ data }: Props) => {
     airConditioned: room?.isAirConditioned,
     petsAllowed: room?.isPetsAllowed,
     roomCleaning: room?.isRoomCleaning,
+    googleMapsUrl: room?.googleMapsUrl,
   });
 
   const {
@@ -43,6 +44,7 @@ const UpdateRoom = ({ data }: Props) => {
     airConditioned,
     petsAllowed,
     roomCleaning,
+    googleMapsUrl,
   } = roomDetails;
 
   const router = useRouter();
@@ -68,6 +70,7 @@ const UpdateRoom = ({ data }: Props) => {
       pricePerNight: price,
       description,
       address,
+      googleMapsUrl,
       category,
       guestCapacity: Number(guestCapacity),
       numOfBeds: Number(numOfBeds),
@@ -168,6 +171,20 @@ const UpdateRoom = ({ data }: Props) => {
               required
             />
           </div>
+          <div className='mb-3'>
+            <label htmlFor='googleMapsUrl_field' className='form-label'>
+              Google Maps URL
+            </label>
+            <input
+              type='text'
+              id='googleMapsUrl_field'
+              className='form-control'
+              name='googleMapsUrl'
+              value={googleMapsUrl}
+              onChange={onChange}
+              required
+            />
+          </div>
 
           <div className='mb-3'>
             <label htmlFor='room_type_field' className='form-label'>
@@ -228,9 +245,9 @@ const UpdateRoom = ({ data }: Props) => {
             </div>
           </div>
 
-          <label className='mb-3'>Room Features</label>
+          {/* <label className='mb-3'>Room Features</label> */}
 
-          {roomFeatures?.map((feature) => (
+          {/* {roomFeatures?.map((feature) => (
             <div className='form-check' key={feature.name}>
               <input
                 className='form-check-input'
@@ -244,7 +261,7 @@ const UpdateRoom = ({ data }: Props) => {
                 {feature.name}
               </label>
             </div>
-          ))}
+          ))} */}
 
           <button
             type='submit'

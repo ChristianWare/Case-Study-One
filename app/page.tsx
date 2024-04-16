@@ -16,7 +16,7 @@ export const metadata = {
   description: "This is the description for the home page of this application.",
 };
 
-export const dynamic = "force-static";
+export const revalidate = 0;
 
 const getRooms = async () => {
   try {
