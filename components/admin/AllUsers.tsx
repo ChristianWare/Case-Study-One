@@ -114,7 +114,7 @@ const AllUsers = ({ data }: Props) => {
 
   return (
     <div className='container'>
-      <h1 className='my-5'>{users?.length} Users</h1>
+      <h2 className={styles.heading}>{users?.length} Users</h2>
       <MDBDataTable data={setUsers()} className={styles.dataTable} />
     </div>
   );

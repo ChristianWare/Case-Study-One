@@ -5,9 +5,11 @@ import { useDeleteBookingMutation } from "../../redux/api/bookingApi";
 import { MDBDataTable } from "mdbreact";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import styles from "./AllBookings.module.css";
+import Modal from "../Modal/Modal";
+import FalseButton from "../FalseButton/FalseButton";
 
 interface Props {
   data: {
@@ -17,11 +19,27 @@ interface Props {
 
 const AllBookings = ({ data }: Props) => {
   const bookings = data?.bookings;
-
   const router = useRouter();
+
+  const [modalBookingId, setModalBookingId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [deleteBooking, { error, isLoading, isSuccess }] =
     useDeleteBookingMutation();
+
+  const deleteBookingHandler = async (id: string) => {
+    try {
+      await deleteBooking(id);
+      setIsModalOpen(false);
+    } catch (error) {
+      console.error("Error deleting booking:", error);
+    }
+  };
+
+  const handleDeleteModal = (id: string) => {
+    setModalBookingId(id);
+    setIsModalOpen(true);
+  };
 
   const formatDate = (date: any) => {
     return new Date(date).toLocaleDateString("en-US", {
@@ -87,28 +105,25 @@ const AllBookings = ({ data }: Props) => {
           checkout: formatDate(booking?.checkOutDate),
           actions: (
             <div className={styles.actions}>
-              <Link href={`/bookings/${booking._id}`}>
+              <Link href={`/bookings/${booking._id}`} className={styles.link}>
                 <i className='fa fa-eye'></i>
               </Link>
               <Link href={`/bookings/invoice/${booking._id}`}>
                 <i className='fa fa-receipt'></i>
               </Link>
-              <button
-                disabled={isLoading}
-                onClick={() => deleteBookingHandler(booking?._id)}
-              >
-                <i className='fa fa-trash'></i>
-              </button>
+
+              <div className={styles.trash}>
+                <i
+                  className='fa fa-trash'
+                  onClick={() => handleDeleteModal(booking._id)}
+                ></i>
+              </div>
             </div>
           ),
         });
       });
 
     return data;
-  };
-
-  const deleteBookingHandler = (id: string) => {
-    deleteBooking(id);
   };
 
   return (
@@ -128,6 +143,31 @@ const AllBookings = ({ data }: Props) => {
         </h2>
       </div>
       <MDBDataTable data={setBookings()} className={styles.dataTable} />
+      <Modal
+        isOpen={isModalOpen && modalBookingId !== null}
+        onClose={() => {
+          setIsModalOpen(false);
+          setModalBookingId(null);
+        }}
+      >
+        <p>Are you sure you want to delete this booking?</p>
+        <div className={styles.btnContainer}>
+          <FalseButton
+            btnType='secondary'
+            text={isLoading ? "Deleting..." : "Delete Booking"}
+            onClick={() => deleteBookingHandler(modalBookingId!)}
+            disabled={isLoading}
+          />
+          <FalseButton
+            btnType='primary'
+            text='Cancel'
+            onClick={() => {
+              setIsModalOpen(false);
+              setModalBookingId(null);
+            }}
+          />
+        </div>
+      </Modal>
     </div>
   );
 };

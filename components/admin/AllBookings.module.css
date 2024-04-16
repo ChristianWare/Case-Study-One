@@ -47,7 +47,6 @@
 .dataTable td {
   padding: 1rem;
   border: 1px solid var(--purple2);
-  /* word-break: break-all; */
 }
 
 .actions {
@@ -82,6 +81,14 @@
 }
 
 .trash {
+  cursor: pointer;
+}
+
+.actions i {
+  cursor: pointer;
+}
+
+.link {
   cursor: pointer;
 }
 
