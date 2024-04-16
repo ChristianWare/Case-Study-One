@@ -114,7 +114,11 @@ const AllRooms = ({ data }: Props) => {
           marginBottom: "50px",
         }}
       >
-        <h2 className=''>{`${rooms?.length} Rooms`}</h2>
+        <h2 className=''>
+          {rooms?.length > 1
+            ? rooms?.length + "Properties"
+            : rooms?.length + " Property"}
+        </h2>
         <FalseButton
           btnType='secondary'
           text='Create Room'

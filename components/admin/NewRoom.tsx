@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
 import FalseButton from "../FalseButton/FalseButton";
+import styles from "./NewRoom.module.css";
 
 interface Props {
   onClick?: () => void;
@@ -97,156 +98,129 @@ const NewRoom = ({ onClick, onClose }: Props) => {
     });
   };
 
-  const roomFeatures: { name: string; value: keyof typeof roomDetails }[] = [
-    { name: "Internet", value: "internet" },
-    { name: "Breakfast", value: "breakfast" },
-    { name: "Air Conditioned", value: "airConditioned" },
-    { name: "Pets Allowed", value: "petsAllowed" },
-    { name: "Room Cleaning", value: "roomCleaning" },
-  ];
+  // const roomFeatures: { name: string; value: keyof typeof roomDetails }[] = [
+  //   { name: "Internet", value: "internet" },
+  //   { name: "Breakfast", value: "breakfast" },
+  //   { name: "Air Conditioned", value: "airConditioned" },
+  //   { name: "Pets Allowed", value: "petsAllowed" },
+  //   { name: "Room Cleaning", value: "roomCleaning" },
+  // ];
 
   return (
-    <div className='row wrapper'>
-      <div className='col-10 col-lg-8'>
-        <form
-          className='shadow rounded bg-body'
-          onSubmit={submitHandler}
-          encType='multipart/form-data'
-        >
-          <h2 className='mb-4'>New Room</h2>
-          <div className='mb-3'>
-            <label htmlFor='name_field' className='form-label'>
-              Name
-            </label>
-            <input
-              type='text'
-              id='name_field'
-              className='form-control'
-              name='name'
-              value={name}
-              onChange={onChange}
-              required
-            />
-          </div>
-          <div className='mb-3'>
-            <label htmlFor='price_field' className='form-label'>
-              Price
-            </label>
-            <input
-              type='text'
-              id='price_field'
-              className='form-control'
-              name='price'
-              value={price}
-              onChange={onChange}
-              required
-            />
-          </div>
-          <div className='mb-3'>
-            <label htmlFor='description_field' className='form-label'>
-              Description
-            </label>
-            <textarea
-              className='form-control'
-              id='description_field'
-              rows={8}
-              name='description'
-              value={description}
-              onChange={onChange}
-              required
-            ></textarea>
-          </div>
-          <div className='mb-3'>
-            <label htmlFor='address_field' className='form-label'>
-              Address
-            </label>
-            <input
-              type='text'
-              id='address_field'
-              className='form-control'
-              name='address'
-              value={address}
-              onChange={onChange}
-              required
-            />
-          </div>
-          <div className='mb-3'>
-            <label htmlFor='googleMapsUrl_field' className='form-label'>
-              Google Maps URL
-            </label>
-            <input
-              type='text'
-              id='googleMapsUrl_field'
-              className='form-control'
-              name='googleMapsUrl'
-              value={googleMapsUrl}
-              onChange={onChange}
-              required
-            />
-          </div>
+    <div>
+      <h2 className={styles.heading}>New Room</h2>
+      <form
+        onSubmit={submitHandler}
+        encType='multipart/form-data'
+        className={styles.container}
+      >
+        <div className={styles.lableInputBox}>
+          <label htmlFor='name_field'>Name</label>
+          <input
+            type='text'
+            id='name_field'
+            name='name'
+            value={name}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='price_field'>Price</label>
+          <input
+            type='text'
+            id='price_field'
+            name='price'
+            value={price}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='description_field'>Description</label>
+          <textarea
+            id='description_field'
+            rows={8}
+            name='description'
+            value={description}
+            onChange={onChange}
+            required
+          ></textarea>
+        </div>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='address_field'>Address</label>
+          <input
+            type='text'
+            id='address_field'
+            name='address'
+            value={address}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='googleMapsUrl_field'>Google Maps URL</label>
+          <input
+            type='text'
+            id='googleMapsUrl_field'
+            name='googleMapsUrl'
+            value={googleMapsUrl}
+            onChange={onChange}
+            required
+          />
+        </div>
 
-          <div className='mb-3'>
-            <label htmlFor='room_type_field' className='form-label'>
-              Category
-            </label>
-            <select
-              className='form-select'
-              id='room_type_field'
-              name='category'
-              value={category}
-              onChange={onChange}
-            >
-              {["King", "Single", "Twins"].map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='room_type_field'>Category</label>
+          <select
+            id='room_type_field'
+            name='category'
+            value={category}
+            onChange={onChange}
+          >
+            {["King", "Single", "Twins"].map((value) => (
+              <option key={value} value={value}>
+                {value}
+              </option>
+            ))}
+          </select>
+        </div>
 
-          <div className='row'>
-            <div className='mb-3 col'>
-              <label htmlFor='guest_field' className='form-label'>
-                Guest Capacity
-              </label>
-              <select
-                className='form-select'
-                id='guest_field'
-                name='guestCapacity'
-                value={guestCapacity}
-                onChange={onChange}
-              >
-                {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </select>
-            </div>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='guest_field'>Guest Capacity</label>
+          <select
+            id='guest_field'
+            name='guestCapacity'
+            value={guestCapacity}
+            onChange={onChange}
+          >
+            {[1, 2, 3, 4, 5, 6].map((num) => (
+              <option key={num} value={num}>
+                {num}
+              </option>
+            ))}
+          </select>
+        </div>
 
-            <div className='mb-3 col'>
-              <label htmlFor='numofbeds_field' className='form-label'>
-                Number of Beds
-              </label>
-              <select
-                className='form-select'
-                id='numofbeds_field'
-                name='numOfBeds'
-                value={numOfBeds}
-                onChange={onChange}
-              >
-                {[1, 2, 3].map((num) => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='numofbeds_field'>Number of Beds</label>
+          <select
+            id='numofbeds_field'
+            name='numOfBeds'
+            value={numOfBeds}
+            onChange={onChange}
+          >
+            {[1, 2, 3].map((num) => (
+              <option key={num} value={num}>
+                {num}
+              </option>
+            ))}
+          </select>
+        </div>
 
-          {/* <label className='mb-3'>Room Features</label> */}
+        {/* <label className='mb-3'>Room Features</label> */}
 
-          {/* {roomFeatures?.map((feature) => (
+        {/* {roomFeatures?.map((feature) => (
             <div className='form-check' key={feature.name}>
               <input
                 className='form-check-input'
@@ -261,22 +235,22 @@ const NewRoom = ({ onClick, onClose }: Props) => {
               </label>
             </div>
           ))} */}
-
+        <div className={styles.btnContainer}>
           <FalseButton
             btnType='secondary'
             text='Create Room'
             onClick={onClick}
           />
+        </div>
 
-          {/* <button
+        {/* <button
             type='submit'
             className='btn form-btn w-100 py-2'
             disabled={isLoading}
           >
             {isLoading ? <ButtonLoader /> : "CREATE"}
           </button> */}
-        </form>
-      </div>
+      </form>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const AdminSidebar = () => {
       icon: "fas fa-tachometer-alt",
     },
     {
-      name: "Rooms",
+      name: "Properties",
       url: "/admin/rooms",
       icon: "fas fa-hotel",
     },
