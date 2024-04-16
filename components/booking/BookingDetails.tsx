@@ -4,6 +4,10 @@ import { IBooking } from "../../backend/models/booking";
 import { useAppSelector } from "../../redux/hooks";
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./BookingDetails.module.css";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
+
 interface Props {
   data: {
     booking: IBooking;
@@ -17,21 +21,26 @@ const BookingDetails = ({ data }: Props) => {
   const isPaid = booking?.paymentInfo?.status === "paid" ? true : false;
 
   return (
-    <div className=''>
-      <div className='row d-flex justify-content-center'>
-        <div className='col-12 col-lg-9 mt-5 booking-details'>
-          <div className='d-flex justify-content-between align-items-center my-5'>
-            <h2>Booking # {booking?._id}</h2>
-            <Link
-              className='btn btn-success'
-              href={`/bookings/invoice/${booking?._id}`}
-            >
-              <i className='fa fa-print'></i> Invoice
-            </Link>
-          </div>
+    <LayoutWrapper>
+      <ContentPadding>
+        <h1 className={styles.h1Heading}>Booking Details</h1>
+        <div className={styles.top}>
+          <h2 className={styles.heading}>
+            Invoice #:
+            <br />
+          </h2>
+          <h2 className={styles.heading}>{booking?._id}</h2>
+          <Link
+            href={`/bookings/invoice/${booking?._id}`}
+            className={styles.link}
+          >
+            <i className='fa fa-print'></i> See Invoice
+          </Link>
+        </div>
 
-          <h4 className='mt-5 mb-4'>User Info</h4>
-          <table className='table table-striped table-bordered'>
+        <div className={styles.infoBox}>
+          <h3>User Info</h3>
+          <table>
             <tbody>
               <tr>
                 <th scope='row'>Name:</th>
@@ -47,9 +56,11 @@ const BookingDetails = ({ data }: Props) => {
               </tr>
             </tbody>
           </table>
+        </div>
 
-          <h4 className='mt-5 mb-4'>Booking Info</h4>
-          <table className='table table-striped table-bordered'>
+        <div className={styles.infoBox}>
+          <h3>Booking Info</h3>
+          <table>
             <tbody>
               <tr>
                 <th scope='row'>Check In:</th>
@@ -69,9 +80,10 @@ const BookingDetails = ({ data }: Props) => {
               </tr>
             </tbody>
           </table>
-
-          <h4 className='mt-5 mb-4'>Payment Info:</h4>
-          <table className='table table-striped table-bordered'>
+        </div>
+        <div className={styles.infoBox}>
+          <h3>Payment Info:</h3>
+          <table>
             <tbody>
               <tr>
                 <th scope='row'>Status:</th>
@@ -91,45 +103,45 @@ const BookingDetails = ({ data }: Props) => {
               )}
             </tbody>
           </table>
+        </div>
 
-          <h4 className='mt-5 mb-4'>Booked Room:</h4>
+        <h4>Booked Room:</h4>
 
-          <hr />
+        <hr />
 
-          {booking?.room ? (
-            <div className='cart-item my-1'>
-              <div className='row my-5'>
-                <div className='col-4 col-lg-2'>
-                  <Image
-                    src={booking?.room?.images[0]?.url}
-                    alt={booking?.room?.name}
-                    height='45'
-                    width='65'
-                  />
-                </div>
+        {booking?.room ? (
+          <div>
+            <div>
+              <div>
+                <Image
+                  src={booking?.room?.images[0]?.url}
+                  alt={booking?.room?.name}
+                  height='45'
+                  width='65'
+                />
+              </div>
 
-                <div className='col-5 col-lg-5'>
-                  <Link href={`/properties/${booking?.room?._id}`}>
-                    {booking?.room?.name}
-                  </Link>
-                </div>
+              <div>
+                <Link href={`/properties/${booking?.room?._id}`}>
+                  {booking?.room?.name}
+                </Link>
+              </div>
 
-                <div className='col-4 col-lg-2 mt-4 mt-lg-0'>
-                  <p>${booking?.room?.pricePerNight}</p>
-                </div>
+              <div>
+                <p>${booking?.room?.pricePerNight}</p>
+              </div>
 
-                <div className='col-4 col-lg-3 mt-4 mt-lg-0'>
-                  <p>{booking?.daysOfStay} Day(s)</p>
-                </div>
+              <div>
+                <p>{booking?.daysOfStay} Day(s)</p>
               </div>
             </div>
-          ) : (
-            <div className='alert alert-danger'>Room no longer exist</div>
-          )}
-          <hr />
-        </div>
-      </div>
-    </div>
+          </div>
+        ) : (
+          <div>Room no longer exist</div>
+        )}
+        <hr />
+      </ContentPadding>
+    </LayoutWrapper>
   );
 };
 
