@@ -7,6 +7,12 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
+import styles from "./Login.module.css";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
+import FalseButton from "../FalseButton/FalseButton";
+import FinalCTA1 from "../FinalCTA1/FinalCTA1";
+import Button from "../Button/Button";
 
 const Login = () => {
   const { data: session } = useSession();
@@ -40,76 +46,66 @@ const Login = () => {
   };
 
   return (
-    <div className='row wrapper'>
-      <div className='col-10 col-lg-5'>
-        <form className='shadow rounded bg-body' onSubmit={submitHandler}>
-          <h1 className='mb-3'>Login</h1>
-          {session ? (
-            <>
-              <p>you are now logged in</p>
-              <hr />
-              <Link
-                href='/'
-                className='btn form-btn w-100 py-2 text-white'
-                onClick={logoutHandler}
-              >
-                Logout
-              </Link>
-            </>
-          ) : (
-            <>
-              <div className='mb-3'>
-                <label className='form-label' htmlFor='email_field'>
-                  {" "}
-                  Email{" "}
-                </label>
-                <input
-                  type='email'
-                  id='email_field'
-                  className='form-control'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
+    <>
+      <LayoutWrapper>
+        <ContentPadding>
+          <h1 className={styles.heading}>Login</h1>
+          <form className={styles.container} onSubmit={submitHandler}>
+            {session ? (
+              <>
+                <p>you are now logged in</p>
+                <hr />
+                <Link href='/' onClick={logoutHandler}>
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <>
+                <div className={styles.lableInputBox}>
+                  <label htmlFor='email_field'> Email </label>
+                  <input
+                    type='email'
+                    id='email_field'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
 
-              <div className='mb-3'>
-                <label className='form-label' htmlFor='password_field'>
-                  {" "}
-                  Password{" "}
-                </label>
-                <input
-                  type='password'
-                  id='password_field'
-                  className='form-control'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
+                <div className={styles.lableInputBox}>
+                  <label htmlFor='password_field'> Password </label>
+                  <input
+                    type='password'
+                    id='password_field'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <div className={styles.btnContainer}>
+                  <FalseButton
+                    btnType='secondary'
+                    disabled={loading}
+                    text={loading ? "Loading..." : "Login"}
+                  />
+                  <Button
+                    btnType='primary'
+                    text='Forgot password'
+                    href='/password/forgot'
+                  />
+                </div>
 
-              <Link href='/password/forgot' className='float-end mt-2'>
-                Forgot Password?
-              </Link>
-
-              <button
-                id='login_button'
-                type='submit'
-                className='btn form-btn w-100 py-2'
-                disabled={loading}
-              >
-                {loading ? <ButtonLoader /> : "LOGIN"}
-              </button>
-
-              <div className='mt-3 mb-4'>
-                <a href='/register' className='float-end'>
-                  {" "}
-                  New User? Register Here{" "}
-                </a>
-              </div>
-            </>
-          )}
-        </form>
-      </div>
-    </div>
+                <div>
+                  <span className={styles.newUser}>New User?</span>
+                  <Link href='/register' className={styles.link}>
+                    Register Here{" "}
+                  </Link>
+                </div>
+              </>
+            )}
+          </form>
+        </ContentPadding>
+      </LayoutWrapper>
+      <FinalCTA1 />
+    </>
   );
 };
 export default Login;
