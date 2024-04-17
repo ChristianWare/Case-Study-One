@@ -62,7 +62,13 @@ const BookingDetails = ({ data }: Props) => {
             </div>
             <div className={styles.categoreDetailBox}>
               <div className={styles.category}>Amount Paid:</div>
-              <div className={styles.detail}>${booking?.amountPaid}</div>
+              <div className={styles.detail}>
+                $
+                {booking?.amountPaid?.toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
+              </div>
             </div>
           </div>
 
