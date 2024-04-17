@@ -7,6 +7,7 @@ import Link from "next/link";
 import styles from "./BookingDetails.module.css";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
+import Button from "../Button/Button";
 
 interface Props {
   data: {
@@ -29,80 +30,30 @@ const BookingDetails = ({ data }: Props) => {
             Invoice #:
             <br />
           </h2>
-          <h2 className={styles.heading}>{booking?._id}</h2>
-          <Link
-            href={`/bookings/invoice/${booking?._id}`}
-            className={styles.link}
-          >
-            <i className='fa fa-print'></i> See Invoice
-          </Link>
+          <h2 className={styles.headingii}>{booking?._id}</h2>
+          <div className={styles.btnContainer}>
+            <Button
+              text='See Invoice'
+              btnType='secondary'
+              href={`/bookings/invoice/${booking?._id}`}
+            />
+          </div>
         </div>
 
         <div className={styles.infoBox}>
           <h3>User Info</h3>
-          <table>
-            <tbody>
-              <tr>
-                <th scope='row'>Name:</th>
-                <td>{booking?.user?.name}</td>
-              </tr>
-              <tr>
-                <th scope='row'>Email:</th>
-                <td>{booking?.user?.email}</td>
-              </tr>
-              <tr>
-                <th scope='row'>Amount Paid:</th>
-                <td>${booking?.amountPaid}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div className={styles.infoBox}>
-          <h3>Booking Info</h3>
-          <table>
-            <tbody>
-              <tr>
-                <th scope='row'>Check In:</th>
-                <td>
-                  {new Date(booking?.checkInDate).toLocaleString("en-US")}
-                </td>
-              </tr>
-              <tr>
-                <th scope='row'>Check Out:</th>
-                <td>
-                  {new Date(booking?.checkOutDate).toLocaleString("en-US")}
-                </td>
-              </tr>
-              <tr>
-                <th scope='row'>Days of Stay:</th>
-                <td>{booking?.daysOfStay}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className={styles.infoBox}>
-          <h3>Payment Info:</h3>
-          <table>
-            <tbody>
-              <tr>
-                <th scope='row'>Status:</th>
-                <td>
-                  <b className={isPaid ? "greenColor" : "redColor"}>
-                    {isPaid ? "Paid" : "Not Paid"}
-                  </b>
-                </td>
-              </tr>
-              {user?.role === "admin" && (
-                <tr>
-                  <th scope='row'>Stripe ID:</th>
-                  <td>
-                    <b className='redColor'>{booking?.paymentInfo.id}</b>
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+          <div className={styles.categoreDetailBox}>
+            <div className={styles.category}>Name:</div>
+            <div className={styles.detail}>{booking?.user?.name}</div>
+          </div>
+          <div className={styles.categoreDetailBox}>
+            <div className={styles.category}>Email:</div>
+            <div className={styles.detail}>{booking?.user?.email}</div>
+          </div>
+          <div className={styles.categoreDetailBox}>
+            <div className={styles.category}>Amount Paid:</div>
+            <div className={styles.detail}>${booking?.amountPaid}</div>
+          </div>
         </div>
 
         <h4>Booked Room:</h4>
@@ -110,30 +61,72 @@ const BookingDetails = ({ data }: Props) => {
         <hr />
 
         {booking?.room ? (
-          <div>
-            <div>
-              <div>
-                <Image
-                  src={booking?.room?.images[0]?.url}
-                  alt={booking?.room?.name}
-                  height='45'
-                  width='65'
-                />
-              </div>
+          <div className={styles.bookedRooomDetails}>
+            <div className={styles.imgContainer}>
+              <Image
+                src={booking?.room?.images[0]?.url}
+                alt={booking?.room?.name}
+                className={styles.img}
+                fill
+              />
+            </div>
 
-              <div>
-                <Link href={`/properties/${booking?.room?._id}`}>
-                  {booking?.room?.name}
-                </Link>
-              </div>
+            <div></div>
 
-              <div>
-                <p>${booking?.room?.pricePerNight}</p>
-              </div>
+            <div className={styles.category}>
+              Price Per Night:{" "}
+              <p>
+                {booking?.room?.pricePerNight.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}
+              </p>
+            </div>
 
-              <div>
-                <p>{booking?.daysOfStay} Day(s)</p>
+            <div className={styles.category}>
+              Length of Stay:
+              <p>{booking?.daysOfStay} Day(s)</p>
+            </div>
+            <div className={styles.categoreDetailBox}>
+              <div className={styles.category}>Amount Paid:</div>
+              <div className={styles.detail}>
+                {booking?.amountPaid.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                })}
               </div>
+            </div>
+            <div className={styles.categoreDetailBox}>
+              <div className={styles.category}>Status:</div>
+              <b className={isPaid ? "greenColor" : "redColor"}>
+                {isPaid ? "Paid" : "Not Paid"}
+              </b>
+            </div>
+            {user?.role === "admin" && (
+              <div className={styles.categoreDetailBox}>
+                <div className={styles.category}>Stripe ID:</div>
+
+                <b className='redColor'>{booking?.paymentInfo.id}</b>
+              </div>
+            )}
+            <div className={styles.categoreDetailBox}>
+              <div className={styles.category}>Check In:</div>
+              <div>
+                {new Date(booking?.checkInDate).toLocaleString("en-US")}
+              </div>
+            </div>
+            <div className={styles.categoreDetailBox}>
+              <div className={styles.category}>Check Out:</div>
+              <div>
+                {new Date(booking?.checkOutDate).toLocaleString("en-US")}
+              </div>
+            </div>
+            <div className={styles.btnContainer}>
+              <Button
+                text='Room details'
+                btnType='secondary'
+                href={`/properties/${booking?.room?._id}`}
+              />
             </div>
           </div>
         ) : (
