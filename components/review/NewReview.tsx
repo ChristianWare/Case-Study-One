@@ -51,7 +51,6 @@ const NewReview = ({ roomId }: { roomId: string }) => {
     <section className={styles.container}>
       <div className={styles.btnContainer}>
         <FalseButton
-          // text='Submit your review'
           text={
             canReview ? "Submit your review" : "Make a reservation to review"
           }
@@ -68,65 +67,42 @@ const NewReview = ({ roomId }: { roomId: string }) => {
         isOpen={isModalOpen}
       >
         {canReview ? (
-          <>
-            <div className='box'>
-              <div>
-                <div className='modal-dialog' role='document'>
-                  <div className='modal-content'>
-                    <div className='modal-header'>
-                      <h5 className='modal-title' id='ratingModalLabel'>
-                        Submit Review
-                      </h5>
-                      <button
-                        type='button'
-                        className='btn-close'
-                        data-bs-dismiss='modal'
-                        aria-label='Close'
-                      ></button>
-                    </div>
-                    <div className='modal-body'>
-                      <StarRatings
-                        rating={rating}
-                        starRatedColor='#e61e4d'
-                        numberOfStars={5}
-                        // starDimension='18px'
-                        starSpacing='1px'
-                        name='rating'
-                        changeRating={(e: any) => setRating(e)}
-                      />
-                      <div className='form-floating'>
-                        <textarea
-                          id='review_field'
-                          className='form-control mt-4'
-                          placeholder='Leave your review'
-                          style={{ height: "100px" }}
-                          value={comment}
-                          onChange={(e) => setComment(e.target.value)}
-                        ></textarea>
-                        <label htmlFor='review_field'>Comment</label>
-                      </div>
-                    </div>
-                    <div className='modal-footer'>
-                      <button
-                        type='button'
-                        className='btn my-3 form-btn w-100'
-                        data-bs-dismiss='modal'
-                        aria-label='Close'
-                        onClick={submitHandler}
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className={styles.container}>
+            <h3 className={styles.heading}>Submit Review</h3>
+            <button type='button' aria-label='Close'></button>
+            <div className={styles.stars}>
+              <StarRatings
+                rating={rating}
+                starHoverColor='#7065f0'
+                starRatedColor='#7065f0'
+                numberOfStars={5}
+                starDimension='35px'
+                starSpacing='1px'
+                name='rating'
+                changeRating={(e: any) => setRating(e)}
+              />
             </div>
-          </>
+            <div className={styles.lableInputBox}>
+              <textarea
+                id='review_field'
+                placeholder='Leave your review'
+                // style={{ height: "100px" }}
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              ></textarea>
+              <label htmlFor='review_field'>Comment</label>
+            </div>
+            <div className={styles.btnContainer}>
+              <FalseButton
+                btnType='secondary'
+                text='Submit'
+                onClick={submitHandler}
+              />
+            </div>
+          </div>
         ) : (
           <>
-            <h5 className='modal-title' id='ratingModalLabel'>
-              Make a reservation to review
-            </h5>
+            <h4>Make a reservation to review</h4>
           </>
         )}
       </Modal>

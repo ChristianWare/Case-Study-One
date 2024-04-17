@@ -13,8 +13,6 @@
 .container {
   margin-left: auto;
   margin-right: auto;
-  /* padding-left: 35rem;
-  padding-right: 35rem; */
   width: 800px;
   display: flex;
   flex-direction: column;
@@ -50,6 +48,14 @@
   margin-top: 1rem;
 }
 
+.btnContainerii {
+  display: grid;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
 .newUser {
   font-weight: 700;
 }
@@ -77,6 +83,10 @@
   .container {
     padding-left: 0rem;
     padding-right: 0rem;
+    width: 100%;
+  }
+
+  .btnContainerii {
     width: 100%;
   }
 }

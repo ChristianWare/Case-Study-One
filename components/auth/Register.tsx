@@ -6,6 +6,10 @@ import { useRouter } from "next/navigation";
 import { ChangeEventHandler, FormEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ButtonLoader from "../layout/ButtonLoader";
+import styles from "./Login.module.css";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
+import FalseButton from "../FalseButton/FalseButton";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -58,12 +62,11 @@ const Register = () => {
   };
 
   return (
-    <div className='wrapper'>
-      <div className='col-10 col-lg-5'>
-        <form className='shadow rounded bg-body' onSubmit={submitHandler}>
-          <h2 className='mb-4'>Join Us</h2>
-
-          <div className='mb-3'>
+    <LayoutWrapper>
+      <ContentPadding>
+        <h1 className={styles.heading}>New User Register</h1>
+        <form className={styles.container} onSubmit={submitHandler}>
+          <div className={styles.lableInputBox}>
             <label htmlFor='name_field' className='form-label'>
               {" "}
               Full Name{" "}
@@ -71,14 +74,13 @@ const Register = () => {
             <input
               type='text'
               id='name_field'
-              className='form-control'
               name='name'
               value={name}
               onChange={onChange}
             />
           </div>
 
-          <div className='mb-3'>
+          <div className={styles.lableInputBox}>
             <label className='form-label' htmlFor='email_field'>
               {" "}
               Email{" "}
@@ -86,14 +88,13 @@ const Register = () => {
             <input
               type='email'
               id='email_field'
-              className='form-control'
               name='email'
               value={email}
               onChange={onChange}
             />
           </div>
 
-          <div className='mb-3'>
+          <div className={styles.lableInputBox}>
             <label className='form-label' htmlFor='password_field'>
               {" "}
               Password{" "}
@@ -101,20 +102,18 @@ const Register = () => {
             <input
               type='password'
               id='password_field'
-              className='form-control'
               name='password'
               value={password}
               onChange={onChange}
               disabled={isLoading}
             />
           </div>
-
-          <button type='submit' className='btn form-btn w-100 py-2'>
-            {isLoading ? <ButtonLoader /> : "Register"}
-          </button>
+          <div className={styles.btnContainerii}>
+            <FalseButton btnType='secondary' text='Register' />
+          </div>
         </form>
-      </div>
-    </div>
+      </ContentPadding>
+    </LayoutWrapper>
   );
 };
 export default Register;
