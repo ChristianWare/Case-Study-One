@@ -92,7 +92,7 @@ const Invoice = ({ data }: Props) => {
                   <br />
                   <b>Phone:</b>
                   <div>(602) 519-0450</div>
-                  <br />
+                  <br /> 
                   <b>Email:</b>
                   <div>info@eliteretreatrentals.com</div>
                 </div>
