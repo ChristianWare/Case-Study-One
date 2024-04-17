@@ -1,10 +1,12 @@
 "use client";
 
 import { IBooking } from "../../backend/models/booking";
-// import "./invoice.css";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import Image from "next/image";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import ContentPadding from "../ContentPadding/ContentPadding";
+import styles from "./Invoice.module.css";
+import FalseButton from "../FalseButton/FalseButton";
 
 interface Props {
   data: {
@@ -39,103 +41,127 @@ const Invoice = ({ data }: Props) => {
   };
 
   return (
-    <div className='container'>
-      <div className='order-invoice my-5'>
-        <div className='row d-flex justify-content-center mb-5'>
-          <button className='btn btn-success col-md-5' onClick={handleDownload}>
-            <i className='fa fa-print'></i> Download Invoice
-          </button>
-        </div>
-        <div className='px-5'>
-          <div id='booking_invoice' className='px-4 border border-secondary'>
-            <header className='clearfix'>
-              <div id='logo' className='my-4'>
-                <Image
-                  src='/images/bookit_logo.png'
-                  alt='bookingLogo'
-                  width={50}
-                  height={50}
-                />
+    <LayoutWrapper>
+      <ContentPadding>
+        <div>
+          <div className={styles.btnContainer}>
+            <FalseButton
+              btnType='secondary'
+              text='Download Invoice'
+              onClick={handleDownload}
+            />
+          </div>
+          <div>
+            <div id='booking_invoice'>
+              <div className={styles.top}>
+                <div className={styles.left}>
+                  <div className={styles.logo}>Elite Retreat Rentals</div>
+                </div>
+                <div className={styles.right}>
+                  <h1 className={styles.heading}>Invoice</h1>
+                  <div className={styles.categorySpanContainer}>
+                    <div className={styles.category}>Invoice Number:</div>
+                    <span>{booking?._id}</span>
+                  </div>
+                  <div className={styles.categorySpanContainer}>
+                    <div className={styles.category}>Date:</div>
+                    <span>{formatDate(booking.createdAt)}</span>
+                  </div>
+                </div>
               </div>
-              <h1>INVOICE # {booking?._id}</h1>
-              <div id='company' className='clearfix'>
-                <div>BookIT</div>
-                <div>
-                  455 Foggy Heights,
+              <div className={styles.middle}>
+                <div className={styles.middleLeft}>
+                  <b>Bill To:</b>
+                  <div>{booking?.user.name}</div>
+                  <div>{booking?.user.email}</div>
                   <br />
-                  AZ 85004, US
+                  <b>Status:</b>
+                  {/* {new Date(booking?.createdAt).toLocaleString("en-US")} */}
+                  <div className={styles.status}>
+                    {booking?.paymentInfo?.status?.toUpperCase()}
+                  </div>
                 </div>
-                <div>(602) 519-0450</div>
-                <div>
-                  <a href='mailto:info@bookit.com'>info@bookit.com</a>
-                </div>
-              </div>
-              <div id='project'>
-                <div>
-                  <span>Name</span> {booking?.user.name}
-                </div>
-                <div>
-                  <span>EMAIL</span> {booking?.user.email}
-                </div>
-                <div>
-                  <span>DATE</span>{" "}
-                  {new Date(booking?.createdAt).toLocaleString("en-US")}
-                </div>
-                <div>
-                  <span>Status</span>{" "}
-                  {booking?.paymentInfo?.status?.toUpperCase()}
-                </div>
-              </div>
-            </header>
-            <main>
-              <table className='mt-5'>
-                <thead>
-                  <tr>
-                    <th className='service'>Room</th>
-                    <th className='desc'>Price Per Night</th>
-                    <th>Check In Date</th>
-                    <th>Check Out Date</th>
-                    <th>Days of Stay</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className='service'>{booking?.room?.name}</td>
-                    <td className='desc'>${booking?.room?.pricePerNight}</td>
-                    <td className='unit'>{formatDate(booking?.checkInDate)}</td>
-                    <td className='qty'>{formatDate(booking?.checkOutDate)}</td>
-                    <td className='qty'>{booking?.daysOfStay}</td>
-                  </tr>
-                  <tr>
-                    <td colSpan={4} className='grand total'>
-                      <b>GRAND TOTAL</b>
-                    </td>
-                    <td className='grand total'>
-                      $
-                      {booking?.amountPaid?.toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div id='notices'>
-                <div>NOTICE:</div>
-                <div className='notice'>
-                  A finance charge of 1.5% will be made on unpaid balances after
-                  30 days.
+                <div className={styles.middleRight}>
+                  <b>Bill From:</b>
+                  <div>Elite Retreat Rentals</div>
+                  <div>
+                    455 Foggy Heights,
+                    <br />
+                    AZ 85004, US
+                  </div>
+                  <br />
+                  <b>Phone:</b>
+                  <div>(602) 519-0450</div>
+                  <br />
+                  <b>Email:</b>
+                  <div>info@eliteretreatrentals.com</div>
                 </div>
               </div>
-            </main>
-            <footer className='pb-5'>
-              Invoice was created on a computer and is valid without the
-              signature.
-            </footer>
+              <div className={styles.bottom}>
+                <div className={styles.bottomTop}>
+                  <div className={styles.btl}>
+                    <b>Property</b>
+                  </div>
+                  <div className={styles.btr}>
+                    <b>Cost per Day</b>
+                    <b>Days</b>
+                    <b>Price</b>
+                  </div>
+                </div>
+                <div className={styles.bottomBottom}>
+                  <b>{booking?.room?.name}</b>
+                </div>
+              </div>
+              <main>
+                {/* <table>
+                  <thead>
+                    <tr>
+                      <th>Room</th>
+                      <th>Price Per Night</th>
+                      <th>Check In Date</th>
+                      <th>Check Out Date</th>
+                      <th>Days of Stay</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{booking?.room?.name}</td>
+                      <td>${booking?.room?.pricePerNight}</td>
+                      <td>{formatDate(booking?.checkInDate)}</td>
+                      <td>{formatDate(booking?.checkOutDate)}</td>
+                      <td>{booking?.daysOfStay}</td>
+                    </tr>
+                    <tr>
+                      <td colSpan={4}>
+                        <b>GRAND TOTAL</b>
+                      </td>
+                      <td>
+                        $
+                        {booking?.amountPaid?.toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table> */}
+                <div>
+                  {/* <div>NOTICE:</div>
+                  <div>
+                    A finance charge of 1.5% will be made on unpaid balances
+                    after 30 days.
+                  </div> */}
+                </div>
+              </main>
+              {/* <footer>
+                Invoice was created on a computer and is valid without the
+                signature.
+              </footer> */}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </ContentPadding>
+    </LayoutWrapper>
   );
 };
 export default Invoice;
