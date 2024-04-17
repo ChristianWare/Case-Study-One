@@ -51,20 +51,23 @@
 
 .btnContainer {
   width: fit-content;
-  display: grid;
 }
 
 @media screen and (max-width: 768px) {
   .container {
     width: 400px;
   }
+
+  .btnContainer {
+    width: 100%;
   }
+}
 
 @media screen and (max-width: 568px) {
   .container {
     width: 300px;
   }
-  
+
   .btnContainer {
     width: 100%;
     display: flex;

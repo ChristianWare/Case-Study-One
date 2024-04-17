@@ -48,7 +48,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
   };
 
   return (
-    <section className={styles.container}>
+    <section>
       <div className={styles.btnContainer}>
         <FalseButton
           text={
@@ -86,9 +86,9 @@ const NewReview = ({ roomId }: { roomId: string }) => {
               <textarea
                 id='review_field'
                 placeholder='Leave your review'
-                // style={{ height: "100px" }}
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
+                required
               ></textarea>
               <label htmlFor='review_field'>Comment</label>
             </div>
