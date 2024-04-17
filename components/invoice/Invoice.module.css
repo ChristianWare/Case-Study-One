@@ -44,19 +44,62 @@
 
 .bottomTop {
   background-color: var(--purple2);
-  padding: 2rem;
+  padding: 2rem 5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
-.btr {
+.btr,
+.bbr {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.bbr div:nth-child(2) {
+  /* text-align: center; */
+  /* width: 100%; */
+  margin-left: 8rem;
+}
+
 .bottomBottom {
-  padding: 2rem;
+  padding: 2rem 5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.bottomBottom2 {
+  padding: 0rem 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.bbr2 {
+  border-top: 5px solid var(--gray);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.box,
+.amntDue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.amntDue {
+  border-top: 5px solid var(--gray);
+  padding-top: 2rem;
+}
+
+.footer {
+  /* text-align: center; */
+  font-weight: 700;
+  color: var(--purple);
 }

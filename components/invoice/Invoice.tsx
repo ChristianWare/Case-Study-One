@@ -76,10 +76,15 @@ const Invoice = ({ data }: Props) => {
                   <div>{booking?.user.email}</div>
                   <br />
                   <b>Status:</b>
-                  {/* {new Date(booking?.createdAt).toLocaleString("en-US")} */}
                   <div className={styles.status}>
                     {booking?.paymentInfo?.status?.toUpperCase()}
                   </div>
+                  <br />
+                  <b>Check In Date:</b>
+                  <div>{formatDate(booking?.checkInDate)}</div>
+                  <br />
+                  <b>Check Out Date:</b>
+                  <div>{formatDate(booking?.checkOutDate)}</div>
                 </div>
                 <div className={styles.middleRight}>
                   <b>Bill From:</b>
@@ -92,7 +97,7 @@ const Invoice = ({ data }: Props) => {
                   <br />
                   <b>Phone:</b>
                   <div>(602) 519-0450</div>
-                  <br /> 
+                  <br />
                   <b>Email:</b>
                   <div>info@eliteretreatrentals.com</div>
                 </div>
@@ -109,49 +114,94 @@ const Invoice = ({ data }: Props) => {
                   </div>
                 </div>
                 <div className={styles.bottomBottom}>
-                  <b>{booking?.room?.name}</b>
+                  <div className={styles.bbl}>
+                    <b>{booking?.room?.name}</b>
+                  </div>
+                  <div className={styles.bbr}>
+                    <div>
+                      $
+                      {booking?.room?.pricePerNight.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </div>
+                    <div>{booking?.daysOfStay}</div>
+                    <div>
+                      {" "}
+                      $
+                      {booking?.amountPaid?.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <main>
-                {/* <table>
-                  <thead>
-                    <tr>
-                      <th>Room</th>
-                      <th>Price Per Night</th>
-                      <th>Check In Date</th>
-                      <th>Check Out Date</th>
-                      <th>Days of Stay</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{booking?.room?.name}</td>
-                      <td>${booking?.room?.pricePerNight}</td>
-                      <td>{formatDate(booking?.checkInDate)}</td>
-                      <td>{formatDate(booking?.checkOutDate)}</td>
-                      <td>{booking?.daysOfStay}</td>
-                    </tr>
-                    <tr>
-                      <td colSpan={4}>
-                        <b>GRAND TOTAL</b>
-                      </td>
-                      <td>
+                <div className={styles.bottomBottom2}>
+                  <div className={styles.bbl2}></div>
+                  <div className={styles.bbr2}>
+                    <div className={styles.box}>
+                      <div>Subtotal</div>
+                      <div>
+                        {" "}
                         $
                         {booking?.amountPaid?.toLocaleString("en-US", {
                           minimumFractionDigits: 2,
                           maximumFractionDigits: 2,
                         })}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table> */}
-                <div>
-                  {/* <div>NOTICE:</div>
-                  <div>
-                    A finance charge of 1.5% will be made on unpaid balances
-                    after 30 days.
-                  </div> */}
+                      </div>
+                    </div>
+                    <div className={styles.box}>
+                      <div>Tax</div>
+                      <div>$175.00</div>
+                    </div>
+                    <div className={styles.box}>
+                      <div>Invoice Total</div>
+                      <div>
+                        $
+                        {((booking?.amountPaid || 0) + 175).toLocaleString(
+                          "en-US",
+                          {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          }
+                        )}
+                      </div>
+                    </div>
+                    <div className={styles.box}>
+                      <div>Paid</div>
+                      <div>
+                        {" "}
+                        $
+                        {((booking?.amountPaid || 0) + 175).toLocaleString(
+                          "en-US",
+                          {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          }
+                        )}
+                      </div>
+                    </div>
+                    <div className={styles.amntDue}>
+                      <b>Amount Due</b>
+                      <b>$0.00</b>
+                    </div>
+                  </div>
                 </div>
+                <br />
+                <br />
+                <br />
+                <b>NOTICE:</b>
+                <div>
+                  A finance charge of 1.5% will be made on unpaid balances after
+                  30 days.
+                </div>
+                <footer className={styles.footer}>
+                  Invoice was created on a computer and is valid without the
+                  signature.
+                </footer>
+              </div>
+              <main>
+                <div></div>
               </main>
               {/* <footer>
                 Invoice was created on a computer and is valid without the
