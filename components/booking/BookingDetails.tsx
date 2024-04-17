@@ -86,9 +86,10 @@ const BookingDetails = ({ data }: Props) => {
               <div className={styles.category}>
                 Price Per Night:{" "}
                 <p>
+                  $
                   {booking?.room?.pricePerNight.toLocaleString("en-US", {
-                    style: "currency",
-                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
                   })}
                 </p>
               </div>
@@ -100,9 +101,10 @@ const BookingDetails = ({ data }: Props) => {
               <div className={styles.categoreDetailBox}>
                 <div className={styles.category}>Amount Paid:</div>
                 <div className={styles.detail}>
-                  {booking?.amountPaid.toLocaleString("en-US", {
-                    style: "currency",
-                    currency: "USD",
+                  $
+                  {booking?.amountPaid?.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
                   })}
                 </div>
               </div>
