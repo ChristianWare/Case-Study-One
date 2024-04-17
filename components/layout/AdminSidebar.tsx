@@ -48,7 +48,9 @@ const AdminSidebar = () => {
         <Link
           key={index}
           href={x.url}
-          className={activeMenuItem === x.url ? styles.active : styles.btn}
+          className={
+            activeMenuItem.includes(x.url) ? styles.active : styles.btn
+          }
           onClick={() => handleMenuItemClick(x.url)}
           aria-current={activeMenuItem.includes(x.url) ? "true" : "false"}
         >

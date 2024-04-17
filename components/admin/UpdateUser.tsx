@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ButtonLoader from "../layout/ButtonLoader";
 import toast from "react-hot-toast";
+import styles from "./UpdateUser.module.css";
+import ContentPadding from "../ContentPadding/ContentPadding";
+import FalseButton from "../FalseButton/FalseButton";
 
 interface Props {
   data: {
@@ -46,19 +49,15 @@ const UpdateUser = ({ data }: Props) => {
   };
 
   return (
-    <div className='row wrapper'>
-      <div className='col-10 col-lg-8'>
-        <form className='shadow rounded bg-body' onSubmit={submitHandler}>
-          <h2 className='mb-4'>Update User</h2>
-
-          <div className='mb-3'>
-            <label htmlFor='name_field' className='form-label'>
-              Name
-            </label>
+    <>
+      <ContentPadding>
+        <h2 className={styles.heading}>Update User</h2>
+        <form onSubmit={submitHandler} className={styles.container}>
+          <div className={styles.lableInputBox}>
+            <label htmlFor='name_field'>Name</label>
             <input
               type='text'
               id='name_field'
-              className='form-control'
               name='name'
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -66,14 +65,11 @@ const UpdateUser = ({ data }: Props) => {
             />
           </div>
 
-          <div className='mb-3'>
-            <label htmlFor='email_field' className='form-label'>
-              Email
-            </label>
+          <div className={styles.lableInputBox}>
+            <label htmlFor='email_field'>Email</label>
             <input
               type='email'
               id='email_field'
-              className='form-control'
               name='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -81,13 +77,10 @@ const UpdateUser = ({ data }: Props) => {
             />
           </div>
 
-          <div className='mb-3'>
-            <label htmlFor='role_field' className='form-label'>
-              Role
-            </label>
+          <div className={styles.lableInputBox}>
+            <label htmlFor='role_field'>Role</label>
             <select
               id='role_field'
-              className='form-select'
               name='role'
               value={role}
               onChange={(e) => setRole(e.target.value)}
@@ -97,17 +90,15 @@ const UpdateUser = ({ data }: Props) => {
               <option value='admin'>admin</option>
             </select>
           </div>
-
-          <button
-            type='submit'
-            className='btn form-btn w-100 mt-4 mb-3'
-            disabled={isLoading}
-          >
-            {isLoading ? <ButtonLoader /> : "Update"}
-          </button>
+          <div className={styles.btnContainer}>
+            <FalseButton
+              btnType='secondary'
+              text={isLoading ? "Loading..." : "Update"}
+            />
+          </div>
         </form>
-      </div>
-    </div>
+      </ContentPadding>
+    </>
   );
 };
 export default UpdateUser;
