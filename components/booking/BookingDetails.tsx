@@ -22,6 +22,14 @@ const BookingDetails = ({ data }: Props) => {
 
   const isPaid = booking?.paymentInfo?.status === "paid" ? true : false;
 
+  const formatDate = (date: any) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "2-digit",
+      month: "2-digit",
+      day: "2-digit",
+    });
+  };
+
   return (
     <>
       <LayoutWrapper>
@@ -113,15 +121,11 @@ const BookingDetails = ({ data }: Props) => {
               )}
               <div className={styles.categoreDetailBox}>
                 <div className={styles.category}>Check In:</div>
-                <div>
-                  {new Date(booking?.checkInDate).toLocaleString("en-US")}
-                </div>
+                <div>{formatDate(booking?.checkInDate)}</div>
               </div>
               <div className={styles.categoreDetailBox}>
                 <div className={styles.category}>Check Out:</div>
-                <div>
-                  {new Date(booking?.checkOutDate).toLocaleString("en-US")}
-                </div>
+                <div>{formatDate(booking?.checkOutDate)}</div>
               </div>
               <div className={styles.btnContainer}>
                 <Button
