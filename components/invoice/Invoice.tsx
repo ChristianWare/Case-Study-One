@@ -190,23 +190,22 @@ const Invoice = ({ data }: Props) => {
                 <br />
                 <br />
                 <br />
-                <b>NOTICE:</b>
-                <div>
-                  A finance charge of 1.5% will be made on unpaid balances after
-                  30 days.
+                <div className={styles.notice}>
+                  <b>NOTICE:</b>
+                  <div>
+                    A finance charge of 1.5% will be made on unpaid balances
+                    after 30 days.
+                  </div>
+                  <footer className={styles.footer}>
+                    Invoice was created on a computer and is valid without the
+                    signature.
+                  </footer>
                 </div>
-                <footer className={styles.footer}>
-                  Invoice was created on a computer and is valid without the
-                  signature.
-                </footer>
               </div>
               <main>
                 <div></div>
               </main>
-              {/* <footer>
-                Invoice was created on a computer and is valid without the
-                signature.
-              </footer> */}
+              
             </div>
           </div>
         </div>

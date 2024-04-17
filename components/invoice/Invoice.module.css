@@ -103,3 +103,7 @@
   font-weight: 700;
   color: var(--purple);
 }
+
+.notice {
+   padding: 2rem 5rem;
+}
