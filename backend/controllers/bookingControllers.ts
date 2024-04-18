@@ -204,7 +204,7 @@ export const deleteBooking = catchAsyncErrors(
     const booking = await Booking.findById(params.id);
 
     if (!booking) {
-      throw new ErrorHandler("Booking not foiund with this ID", 404);
+      throw new ErrorHandler("Booking not found with this ID", 404);
     }
 
     await booking?.deleteOne();

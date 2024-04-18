@@ -101,13 +101,7 @@ const MyBookings = ({ data }: Props) => {
   return (
     <div>
       <h1>My Bookings</h1>
-      <MDBDataTable
-        data={setBookings()}
-        className={styles.dataTable}
-        bordered
-        striped
-        hover
-      />
+      <MDBDataTable data={setBookings()} className={styles.dataTable} />
     </div>
   );
 };
