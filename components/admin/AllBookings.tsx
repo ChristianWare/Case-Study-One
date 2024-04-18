@@ -65,7 +65,7 @@ const AllBookings = ({ data }: Props) => {
     const data: { columns: any[]; rows: any[] } = {
       columns: [
         {
-          label: <div className={styles.theadContainer}>Room ID</div>,
+          label: <div className={styles.theadContainer}>ID</div>,
           field: "id",
           sort: "asc",
         },
