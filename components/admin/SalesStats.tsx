@@ -20,7 +20,7 @@ const SalesStats = ({ data }: Props) => {
             <p>Sales:</p>
             <p>
               <b>
-                {data?.totalSales.toLocaleString("en-US", {
+                {(data?.totalSales / 2).toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 })}
@@ -37,7 +37,7 @@ const SalesStats = ({ data }: Props) => {
           <div>
             <p>Bookings:</p>
             <p>
-              <b>{data?.numberOfBookings}</b>
+              <b>{Math.floor(parseFloat(data?.numberOfBookings) / 2)}</b>
             </p>
           </div>
         </div>

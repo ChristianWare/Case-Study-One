@@ -18,8 +18,8 @@ interface Props {
 }
 
 const AllBookings = ({ data }: Props) => {
+  console.log(data)
   const bookings = data?.bookings;
-  console.log(bookings);
   const router = useRouter();
 
   const [modalBookingId, setModalBookingId] = useState<string | null>(null);
@@ -85,6 +85,11 @@ const AllBookings = ({ data }: Props) => {
           sort: "asc",
         },
         {
+          label: <div className={styles.theadContainer}>Amount Paid</div>,
+          field: "amountpaid",
+          sort: "asc",
+        },
+        {
           label: <div className={styles.theadContainer}>Actions</div>,
           field: "actions",
           sort: "asc",
@@ -93,40 +98,50 @@ const AllBookings = ({ data }: Props) => {
       rows: [],
     };
 
+    const addedPaymentInfoIds: Set<string> = new Set(); // To track added paymentInfo IDs
+
     bookings
       ?.sort(
         (a, b) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       )
       .forEach((booking) => {
-        console.log("Booking ID:", booking._id);
-        data?.rows?.push({
-          id: booking._id,
-          datebooked: formatDate(booking.createdAt),
-          checkin: formatDate(booking?.checkInDate),
-          checkout: formatDate(booking?.checkOutDate),
-          actions: (
-            <div className={styles.actions}>
-              <Link href={`/bookings/${booking._id}`} className={styles.link}>
-                <i className='fa fa-eye'></i>
-              </Link>
-              <Link href={`/bookings/invoice/${booking._id}`}>
-                <i className='fa fa-receipt'></i>
-              </Link>
+        if (!addedPaymentInfoIds.has(booking.paymentInfo.id)) {
+          data?.rows?.push({
+            id: booking._id, // Use paymentInfo ID as the unique identifier
+            datebooked: formatDate(booking.createdAt),
+            checkin: formatDate(booking?.checkInDate),
+            checkout: formatDate(booking?.checkOutDate),
+            amountpaid: `$${booking?.amountPaid?.toLocaleString("en-US", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}`,
+            actions: (
+              <div className={styles.actions}>
+                <Link href={`/bookings/${booking._id}`} className={styles.link}>
+                  <i className='fa fa-eye'></i>
+                </Link>
+                <Link href={`/bookings/invoice/${booking._id}`}>
+                  <i className='fa fa-receipt'></i>
+                </Link>
 
-              <div className={styles.trash}>
-                <i
-                  className='fa fa-trash'
-                  onClick={() => handleDeleteModal(booking._id)}
-                ></i>
+                <div className={styles.trash}>
+                  <i
+                    className='fa fa-trash'
+                    onClick={() => handleDeleteModal(booking._id)}
+                  ></i>
+                </div>
               </div>
-            </div>
-          ),
-        });
+            ),
+          });
+          addedPaymentInfoIds.add(booking.paymentInfo.id); // Add the paymentInfo ID to the Set
+        }
       });
 
     return data;
   };
+
+
 
   return (
     <div>
@@ -139,12 +154,18 @@ const AllBookings = ({ data }: Props) => {
         }}
       >
         <h2 className={styles.heading}>
-          {bookings?.length > 1
-            ? bookings?.length + " Bookings"
-            : bookings?.length + " Bookings"}
+          {/* {bookings?.length > 1
+            ? bookings?.length / 2 + " Bookings"
+            : bookings?.length + " Bookings"} */}
+          Bookings
         </h2>
       </div>
-      <MDBDataTable data={setBookings()} className={styles.dataTable} />
+      <MDBDataTable
+        data={setBookings()}
+        // displayEntries={false}
+        // info={false}
+        className={styles.dataTable}
+      />
       <Modal
         isOpen={isModalOpen && modalBookingId !== null}
         onClose={() => {
