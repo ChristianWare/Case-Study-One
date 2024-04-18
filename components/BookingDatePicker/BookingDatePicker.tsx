@@ -27,6 +27,8 @@ const BookingDatePicker = ({ room }: Props) => {
   const [daysOfStay, setDaysOfStay] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
 
+  const { user } = useAppSelector((state) => state.auth);
+
   const router = useRouter();
 
   const { isAuthenticated } = useAppSelector((state) => state.auth);
@@ -81,21 +83,21 @@ const BookingDatePicker = ({ room }: Props) => {
   const bookRoom = () => {
     if (checkInDate && checkOutDate) {
       if (isAuthenticated) {
-        const amount = room.pricePerNight * daysOfStay;
+        const amount =
+          user?.role === "admin" ? 0.50 : room.pricePerNight * daysOfStay;
         const checkoutData = {
           checkInDate: checkInDate.toISOString(),
           checkOutDate: checkOutDate.toISOString(),
           daysOfStay,
           amount,
         };
+
         stripeCheckout({ id: room?._id, checkoutData });
       } else {
-        // User is not authenticated, show a toast notification
-        // toast.error("Login to book the room");
+        toast.error("Login to book the room");
         router.push("/login");
       }
     } else {
-      // Handle the case where checkInDate or checkOutDate is null
       console.error("Check-in and check-out dates are required.");
     }
   };
@@ -123,7 +125,6 @@ const BookingDatePicker = ({ room }: Props) => {
       suffix = "rd";
     }
 
-    // Append the suffix to the day part
     const formattedWithSuffix = formattedDate.replace(dayStr, dayStr + suffix);
 
     return formattedWithSuffix;
@@ -159,10 +160,12 @@ const BookingDatePicker = ({ room }: Props) => {
             </div>
             <div className={styles.box}>
               <b>Total Cost: </b> $
-              {totalCost.toLocaleString("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}
+              {user?.role === "admin"
+                ? "0.50"
+                : totalCost.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
             </div>
             {/* <b>Total Cost: </b> 300.00 $ */}
           </div>
@@ -198,8 +201,11 @@ const BookingDatePicker = ({ room }: Props) => {
           onClick={bookRoom}
           disabled={!checkInDate || !checkOutDate || !isAvailable || isLoading}
         >
-          {/* Book Now */}
-          {!checkInDate || !checkOutDate ? "Select Dates to Book" : "Book Now"}
+          {isLoading
+            ? "Loading..."
+            : !checkInDate || !checkOutDate
+            ? "Select Dates to Book"
+            : "Book Now"}
         </button>
       </div>
     </div>
