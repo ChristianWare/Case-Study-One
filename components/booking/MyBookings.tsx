@@ -170,7 +170,7 @@ const MyBookings = ({ data }: Props) => {
               </div>
             ),
           });
-          addedPaymentInfoIds.add(booking.paymentInfo.id); // Add the paymentInfo ID to the Set
+          addedPaymentInfoIds.add(booking.paymentInfo.id); 
         }
       });
 
