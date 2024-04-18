@@ -2,10 +2,11 @@
 
 import ContentPadding from "../../components/ContentPadding/ContentPadding";
 import LayoutWrapper from "../../components/LayoutWrapper/LayoutWrapper";
-import styles from "./AccountPage.module.css";
 import { useAppSelector } from "../../redux/hooks";
 import Link from "next/link";
 import FinalCTA1 from "../../components/FinalCTA1/FinalCTA1";
+import Button from "../../components/Button/Button";
+import styles from "./AccountPage.module.css";
 
 const options = [
   {
@@ -55,8 +56,12 @@ const AccountPage = () => {
             </>
           ) : (
             <>
-              <h1>You need to be logged in to access this page.</h1>
-              <Link href='/login'>Login</Link>
+              <h1 className={styles.heading}>
+                You need to be logged in to access this page.
+              </h1>
+              <div className={styles.btnContainer}>
+                <Button href='/login' text='Login' btnType='secondary' />
+              </div>
             </>
           )}
         </ContentPadding>

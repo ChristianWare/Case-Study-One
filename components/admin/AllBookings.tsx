@@ -19,6 +19,7 @@ interface Props {
 
 const AllBookings = ({ data }: Props) => {
   const bookings = data?.bookings;
+  console.log(bookings);
   const router = useRouter();
 
   const [modalBookingId, setModalBookingId] = useState<string | null>(null);
@@ -98,6 +99,7 @@ const AllBookings = ({ data }: Props) => {
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       )
       .forEach((booking) => {
+        console.log("Booking ID:", booking._id);
         data?.rows?.push({
           id: booking._id,
           datebooked: formatDate(booking.createdAt),

@@ -3,7 +3,6 @@
 import { IBooking } from "../../backend/models/booking";
 import { useAppSelector } from "../../redux/hooks";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./BookingDetails.module.css";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";

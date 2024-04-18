@@ -13,6 +13,7 @@ interface Props {
 
 const MyBookings = ({ data }: Props) => {
   const bookings = data?.bookings;
+  console.log(bookings);
 
   const formatDate = (date: any) => {
     return new Date(date).toLocaleDateString("en-US", {
@@ -26,7 +27,6 @@ const MyBookings = ({ data }: Props) => {
     const data: { columns: any[]; rows: any[] } = {
       columns: [
         {
-          // label: "ID",
           label: <div className={styles.theadContainer}>ID</div>,
           field: "id",
           sort: "asc",
@@ -66,6 +66,7 @@ const MyBookings = ({ data }: Props) => {
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       )
       .forEach((booking) => {
+        console.log("Booking ID:", booking._id);
         data?.rows?.push({
           id: booking._id,
           datebooked: formatDate(booking.createdAt),

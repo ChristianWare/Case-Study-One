@@ -15,6 +15,7 @@ const getBookings = async () => {
   return res.json();
 };
 
+
 export default async function AdminBookingsPage() {
   const data = await getBookings();
 
