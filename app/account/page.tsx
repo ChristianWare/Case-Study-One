@@ -61,6 +61,7 @@ const AccountPage = () => {
               </h1>
               <div className={styles.btnContainer}>
                 <Button href='/login' text='Login' btnType='secondary' />
+                <Button href='/' text='Go home' btnType='primary' />
               </div>
             </>
           )}
