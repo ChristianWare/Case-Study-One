@@ -7,6 +7,8 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import styles from "./Invoice.module.css";
 import FalseButton from "../FalseButton/FalseButton";
+import { useAppSelector } from "../../redux/hooks";
+import { useState } from "react";
 
 interface Props {
   data: {
@@ -16,6 +18,17 @@ interface Props {
 
 const Invoice = ({ data }: Props) => {
   const booking = data?.booking;
+
+  const [tax, setTax] = useState(0);
+
+  const { user } = useAppSelector((state) => state.auth);
+
+  const amountPaid = booking?.amountPaid || 0;
+
+  let calculatedTax = 0;
+  if (user?.role !== "admin") {
+    calculatedTax = amountPaid * 0.15;
+  }
 
   const formatDate = (date: any) => {
     return new Date(date).toLocaleDateString("en-US", {
@@ -152,33 +165,35 @@ const Invoice = ({ data }: Props) => {
                     </div>
                     <div className={styles.box}>
                       <div>Tax</div>
-                      <div>$175.00</div>
+                      <div>
+                        $
+                        {calculatedTax.toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
+                      </div>
                     </div>
                     <div className={styles.box}>
                       <div>Invoice Total</div>
                       <div>
                         $
-                        {((booking?.amountPaid || 0) + 175).toLocaleString(
-                          "en-US",
-                          {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2,
-                          }
-                        )}
+                        {(amountPaid + calculatedTax).toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
                       </div>
                     </div>
                     <div className={styles.box}>
                       <div>Paid</div>
                       <div>
-                        {" "}
                         $
-                        {((booking?.amountPaid || 0) + 175).toLocaleString(
-                          "en-US",
-                          {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2,
-                          }
-                        )}
+                        {(
+                          (booking?.amountPaid || 0) +
+                          (user?.role === "admin" ? 0 : calculatedTax)
+                        ).toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
                       </div>
                     </div>
                     <div className={styles.amntDue}>
@@ -205,7 +220,6 @@ const Invoice = ({ data }: Props) => {
               <main>
                 <div></div>
               </main>
-              
             </div>
           </div>
         </div>

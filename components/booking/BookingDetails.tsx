@@ -9,6 +9,7 @@ import ContentPadding from "../ContentPadding/ContentPadding";
 import Button from "../Button/Button";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
 
+
 interface Props {
   data: {
     booking: IBooking;
