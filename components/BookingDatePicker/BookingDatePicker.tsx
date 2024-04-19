@@ -27,6 +27,9 @@ const BookingDatePicker = ({ room }: Props) => {
   const [daysOfStay, setDaysOfStay] = useState(0);
   const [totalCost, setTotalCost] = useState(0);
 
+  const [tax, setTax] = useState(0);
+  const [amountDue, setAmountDue] = useState(0);
+
   const { user } = useAppSelector((state) => state.auth);
 
   const router = useRouter();
@@ -54,9 +57,20 @@ const BookingDatePicker = ({ room }: Props) => {
 
     if (checkInDate && checkOutDate) {
       const days = calculateDaysOfStay(checkInDate, checkOutDate);
+      const totalCost = room.pricePerNight * days;
+
+      let calculatedTax = 0;
+      if (user?.role !== "admin") {
+        calculatedTax = totalCost * 0.15; // 15% tax for non-admin users
+      }
+
+      const amount = user?.role === "admin" ? 0.5 : totalCost;
+      const amountWithTax = amount + calculatedTax;
 
       setDaysOfStay(days);
-      setTotalCost(room.pricePerNight * days); // Calculate and set the total cost
+      setTotalCost(totalCost);
+      setTax(calculatedTax);
+      setAmountDue(amountWithTax);
 
       // check Booking Availability:
       checkBookingAvailability({
@@ -84,7 +98,7 @@ const BookingDatePicker = ({ room }: Props) => {
     if (checkInDate && checkOutDate) {
       if (isAuthenticated) {
         const amount =
-          user?.role === "admin" ? 0.50 : room.pricePerNight * daysOfStay;
+          user?.role === "admin" ? 0.5 : room.pricePerNight * daysOfStay;
         const checkoutData = {
           checkInDate: checkInDate.toISOString(),
           checkOutDate: checkOutDate.toISOString(),
@@ -158,8 +172,9 @@ const BookingDatePicker = ({ room }: Props) => {
             <div className={styles.box}>
               <b>Check-Out:</b> {formatDate(checkOutDate)} @ 3:00 PM
             </div>
+
             <div className={styles.box}>
-              <b>Total Cost: </b> $
+              <b>Subtotal:</b> $
               {user?.role === "admin"
                 ? "0.50"
                 : totalCost.toLocaleString("en-US", {
@@ -167,7 +182,20 @@ const BookingDatePicker = ({ room }: Props) => {
                     maximumFractionDigits: 2,
                   })}
             </div>
-            {/* <b>Total Cost: </b> 300.00 $ */}
+            <div className={styles.box}>
+              <b>Tax:</b> $
+              {tax.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </div>
+            <div className={styles.box}>
+              <b>Amount Due:</b> $
+              {amountDue.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}{" "}
+            </div>
           </div>
         </>
       )}
