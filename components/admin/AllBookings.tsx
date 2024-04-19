@@ -18,7 +18,6 @@ interface Props {
 }
 
 const AllBookings = ({ data }: Props) => {
-  console.log(data)
   const bookings = data?.bookings;
   const router = useRouter();
 
@@ -107,12 +106,15 @@ const AllBookings = ({ data }: Props) => {
       )
       .forEach((booking) => {
         if (!addedPaymentInfoIds.has(booking.paymentInfo.id)) {
+          const tax = (booking.amountPaid || 0) * 0.15;
+          const amountWithTax = (booking.amountPaid || 0) + tax;
+
           data?.rows?.push({
             id: booking._id, // Use paymentInfo ID as the unique identifier
             datebooked: formatDate(booking.createdAt),
             checkin: formatDate(booking?.checkInDate),
             checkout: formatDate(booking?.checkOutDate),
-            amountpaid: `$${booking?.amountPaid?.toLocaleString("en-US", {
+            amountpaid: `$${amountWithTax.toLocaleString("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}`,
@@ -140,8 +142,6 @@ const AllBookings = ({ data }: Props) => {
 
     return data;
   };
-
-
 
   return (
     <div>
