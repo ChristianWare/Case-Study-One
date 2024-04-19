@@ -124,11 +124,13 @@ const BookingDetails = ({ data }: Props) => {
               <div className={styles.categoreDetailBox}>
                 <div className={styles.category}>Tax:</div>
                 <div className={styles.detail}>
-                  $
-                  {((15 / 100) * booking?.amountPaid).toLocaleString("en-US", {
+                  {`$${(booking?.amountPaid === 0.5
+                    ? 0
+                    : booking?.amountPaid * 0.15
+                  ).toLocaleString("en-US", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
-                  })}
+                  })}`}
                 </div>
               </div>
               <div className={styles.categoreDetailBox}>

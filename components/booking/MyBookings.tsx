@@ -46,8 +46,13 @@ const MyBookings = ({ data }: Props) => {
           sort: "asc",
         },
         {
-          label: <div className={styles.theadContainer}>Amount Paid</div>,
+          label: <div className={styles.theadContainer}>Subtotal</div>,
           field: "amountpaid",
+          sort: "asc",
+        },
+        {
+          label: <div className={styles.theadContainer}>Tax</div>,
+          field: "tax",
           sort: "asc",
         },
         {
@@ -68,15 +73,22 @@ const MyBookings = ({ data }: Props) => {
       )
       .forEach((booking) => {
         if (!addedPaymentInfoIds.has(booking.paymentInfo.id)) {
-          const tax = (booking.amountPaid || 0) * 0.15;
-          const amountWithTax = (booking.amountPaid || 0) + tax;
+          // const tax = (booking.amountPaid || 0) * 0.15;
+          // const amountWithTax = (booking.amountPaid || 0) + tax;
 
           data?.rows?.push({
             id: booking._id,
             datebooked: formatDate(booking.createdAt),
             checkin: formatDate(booking?.checkInDate),
             checkout: formatDate(booking?.checkOutDate),
-            amountpaid: `$${amountWithTax.toLocaleString("en-US", {
+            amountpaid: `$${booking?.amountPaid?.toLocaleString("en-US", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}`,
+            tax: `$${(booking?.amountPaid === 0.5
+              ? booking?.amountPaid * 0
+              : booking?.amountPaid * 0.15
+            ).toLocaleString("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}`,
