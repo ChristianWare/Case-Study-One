@@ -183,7 +183,7 @@ const BookingDatePicker = ({ room }: Props) => {
                   })}
             </div>
             <div className={styles.box}>
-              <b>Tax:</b> $
+              <b>Tax (15%):</b> $
               {tax.toLocaleString("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,

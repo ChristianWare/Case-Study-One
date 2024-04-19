@@ -37,10 +37,11 @@
   cursor: pointer;
   /* margin-top: 3rem; */
   white-space: nowrap;
+  text-align: left;
 }
 
 .dataTable td {
-  padding: 1rem;
+  padding: 1rem 2rem;
   border: 1px solid var(--purple2);
 }
 
@@ -48,7 +49,7 @@
   padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
 }
 

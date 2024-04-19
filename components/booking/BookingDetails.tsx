@@ -9,7 +9,6 @@ import ContentPadding from "../ContentPadding/ContentPadding";
 import Button from "../Button/Button";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
 
-
 interface Props {
   data: {
     booking: IBooking;
@@ -21,6 +20,14 @@ const BookingDetails = ({ data }: Props) => {
   const { user } = useAppSelector((state) => state.auth);
 
   const isPaid = booking?.paymentInfo?.status === "paid" ? true : false;
+
+  const calculateAmountWithTax = () => {
+    const amountPaid = booking?.amountPaid || 0;
+    const tax = user?.role === "admin" ? 0 : amountPaid * 0.15;
+    return amountPaid + tax;
+  };
+
+  const amountWithTax = calculateAmountWithTax();
 
   const formatDate = (date: any) => {
     return new Date(date).toLocaleDateString("en-US", {
@@ -64,7 +71,7 @@ const BookingDetails = ({ data }: Props) => {
               <div className={styles.category}>Amount Paid:</div>
               <div className={styles.detail}>
                 $
-                {booking?.amountPaid?.toLocaleString("en-US", {
+                {amountWithTax.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 })}
@@ -105,10 +112,30 @@ const BookingDetails = ({ data }: Props) => {
                 <p>{booking?.daysOfStay} Day(s)</p>
               </div>
               <div className={styles.categoreDetailBox}>
-                <div className={styles.category}>Amount Paid:</div>
+                <div className={styles.category}>Subtotal:</div>
                 <div className={styles.detail}>
                   $
                   {booking?.amountPaid?.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </div>
+              </div>
+              <div className={styles.categoreDetailBox}>
+                <div className={styles.category}>Tax:</div>
+                <div className={styles.detail}>
+                  $
+                  {((15 / 100) * booking?.amountPaid).toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </div>
+              </div>
+              <div className={styles.categoreDetailBox}>
+                <div className={styles.category}>Amount Paid:</div>
+                <div className={styles.detail}>
+                  $
+                  {amountWithTax.toLocaleString("en-US", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
                   })}
