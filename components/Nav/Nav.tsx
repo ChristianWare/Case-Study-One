@@ -3,13 +3,15 @@
 import styles from "./Nav.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Button from "../Button/Button";
 import House from "../../public/icons/house.svg";
 
 import { setIsAuthenticated, setUser } from "../../redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+import Down from "../../public/icons/down.svg";
 
 function Nav() {
   const dispatch = useAppDispatch();
@@ -17,8 +19,12 @@ function Nav() {
 
   const { data } = useSession();
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenii, setIsOpenii] = useState(false);
   const openMenu = () => {
     setIsOpen(!isOpen);
+  };
+  const openMenuii = () => {
+    setIsOpenii(!isOpenii);
   };
 
   useEffect(() => {
@@ -27,10 +33,6 @@ function Nav() {
       dispatch(setIsAuthenticated(true));
     }
   }, [data, dispatch]);
-
-  const logoutHandler = () => {
-    signOut();
-  };
 
   useEffect(() => {
     const body = document.querySelector("body");
@@ -56,6 +58,12 @@ function Nav() {
   }, [isOpen]);
 
   const pathname = usePathname();
+  const router = useRouter();
+
+  const logoutHandler = () => {
+    router.push("/");
+    signOut();
+  };
 
   const navItems = [
     {
@@ -127,7 +135,7 @@ function Nav() {
                 href='/'
                 text='Log out'
                 btnType='secondary'
-                onClick={signOut}
+                onClick={logoutHandler}
               />
             </div>
           ) : (
@@ -143,13 +151,53 @@ function Nav() {
         ) : (
           <>
             <div className={styles.btnContainer}>
-              <Button href='/account' text='My account' btnType='navBtn' />
-              <Button
-                href='/'
-                text='Log out'
-                btnType='navBtnii'
-                onClick={signOut}
-              />
+              <div className={styles.userContainer}>
+                <figure className={styles.imgContainer}>
+                  <Image
+                    src={
+                      user?.avatar
+                        ? user?.avatar?.url
+                        : "/images/default_avatar.jpg"
+                    }
+                    alt='John Doe'
+                    className={styles.img}
+                    height='50'
+                    width='50'
+                  />
+                </figure>
+                <span className={styles.userName}>{user?.name}</span>
+                <span className={styles.userName}>
+                  <Down
+                    className={
+                      isOpenii === false
+                        ? styles.down
+                        : `${styles.down} ${styles.flip}`
+                    }
+                    onClick={openMenuii}
+                  />
+                </span>
+              </div>
+              <div
+                className={
+                  isOpenii === false
+                    ? styles.menuContainer
+                    : `${styles.menuContainer} ${styles.activeMenuContainer}`
+                }
+              >
+                <Button href='/account' text='My account' btnType='navBtn' />
+                <Button
+                  href='/'
+                  text='Log out'
+                  btnType='navBtnii'
+                  onClick={signOut}
+                />
+                <Button
+                  href='/bookings/me'
+                  text='My Bookings'
+                  btnType='navBtniii'
+                  onClick={signOut}
+                />
+              </div>
             </div>
           </>
         )}

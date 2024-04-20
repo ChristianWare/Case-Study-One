@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 2rem 3rem;
+  padding: 1.5rem 3rem;
 }
 
 .navBarLeft {
@@ -109,18 +109,71 @@
   z-index: 3;
 }
 
-.btnContainer {
+/* .btnContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3rem;
   z-index: 998;
+} */
+
+.userContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.phone {
+.imgContainer {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.img {
+  border-radius: 50%;
+}
+
+.userName {
+  font-weight: 700;
+}
+
+.down {
+  width: 15px;
+  height: 15px;
   position: relative;
-  top: 5px;
-  right: 5px;
+  top: 3px;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+}
+
+.flip {
+  transform: rotate(180deg);
+}
+
+.btnContainer {
+  position: relative;
+}
+
+.menuContainer {
+  display: none;
+}
+
+.activeMenuContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
+  margin-top: 1rem;
+  position: absolute;
+  z-index: 1000;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 1168px) {
@@ -177,7 +230,7 @@
   }
 
   .btnContainer {
-    display: none;
+    /* display: none; */
   }
 
   .bottom {
