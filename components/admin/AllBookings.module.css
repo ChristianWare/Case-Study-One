@@ -51,10 +51,12 @@
   padding: 2rem;
   cursor: pointer;
   white-space: nowrap;
+    text-align: left;
+
 }
 
 .dataTable td {
-  padding: 1rem;
+  padding: 1rem 2rem;
   border: 1px solid var(--purple2);
 }
 

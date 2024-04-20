@@ -97,6 +97,11 @@ const AllBookings = ({ data }: Props) => {
           sort: "asc",
         },
         {
+          label: <div className={styles.theadContainer}>Amonut Paid</div>,
+          field: "amountPaid",
+          sort: "asc",
+        },
+        {
           label: <div className={styles.theadContainer}>Actions</div>,
           field: "actions",
           sort: "asc",
@@ -123,9 +128,16 @@ const AllBookings = ({ data }: Props) => {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}`,
-            tax: `$${(booking?.amountPaid === 0.50
+            tax: `$${(booking?.amountPaid === 0.5
               ? booking?.amountPaid * 0
               : booking?.amountPaid * 0.15
+            ).toLocaleString("en-US", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}`,
+            amountPaid: `$${(booking?.amountPaid === 0.5
+              ? booking?.amountPaid + 0
+              : booking?.amountPaid + booking?.amountPaid * 0.15
             ).toLocaleString("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
