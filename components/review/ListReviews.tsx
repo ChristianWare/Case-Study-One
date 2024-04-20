@@ -8,7 +8,6 @@ interface Props {
 }
 
 const ListReviews = ({ reviews }: Props) => {
-  console.log(reviews)
   return (
     <section className={styles.container}>
       <div className=''>
@@ -45,14 +44,16 @@ const ListReviews = ({ reviews }: Props) => {
                             { month: "2-digit", year: "numeric" }
                           )}
                         </p>
-                        <StarRatings
-                          rating={review?.rating}
-                          starRatedColor='#7065f0'
-                          numberOfStars={5}
-                          starDimension='24px'
-                          starSpacing='1px'
-                          name='rating'
-                        />
+                        <div className={styles.starContainer}>
+                          <StarRatings
+                            rating={review?.rating}
+                            starRatedColor='#7065f0'
+                            numberOfStars={5}
+                            starDimension='24px'
+                            starSpacing='1px'
+                            name='rating'
+                          />
+                        </div>
                         <p className={styles.comment}>{review?.comment}</p>
                       </div>
                     </div>
