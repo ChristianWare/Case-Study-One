@@ -62,6 +62,7 @@ function Nav() {
 
   const logoutHandler = () => {
     router.push("/");
+    setIsOpen(false);
     signOut();
   };
 
@@ -104,45 +105,55 @@ function Nav() {
               : `${styles.navMenu} ${styles.active}`
           }
         >
-          {navItems.map((navItem, index) => (
-            <li
-              key={index}
-              className={styles.navItem}
+          <div className={styles.userNameMobile}>
+            <div className={styles.name}>Hi, {user?.name}:</div>
+            <Button
+              href='/account'
+              text='Account Settings'
+              btnType='navBtnii'
               onClick={() => setIsOpen(false)}
-            >
-              <Link
-                href={navItem.href}
-                className={
-                  pathname === navItem.href
-                    ? `${styles.activeLink}  ${styles.navItem}`
-                    : styles.navItem
-                }
-              >
-                {navItem.text}
-              </Link>
-            </li>
-          ))}
-
-          {isOpen === true ? (
-            <div className={styles.btnContainerMobile}>
+            />
+            <Button
+              href='/bookings/me'
+              text='My Bookings'
+              btnType='navBtnii'
+              onClick={() => setIsOpen(false)}
+            />
+            {user?.role === "admin" && (
               <Button
-                href='/account'
-                text='My account'
-                btnType='primaryii'
+                href='/admin/dashbaord'
+                text='Admin Dashboard'
+                btnType='navBtnii'
                 onClick={() => setIsOpen(false)}
               />
-              <Button
-                href='/'
-                text='Log out'
-                btnType='secondary'
-                onClick={logoutHandler}
-              />
-            </div>
-          ) : (
-            <div className={styles.btnContainerMobile}>
-              <Button href='/login' text='Login' btnType='primaryii' />
-            </div>
-          )}
+            )}
+            <Button
+              href='/'
+              text='Log out'
+              btnType='navBtnii'
+              onClick={logoutHandler}
+            />
+          </div>
+          {navItems.map((navItem, index) => (
+            <>
+              <li
+                key={index}
+                className={styles.navItem}
+                onClick={() => setIsOpen(false)}
+              >
+                <Link
+                  href={navItem.href}
+                  className={
+                    pathname === navItem.href
+                      ? `${styles.activeLink}  ${styles.navItem}`
+                      : styles.navItem
+                  }
+                >
+                  {navItem.text}
+                </Link>
+              </li>
+            </>
+          ))}
         </ul>
         {!user ? (
           <div className={styles.btnContainer}>
@@ -152,21 +163,10 @@ function Nav() {
           <>
             <div className={styles.btnContainer}>
               <div className={styles.userContainer}>
-                <figure className={styles.imgContainer}>
-                  <Image
-                    src={
-                      user?.avatar
-                        ? user?.avatar?.url
-                        : "/images/default_avatar.jpg"
-                    }
-                    alt='John Doe'
-                    className={styles.img}
-                    height='50'
-                    width='50'
-                  />
-                </figure>
-                <span className={styles.userName}>{user?.name}</span>
-                <span className={styles.userName}>
+                <span className={styles.userName} onClick={openMenuii}>
+                  Hello {user?.name}
+                </span>
+                <span>
                   <Down
                     className={
                       isOpenii === false
@@ -184,26 +184,23 @@ function Nav() {
                     : `${styles.menuContainer} ${styles.activeMenuContainer}`
                 }
               >
-                <Button href='/account' text='My account' btnType='navBtn' />
+                <Link href='/account' className={styles.linkMenuItem} onClick={() => setIsOpenii(false)}>
+                  My account
+                </Link>
+                <Link href='/bookings/me' className={styles.linkMenuItem} onClick={() => setIsOpenii(false)}>
+                  My Bookings
+                </Link>
+                {user?.role === "admin" && (
+                  <Link href='/admin/dashboard' className={styles.linkMenuItem} onClick={() => setIsOpenii(false)}>
+                    Admin Dashboard
+                  </Link>
+                )}
                 <Button
                   href='/'
                   text='Log out'
                   btnType='navBtnii'
-                  onClick={signOut}
+                  onClick={logoutHandler}
                 />
-                <Button
-                  href='/bookings/me'
-                  text='My Bookings'
-                  btnType='navBtniii'
-                  onClick={signOut}
-                />
-                {user?.role === "admin" && (
-                  <Button
-                    href='/admin/dashboard'
-                    text='Admin Dashboard'
-                    btnType='navBtniii'
-                  />
-                )}
               </div>
             </div>
           </>

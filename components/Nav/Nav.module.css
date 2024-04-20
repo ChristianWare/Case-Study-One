@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1.5rem 3rem;
+  padding: 2rem 3rem;
 }
 
 .navBarLeft {
@@ -61,15 +61,22 @@
   list-style: none;
 }
 
+.userNameMobile {
+  display: none;
+}
+
 .navItem {
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--white);
   position: relative;
   user-select: none;
-  transition: all 0.3s ease-in;
   scroll-behavior: smooth;
   z-index: 998;
+}
+
+.menuContainerMobile {
+  display: none;
 }
 
 .btnContainerMobile {
@@ -109,14 +116,6 @@
   z-index: 3;
 }
 
-/* .btnContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  z-index: 998;
-} */
-
 .userContainer {
   display: flex;
   align-items: center;
@@ -125,8 +124,8 @@
 }
 
 .imgContainer {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border: 1px solid var(--white);
   display: flex;
   align-items: center;
@@ -140,9 +139,14 @@
 
 .userName {
   font-weight: 700;
+  line-height: 100%;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid var(--white);
 }
 
 .down {
+  color: var(--white);
   width: 15px;
   height: 15px;
   position: relative;
@@ -152,7 +156,12 @@
 }
 
 .flip {
+  color: var(--white);
   transform: rotate(180deg);
+}
+
+.linkMenuItem {
+  font-weight: 700;
 }
 
 .btnContainer {
@@ -161,6 +170,7 @@
 
 .menuContainer {
   display: none;
+  transition: all 0.4s ease-in;
 }
 
 .activeMenuContainer {
@@ -175,6 +185,7 @@
   padding: 1rem;
   border-radius: 10px;
   border: 1px solid var(--purple);
+  transition: all 0.4s ease-in;
 }
 
 @media screen and (max-width: 1168px) {
@@ -184,7 +195,7 @@
   }
 }
 
-@media screen and (max-width: 1068px) {
+@media screen and (max-width: 968px) {
   .navbar {
     justify-content: space-between;
     padding: 2rem 3rem;
@@ -214,8 +225,17 @@
     transform-origin: top;
   }
 
-  .navItem {
-    font-size: 5rem;
+  .userNameMobile {
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .navItem,
+  .userNameMobile {
+    font-size: 2rem;
     color: var(--white);
     font-family: var(--humaneBold);
     line-height: 0.8;
@@ -223,15 +243,19 @@
     text-transform: uppercase;
   }
 
-  .btnContainerMobile {
+  .name {
+    line-height: 100%;
+  }
+
+  /* .btnContainerMobile {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 3rem;
     width: 100%;
-  }
+  } */
 
   .btnContainer {
-    /* display: none; */
+    display: none;
   }
 
   .bottom {
