@@ -197,6 +197,13 @@ function Nav() {
                   btnType='navBtniii'
                   onClick={signOut}
                 />
+                {user?.role === "admin" && (
+                  <Button
+                    href='/admin/dashboard'
+                    text='Admin Dashboard'
+                    btnType='navBtniii'
+                  />
+                )}
               </div>
             </div>
           </>
