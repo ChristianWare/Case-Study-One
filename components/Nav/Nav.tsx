@@ -123,7 +123,7 @@ function Nav() {
                 />
                 {user?.role === "admin" && (
                   <Button
-                    href='/admin/dashbaord'
+                    href='/admin/dashboard'
                     text='Admin Dashboard'
                     btnType='navBtnii'
                     onClick={() => setIsOpen(false)}
