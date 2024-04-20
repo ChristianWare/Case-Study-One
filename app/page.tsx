@@ -16,7 +16,7 @@ export const metadata = {
   description: "This is the description for the home page of this application.",
 };
 
-export const revalidate = 0;
+export const revalidate = 10;
 
 const getRooms = async () => {
   try {
