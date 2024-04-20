@@ -97,8 +97,10 @@ const BookingDatePicker = ({ room }: Props) => {
   const bookRoom = () => {
     if (checkInDate && checkOutDate) {
       if (isAuthenticated) {
-        const amount =
-          user?.role === "admin" ? 0.5 : room.pricePerNight * daysOfStay;
+        const total = room.pricePerNight * daysOfStay;
+        const tax = total * 0.15;
+        const amount = user?.role === "admin" ? 0.5 : total + tax;
+
         const checkoutData = {
           checkInDate: checkInDate.toISOString(),
           checkOutDate: checkOutDate.toISOString(),
