@@ -17,7 +17,7 @@ const ListReviews = ({ reviews }: Props) => {
         {reviews.length > 0 && (
           <div className={styles.bottom}>
             <>
-              {reviews?.map((review, index) => (
+              {reviews?.slice().reverse().map((review, index) => (
                 <div className={styles.reviewContainer} key={index}>
                   {review?.user !== null && (
                     <div className={styles.content}>

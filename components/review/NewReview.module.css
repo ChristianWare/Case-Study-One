@@ -67,11 +67,6 @@
   .container {
     width: 300px;
   }
-
-  .btnContainer {
-    width: 100%;
-    display: flex;
-  }
 }
 
 @media screen and (max-width: 480px) {
