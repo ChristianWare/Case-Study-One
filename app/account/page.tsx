@@ -31,7 +31,7 @@ const AccountPage = () => {
           {user ? (
             <>
               <div className={styles.top}>
-                <h1>
+                <h1 className={styles.heading}>
                   Hi, <span className={styles.userName}>{user?.name} 👋</span>
                 </h1>
                 <h2>What would you like to do today?</h2>

@@ -2,25 +2,25 @@ import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./ContactSection.module.css";
 import Image from "next/image";
-import Img from "../../../public/images/img1.jpg";
+import Img from "../../public/images/owner.png";
 
 const ContactSection = () => {
   const contactInfo = [
     {
       feature: "Email",
-      value: "hello@email.com",
-    },
-    {
-      feature: "Location # 1",
-      value: "San Fransico, CA",
+      value: "hello@eliteretreatrentals.com",
     },
     {
       feature: "Phone",
-      value: "210-450-6589",
+      value: "623-450-6589",
     },
     {
-      feature: "Location # 2",
-      value: "San Fransico, CA",
+      feature: "Instagram",
+      value: "@eliteRetreatRentals",
+    },
+    {
+      feature: "Facebook",
+      value: "facebook.com/eliteretreatrentals",
     },
   ];
 
@@ -29,12 +29,10 @@ const ContactSection = () => {
       <ContentPadding>
         <div className={styles.content}>
           <div className={styles.left}>
-            <h1 className={styles.heading}>
-              Get in touch with us and lets talk
-            </h1>
+            <h1 className={styles.heading}>Contct Info.</h1>
             <p className={styles.copy}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit nibh
-              pretium nunc mauris sed adipiscing.
+              We look forward to spesking with you soon. Feel free to reach out
+              to us anytime.
             </p>
             <div className={styles.statsContainer}>
               {contactInfo.map((x, index) => (
@@ -45,7 +43,11 @@ const ContactSection = () => {
               ))}
             </div>
           </div>
-          <div className={styles.right}></div>
+          <div className={styles.right}>
+            <div className={styles.imgContainer}>
+              <Image src={Img} alt='image' fill className={styles.img} />
+            </div>
+          </div>
         </div>
       </ContentPadding>
     </LayoutWrapper>

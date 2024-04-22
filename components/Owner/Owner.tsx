@@ -37,16 +37,16 @@ const Owner: FC<OwnerProps> = ({ heading, copy, reverse = "" }) => {
                       <p className={styles.copyii}>Years in Business</p>
                     </div>
                     <div className={styles.box}>
-                      <h2 className={styles.heading}>195</h2>
-                      <p className={styles.copyii}>Countries</p>
+                      <h2 className={styles.heading}>7</h2>
+                      <p className={styles.copyii}>Properties</p>
                     </div>
                     <div className={styles.box}>
                       <h2 className={styles.heading}>35 + </h2>
                       <p className={styles.copyii}>Intergration Partners</p>
                     </div>
                     <div className={styles.box}>
-                      <h2 className={styles.heading}>1M + </h2>
-                      <p className={styles.copyii}>Users</p>
+                      <h2 className={styles.heading}>1000 + </h2>
+                      <p className={styles.copyii}>guests</p>
                     </div>
                   </div>
                 </div>

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Img from "../../public/images/img1.jpg";
 import styles from "./BlogPreview.module.css";
 import { BlogPreviewProps } from "../../lib/interface";
 import { FC } from "react";
 import Link from "next/link";
+import Button from "../Button/Button";
 
 const BlogPreview: FC<BlogPreviewProps> = ({ mapData, key }) => {
   return (
@@ -25,7 +25,9 @@ const BlogPreview: FC<BlogPreviewProps> = ({ mapData, key }) => {
         <span className={styles.perDay}>{mapData.meta.date}</span>
         <div className={styles.feature}>{mapData.meta.description}</div>
       </div>
-      <div className={styles.available}>Read More</div>
+      <div className={styles.btnContainer}>
+        <Button text='Read Article' btnType='secondary' href='#' />
+      </div>
     </div>
   );
 };

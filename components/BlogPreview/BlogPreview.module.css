@@ -81,6 +81,7 @@
 .title {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  font-family: var(--helveticaBold);
 }
 
 .copy {
@@ -103,6 +104,12 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+.btnContainer {
+  display: grid;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 968px) {

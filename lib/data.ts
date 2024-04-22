@@ -27,28 +27,24 @@ export const faqs = [
 
 export const methodologies = [
   {
-    heading: "Driven by ambition",
-    desc: "We’re all driven by the same goal to change the way the world hires in whatever part we play.",
+    heading: "Excellence",
+    desc: "We strive for excellence in every aspect of our business. From the design of our websites to the support we offer, we are committed to delivering the highest quality service.",
   },
   {
-    heading: "A big heart",
-    desc: "Our people, clients and employees alike, are the heart and core of who we are.",
+    heading: "Integrity",
+    desc: "Integrity is at the heart of our business. We believe in honesty, transparency, and doing what's right, even when no one is watching.",
   },
   {
-    heading: "Positively charged",
-    desc: "Whatever we do, we do with a positive attitude and lots of energy.",
+    heading: "Customer Focus",
+    desc: "Our customers are our top priority. We listen to their needs, understand their goals, and tailor our solutions to exceed their expectations.",
   },
   {
-    heading: "Driven by ambition",
-    desc: "We work hard to achieve our clients’ objectives as well as our own individual goals.",
+    heading: "Innovation",
+    desc: "We embrace innovation and continuously seek new ways to improve our products and services. We stay ahead of industry trends to provide cutting-edge solutions to our clients.",
   },
   {
-    heading: "Driven by ambition",
-    desc: "We’re there for each other through the challenges and make sure to celebrate the good times too.",
-  },
-  {
-    heading: "Driven by ambition",
-    desc: "We’re known for being a fun, light-hearted bunch and that shows through all our work.",
+    heading: "Collaboration",
+    desc: "Collaboration is key to our success. We work closely with our clients, partners, and team members to achieve shared goals and foster meaningful relationships.",
   },
 ] as const;
 

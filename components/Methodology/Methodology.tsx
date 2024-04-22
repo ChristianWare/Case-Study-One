@@ -10,11 +10,12 @@ const Methodology = () => {
       <ContentPadding>
         <section className={styles.container}>
           <div className={styles.top}>
-            <h2 className={styles.heading}>The Homix product methodology</h2>
+            <h2 className={styles.heading}>Our Values and Principles</h2>
             <p className={styles.copy}>
-              With local developers using the latest technologies to build our
-              platform, our mission is to create a user-focused experience to
-              streamline HR and recruitment processes.
+              We are driven by a set of core values and principles that guide
+              everything we do. These values are not just words on a page; they
+              are the foundation of the exceptional service we provide to our
+              clients.
             </p>
           </div>
           <div className={styles.bottom}>

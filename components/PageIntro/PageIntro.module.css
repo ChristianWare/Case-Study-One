@@ -4,6 +4,8 @@
 
 .heading {
   text-align: center;
+  color: var(--black2);
+  hyphens: auto;
 }
 
 .copy {
@@ -25,6 +27,6 @@
 
 @media screen and (max-width: 568px) {
   .copy {
-    width: 90%;
+    width: 100%;
   }
 }
