@@ -136,6 +136,10 @@ select:focus {
     font-size: 50%;
   }
 
+  h1 {
+    letter-spacing: -2px;
+  }
+
   p,
   label {
     font-size: 110%;
