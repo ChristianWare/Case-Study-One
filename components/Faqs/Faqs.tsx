@@ -22,12 +22,6 @@ const Faqs = () => {
         <div className={styles.content}>
           <div className={styles.top}>
             <h2 className={styles.heading}>Frequently asked questions</h2>
-            <p className={styles.copy}>
-              Welcome to our FAQ section, designed to make your experience
-              seamless. Explore common inquiries about booking, unique property
-              features, pet policies, and our dedicated 24/7 support, ensuring
-              your stay with us is as straightforward as it is enjoyable.
-            </p>
           </div>
           <div className={styles.bottom}>
             {faqs.map((x, i) => (

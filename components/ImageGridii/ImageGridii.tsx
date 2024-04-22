@@ -30,11 +30,11 @@ const ImageGridii = () => {
           />
         </div>
         <div className={styles.box3}>
-          <h5>Nacho Fries</h5>
+          <h5>Wifi</h5>
         </div>
 
         <div className={styles.box4}>
-          <h5>Challupas</h5>
+          <h5>Swimming Pool</h5>
           <a></a>
         </div>
 
@@ -59,7 +59,7 @@ const ImageGridii = () => {
           />
         </div>
         <div className={styles.box2B}>
-          <h5>Crunchwrap Supreme</h5>
+          <h5>Backyard</h5>
         </div>
         <div className={styles.box3B}>
           <Image
@@ -71,7 +71,7 @@ const ImageGridii = () => {
           />
         </div>
         <div className={styles.box4B}>
-          <h5>Gordita Crunch</h5>
+          <h5>Outdoor Grill</h5>
         </div>
         <div className={styles.box5B}>
           <Image

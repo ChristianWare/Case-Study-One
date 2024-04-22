@@ -1,13 +1,10 @@
-.container {
-  position: relative;
-}
-
 .top {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-top: 5rem;
   margin-bottom: 5rem;
 }
 
@@ -28,6 +25,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
 }
 
 .qaContainer {
@@ -121,6 +120,11 @@
 
   .heading {
     text-align: center;
+  }
+
+  .bottom {
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 
   .copy {

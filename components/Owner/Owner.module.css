@@ -40,7 +40,6 @@
 
 .copyii {
   margin-top: 0rem;
-  /* text-align: center; */
   width: 100%;
 }
 
@@ -161,6 +160,14 @@
 @media screen and (max-width: 768px) {
   .imgContainer {
     height: 775px;
+  }
+
+  .copy, .copyii {
+    width: 100%;
+  }
+
+  .statsContainer {
+    width: 90%;
   }
 }
 
