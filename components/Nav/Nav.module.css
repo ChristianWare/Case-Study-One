@@ -25,6 +25,7 @@
 .logo {
   font-size: 2rem;
   font-family: var(--helveticaBold);
+  text-transform: uppercase;
   color: var(--white);
   font-weight: 600;
   z-index: 998;
@@ -36,12 +37,11 @@
 
 .userName {
   color: var(--white);
-  font-family: var(--helveticaBold);
 }
 
 .icon {
   position: relative;
-  margin-top: -2rem;
+  margin-top: -1.3rem;
   position: relative;
   top: 5px;
 }
@@ -146,6 +146,7 @@
   cursor: pointer;
   user-select: none;
   border-bottom: 1px solid var(--white);
+  font-family: var(--helveticaBold);
 }
 
 .down {
@@ -240,7 +241,7 @@
   .userNameMobile {
     font-size: 2rem;
     color: var(--white);
-    font-family: var(--helveticaBold);
+    font-family: var(--humaneBold);
     line-height: 0.8;
     font-weight: 900;
     text-transform: uppercase;

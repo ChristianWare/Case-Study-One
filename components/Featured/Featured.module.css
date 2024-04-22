@@ -5,6 +5,10 @@
   margin-bottom: 8rem;
 }
 
+.heading {
+  color: var(--black2);
+}
+
 .bottom {
   display: flex;
   flex-direction: column;

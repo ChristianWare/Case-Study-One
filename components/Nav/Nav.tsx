@@ -10,7 +10,6 @@ import House from "../../public/icons/house.svg";
 import { setIsAuthenticated, setUser } from "../../redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import Down from "../../public/icons/down.svg";
 
 function Nav() {
@@ -94,7 +93,7 @@ function Nav() {
       <nav className={styles.navbar}>
         <div className={styles.logoContainer}>
           <Link href='/' className={styles.logo}>
-            <House width={30} height={30} className={styles.icon} /> Elite
+            <House width={20} height={20} className={styles.icon} /> Elite
             Retreat Rentals
           </Link>
         </div>

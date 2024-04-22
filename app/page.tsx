@@ -10,6 +10,8 @@ import FinalCTA2 from "../components/FinalCTA2/FinalCTA2";
 import Error from "./error";
 import BlogSection from "../components/BlogSection/BlogSection";
 import { revalidatePath } from "next/cache";
+import AboutSection from "../components/AboutSection/AboutSection";
+import C1 from "../components/C1/C1";
 
 export const metadata = {
   title: "Home - Elite Retreat Rentals",
@@ -63,6 +65,8 @@ export default async function Home() {
     <div>
       <Hero />
       <PostHero />
+      {/* <AboutSection /> */}
+      <C1 />
       <Featured data={data} />
       <Discover />
       <Properties data={data} />
@@ -74,7 +78,6 @@ export default async function Home() {
       <BlogSection blogData={blogs} />
       <FinalCTA1 />
       <FinalCTA2 />
-      
     </div>
   );
 }

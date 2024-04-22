@@ -22,9 +22,13 @@ const Featured = ({ data }: Props) => {
       <ContentPadding>
         <section className={styles.content}>
           <div className={styles.top}>
-            <h2>Featured properties</h2>
+            <h2 className={styles.heading}>Featured properties</h2>
             <div className={styles.btnContainer}>
-              <Button text='Explore all listings' btnType='tertiary' href='/properties' />
+              <Button
+                text='Explore all listings'
+                btnType='tertiary'
+                href='/properties'
+              />
             </div>
           </div>
           <div className={styles.bottom}>
@@ -34,7 +38,9 @@ const Featured = ({ data }: Props) => {
                   <b>No Rooms.</b>
                 </div>
               ) : (
-                rooms?.slice(0, 2).map((room) => <PropPreview key={room._id} room={room} />)
+                rooms
+                  ?.slice(0, 2)
+                  .map((room) => <PropPreview key={room._id} room={room} />)
               )}
             </div>
           </div>

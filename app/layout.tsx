@@ -27,6 +27,12 @@ const helveticaBold = localFont({
   display: "swap",
 });
 
+const tuskerGrotesk = localFont({
+  src: "../public/fonts/tuskerGrotesk.ttf",
+  variable: "--tuskerGrotesk",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -35,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${epilogue.variable} ${helvetica.variable} ${helveticaBold.variable} `}
+        className={`${epilogue.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} `}
       >
         <Globalprovider>
           <Nav />

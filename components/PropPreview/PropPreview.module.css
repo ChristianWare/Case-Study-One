@@ -1,14 +1,16 @@
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  box-shadow: var(--shadow);
+  grid-gap: 2rem;
   border-radius: 20px;
-  margin-bottom: 5rem;
+  background-color: var(--purple2);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 
 .left,
 .right {
-  flex: 1;
   width: 100%;
 }
 
@@ -20,8 +22,7 @@
 
 .img {
   object-fit: cover;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px;
 }
 
 .right {
@@ -31,8 +32,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   background-color: var(--purple);
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 20px;
 }
 
 .rightTop {
@@ -51,25 +51,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  letter-spacing: -0.05em;
+  gap: 1rem;
+  font-family: var(--tuskerGrotesk);
 }
 
 .perDay {
   font-size: 1.8rem;
   color: var(--white);
   font-weight: 500;
-}
-
-.available {
-  font-weight: 500;
-  background-color: var(--purple);
-  color: var(--white);
-  padding: 3px 10px;
-  padding-top: 7px;
-  border-radius: 20px;
-  border: 1px solid var(--white);
-  line-height: 100%;
+  font-family: var(--helveticaBold);
 }
 
 .title {
@@ -78,16 +68,21 @@
   margin-top: 2rem;
   text-transform: uppercase;
   font-weight: 700;
+  font-family: var(--helveticaBold);
+  padding: 3px 15px;
+  padding-top: 7px;
+  border-radius: 20px;
+  border: 1px solid var(--white);
 }
 
 .copy {
   color: var(--white);
   opacity: 0.7;
-  margin: 2rem 0rem;
+  margin-top: 2rem;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
 }
 
 .featuresBox {
@@ -117,20 +112,11 @@
 @media screen and (max-width: 968px) {
   .container {
     grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 5rem;
   }
 
   .imgContainer {
     height: 350px;
-  }
-
-  .img {
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 0px;
-  }
-
-  .right {
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 20px;
   }
 
   .featuresBox {

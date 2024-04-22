@@ -17,8 +17,7 @@
 
 .heading {
   color: var(--white);
-  font-weight: 600;
-  line-height: 1.1em;
+  width: 95%;
 }
 
 .copy {
@@ -75,7 +74,8 @@
     justify-content: center;
   }
 
-  .heading, .copy {
+  .heading,
+  .copy {
     text-align: center;
   }
 
@@ -96,11 +96,12 @@
 }
 
 @media screen and (max-width: 568px) {
-  .heading, .copy {
+  .heading,
+  .copy {
     text-align: left;
   }
 
-    .btnContainer {
+  .btnContainer {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 5rem;

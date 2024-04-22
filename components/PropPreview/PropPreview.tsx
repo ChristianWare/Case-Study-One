@@ -31,20 +31,20 @@ const PropPreview = ({ room }: Props) => {
             $ {room.pricePerNight}{" "}
             <span className={styles.perDay}>/ per night</span>
           </span>
-          <div className={styles.available}>Available</div>
+          {/* <div className={styles.available}>Available</div> */}
         </div>
         <Link href={`/properties/${room?._id}`} className={styles.title}>
           {room?.name}
         </Link>
         <p className={styles.copy}>{room.description}</p>
 
-        <div className={styles.featuresBox}>
+        {/* <div className={styles.featuresBox}>
           <div className={styles.feature}>Beds available: {room.numOfBeds}</div>
           <div className={styles.feature}>
             Guest Capacity: {room.guestCapacity}
           </div>
           <div className={styles.feature}>Total Ratings: {room.ratings}</div>
-        </div>
+        </div> */}
         <div className={styles.btnContainer}>
           <Button
             text='View Details'
