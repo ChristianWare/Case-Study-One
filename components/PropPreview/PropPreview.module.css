@@ -67,9 +67,9 @@
   font-size: 1.8rem;
   margin-top: 2rem;
   text-transform: uppercase;
-  font-weight: 700;
   font-family: var(--helveticaBold);
   padding: 3px 15px;
+  padding-bottom: 6px;
   padding-top: 7px;
   border-radius: 20px;
   border: 1px solid var(--white);

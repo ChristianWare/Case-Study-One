@@ -29,11 +29,6 @@ const Properties = ({ data }: Props) => {
           {pathname === "/" && (
             <>
               <h2 className={styles.heading}>More Listings</h2>
-              <p className={styles.copy}>
-                Here is a comprehensive list of all the properties we have
-                available for you to enjoy. Feel free to reach out with
-                questions.
-              </p>
             </>
           )}
         </div>

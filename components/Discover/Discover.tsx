@@ -24,7 +24,7 @@ const Discover = () => {
                 journey in your very own dream house.
               </p>
               <Button
-                btnType='navBtn'
+                btnType='navBtnii'
                 text='All Properties'
                 href='/properties'
               />

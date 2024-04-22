@@ -66,9 +66,8 @@ h2 {
 
 h3 {
   font-size: 3.6rem;
-  letter-spacing: -0.05em;
-  line-height: 130%;
-  font-weight: 600;
+  /* letter-spacing: -0.05em; */
+  line-height: 120%;
 }
 
 h4 {

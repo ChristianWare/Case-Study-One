@@ -33,8 +33,15 @@
   gap: 3rem;
 }
 
+.heading {
+  font-family: var(--tuskerGrotesk);
+  text-transform: uppercase;
+  color: var(--black2);
+}
+
 .highlight {
   color: var(--purple);
+  font-family: var(--tuskerGrotesk);
 }
 
 .copy {
@@ -58,7 +65,8 @@
 }
 
 @media screen and (max-width: 768px) {
-  .container, .left {
+  .container,
+  .left {
     padding: 3rem;
   }
 }

@@ -4,7 +4,7 @@ import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Owner.module.css";
 import Image from "next/image";
-import Img from "../../public/images/owner.jpeg";
+import Img from "../../public/images/owner.png";
 import Quote from "../../public/icons/quote.svg";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
