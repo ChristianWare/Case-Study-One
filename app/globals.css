@@ -15,7 +15,7 @@
   box-sizing: border-box;
   text-decoration: none;
   line-height: 150%;
-  font-family: var(--epilogue);
+  font-family: var(--helvetica);
   overscroll-behavior: none;
   scroll-behavior: smooth;
   scroll-margin-top: 20px;
@@ -43,7 +43,7 @@ h4,
 h5,
 h6,
 span {
-  font-family: var(--epilogue);
+  font-family: var(--helvetica);
   color: var(--black);
   hyphens: auto;
 }
@@ -51,8 +51,8 @@ span {
 h1 {
   font-size: 6.4rem;
   font-weight: 600;
-  line-height: 1.1em;
-  letter-spacing: -2px;
+  line-height: 120%;
+  text-transform: capitalize;
 }
 
 h2 {

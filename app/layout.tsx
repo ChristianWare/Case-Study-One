@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Epilogue } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "../components/Nav/Nav";
 import Footer from "../components/Footer/Footer";
@@ -14,6 +15,18 @@ const epilogue = Epilogue({
   adjustFontFallback: false,
 });
 
+const helvetica = localFont({
+  src: "../public/fonts/helvetica.ttf",
+  variable: "--helvetica",
+  display: "swap",
+});
+
+const helveticaBold = localFont({
+  src: "../public/fonts/helveticaBold.ttf",
+  variable: "--helveticaBold",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -21,13 +34,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${epilogue.variable} `}>
+      <body
+        className={`${epilogue.variable} ${helvetica.variable} ${helveticaBold.variable} `}
+      >
         <Globalprovider>
           <Nav />
           {children}
           <Footer />
         </Globalprovider>
-
         <Script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'></Script>
         <Script src='https://kit.fontawesome.com/b6b7b8a602.js'></Script>
       </body>

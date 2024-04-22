@@ -19,6 +19,8 @@
 .btn {
   text-align: center;
   font-size: 1.6rem;
+  font-family: var(--helveticaBold);
+  text-transform: capitalize;
   white-space: nowrap;
   border-radius: 10px;
   user-select: none;
