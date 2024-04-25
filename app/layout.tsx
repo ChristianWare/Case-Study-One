@@ -8,7 +8,6 @@ import { Globalprovider } from "../GlobalProvider";
 import Script from "next/script";
 import PlausibleProvider from "next-plausible";
 
-
 const epilogue = Epilogue({
   weight: ["400", "500", "600", "700", "900"],
   style: ["normal"],
@@ -44,7 +43,7 @@ export default function RootLayout({
     <html lang='en'>
       <head>
         <PlausibleProvider
-          domain='fontsandfooters.com'
+          domain='eliteretreatrentals.com'
           trackLocalhost={true}
           enabled={true}
         />
