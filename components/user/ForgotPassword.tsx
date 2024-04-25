@@ -3,7 +3,9 @@
 import { useForgotPasswordMutation } from "../../redux/api/authApi";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import ButtonLoader from "../layout/ButtonLoader";
+import styles from "./UpdatePassword.module.css";
+import ContentPadding from "../ContentPadding/ContentPadding";
+import FalseButton from "../FalseButton/FalseButton";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -31,35 +33,32 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className='row wrapper'>
-      <div className='col-10 col-lg-5'>
-        <form className='shadow rounded bg-body' onSubmit={submitHandler}>
-          <h2 className='mb-4'>Forgot Password</h2>
-          <div className='mb-3'>
-            <label htmlFor='email_field' className='form-label'>
-              {" "}
-              Enter Email{" "}
-            </label>
-            <input
-              type='email'
-              id='email_field'
-              className='form-control'
-              name='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-
-          <button
-            type='submit'
-            className='btn form-btn w-100 py-2'
+    <ContentPadding>
+      <h2 className={styles.heading}>Forgot Password</h2>
+      <form className={styles.container} onSubmit={submitHandler}>
+        <div className={styles.lableInputBox}>
+          <label htmlFor='email_field' className='form-label'>
+            {" "}
+            Enter Email{" "}
+          </label>
+          <input
+            type='email'
+            id='email_field'
+            className='form-control'
+            name='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className={styles.btnContainer}>
+          <FalseButton
+            btnType='secondary'
+            text={isLoading ? "Loading..." : "Submit"}
             disabled={isLoading}
-          >
-            {isLoading ? <ButtonLoader /> : "Send Email"}
-          </button>
-        </form>
-      </div>
-    </div>
+          />
+        </div>
+      </form>
+    </ContentPadding>
   );
 };
 export default ForgotPassword;
