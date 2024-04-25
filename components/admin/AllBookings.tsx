@@ -186,8 +186,6 @@ const AllBookings = ({ data }: Props) => {
       </div>
       <MDBDataTable
         data={setBookings()}
-        // displayEntries={false}
-        // info={false}
         className={styles.dataTable}
       />
       <Modal
