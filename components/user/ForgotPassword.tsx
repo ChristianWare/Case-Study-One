@@ -3,9 +3,10 @@
 import { useForgotPasswordMutation } from "../../redux/api/authApi";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import styles from "./UpdatePassword.module.css";
+import styles from "../../components/auth/Login.module.css";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import FalseButton from "../FalseButton/FalseButton";
+import { useRouter } from "next/navigation";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -32,6 +33,12 @@ const ForgotPassword = () => {
     forgotPassword(userData);
   };
 
+  const router = useRouter();
+
+  const goHome = () => {
+    router.push("/");
+  };
+
   return (
     <ContentPadding>
       <h2 className={styles.heading}>Forgot Password</h2>
@@ -56,6 +63,7 @@ const ForgotPassword = () => {
             text={isLoading ? "Loading..." : "Submit"}
             disabled={isLoading}
           />
+          <FalseButton btnType='primary' text={"Go Home"} onClick={goHome} />
         </div>
       </form>
     </ContentPadding>
