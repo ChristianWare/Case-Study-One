@@ -26,7 +26,7 @@ const BlogPreview: FC<BlogPreviewProps> = ({ mapData, key }) => {
         <div className={styles.feature}>{mapData.meta.description}</div>
       </div>
       <div className={styles.btnContainer}>
-        <Button text='Read Article' btnType='secondary' href='#' />
+        <Button text='Coming Soon' btnType='secondary' href='#' />
       </div>
     </div>
   );

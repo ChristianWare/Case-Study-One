@@ -31,9 +31,10 @@
 
 .heading {
   color: var(--black2);
-  font-family: var(--tuskerGrotesk);
+  font-family: var(--helveticaBold);
   text-transform: uppercase;
   font-size: 4rem;
+  line-height: 110%;
 }
 
 .btnContainer {

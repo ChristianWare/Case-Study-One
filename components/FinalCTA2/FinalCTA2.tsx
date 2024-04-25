@@ -13,8 +13,7 @@ const FinalCTA2 = () => {
           <div className={styles.content}>
             <div className={styles.left}>
               <h3 className={styles.heading}>
-                We are here to take care of all your vacation rental needs in
-                the Phoenix, AZ area. Explore all of our properties for rent.
+                We are here to take care of all your vacation rental needs.
               </h3>
               <div className={styles.btnContainer}>
                 <Button
