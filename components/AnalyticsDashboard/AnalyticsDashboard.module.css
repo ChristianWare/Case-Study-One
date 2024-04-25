@@ -3,7 +3,7 @@
 }
 
 .arrow {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .stats,
@@ -11,8 +11,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
   margin-bottom: 2rem;
 }
 
@@ -50,14 +48,6 @@
   padding-right: 1rem;
   margin-left: 2rem;
   background-color: var(--green3);
-}
-
-@media screen and (max-width: 1168px) {
-  .stats,
-  .statsii {
-    margin-right: 0rem;
-    margin-left: 0rem;
-  }
 }
 
 @media screen and (max-width: 968px) {
