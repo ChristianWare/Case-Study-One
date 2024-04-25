@@ -6,6 +6,8 @@ import Nav from "../components/Nav/Nav";
 import Footer from "../components/Footer/Footer";
 import { Globalprovider } from "../GlobalProvider";
 import Script from "next/script";
+import PlausibleProvider from "next-plausible";
+
 
 const epilogue = Epilogue({
   weight: ["400", "500", "600", "700", "900"],
@@ -40,6 +42,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <head>
+        <PlausibleProvider
+          domain='fontsandfooters.com'
+          trackLocalhost={true}
+          enabled={true}
+        />
+      </head>
       <body
         className={`${epilogue.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} `}
       >
