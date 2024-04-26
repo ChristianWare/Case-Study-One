@@ -6,11 +6,12 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "../Button/Button";
 import House from "../../public/icons/house.svg";
-
+import Logo from "../../public/icons/logo.svg";
 import { setIsAuthenticated, setUser } from "../../redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { signOut, useSession } from "next-auth/react";
 import Down from "../../public/icons/down.svg";
+import Image from "next/image";
 
 function Nav() {
   const dispatch = useAppDispatch();
@@ -93,8 +94,8 @@ function Nav() {
       <nav className={styles.navbar}>
         <div className={styles.logoContainer}>
           <Link href='/' className={styles.logo}>
-            <House width={20} height={20} className={styles.icon} /> Elite
-            Retreat Rentals
+            <Logo width={50} height={50} className={styles.icon} />
+            <span className={styles.span}>Elite Retreat Rentals</span>
           </Link>
         </div>
         <ul
@@ -105,7 +106,18 @@ function Nav() {
           }
         >
           <div className={styles.userNameMobile}>
-            {user && user?.name ? `Hi, ${user.name}:` : "User Options"}
+            <div className={styles.mobileImageNameContainer}>
+              <div className={styles.imgContainer}>
+                <Image
+                  src={user?.avatar.url}
+                  width={40}
+                  height={40}
+                  alt={user?.name}
+                  className={styles.img}
+                />
+              </div>
+              {user && user?.name ? `Hi, ${user.name}:` : "User Options"}
+            </div>
             {user && user?.name ? (
               <>
                 <Button
@@ -182,7 +194,16 @@ function Nav() {
             <div className={styles.btnContainer}>
               <div className={styles.userContainer}>
                 <span className={styles.userName} onClick={openMenuii}>
-                  Hello {user?.name}
+                  <div className={styles.imgContainer}>
+                    <Image
+                      src={user?.avatar.url}
+                      width={40}
+                      height={40}
+                      alt={user?.name}
+                      className={styles.img}
+                    />
+                  </div>
+                  <div className={styles.hello}>Hello {user?.name}</div>
                 </span>
                 <span>
                   <Down

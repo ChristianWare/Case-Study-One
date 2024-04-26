@@ -23,16 +23,21 @@
 }
 
 .logo {
-  font-size: 2rem;
-  font-family: var(--helveticaBold);
-  text-transform: uppercase;
-  color: var(--white);
-  font-weight: 600;
   z-index: 998;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  color: var(--white);
+}
+
+.span {
+  font-size: 2rem;
+  font-family: var(--helveticaBold);
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  top: 15px;
 }
 
 .userName {
@@ -76,6 +81,8 @@
   user-select: none;
   scroll-behavior: smooth;
   z-index: 998;
+  position: relative;
+  top: 8px;
 }
 
 .menuContainerMobile {
@@ -124,12 +131,14 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  position: relative;
+  top: 17px;
 }
 
 .imgContainer {
-  width: 70px;
-  height: 70px;
-  border: 1px solid var(--white);
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,12 +150,17 @@
 }
 
 .userName {
-  font-weight: 700;
-  line-height: 100%;
   cursor: pointer;
   user-select: none;
-  border-bottom: 1px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hello {
   font-family: var(--helveticaBold);
+  line-height: 100%;
 }
 
 .down {
@@ -165,7 +179,7 @@
 }
 
 .linkMenuItem {
-  font-weight: 700;
+  font-family: var(--helveticaBold);
 }
 
 .btnContainer {
@@ -182,7 +196,7 @@
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 3rem;
   position: absolute;
   z-index: 1000;
   background-color: var(--white);
@@ -199,7 +213,7 @@
   }
 }
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 1000px) {
   .navbar {
     justify-content: space-between;
     padding: 2rem 3rem;
@@ -237,11 +251,21 @@
     margin-bottom: 2rem;
   }
 
+  .mobileImageNameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    font-family: var(--helveticaBold);
+    /* margin-top: 2rem; */
+    /* margin-bottom: 2rem; */
+  }
+
   .navItem,
   .userNameMobile {
     font-size: 2rem;
     color: var(--white);
-    font-family: var(--humaneBold);
+    font-family: var(--helveticaBold);
     line-height: 0.8;
     font-weight: 900;
     text-transform: uppercase;
@@ -250,13 +274,6 @@
   .name {
     line-height: 100%;
   }
-
-  /* .btnContainerMobile {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 3rem;
-    width: 100%;
-  } */
 
   .btnContainer {
     display: none;
@@ -308,6 +325,18 @@
 
   .navbar {
     padding: 3rem 2rem;
+  }
+}
+
+@media screen and (max-width: 480px)  {
+  .logo {
+    flex-direction: column;
+    align-items: flex-start;
+  
+  }
+
+  .span {
+    top: 0;
   }
 }
 

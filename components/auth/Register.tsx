@@ -10,6 +10,7 @@ import styles from "./Login.module.css";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import FalseButton from "../FalseButton/FalseButton";
+import Button from "../Button/Button";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -108,8 +109,9 @@ const Register = () => {
               disabled={isLoading}
             />
           </div>
-          <div className={styles.btnContainerii}>
+          <div className={styles.btnContainer}>
             <FalseButton btnType='secondary' text='Register' />
+            <Button btnType='primary' text='Login' href='/login' />
           </div>
         </form>
       </ContentPadding>
