@@ -36,12 +36,14 @@ const Login = () => {
     if (result?.error) {
       toast.error(result.error);
     } else {
+      toast.success("Logged in Successfully!");
       router.replace("/");
     }
   };
 
   const logoutHandler = () => {
     signOut();
+    toast.success("Logged Out");
   };
 
   return (

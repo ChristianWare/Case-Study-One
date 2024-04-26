@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "../Button/Button";
-import House from "../../public/icons/house.svg";
 import Logo from "../../public/icons/logo.svg";
 import { setIsAuthenticated, setUser } from "../../redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { signOut, useSession } from "next-auth/react";
 import Down from "../../public/icons/down.svg";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 function Nav() {
   const dispatch = useAppDispatch();
@@ -64,6 +64,7 @@ function Nav() {
     router.push("/");
     setIsOpen(false);
     signOut();
+    toast.success("Logged Out");
   };
 
   const navItems = [
