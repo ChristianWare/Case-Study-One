@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const revalidate = 0;
-// export const dynamic = "forced-dynamic";
+export const dynamic = "force-dynamic";
 
 const getRoom = async (id: string) => {
   const res = await fetch(`${process.env.API_URL}/api/rooms/${id}`, {
