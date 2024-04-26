@@ -107,18 +107,22 @@ function Nav() {
           }
         >
           <div className={styles.userNameMobile}>
-            <div className={styles.mobileImageNameContainer}>
-              <div className={styles.imgContainer}>
-                <Image
-                  src={user?.avatar.url}
-                  width={40}
-                  height={40}
-                  alt={user?.name}
-                  className={styles.img}
-                />
-              </div>
-              {user && user?.name ? `Hi, ${user.name}:` : "User Options"}
-            </div>
+            {user && user?.name && (
+              <>
+                <div className={styles.mobileImageNameContainer}>
+                  <div className={styles.imgContainer}>
+                    <Image
+                      src={user?.avatar.url}
+                      width={40}
+                      height={40}
+                      alt={user?.name}
+                      className={styles.img}
+                    />
+                  </div>
+                  {user && user?.name ? `Hi, ${user.name}:` : ""}
+                </div>
+              </>
+            )}
             {user && user?.name ? (
               <>
                 <Button
