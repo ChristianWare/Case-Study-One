@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styles from "./ImageGridii.module.css";
-import Fries from "../../public/images/img1.jpg";
-import Chalupa from "../../public/images/img1.jpg";
-import CrunchWrap from "../../public/images/img1.jpg";
-import Tacos from "../../public/images/img1.jpg";
-import Taco from "../../public/images/img1.jpg";
-import Burrito from "../../public/images/img1.jpg";
+import House from "../../public/images/house.jpg";
+import Pool from "../../public/images/pool.jpg";
+import Wifi from "../../public/images/wifi.jpg";
+import Backyard from "../../public/images/backyard.jpg";
+import Grill from "../../public/images/grill.jpg";
+import Key from "../../public/images/key.jpg";
 
 const ImageGridii = () => {
   return (
@@ -13,7 +13,7 @@ const ImageGridii = () => {
       <div className={styles.boxContainer}>
         <div className={styles.box1}>
           <Image
-            src={Fries}
+            src={Pool}
             alt='Nacho fries'
             layout='fill'
             objectFit='cover'
@@ -22,7 +22,7 @@ const ImageGridii = () => {
         </div>
         <div className={styles.box2}>
           <Image
-            src={Chalupa}
+            src={Wifi}
             alt='drone image 2'
             layout='fill'
             objectFit='cover'
@@ -40,7 +40,7 @@ const ImageGridii = () => {
 
         <div className={styles.box5}>
           <Image
-            src={Taco}
+            src={Key}
             alt='drone image 3'
             layout='fill'
             objectFit='cover'
@@ -51,7 +51,7 @@ const ImageGridii = () => {
       <div className={styles.boxContainer2}>
         <div className={styles.box1B}>
           <Image
-            src={CrunchWrap}
+            src={Backyard}
             alt='drone image 4'
             layout='fill'
             objectFit='cover'
@@ -63,7 +63,7 @@ const ImageGridii = () => {
         </div>
         <div className={styles.box3B}>
           <Image
-            src={Tacos}
+            src={House}
             alt='drone image 5'
             layout='fill'
             objectFit='cover'
@@ -75,7 +75,7 @@ const ImageGridii = () => {
         </div>
         <div className={styles.box5B}>
           <Image
-            src={Burrito}
+            src={Grill}
             alt='drone image 6'
             layout='fill'
             objectFit='cover'
