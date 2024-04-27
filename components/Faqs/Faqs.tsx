@@ -5,64 +5,69 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Faqs.module.css";
 import { faqs } from "../../lib/data";
 import { useState } from "react";
-import Arrow from "../../public/icons/downArrow.svg";
+import Plus from "../../public/icons/plus.svg";
 
 const Faqs = () => {
-  const [selected, setSelected] = useState<null | number>(null);
-  const toggle = (i: any) => {
-    if (selected === i) {
-      return setSelected(null);
-    }
-    setSelected(i);
-  };
+   const [selected, setSelected] = useState(0);
+
+   const toggle = (i: any) => {
+     setSelected(i);
+   };
 
   return (
-    <LayoutWrapper>
-      <ContentPadding>
-        <div className={styles.content}>
-          <div className={styles.top}>
-            <h2 className={styles.heading}>Frequently asked questions</h2>
-          </div>
-          <div className={styles.bottom}>
-            {faqs.map((x, i) => (
-              <div
-                key={x.id}
-                className={
-                  selected === i
-                    ? styles.qaContainer + " " + styles.showBorder
-                    : styles.qaContainer
-                }
-                onClick={() => toggle(i)}
-              >
-                <div className={styles.headingArrowContainer}>
-                  <div className={styles.h3Container}>
+    <section className={styles.container}>
+      <LayoutWrapper>
+        <ContentPadding>
+          <div className={styles.content}>
+            <div className={styles.top}>
+              <h2 className={styles.heading}>FAQ&#39;s</h2>
+              <p className={styles.copy}>
+                Commonly asked questions and answers. If you do not see your
+                question here, feel free to call us anytime to ask, and we will
+                gladly give you a satisfactory answer.
+              </p>
+            </div>
+            <div className={styles.bottom}>
+              {faqs.slice(0, 5).map((x, i) => (
+                <div
+                  key={x.id}
+                  className={`${styles.qaContainer} ${
+                    selected === i ? styles.active : ""
+                  }`}
+                  onClick={() => toggle(i)}
+                >
+                  <div className={styles.headingArrowContainer}>
                     <h3 className={styles.question} lang='en'>
                       {x.question}
                     </h3>
+                    {selected === i ? (
+                      <Plus
+                        className={styles.iconFlip}
+                        width={35}
+                        height={35}
+                      />
+                    ) : (
+                      <Plus className={styles.icon} width={30} height={30} />
+                    )}
                   </div>
-                  {selected === i ? (
-                    <Arrow className={styles.iconFlip} width={20} height={20} />
-                  ) : (
-                    <Arrow className={styles.icon} width={20} height={20} />
-                  )}
+                  <div
+                    className={
+                      selected === i
+                        ? styles.answerContainer + " " + styles.show
+                        : styles.answerContainer
+                    }
+                  >
+                    <p className={styles.answer} lang='en'>
+                      {x.answer}
+                    </p>
+                  </div>
                 </div>
-                <div
-                  className={
-                    selected === i
-                      ? styles.answerContainer + " " + styles.show
-                      : styles.answerContainer
-                  }
-                >
-                  <p className={styles.answer} lang='en'>
-                    {x.answer}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </ContentPadding>
-    </LayoutWrapper>
+        </ContentPadding>
+      </LayoutWrapper>
+    </section>
   );
 };
 export default Faqs;

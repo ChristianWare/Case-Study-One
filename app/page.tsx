@@ -12,6 +12,8 @@ import BlogSection from "../components/BlogSection/BlogSection";
 import { revalidatePath } from "next/cache";
 import C1 from "../components/C1/C1";
 import AboutSectionii from "../components/AboutSectionii/AboutSectionii";
+import Amenities from "../components/Amenities/Amenities";
+import ContactArea from "../components/ContactArea/ContactArea";
 
 export const metadata = {
   title: "Home - Elite Retreat Rentals",
@@ -67,7 +69,9 @@ export default async function Home() {
       {/* <PostHero /> */}
       {/* <C1 /> */}
       <AboutSectionii />
+      <Amenities />
       <Featured data={data} />
+      <Faqs />
       <Discover />
       <Properties data={data} />
       <Owner
@@ -78,6 +82,7 @@ export default async function Home() {
       <BlogSection blogData={blogs} />
       <FinalCTA1 />
       <FinalCTA2 />
+      <ContactArea />
     </div>
   );
 }

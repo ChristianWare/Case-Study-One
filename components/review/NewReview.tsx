@@ -102,7 +102,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
           </div>
         ) : (
           <>
-            <h4>Make a reservation to review</h4>
+            <h4>You can submit reviews once you make a reservstion.</h4>
           </>
         )}
       </Modal>

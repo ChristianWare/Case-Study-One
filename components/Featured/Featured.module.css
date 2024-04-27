@@ -1,3 +1,7 @@
+.content {
+  padding: 10rem 0rem;
+}
+
 .top {
   display: flex;
   align-items: center;

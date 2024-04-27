@@ -6,6 +6,7 @@
   --black2: #333333;
   --white: #ffffff;
   --gray: #cdcdcd;
+  --grayii: #dfdddd;
   --shadow: 20px 20px 50px rgba(0, 0, 0, 0.1);
 }
 
@@ -15,7 +16,7 @@
   box-sizing: border-box;
   text-decoration: none;
   line-height: 150%;
-  font-family: var(--raleway);
+  font-family: var(--helvetica);
   overscroll-behavior: none;
   scroll-behavior: smooth;
   scroll-margin-top: 20px;
@@ -42,7 +43,7 @@ h4,
 h5,
 h6,
 span {
-  font-family: var(--raleway);
+  font-family: var(--helveticaBold);
   color: var(--black);
   hyphens: auto;
 }
@@ -52,7 +53,7 @@ h1 {
   font-size: 8rem;
   font-weight: 600;
   line-height: 120%;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--black);
   hyphens: auto;

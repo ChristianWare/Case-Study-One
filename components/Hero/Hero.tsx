@@ -13,7 +13,7 @@ const Hero = () => {
           <div className={styles.content}>
             <div className={styles.left}>
               <h1 className={styles.heading} lang='en'>
-                Your Unforgettable Vacation Starts Here.
+                The Perfect Stay for your Perfect Vacation.
               </h1>
               <p className={styles.copy}>
                 Discover a curated selection of meticulously designed houses,
