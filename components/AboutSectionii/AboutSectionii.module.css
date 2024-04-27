@@ -94,6 +94,8 @@
 .copyii {
   font-family: var(--raleway);
   font-weight: 500;
+  width: 80%;
+  margin-top: 1rem;
 }
 
 .iconTextContainer {
@@ -123,7 +125,11 @@
   }
 
   .imgContainer {
-    height: 650px;
+    height: 500px;
+  }
+
+  .copyii {
+    width: 100%;
   }
 }
 
