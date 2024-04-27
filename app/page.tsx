@@ -11,6 +11,7 @@ import Error from "./error";
 import BlogSection from "../components/BlogSection/BlogSection";
 import { revalidatePath } from "next/cache";
 import C1 from "../components/C1/C1";
+import AboutSectionii from "../components/AboutSectionii/AboutSectionii";
 
 export const metadata = {
   title: "Home - Elite Retreat Rentals",
@@ -65,6 +66,7 @@ export default async function Home() {
       <Hero />
       {/* <PostHero /> */}
       {/* <C1 /> */}
+      <AboutSectionii />
       <Featured data={data} />
       <Discover />
       <Properties data={data} />

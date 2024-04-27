@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Epilogue } from "next/font/google";
+import { Epilogue, Raleway } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "../components/Nav/Nav";
@@ -15,6 +15,14 @@ const epilogue = Epilogue({
   variable: "--epilogue",
   adjustFontFallback: false,
 });
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
+  variable: "--raleway",
+});
+
 
 const helvetica = localFont({
   src: "../public/fonts/helvetica.ttf",
@@ -45,7 +53,7 @@ export default function RootLayout({
         <PlausibleProvider domain='eliteretreatrentals.com' />
       </head>
       <body
-        className={`${epilogue.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} `}
+        className={`${raleway.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} `}
       >
         <Globalprovider>
           <Nav />

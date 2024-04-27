@@ -15,7 +15,7 @@
   box-sizing: border-box;
   text-decoration: none;
   line-height: 150%;
-  font-family: var(--helvetica);
+  font-family: var(--raleway);
   overscroll-behavior: none;
   scroll-behavior: smooth;
   scroll-margin-top: 20px;
@@ -36,14 +36,13 @@ a {
   text-decoration: none;
 }
 
-h1,
 h2,
 h3,
 h4,
 h5,
 h6,
 span {
-  font-family: var(--helvetica);
+  font-family: var(--raleway);
   color: var(--black);
   hyphens: auto;
 }
@@ -55,6 +54,8 @@ h1 {
   line-height: 120%;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  color: var(--black);
+  hyphens: auto;
 }
 
 h2 {
@@ -66,7 +67,6 @@ h2 {
 
 h3 {
   font-size: 3.6rem;
-  /* letter-spacing: -0.05em; */
   line-height: 120%;
 }
 
@@ -93,7 +93,7 @@ input,
 textarea {
   font-weight: 400;
   hyphens: auto;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   /* line-height: 150%; */
   color: var(--black);
   line-height: 1.8em;
