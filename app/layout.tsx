@@ -42,11 +42,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <PlausibleProvider
-          domain='eliteretreatrentals.com'
-          trackLocalhost={true}
-          enabled={true}
-        />
+        <PlausibleProvider domain='eliteretreatrentals.com' />
       </head>
       <body
         className={`${epilogue.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} `}

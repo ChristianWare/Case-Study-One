@@ -63,8 +63,8 @@ export default async function Home() {
   return (
     <div>
       <Hero />
-      <PostHero />
-      <C1 />
+      {/* <PostHero /> */}
+      {/* <C1 /> */}
       <Featured data={data} />
       <Discover />
       <Properties data={data} />
