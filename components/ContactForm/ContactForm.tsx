@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import styles from "./ContactForm.module.css";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import FalseButton from "../FalseButton/FalseButton";
 
 type Inputs = {
   firstName: string;
@@ -110,10 +111,10 @@ const ContactForm = () => {
             </div>
             <div className={styles.btnBtnContainer}>
               <div className={styles.btnContainer}>
-                <button className={styles.btn}>
-                  {loading ? "Sending..." : "Submit"}
-                  {/* <Arrow2 className={styles.icon2} /> */}
-                </button>
+                <FalseButton
+                  text={loading ? "Sending..." : "Submit"}
+                  btnType='secondary'
+                />
               </div>
             </div>
           </form>

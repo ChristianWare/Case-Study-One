@@ -35,7 +35,7 @@
   padding: 3rem;
   background-color: var(--border3);
   border: 1px solid var(--gray);
-  border-radius: 10px;
+  border-radius: 20px;
   width: 100%;
   cursor: pointer;
   user-select: none;

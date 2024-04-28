@@ -21,9 +21,11 @@
   color: var(--white);
 }
 
-.copy,
 .title {
-  color: var(--black);
+  color: var(--purple);
+  font-family: var(--tuskerGrotesk);
+  text-transform: uppercase;
+  font-size: 3rem;
 }
 
 .icon,

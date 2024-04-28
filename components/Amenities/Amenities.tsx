@@ -72,7 +72,7 @@ const Amenities = () => {
                 <div className={styles.card} key={index}>
                   {x.icon}
                   <h3 className={styles.title}>{x.service}</h3>
-                  <p className={styles.desc}>{x.descr}</p>
+                  {/* <p className={styles.desc}>{x.descr}</p> */}
                 </div>
               ))}
             </div>

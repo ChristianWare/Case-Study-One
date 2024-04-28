@@ -77,12 +77,12 @@ function Nav() {
       href: "/properties",
     },
     {
-      text: "Blog",
-      href: "/blog",
-    },
-    {
       text: "About",
       href: "/about",
+    },
+    {
+      text: "Blog",
+      href: "/blog",
     },
     {
       text: "Contact",

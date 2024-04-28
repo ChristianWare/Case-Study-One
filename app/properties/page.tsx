@@ -2,7 +2,6 @@ import ContentPadding from "../../components/ContentPadding/ContentPadding";
 import LayoutWrapper from "../../components/LayoutWrapper/LayoutWrapper";
 import Faqs from "../../components/Faqs/Faqs";
 import FinalCTA1 from "../../components/FinalCTA1/FinalCTA1";
-import FinalCTA2 from "../../components/FinalCTA2/FinalCTA2";
 import PageIntro from "../../components/PageIntro/PageIntro";
 import Error from "../error";
 import Properties from "../../components/Properties/Properties";
@@ -43,7 +42,6 @@ export default async function PropertiesPage() {
       </LayoutWrapper>
       <Faqs />
       <FinalCTA1 />
-      <FinalCTA2 />
     </>
   );
 }

@@ -2,6 +2,7 @@
   font-family: var(--chakraPetch);
   color: var(--black);
   background-color: var(--purple);
+  border-bottom: 2px solid var(--purple2);
 }
 
 .navbar {
@@ -12,7 +13,9 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 2rem 3rem;
+  padding: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 .navBarLeft {
@@ -328,11 +331,10 @@
   }
 }
 
-@media screen and (max-width: 480px)  {
+@media screen and (max-width: 480px) {
   .logo {
     flex-direction: column;
     align-items: flex-start;
-  
   }
 
   .span {

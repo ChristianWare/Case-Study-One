@@ -29,7 +29,9 @@ const ContactSection = () => {
       <ContentPadding>
         <div className={styles.content}>
           <div className={styles.left}>
-            <h1 className={styles.heading}>Contct Info.</h1>
+            <h1 className={styles.heading}>
+              Contact Us for your next vacation
+            </h1>
             <p className={styles.copy}>
               We look forward to spesking with you soon. Feel free to reach out
               to us anytime.

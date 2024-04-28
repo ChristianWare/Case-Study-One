@@ -6,11 +6,9 @@ import Properties from "../components/Properties/Properties";
 import Owner from "../components/Owner/Owner";
 import Faqs from "../components/Faqs/Faqs";
 import FinalCTA1 from "../components/FinalCTA1/FinalCTA1";
-import FinalCTA2 from "../components/FinalCTA2/FinalCTA2";
 import Error from "./error";
 import BlogSection from "../components/BlogSection/BlogSection";
 import { revalidatePath } from "next/cache";
-import C1 from "../components/C1/C1";
 import AboutSectionii from "../components/AboutSectionii/AboutSectionii";
 import Amenities from "../components/Amenities/Amenities";
 import ContactArea from "../components/ContactArea/ContactArea";
@@ -81,7 +79,6 @@ export default async function Home() {
       <Faqs />
       <BlogSection blogData={blogs} />
       <FinalCTA1 />
-      <FinalCTA2 />
       <ContactArea />
     </div>
   );

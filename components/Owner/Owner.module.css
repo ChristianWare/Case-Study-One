@@ -1,6 +1,5 @@
 .bgColor {
   background-color: var(--purple);
-  border-radius: 20px;
 }
 
 .quote {
@@ -162,7 +161,8 @@
     height: 775px;
   }
 
-  .copy, .copyii {
+  .copy,
+  .copyii {
     width: 100%;
   }
 

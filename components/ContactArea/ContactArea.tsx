@@ -1,5 +1,4 @@
 import ContactForm from '../ContactForm/ContactForm';
-import Footerii from '../Footerii/Footerii';
 import styles from './ContactArea.module.css'
 
 const ContactArea = () => {
@@ -22,7 +21,6 @@ const ContactArea = () => {
               </div>
             </div>
           </div>
-          <Footerii />
         </div>
       </div>
     </section>
