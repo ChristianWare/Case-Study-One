@@ -1,5 +1,4 @@
 import { IRoom } from "../../backend/models/room";
-import Button from "../Button/Button";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import PropPreview from "../PropPreview/PropPreview";
@@ -22,14 +21,7 @@ const Featured = ({ data }: Props) => {
       <ContentPadding>
         <section className={styles.content}>
           <div className={styles.top}>
-            <h2 className={styles.heading}>Featured properties</h2>
-            <div className={styles.btnContainer}>
-              <Button
-                text='Explore all listings'
-                btnType='tertiary'
-                href='/properties'
-              />
-            </div>
+            <h2 className={styles.heading}>Featured</h2>
           </div>
           <div className={styles.bottom}>
             <div className='row mt-4'>

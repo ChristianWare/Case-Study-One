@@ -26,6 +26,11 @@ const FinalCTA1 = () => {
           </p>
           <div className={styles.btnContainer}>
             <Button text='Contact us' btnType='secondary' href='/contact' />
+            <Button
+              text='See All Properties'
+              btnType='primaryii'
+              href='/properties'
+            />
           </div>
         </div>
       </ContentPadding>

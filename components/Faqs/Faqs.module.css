@@ -16,10 +16,8 @@
 }
 
 .copy {
-  line-height: 170%;
-  font-family: var(--helveticaBold);
-  border-left: 5px solid var(--purple);
-  padding-left: 2rem;
+  line-height: 150%;
+  font-weight: 700;
   width: 90%;
 }
 

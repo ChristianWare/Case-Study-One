@@ -2,15 +2,11 @@
   padding: 10rem 0rem;
 }
 
-.top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8rem;
-}
-
 .heading {
-  color: var(--black2);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 5rem;
+  color: var(--purple);
 }
 
 .bottom {

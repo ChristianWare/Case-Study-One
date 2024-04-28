@@ -10,6 +10,7 @@ const BlogSection: FC<BlogSectionProps> = ({ blogData }) => {
   return (
     <LayoutWrapper>
       <ContentPadding>
+        <h2 className={styles.heading}>Our Blog</h2>
         <div className={styles.bottom}>
           {blogData.map((x: BlogData, index: number) => (
             <BlogPreview key={index} mapData={x} />

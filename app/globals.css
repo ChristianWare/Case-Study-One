@@ -16,7 +16,7 @@
   box-sizing: border-box;
   text-decoration: none;
   line-height: 150%;
-  font-family: var(--helvetica);
+  font-family: var(--inter);
   overscroll-behavior: none;
   scroll-behavior: smooth;
   scroll-margin-top: 20px;
@@ -43,7 +43,7 @@ h4,
 h5,
 h6,
 span {
-  font-family: var(--helveticaBold);
+  /* font-family: var(--helveticaBold); */
   color: var(--black);
   hyphens: auto;
 }
@@ -61,7 +61,7 @@ h1 {
 
 h2 {
   font-family: var(--tuskerGrotesk);
-  font-size: 4.8rem;
+  font-size: 5rem;
   line-height: 120%;
   text-transform: uppercase;
 }
@@ -95,7 +95,7 @@ textarea {
   font-weight: 400;
   hyphens: auto;
   font-size: 1.6rem;
-  /* line-height: 150%; */
+  line-height: 150%;
   color: var(--black);
   line-height: 1.8em;
 }

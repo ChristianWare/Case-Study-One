@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Epilogue, Raleway } from "next/font/google";
+import { Raleway, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "../components/Nav/Nav";
@@ -8,14 +8,6 @@ import { Globalprovider } from "../GlobalProvider";
 import Script from "next/script";
 import PlausibleProvider from "next-plausible";
 
-const epilogue = Epilogue({
-  weight: ["400", "500", "600", "700", "900"],
-  style: ["normal"],
-  subsets: ["latin"],
-  variable: "--epilogue",
-  adjustFontFallback: false,
-});
-
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -23,6 +15,12 @@ const raleway = Raleway({
   variable: "--raleway",
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
+  style: ["normal"],
+  variable: "--inter",
+});
 
 const helvetica = localFont({
   src: "../public/fonts/helvetica.ttf",
@@ -53,7 +51,7 @@ export default function RootLayout({
         <PlausibleProvider domain='eliteretreatrentals.com' />
       </head>
       <body
-        className={`${raleway.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} `}
+        className={`${raleway.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} ${inter.variable} `}
       >
         <Globalprovider>
           <Nav />

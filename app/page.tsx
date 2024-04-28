@@ -12,6 +12,7 @@ import { revalidatePath } from "next/cache";
 import AboutSectionii from "../components/AboutSectionii/AboutSectionii";
 import Amenities from "../components/Amenities/Amenities";
 import ContactArea from "../components/ContactArea/ContactArea";
+import Amenitiesii from "../components/Amenitiesii/Amenitiesii";
 
 export const metadata = {
   title: "Home - Elite Retreat Rentals",
@@ -68,6 +69,7 @@ export default async function Home() {
       {/* <C1 /> */}
       <AboutSectionii />
       <Amenities />
+      <Amenitiesii />
       <Featured data={data} />
       <Faqs />
       <Discover />
@@ -76,7 +78,7 @@ export default async function Home() {
         heading='“Revolutionizing luxury rentals, we own and manage our properties, ensuring unparalleled design, service, and a cohesive experience across our distinctive collection.”'
         copy='We redefine the holiday rental experience by directly owning and managing our properties, allowing for unparalleled design, service, and a cohesive experience across our distinctive collection, standing out in the evolving landscape of luxury accommodations.'
       />
-      <Faqs />
+      {/* <Faqs /> */}
       <BlogSection blogData={blogs} />
       <FinalCTA1 />
       <ContactArea />
