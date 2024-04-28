@@ -95,6 +95,10 @@
   .imgContainer {
     height: 375px;
   }
+
+  .heading {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 568px) {
