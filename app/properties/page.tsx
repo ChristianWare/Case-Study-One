@@ -36,8 +36,8 @@ export default async function PropertiesPage() {
                 questions.  '
       />
       <Properties data={data} />
-      <Amenities />
       <Amenitiesii />
+      <Amenities />
       <Faqs />
       <FinalCTA1 />
     </>
