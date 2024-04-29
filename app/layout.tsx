@@ -13,6 +13,7 @@ const raleway = Raleway({
   weight: ["400", "500", "600", "700"],
   style: ["normal"],
   variable: "--raleway",
+  display: "swap",
 });
 
 const inter = Inter({
@@ -20,6 +21,7 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "900"],
   style: ["normal"],
   variable: "--inter",
+  display: "swap",
 });
 
 const helvetica = localFont({

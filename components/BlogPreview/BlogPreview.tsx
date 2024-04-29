@@ -26,7 +26,11 @@ const BlogPreview: FC<BlogPreviewProps> = ({ mapData, key }) => {
         <div className={styles.feature}>{mapData.meta.description}</div>
       </div>
       <div className={styles.btnContainer}>
-        <Button text='Coming Soon' btnType='secondary' href='#' />
+        <Button
+          text='Coming Soon'
+          btnType='secondary'
+          href={`/blog/${mapData.slug}`}
+        />
       </div>
     </div>
   );
