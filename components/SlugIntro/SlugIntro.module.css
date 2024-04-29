@@ -35,7 +35,7 @@
 
 .imgContainer {
   position: relative;
-  height: 450px;
+  height: 100%;
   width: 100%;
   z-index: 1;
 }
@@ -62,6 +62,11 @@
   .content {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .heading,
+  .copy {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1068px) {
@@ -69,6 +74,10 @@
     grid-template-columns: repeat(1, 1fr);
   }
 
+  .imgContainer {
+    height: 450px;
+  }
+  
   .heading {
     text-align: center;
     width: 100%;

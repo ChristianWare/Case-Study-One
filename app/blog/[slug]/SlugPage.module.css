@@ -42,6 +42,14 @@
   margin-right: auto;
 }
 
+.mdxContent h2 {
+  font-size: 4rem;
+}
+
+.mdxContent h3 {
+  font-size: 2.4rem;
+}
+
 .right {
   align-self: flex-start;
   position: -webkit-sticky;
