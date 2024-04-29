@@ -13,6 +13,7 @@ import AboutSectionii from "../components/AboutSectionii/AboutSectionii";
 import Amenities from "../components/Amenities/Amenities";
 import ContactArea from "../components/ContactArea/ContactArea";
 import Amenitiesii from "../components/Amenitiesii/Amenitiesii";
+import Testimonials from "../components/Testimonials/Testimonials";
 
 export const metadata = {
   title: "Home - Elite Retreat Rentals",
@@ -79,6 +80,7 @@ export default async function Home() {
         copy='We redefine the holiday rental experience by directly owning and managing our properties, allowing for unparalleled design, service, and a cohesive experience across our distinctive collection, standing out in the evolving landscape of luxury accommodations.'
       />
       {/* <Faqs /> */}
+      <Testimonials />
       <BlogSection blogData={blogs} />
       <FinalCTA1 />
       <ContactArea />
