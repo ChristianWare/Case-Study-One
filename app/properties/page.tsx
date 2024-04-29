@@ -1,11 +1,11 @@
-import ContentPadding from "../../components/ContentPadding/ContentPadding";
-import LayoutWrapper from "../../components/LayoutWrapper/LayoutWrapper";
 import Faqs from "../../components/Faqs/Faqs";
 import FinalCTA1 from "../../components/FinalCTA1/FinalCTA1";
 import PageIntro from "../../components/PageIntro/PageIntro";
 import Error from "../error";
 import Properties from "../../components/Properties/Properties";
 import { revalidatePath } from "next/cache";
+import Amenities from "../../components/Amenities/Amenities";
+import Amenitiesii from "../../components/Amenitiesii/Amenitiesii";
 
 export const revalidate = 10;
 
@@ -29,17 +29,15 @@ export default async function PropertiesPage() {
 
   return (
     <>
-      <LayoutWrapper>
-        <ContentPadding>
-          <PageIntro
-            heading='All properties for rent'
-            copy='Here is a comprehensive list of all the properties we have
+      <PageIntro
+        heading='All properties for rent'
+        copy='Here is a comprehensive list of all the properties we have
                 available for you to enjoy. Feel free to reach out with
                 questions.  '
-          />
-          <Properties data={data} />
-        </ContentPadding>
-      </LayoutWrapper>
+      />
+      <Properties data={data} />
+      <Amenities />
+      <Amenitiesii />
       <Faqs />
       <FinalCTA1 />
     </>

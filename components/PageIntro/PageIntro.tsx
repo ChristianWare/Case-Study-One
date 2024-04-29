@@ -1,5 +1,3 @@
-import ContentPadding from "../ContentPadding/ContentPadding";
-import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./PageIntro.module.css";
 import { PageIntroProps } from "../../lib/interface";
 import { FC } from "react";
