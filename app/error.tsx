@@ -1,4 +1,10 @@
-"use client"; // Error components must be Client Components
+"use client";
+
+import Button from "../components/Button/Button";
+import ContentPadding from "../components/ContentPadding/ContentPadding";
+import FalseButton from "../components/FalseButton/FalseButton";
+import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
+import styles from "./Error.module.css";
 
 interface CustomError extends Error {
   errMessage: string;
@@ -12,19 +18,28 @@ export default function Error({
   reset?: () => void;
 }) {
   return (
-    <div>
-      <div className='d-flex justify-content-center align-items-center vh-100'>
-        <div className='text-center'>
-          <h2 className='display-4 fw-bold'>{error?.errMessage}</h2>
-          <p className='fs-3'>
-            <span className='text-danger'>Opps!</span> Something went wrong!
+    <LayoutWrapper>
+      <ContentPadding>
+        <div className={styles.container}>
+          <h2 className={styles.heading}>{error?.errMessage}</h2>
+          <p className={styles.copy}>
+            Opps! Something went wrong! Sorry for the incovience.
           </p>
-          <p className='lead'>Sorry for the incovience</p>
-          <button className='btn btn-primary' onClick={() => reset?.()}>
-            Try again
-          </button>
+          <div className={styles.btnContainer}>
+            <FalseButton
+              text='Try Again'
+              btnType='secondary'
+              onClick={() => reset?.()}
+            />
+            <Button
+              text='Go Home'
+              href='/'
+              btnType='primaryii'
+              onClick={() => reset?.()}
+            />
+          </div>
         </div>
-      </div>
-    </div>
+      </ContentPadding>
+    </LayoutWrapper>
   );
 }
