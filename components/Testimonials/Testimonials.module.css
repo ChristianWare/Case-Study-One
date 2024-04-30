@@ -130,11 +130,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  .heading,
-  .copy {
-    text-align: center;
-  }
 }
 
 @keyframes move {

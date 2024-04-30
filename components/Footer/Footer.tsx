@@ -28,17 +28,17 @@ const Footer = () => {
       section: [
         {
           id: 2,
-          name: "Terms of Use",
+          name: "Terms",
           href: "/terms",
         },
         {
           id: 3,
-          name: "Privacy Policy",
+          name: "Privacy",
           href: "/privacy",
         },
         {
           id: 4,
-          name: "Accessibility Policy",
+          name: "Accessibility",
           href: "/accessibility",
         },
         {
@@ -50,26 +50,26 @@ const Footer = () => {
     },
     {
       id: 6,
-      heading: "Services",
+      heading: "Homes",
       section: [
         {
           id: 7,
-          name: "Airport Transfers",
+          name: "183rd",
           href: "/services",
         },
         {
           id: 8,
-          name: "Long Distance",
+          name: "Goodyear",
           href: "/services",
         },
         {
           id: 9,
-          name: "Party Bus",
+          name: "Coolidge",
           href: "/services",
         },
         {
           id: 10,
-          name: "Special Events",
+          name: "Scottsdale",
           href: "/services",
         },
       ],
@@ -140,26 +140,27 @@ const Footer = () => {
                   <span className={styles.span}>Elite Retreat Rentals</span>
                 </Link>
                 <p className={styles.desc}>
-                  We are Arizona&#39;s premier black car service, where every
-                  ride is an experience of unmatched luxury and sophistication.
+                  Welcome to Elite Retreat Rentals, Arizona&lsquo;s top
+                  destination for unforgettable vacations, where each stay
+                  promises luxury and sophistication beyond compare.
                 </p>
                 <p className={styles.desc}>
-                  <strong>Address:</strong>
+                  <strong>Admin Office: </strong>
                   <br />
-                  10105 E Vía Linda Suite A- 105 <br />
+                  10105 E Vía Linda Suite A- 101 <br />
                   Scottsdale, AZ 85258
                   <br />
                   <br />
                   <strong>
                     Phone: <br />
                   </strong>
-                  480-300-6003
+                  623-665-6778
                   <br />
                   <br />
                   <strong>
                     Email <br />
                   </strong>
-                  reservations@niertransportation.com
+                  reservations@eliteretreatrentals.com
                 </p>
               </div>
               <div className={styles.right}>
@@ -185,11 +186,17 @@ const Footer = () => {
                 </div>
                 <div className={styles.bottomDesktop}>
                   <div className={styles.bottomLeft}>
-                    <p className={styles.copy}>
-                      &copy; {currentYear} Nier Transportation || All Rights
-                      Reserved || Designed and Developed by The Chris Ware
-                      Agency{" "}
-                    </p>
+                    <div className={styles.copy}>
+                      &copy; {currentYear} Elite Retreat Rentals || All Rights
+                      Reserved || Designed and Developed by{" "}
+                      <Link
+                        href='https://www.fontsandfooters.com/'
+                        target='_blank'
+                        className={styles.target}
+                      >
+                        The Chris Ware Agency
+                      </Link>{" "}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -242,10 +249,17 @@ const Footer = () => {
             </div>
             <div className={styles.bottom}>
               <div className={styles.bottomLeft}>
-                <p className={styles.copy}>
-                  &copy; {currentYear} Nier Transportation || All Rights
-                  Reserved || Designed and Developed by The Chris Ware Agency{" "}
-                </p>
+                <div className={styles.copy}>
+                  &copy; {currentYear} Elite Retreat Rentals || All Rights
+                  Reserved || Designed and Developed by{" "}
+                  <Link
+                    href='https://www.fontsandfooters.com/'
+                    target='_blank'
+                    className={styles.target}
+                  >
+                    The Chris Ware Agency
+                  </Link>{" "}
+                </div>
               </div>
             </div>
           </div>

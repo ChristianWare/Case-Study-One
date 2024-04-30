@@ -4,13 +4,14 @@ import styles from "./FinalCTA1.module.css";
 import Image from "next/image";
 import Img from "../../public/images/img1.jpg";
 import Button from "../Button/Button";
+import House from "../../public/icons/logo.svg";
 
 const FinalCTA1 = () => {
   return (
     <LayoutWrapper>
       <ContentPadding>
         <div className={styles.content}>
-          <div className={styles.imgContainer}>
+          {/* <div className={styles.imgContainer}>
             <Image
               src={Img}
               alt='image'
@@ -18,11 +19,12 @@ const FinalCTA1 = () => {
               height={60}
               className={styles.img}
             />
-          </div>
-          <h3 className={styles.heading}>Still have questions?</h3>
+          </div> */}
+          <House width={80} height={80} className={styles.icon} />
+          <h3 className={styles.heading}>Elite Retreat Rentals</h3>
           <p className={styles.copy}>
-            Can’t find the answer you’re looking for? Please chat to our
-            friendly team.
+            Discover a curated selection of meticulously designed houses, each
+            offering a unique blend of modern amenities and scenic beauty.
           </p>
           <div className={styles.btnContainer}>
             <Button text='Contact us' btnType='secondary' href='/contact' />

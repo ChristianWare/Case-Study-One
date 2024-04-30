@@ -142,6 +142,11 @@
   color: var(--white);
 }
 
+.target {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 968px) {
   .top {
     flex-direction: column;

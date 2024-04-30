@@ -18,11 +18,10 @@ const ContactArea = () => {
               viewport={{ once: false, amount: 0.3 }}
               className={styles.left}
             >
-              <h2 className={styles.heading}>Let&apos;s Have a conversation</h2>
+              <h2 className={styles.heading}>Reach Out</h2>
               <p className={styles.topText}>
-                Reach out to us today to see how you can begin to take advantage
-                of the benefits of having your own website for your rental
-                property.
+                Reach out to us today to see how you can begin planning your
+                next trip to any one of our vacation homes.
               </p>
             </motion.div>
             <motion.div
