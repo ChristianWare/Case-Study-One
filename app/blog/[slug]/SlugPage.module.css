@@ -50,6 +50,10 @@
   font-size: 2.4rem;
 }
 
+.mdxContent p {
+  color: var(--black2);
+}
+
 .right {
   align-self: flex-start;
   position: -webkit-sticky;

@@ -15,21 +15,21 @@
 
 .heading {
   z-index: 3;
-  color: var(--purple2);
+  color: var(--white);
   margin-top: 1rem;
   margin-bottom: 2rem;
   width: 80%;
 }
 
 .copy {
-  color: var(--purple2);
+  color: var(--white);
   width: 80%;
   font-weight: 500;
 }
 
 .date {
   font-weight: 700;
-  color: var(--purple2);
+  color: var(--white);
   text-decoration: underline;
 }
 
@@ -77,7 +77,7 @@
   .imgContainer {
     height: 450px;
   }
-  
+
   .heading {
     text-align: center;
     width: 100%;

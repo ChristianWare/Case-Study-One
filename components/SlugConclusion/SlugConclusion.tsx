@@ -16,8 +16,8 @@ const SlugConclusion = ({ copy }: { copy: string }) => {
           className={styles.personImage}
         />
         <div className={styles.reviewerTitleContainer}>
-          <div className={styles.reviewer}>Barry La Nier</div>
-          <span className={styles.title}>CEO</span>
+          <div className={styles.reviewer}>Elite Retreat Rentals</div>
+          <span className={styles.title}>Arizona Vacation Homes</span>
         </div>
       </div>
     </div>
