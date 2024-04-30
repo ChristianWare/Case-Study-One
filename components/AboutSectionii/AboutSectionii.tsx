@@ -4,7 +4,7 @@ import Image from "next/image";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./AboutSectionii.module.css";
-import Img1 from "../../public/images/house.jpg";
+import Img1 from "../../public/images/aboutii.webp";
 import House from "../../public/icons/logo.svg";
 import Button from "../Button/Button";
 import { motion } from "framer-motion";

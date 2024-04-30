@@ -4,7 +4,7 @@ import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Discover.module.css";
 import Image from "next/image";
-import Img from "../../public/images/img1.jpg";
+import Img from "../../public/images/img1ii.png";
 import Button from "../Button/Button";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";

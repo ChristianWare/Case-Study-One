@@ -4,7 +4,7 @@ import Image from "next/image";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Hero.module.css";
-import Img from "../../public/images/img1.jpg";
+import Img from "../../public/images/newhero.webp";
 import Button from "../Button/Button";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";
