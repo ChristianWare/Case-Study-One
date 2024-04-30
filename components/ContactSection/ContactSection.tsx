@@ -3,6 +3,7 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./ContactSection.module.css";
 import Image from "next/image";
 import Img from "../../public/images/owner.png";
+import ContactForm from "../ContactForm/ContactForm";
 
 const ContactSection = () => {
   const contactInfo = [
@@ -29,21 +30,21 @@ const ContactSection = () => {
       <ContentPadding>
         <div className={styles.content}>
           <div className={styles.left}>
-            <h1 className={styles.heading}>
-              Contact Us for your next vacation
-            </h1>
+            <h2 className={styles.heading}>Contact Form</h2>
+            {/* <h1 className={styles.heading}>Stay in touch</h1>
             <p className={styles.copy}>
               We look forward to spesking with you soon. Feel free to reach out
               to us anytime.
-            </p>
-            <div className={styles.statsContainer}>
+            </p> */}
+            <ContactForm />
+            {/* <div className={styles.statsContainer}>
               {contactInfo.map((x, index) => (
                 <div key={index} className={styles.box}>
                   <p className={styles.feature}>{x.feature}</p>
                   <p className={styles.value}>{x.value}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
           <div className={styles.right}>
             <div className={styles.imgContainer}>

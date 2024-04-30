@@ -1,12 +1,8 @@
-import BlogPreview from "../../components/BlogPreview/BlogPreview";
-import ContentPadding from "../../components/ContentPadding/ContentPadding";
-import LayoutWrapper from "../../components/LayoutWrapper/LayoutWrapper";
 import PageIntro from "../../components/PageIntro/PageIntro";
 import styles from "./BlogPage.module.css";
 import FinalCTA1 from "../../components/FinalCTA1/FinalCTA1";
 import Faqs from "../../components/Faqs/Faqs";
 import BlogSection from "../../components/BlogSection/BlogSection";
-import Error from "../error";
 
 export default async function BlogPage() {
   const fs = require("fs");
@@ -33,18 +29,13 @@ export default async function BlogPage() {
   });
   return (
     <>
-      <LayoutWrapper>
-        <ContentPadding>
-          <PageIntro
-            heading='Resources and insights'
-            copy='The latest industry news, interviews, technologies, and resources.'
-          />
-        </ContentPadding>
-        <BlogSection blogData={blogs} />
-      </LayoutWrapper>
+      <PageIntro
+        heading='Resources and insights'
+        copy='The latest industry news, interviews, technologies, and resources.'
+      />
+      <BlogSection blogData={blogs} />
       <Faqs />
       <FinalCTA1 />
     </>
   );
-};
-
+}

@@ -4,10 +4,15 @@
   grid-gap: 3rem;
 }
 
+.heading {
+  margin-bottom: 3rem;
+}
+
 .copy {
   opacity: 0.7;
   font-size: 1.8rem;
   margin: 2rem 0rem;
+  margin-bottom: 5rem;
   width: 70%;
 }
 
@@ -59,7 +64,7 @@
   }
 
   .right {
-    height: 300px;
+    height: 500px;
   }
 
   .copy {
