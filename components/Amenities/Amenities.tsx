@@ -18,32 +18,26 @@ const Amenities = () => {
     {
       icon: <Bed width={50} height={50} className={styles.icon} />,
       service: "King Size Beds",
-      descr: "Scottsdale Airport, PHX Sky Harbor Int Airport",
     },
     {
       icon: <Fire width={50} height={50} className={styles.icon} />,
       service: "Cozy Fireplace",
-      descr: "Scottsdale Airport, PHX Sky Harbor Int Airport",
     },
     {
       icon: <Kitchen width={50} height={50} className={styles.icon} />,
       service: "Kitchen Essentials",
-      descr: "Scottsdale Airport, PHX Sky Harbor Int Airport",
     },
     {
       icon: <Pillow width={50} height={50} className={styles.icon} />,
       service: "Comfortable Pillows",
-      descr: "Scottsdale Airport, PHX Sky Harbor Int Airport",
     },
     {
       icon: <Towel width={50} height={50} className={styles.icon} />,
       service: "Towels and Bed Linen",
-      descr: "Scottsdale Airport, PHX Sky Harbor Int Airport",
     },
     {
       icon: <Storage width={50} height={50} className={styles.icon} />,
       service: "Ample Personal Storage",
-      descr: "Scottsdale Airport, PHX Sky Harbor Int Airport",
     },
   ];
 
@@ -58,8 +52,9 @@ const Amenities = () => {
               </h2>
               <div className={styles.copyContainer}>
                 <p className={styles.copy}>
-                  Quis accumsan mi tellus sagittis ultrices. Imperdiet nunc ut
-                  tempor lacus nulla eget varius diam ut. Sem id quam.
+                  Elevate your stay with our comprehensive indoor facilities and
+                  top-notch equipment, ensuring comfort and convenience
+                  throughout your vacation.
                 </p>
               </div>
               <div className={styles.btnContainer}>

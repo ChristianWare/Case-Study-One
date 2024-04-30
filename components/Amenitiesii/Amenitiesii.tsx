@@ -2,12 +2,12 @@
 
 import styles from "./Amenitiesii.module.css";
 import Button from "../Button/Button";
-import Bed from "../../public/icons/bed.svg";
-import Fire from "../../public/icons/firef.svg";
-import Kitchen from "../../public/icons/kitchen.svg";
-import Pillow from "../../public/icons/pillow.svg";
-import Towel from "../../public/icons/towel.svg";
-import Storage from "../../public/icons/storage.svg";
+import Game from "../../public/icons/game.svg";
+import Sunny from "../../public/icons/sunny.svg";
+import Restaurant from "../../public/icons/restaurant.svg";
+import Garage from "../../public/icons/garage.svg";
+import Basketball from "../../public/icons/basketball.svg";
+import Spa from "../../public/icons/spa.svg";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import { motion } from "framer-motion";
@@ -16,27 +16,27 @@ import { fadeIn } from "../../animation/variants";
 const Amenitiesii = () => {
   const data = [
     {
-      icon: <Bed width={50} height={50} className={styles.icon} />,
+      icon: <Game width={50} height={50} className={styles.icon} />,
       service: "Gaming console",
     },
     {
-      icon: <Fire width={50} height={50} className={styles.icon} />,
+      icon: <Sunny width={50} height={50} className={styles.icon} />,
       service: "Always sunny weather",
     },
     {
-      icon: <Kitchen width={50} height={50} className={styles.icon} />,
+      icon: <Restaurant width={50} height={50} className={styles.icon} />,
       service: "80+ restaurants nearby",
     },
     {
-      icon: <Pillow width={50} height={50} className={styles.icon} />,
+      icon: <Garage width={50} height={50} className={styles.icon} />,
       service: "Private garage",
     },
     {
-      icon: <Towel width={50} height={50} className={styles.icon} />,
-      service: "Tennis & Basketball",
+      icon: <Basketball width={50} height={50} className={styles.icon} />,
+      service: "Basketball Courts",
     },
     {
-      icon: <Storage width={50} height={50} className={styles.icon} />,
+      icon: <Spa width={50} height={50} className={styles.icon} />,
       service: "Spa near 100m",
     },
   ];
@@ -76,8 +76,10 @@ const Amenitiesii = () => {
               </h2>
               <div className={styles.copyContainer}>
                 <p className={styles.copy}>
-                  Quis accumsan mi tellus sagittis ultrices. Imperdiet nunc ut
-                  tempor lacus nulla eget varius diam ut. Sem id quam.
+                  Embrace the outdoors and nearby attractions with Elite Retreat
+                  Rentals, offering a range of leisure activities and easy
+                  access to exciting local sights, making every moment of your
+                  stay an adventure.
                 </p>
               </div>
               <div className={styles.btnContainer}>

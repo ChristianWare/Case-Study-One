@@ -13,15 +13,15 @@ import { fadeIn } from "../../animation/variants";
 const AboutSectionii = () => {
   const data = [
     {
-      title: "Professional Drivers",
+      title: "Unforgettable Arizona Getaways",
       description:
-        "Our experienced and courteous drivers are the epitome of professionalism, providing you with a seamless journey from start to finish.",
+        "We offer budget-friendly stays across diverse properties, ensuring a memorable experience for every traveler.",
       icon: <House width={30} height={30} className={styles.icon} />,
     },
     {
-      title: "Professional Drivers",
+      title: "Direct Booking Convenience",
       description:
-        "Our experienced and courteous drivers are the epitome of professionalism, providing you with a seamless journey from start to finish.",
+        "Book directly on our website or through Airbnb and VRBO, making your next vacation planning a breeze.",
       icon: <House width={30} height={30} className={styles.icon} />,
     },
   ];
