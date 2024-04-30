@@ -1,9 +1,13 @@
+"use client";
+
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Discover.module.css";
 import Image from "next/image";
 import Img from "../../public/images/img1.jpg";
 import Button from "../Button/Button";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const Discover = () => {
   return (
@@ -12,7 +16,13 @@ const Discover = () => {
         <div className={styles.container}>
           <Image src={Img} alt='img' fill className={styles.img} />
           <div className={styles.content}>
-            <div className={styles.left}>
+            <motion.div
+              variants={fadeIn("right", 0.3)}
+              initial='hidden'
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className={styles.left}
+            >
               <h3 className={styles.heading}>
                 <span className={styles.highlight}>Our vacation homes</span>
                 <br />
@@ -28,7 +38,7 @@ const Discover = () => {
                 text='All Properties'
                 href='/properties'
               />
-            </div>
+            </motion.div>
             <div className={styles.right}></div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./Amenitiesii.module.css";
 import Button from "../Button/Button";
 import Bed from "../../public/icons/bed.svg";
@@ -8,6 +10,8 @@ import Towel from "../../public/icons/towel.svg";
 import Storage from "../../public/icons/storage.svg";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const Amenitiesii = () => {
   const data = [
@@ -45,8 +49,24 @@ const Amenitiesii = () => {
             <div className={styles.right}>
               {data.map((x, index) => (
                 <div className={styles.card} key={index}>
-                  {x.icon}
-                  <h3 className={styles.title}>{x.service}</h3>
+                  <motion.div
+                    variants={fadeIn("left", 0.3)}
+                    initial='hidden'
+                    whileInView={"show"}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className={styles.iconContainer}
+                  >
+                    {x.icon}
+                  </motion.div>
+                  <motion.h3
+                    variants={fadeIn("left", 0.3)}
+                    initial='hidden'
+                    whileInView={"show"}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className={styles.title}
+                  >
+                    {x.service}
+                  </motion.h3>
                 </div>
               ))}
             </div>

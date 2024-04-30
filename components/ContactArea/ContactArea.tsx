@@ -1,5 +1,9 @@
-import ContactForm from '../ContactForm/ContactForm';
-import styles from './ContactArea.module.css'
+"use client";
+
+import ContactForm from "../ContactForm/ContactForm";
+import styles from "./ContactArea.module.css";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const ContactArea = () => {
   return (
@@ -7,23 +11,35 @@ const ContactArea = () => {
       <div className={styles.layoutWrapper}>
         <div className={styles.content}>
           <div className={styles.bottom}>
-            <div className={styles.left}>
+            <motion.div
+              variants={fadeIn("right", 0.3)}
+              initial='hidden'
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className={styles.left}
+            >
               <h2 className={styles.heading}>Let&apos;s Have a conversation</h2>
               <p className={styles.topText}>
                 Reach out to us today to see how you can begin to take advantage
                 of the benefits of having your own website for your rental
                 property.
               </p>
-            </div>
-            <div className={styles.right}>
+            </motion.div>
+            <motion.div
+              variants={fadeIn("left", 0.3)}
+              initial='hidden'
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className={styles.right}
+            >
               <div>
                 <ContactForm />
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
     </section>
   );
-}
-export default ContactArea
+};
+export default ContactArea;

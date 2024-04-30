@@ -1,3 +1,5 @@
+"use client";
+
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Amenities.module.css";
@@ -8,6 +10,8 @@ import Kitchen from "../../public/icons/kitchen.svg";
 import Pillow from "../../public/icons/pillow.svg";
 import Towel from "../../public/icons/towel.svg";
 import Storage from "../../public/icons/storage.svg";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const Amenities = () => {
   const data = [
@@ -47,7 +51,6 @@ const Amenities = () => {
     <section className={styles.container}>
       <LayoutWrapper>
         <ContentPadding>
-          {/* <h2 className={styles.heading}>Our Amenities</h2> */}
           <div className={styles.content}>
             <div className={styles.left}>
               <h2 className={styles.heading}>
@@ -70,9 +73,24 @@ const Amenities = () => {
             <div className={styles.right}>
               {data.map((x, index) => (
                 <div className={styles.card} key={index}>
-                  {x.icon}
-                  <h3 className={styles.title}>{x.service}</h3>
-                  {/* <p className={styles.desc}>{x.descr}</p> */}
+                  <motion.div
+                    variants={fadeIn("right", 0.3)}
+                    initial='hidden'
+                    whileInView={"show"}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className={styles.iconContainer}
+                  >
+                    {x.icon}
+                  </motion.div>
+                  <motion.h3
+                    variants={fadeIn("right", 0.3)}
+                    initial='hidden'
+                    whileInView={"show"}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className={styles.title}
+                  >
+                    {x.service}
+                  </motion.h3>
                 </div>
               ))}
             </div>

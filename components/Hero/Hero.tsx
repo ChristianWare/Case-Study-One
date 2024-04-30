@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Hero.module.css";
 import Img from "../../public/images/img1.jpg";
 import Button from "../Button/Button";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const Hero = () => {
   return (
@@ -11,7 +15,13 @@ const Hero = () => {
       <LayoutWrapper>
         <ContentPadding>
           <div className={styles.content}>
-            <div className={styles.left}>
+            <motion.div
+              variants={fadeIn("right", 0.3)}
+              initial='hidden'
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className={styles.left}
+            >
               <h1 className={styles.heading} lang='en'>
                 The Perfect Stay for your Perfect Vacation.
               </h1>
@@ -28,12 +38,18 @@ const Hero = () => {
                 />
                 <Button text='About us' btnType='secondary' href='/about' />
               </div>
-            </div>
-            <div className={styles.right}>
+            </motion.div>
+            <motion.div
+              variants={fadeIn("left", 0.3)}
+              initial='hidden'
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className={styles.right}
+            >
               <div className={styles.imgContainer}>
                 <Image src={Img} alt='image' fill className={styles.img} />
               </div>
-            </div>
+            </motion.div>
           </div>
         </ContentPadding>
       </LayoutWrapper>

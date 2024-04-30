@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
@@ -5,6 +7,8 @@ import styles from "./AboutSectionii.module.css";
 import Img1 from "../../public/images/house.jpg";
 import House from "../../public/icons/logo.svg";
 import Button from "../Button/Button";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const AboutSectionii = () => {
   const data = [
@@ -29,7 +33,13 @@ const AboutSectionii = () => {
           <section className={styles.container}>
             <h2 className={styles.heading}>About us</h2>
             <div className={styles.content}>
-              <div className={styles.right}>
+              <motion.div
+                variants={fadeIn("right", 0.3)}
+                initial='hidden'
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.3 }}
+                className={styles.right}
+              >
                 <div className={styles.copyContainer}>
                   <p className={styles.copy}>
                     Discover the allure of Arizona with Elite Retreat Rentals!
@@ -49,16 +59,28 @@ const AboutSectionii = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-              <div className={styles.left}>
+              </motion.div>
+              <motion.div
+                variants={fadeIn("left", 0.3)}
+                initial='hidden'
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.3 }}
+                className={styles.left}
+              >
                 <div className={styles.imgContainer}>
                   <Image src={Img1} alt='image' fill className={styles.img} />
                 </div>
-              </div>
+              </motion.div>
             </div>
-            <div className={styles.btnContainer}>
+            <motion.div
+              variants={fadeIn("left", 0.3)}
+              initial='hidden'
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className={styles.btnContainer}
+            >
               <Button href='/about' text='More about us' btnType='secondary' />
-            </div>
+            </motion.div>
           </section>
         </ContentPadding>
       </LayoutWrapper>

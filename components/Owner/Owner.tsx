@@ -9,6 +9,8 @@ import Quote from "../../public/icons/quote.svg";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { OwnerProps } from "../../lib/interface";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const Owner: FC<OwnerProps> = ({ heading, copy, reverse = "" }) => {
   const pathname = usePathname();
@@ -23,7 +25,13 @@ const Owner: FC<OwnerProps> = ({ heading, copy, reverse = "" }) => {
             </div>
           )}
           <div className={`${styles.content} ${styles[reverse]} `}>
-            <div className={styles.left}>
+            <motion.div
+              variants={fadeIn("right", 0.3)}
+              initial='hidden'
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className={styles.left}
+            >
               <h3 className={styles.heading}>{heading}</h3>
               <p className={styles.copy}>{copy}</p>
               {pathname === "/about" && (
@@ -51,8 +59,14 @@ const Owner: FC<OwnerProps> = ({ heading, copy, reverse = "" }) => {
                   </div>
                 </div>
               )}
-            </div>
-            <div className={styles.right}>
+            </motion.div>
+            <motion.div
+              variants={fadeIn("left", 0.3)}
+              initial='hidden'
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.3 }}
+              className={styles.right}
+            >
               <div className={styles.imgContainer}>
                 <Image src={Img} alt='image' fill className={styles.img} />
               </div>
@@ -71,7 +85,7 @@ const Owner: FC<OwnerProps> = ({ heading, copy, reverse = "" }) => {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </ContentPadding>
       </LayoutWrapper>

@@ -6,13 +6,15 @@ import styles from "./Faqs.module.css";
 import { faqs } from "../../lib/data";
 import { useState } from "react";
 import Plus from "../../public/icons/plus.svg";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const Faqs = () => {
-   const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(0);
 
-   const toggle = (i: any) => {
-     setSelected(i);
-   };
+  const toggle = (i: any) => {
+    setSelected(i);
+  };
 
   return (
     <section className={styles.container}>
@@ -37,9 +39,16 @@ const Faqs = () => {
                   onClick={() => toggle(i)}
                 >
                   <div className={styles.headingArrowContainer}>
-                    <h3 className={styles.question} lang='en'>
+                    <motion.h3
+                      variants={fadeIn("left", 0.3)}
+                      initial='hidden'
+                      whileInView={"show"}
+                      viewport={{ once: false, amount: 0.3 }}
+                      className={styles.question}
+                      lang='en'
+                    >
                       {x.question}
-                    </h3>
+                    </motion.h3>
                     {selected === i ? (
                       <Plus
                         className={styles.iconFlip}
@@ -57,9 +66,16 @@ const Faqs = () => {
                         : styles.answerContainer
                     }
                   >
-                    <p className={styles.answer} lang='en'>
+                    <motion.p
+                      variants={fadeIn("left", 0.3)}
+                      initial='hidden'
+                      whileInView={"show"}
+                      viewport={{ once: false, amount: 0.3 }}
+                      className={styles.answer}
+                      lang='en'
+                    >
                       {x.answer}
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               ))}
