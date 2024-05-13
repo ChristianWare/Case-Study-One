@@ -10,6 +10,7 @@ type Token = {
   user: IUser;
 };
 
+
 async function auth(req: NextRequest, res: any) {
   return await NextAuth(req, res, {
     session: {
