@@ -53,7 +53,6 @@ const Hero = () => {
           </div>
         </ContentPadding>
       </LayoutWrapper>
-      <h1>Hello!</h1>
     </div>
   );
 };
