@@ -4,7 +4,7 @@ import { signOut, useSession } from "next-auth/react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import styles from "./Login.module.css";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
@@ -12,11 +12,13 @@ import ContentPadding from "../ContentPadding/ContentPadding";
 import FalseButton from "../FalseButton/FalseButton";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
 import Button from "../Button/Button";
+import Visibility from "../../public/icons/visibility.svg";
 
 const Login = () => {
   const { data: session } = useSession();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -44,6 +46,10 @@ const Login = () => {
   const logoutHandler = () => {
     signOut();
     toast.success("Logged Out");
+  };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prevState) => !prevState);
   };
 
   return (
@@ -74,12 +80,20 @@ const Login = () => {
 
                 <div className={styles.lableInputBox}>
                   <label htmlFor='password_field'> Password </label>
-                  <input
-                    type='password'
-                    id='password_field'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
+                  <div className={styles.passwordWrapper}>
+                    <input
+                      type={passwordVisible ? "text" : "password"}
+                      id='password_field'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Visibility
+                      className={styles.visibilityIcon}
+                      onClick={togglePasswordVisibility}
+                      width={25}
+                      height={25}
+                    />{" "}
+                  </div>
                 </div>
                 <div className={styles.btnContainer}>
                   <FalseButton

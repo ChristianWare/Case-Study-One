@@ -67,6 +67,25 @@
   margin-left: 1rem;
 }
 
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordWrapper input {
+  flex-grow: 1;
+  padding-right: 30px;
+}
+
+.visibilityIcon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: var(--black);
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 1200px) {
   .container {
     width: 750px;
