@@ -15,4 +15,3 @@ export function Globalprovider({ children }: { children: React.ReactNode }) {
     </>
   );
 }
-0
