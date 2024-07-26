@@ -17,6 +17,8 @@ function Nav() {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
 
+  console.log(user?.avatar.url);
+
   const { data } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenii, setIsOpenii] = useState(false);
@@ -111,13 +113,13 @@ function Nav() {
               <>
                 <div className={styles.mobileImageNameContainer}>
                   <div className={styles.imgContainer}>
-                    {/* <Image
+                    <Image
                       src={user?.avatar.url}
                       width={40}
                       height={40}
                       alt={user?.name}
                       className={styles.img}
-                    /> */}
+                    />
                   </div>
                   {user && user?.name ? `Hi, ${user.name}:` : ""}
                 </div>
@@ -200,13 +202,13 @@ function Nav() {
               <div className={styles.userContainer}>
                 <span className={styles.userName} onClick={openMenuii}>
                   <div className={styles.imgContainer}>
-                    {/* <Image
+                    <Image
                       src={user?.avatar.url}
                       width={40}
                       height={40}
                       alt={user?.name}
                       className={styles.img}
-                    /> */}
+                    />
                   </div>
                   <div className={styles.hello}>Hello {user?.name}</div>
                 </span>
