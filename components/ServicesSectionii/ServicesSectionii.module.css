@@ -1,0 +1,161 @@
+.container {
+  /* background-color: var(--tan); */
+  margin-top: 15rem;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.bottomLeft {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--black);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8rem;
+  height: 100%;
+}
+
+.cardTop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--green3);
+  border: 1px solid var(--black);
+}
+
+.cardBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.title {
+  text-transform: uppercase;
+  color: var(--blue);
+  font-size: 2rem;
+}
+
+.desc {
+  color: var(--black);
+  opacity: 0.8;
+}
+
+.heading {
+  text-align: right;
+  font-size: 3rem;
+}
+
+.copy {
+  text-align: right;
+  color: var(--black);
+  font-size: 1.8rem;
+  width: 70%;
+  margin-left: auto;
+}
+
+.bottom2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+
+.img {
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card:nth-child(5) {
+  background-color: var(--tan);
+  border: none;
+}
+
+.card:nth-child(5) .ball {
+  display: none;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 1068px) {
+  .bottom {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .bottom2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bottomRight {
+    order: -1;
+  }
+
+  .card:nth-child(5) {
+    display: none;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  .copy {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .box {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .heading {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .bottomLeft {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .bottom2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .imgContainer {
+    height: 75px;
+  }
+
+  .title {
+    text-align: center;
+    width: 100%;
+  }
+}
