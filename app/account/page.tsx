@@ -23,6 +23,7 @@ const options = [
 
 const AccountPage = () => {
   const { user } = useAppSelector((state) => state.auth);
+  console.log(user);
 
   return (
     <>

@@ -26,7 +26,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
 
   useEffect(() => {
     if (error && "data" in error) {
-      toast.error(error?.data?.errMessage);
+      toast.error("There was an error");
     }
 
     if (isSuccess) {
@@ -102,7 +102,7 @@ const NewReview = ({ roomId }: { roomId: string }) => {
           </div>
         ) : (
           <>
-            <h4>You can submit reviews once you make a reservstion.</h4>
+            <h4>You can submit reviews once you make a reservation.</h4>
           </>
         )}
       </Modal>
