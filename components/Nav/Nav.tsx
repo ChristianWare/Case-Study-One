@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { signOut, useSession } from "next-auth/react";
 import Down from "../../public/icons/down.svg";
 import toast from "react-hot-toast";
+import Asset from "../../public/icons/asset.svg";
 
 function Nav() {
   const dispatch = useAppDispatch();
@@ -189,7 +190,10 @@ function Nav() {
         </ul>
         <div className={styles.logoContainer}>
           <Link href='/' className={styles.logo}>
-             elt. ret. rentals
+            <span className={styles.asset}>
+              <Asset width={25} height={25} classname={styles.asset} />
+            </span>
+            elt. ret. rentals
           </Link>
         </div>
         {!user ? (
