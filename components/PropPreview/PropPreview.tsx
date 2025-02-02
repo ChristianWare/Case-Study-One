@@ -27,10 +27,12 @@ const PropPreview = ({ room }: Props) => {
           />
           {/* Overlay and content added here */}
           <div className={styles.overlay}></div>
-          <Link href={`/properties/${room?._id}`} className={styles.title}>
-            {room?.name}
-          </Link>
-          <p className={styles.copy}>{room.description}</p>
+          <div className={styles.box}>
+            {/* <Link href={`/properties/${room?._id}`} className={styles.title}> */}
+            <h3 className={styles.title}>{room?.name}</h3>
+            {/* </Link> */}
+            <p className={styles.copy}>{room.description}</p>
+          </div>
         </div>
       </div>
       {/* <div className={styles.right}>

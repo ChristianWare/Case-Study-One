@@ -22,7 +22,9 @@ const Featured = ({ data }: Props) => {
     <section className={styles.container}>
       <div className={styles.top}>
         <SectionHeading title='Featured' color='blue' />
-        <h2 className={styles.heading}>Explore our <br /> featured listings</h2>
+        <h2 className={styles.heading}>
+          Explore our <br /> featured listings
+        </h2>
         <Wave className={styles.wave} />
         <div className={styles.imgContainer}>
           <Image src={Img1} alt='image' title='image' className={styles.img} />{" "}
