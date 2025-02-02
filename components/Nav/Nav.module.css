@@ -1,21 +1,13 @@
-.header {
-  font-family: var(--chakraPetch);
-  color: var(--black);
-  /* background-color: var(--purple); */
-  border-bottom: 2px solid var(--purple2);
-}
-
 .navbar {
   margin-right: auto;
   margin-left: auto;
   max-width: 1500px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   width: 100%;
   padding: 3rem;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding-top: 5rem;
+  /* padding-bottom: 4rem; */
 }
 
 .navBarLeft {
@@ -25,22 +17,22 @@
   gap: 5rem;
 }
 
-.logo {
-  z-index: 998;
+.logoContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  color: var(--white);
+  z-index: 998;
 }
 
-.span {
-  font-size: 2rem;
-  font-family: var(--helveticaBold);
+.logo {
+  z-index: 998;
+  font-size: 4rem;
+  letter-spacing: 2px;
+  font-family: var(--TeXGyreAdventor);
   text-transform: uppercase;
   color: var(--white);
+  text-align: center;
   position: relative;
-  top: 15px;
 }
 
 .userName {
@@ -48,6 +40,7 @@
 }
 
 .icon {
+  z-index: 998;
   position: relative;
   margin-top: -1.3rem;
   position: relative;
@@ -76,16 +69,13 @@
 }
 
 .navItem {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  letter-spacing: 1.8px;
   font-weight: 500;
-  color: var(--white);
-  font-family: var(--helveticaBold);
-  position: relative;
-  user-select: none;
-  scroll-behavior: smooth;
+  color: var(--gray);
+  font-family: var(--TeXGyreAdventor);
   z-index: 998;
-  position: relative;
-  top: 8px;
+  text-transform: uppercase;
 }
 
 .menuContainerMobile {
@@ -97,8 +87,7 @@
 }
 
 .activeLink {
-  font-weight: 700;
-  text-decoration: underline;
+  color: var(--white);
 }
 
 .bottom {
@@ -187,6 +176,7 @@
 
 .btnContainer {
   position: relative;
+  margin-left: auto;
 }
 
 .menuContainer {
@@ -216,9 +206,9 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 968px) {
   .navbar {
-    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
     padding: 2rem 3rem;
     box-shadow: var(--shadow);
   }
@@ -301,6 +291,17 @@
     display: block;
     cursor: pointer;
     z-index: 9999;
+    margin-left: auto;
+    backdrop-filter: blur(90px);
+    border-radius: 10px;
+    padding: 1rem;
+    padding-top: 1rem;
+    border: 1px solid var(--white);
+  }
+
+  .whiteBar {
+    position: relative;
+    top: 3px;
   }
 
   .hamburger.active .whiteBar:nth-child(1) {
@@ -317,6 +318,15 @@
     -webkit-transform: translateY(-8px) rotate(-45deg);
     transform: translateY(-8px) rotate(-45deg);
     /* background-color: var(--black); */
+  }
+
+  .logoContainer {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .logo {
+    text-align: left;
   }
 }
 

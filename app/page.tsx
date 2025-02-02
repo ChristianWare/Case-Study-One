@@ -65,8 +65,10 @@ export default async function Home() {
 
   return (
     <div>
+      
       <Hero />
       <AboutSectionii />
+      {/* <AboutSectionii />
       <Amenities />
       <Amenitiesii />
       <Featured data={data} />
@@ -80,7 +82,7 @@ export default async function Home() {
       <Testimonials />
       <BlogSection blogData={blogs} />
       <FinalCTA1 />
-      <ContactArea />
+      <ContactArea /> */}
     </div>
   );
 }

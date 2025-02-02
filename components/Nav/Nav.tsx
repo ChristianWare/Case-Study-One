@@ -5,12 +5,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "../Button/Button";
-import Logo from "../../public/icons/logo.svg";
 import { setIsAuthenticated, setUser } from "../../redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { signOut, useSession } from "next-auth/react";
 import Down from "../../public/icons/down.svg";
-import Image from "next/image";
 import toast from "react-hot-toast";
 
 function Nav() {
@@ -83,10 +81,6 @@ function Nav() {
       href: "/about",
     },
     {
-      text: "Blog",
-      href: "/blog",
-    },
-    {
       text: "Contact",
       href: "/contact",
     },
@@ -95,12 +89,6 @@ function Nav() {
   return (
     <header className={styles.header}>
       <nav className={styles.navbar}>
-        <div className={styles.logoContainer}>
-          <Link href='/' className={styles.logo}>
-            <Logo width={50} height={50} className={styles.icon} />
-            <span className={styles.span}>Elite Retreat Rentals</span>
-          </Link>
-        </div>
         <ul
           className={
             isOpen === false
@@ -112,15 +100,6 @@ function Nav() {
             {user && user?.name && (
               <>
                 <div className={styles.mobileImageNameContainer}>
-                  <div className={styles.imgContainer}>
-                    {/* <Image
-                      src={user?.avatar.url}
-                      width={40}
-                      height={40}
-                      alt={user?.name}
-                      className={styles.img}
-                    /> */}
-                  </div>
                   {user && user?.name ? `Hi, ${user.name}:` : ""}
                 </div>
               </>
@@ -192,6 +171,11 @@ function Nav() {
             </>
           ))}
         </ul>
+        <div className={styles.logoContainer}>
+          <Link href='/' className={styles.logo}>
+            CAMELIA{" "}
+          </Link>
+        </div>
         {!user ? (
           <div className={styles.btnContainer}>
             <Button href='/login' text='Login' btnType='navBtn' />
