@@ -5,9 +5,10 @@
   --black: #1c1c1c;
   --black2: #333333;
   --blue: #132430;
-  --white: #F6F4EF;
+  --white: #f6f4ef;
   --gray: #cdcdcd;
   --grayii: #dfdddd;
+  --gold: #BC9E59;
   --shadow: 20px 20px 50px rgba(0, 0, 0, 0.1);
 }
 
@@ -17,7 +18,7 @@
   box-sizing: border-box;
   text-decoration: none;
   line-height: 150%;
-  font-family: var(--inter);
+  font-family: var(--fraunces);
   overscroll-behavior: none;
   scroll-behavior: smooth;
   scroll-margin-top: 20px;
@@ -52,7 +53,6 @@ span {
 }
 
 h1 {
-  font-size: 12rem;
   font-weight: 600;
   line-height: 1em;
   letter-spacing: 1px;
@@ -62,9 +62,8 @@ h1 {
 }
 
 h2 {
-  font-size: 5rem;
-  line-height: 120%;
-  text-transform: uppercase;
+  font-size: 6rem;
+    line-height: 1.05em;
 }
 
 h3 {
@@ -93,12 +92,12 @@ button {
 p,
 input,
 textarea {
-  font-weight: 400;
+  font-weight: 300;
   hyphens: auto;
   font-size: 1.6rem;
   line-height: 130%;
   color: var(--black);
-  line-height: 1.8em;
+    line-height: 1.6em;
 }
 
 input:focus,
@@ -123,9 +122,23 @@ select:focus {
   background: var(--secondary);
 } */
 
+@media screen and (max-width: 968px) {
+  h2 {
+    font-size: 4.6rem;
+  }
+
+  /* p {
+    font-size: 113.7%;
+  } */
+}
+
 @media screen and (max-width: 768px) {
   html {
     font-size: 55%;
+  }
+
+  h2 {
+    font-size: 3.7rem;
   }
 
   /* p {
@@ -140,6 +153,10 @@ select:focus {
 
   h1 {
     letter-spacing: -1px;
+  }
+
+  h2 {
+    font-size: 3rem;
   }
 
   p,

@@ -1,5 +1,6 @@
 .container {
   height: 100vh;
+  background-color: var(--white);
 }
 
 .video {
@@ -56,6 +57,7 @@
   width: 7rem;
   height: 100%;
   margin-bottom: 1rem;
+  color: var(--white);
 }
 
 .copy {

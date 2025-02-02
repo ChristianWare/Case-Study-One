@@ -1,0 +1,27 @@
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  height: fit-content;
+  padding-top: 1rem;
+}
+
+.span {
+  letter-spacing: 3.1px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  user-select: none;
+  font-family: var(--TeXGyreAdventor);
+  font-size: 0.65em;
+  font-weight: 700;
+  line-height: 1.2em;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.white {
+  color: var(--white);
+}
