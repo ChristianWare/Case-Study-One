@@ -189,7 +189,7 @@ function Nav() {
         </ul>
         <div className={styles.logoContainer}>
           <Link href='/' className={styles.logo}>
-            CAMELIA{" "}
+             elt. ret. rentals
           </Link>
         </div>
         {!user ? (

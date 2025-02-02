@@ -5,7 +5,7 @@
   --black: #1c1c1c;
   --black2: #333333;
   --blue: #132430;
-  --white: #ffffff;
+  --white: #F6F4EF;
   --gray: #cdcdcd;
   --grayii: #dfdddd;
   --shadow: 20px 20px 50px rgba(0, 0, 0, 0.1);
@@ -139,7 +139,7 @@ select:focus {
   }
 
   h1 {
-    letter-spacing: -2px;
+    letter-spacing: -1px;
   }
 
   p,
@@ -181,10 +181,12 @@ select:focus {
   background: var(--purple);
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+
 .lds-ellipsis div:nth-child(1) {
   left: 8px;
   animation: lds-ellipsis1 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(2) {
   left: 8px;
   animation: lds-ellipsis2 0.6s infinite;
@@ -197,6 +199,7 @@ select:focus {
   left: 56px;
   animation: lds-ellipsis3 0.6s infinite;
 }
+
 @keyframes lds-ellipsis1 {
   0% {
     transform: scale(0);
@@ -279,6 +282,7 @@ select:focus {
   border-color: #fff transparent #fff transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
