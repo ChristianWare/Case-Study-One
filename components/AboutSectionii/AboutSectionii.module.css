@@ -14,8 +14,9 @@
   width: 100%;
 }
 
-.imgContainer {
-  height: 500px;
+.imgContainer,
+.imgContainerii {
+  height: 100%;
   width: 100%;
   mask-image: url(/icons/asset.svg);
   mask-position: 50% center;
@@ -23,13 +24,12 @@
   mask-repeat: no-repeat;
 }
 
-.img {
-  object-fit: cover;
+.imgContainerii {
+  display: none;
 }
 
-.heading {
-  margin-bottom: 2rem;
-  color: var(--purple);
+.img {
+  object-fit: cover;
 }
 
 .right {
@@ -43,7 +43,7 @@
 .icon {
   position: relative;
   top: 3px;
-  color: var(--purple);
+  color: var(--gold);
 }
 
 .title {
@@ -53,8 +53,7 @@
 
 .copy {
   line-height: 150%;
-  font-weight: 700;
-  color: var(--purple);
+  color: var(--black);
   width: 90%;
   margin-bottom: 2rem;
 }
@@ -89,16 +88,40 @@
 @media screen and (max-width: 1068px) {
   .content {
     grid-template-columns: repeat(1, 1fr);
-    padding-top: 5rem;
+  }
+
+  .right {
+    gap: 3rem;
+  }
+
+  .heading,
+  .copy {
+    text-align: center;
+    width: 100%;
   }
 
   .imgContainer {
-    height: 400px;
+    display: none;
+  }
+
+  .imgContainerii {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .imgContainerii {
+    height: 300px;
   }
 
   .copy,
   .copyii {
     width: 100%;
+  }
+
+  .btnContainer {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -113,8 +136,8 @@
     padding-top: 3rem;
   }
 
-  .imgContainer {
-    height: 400px;
+  .imgContainerii {
+    height: 250px;
   }
 
   .right {

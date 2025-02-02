@@ -1,11 +1,11 @@
 "use client";
 
+import styles from "./AboutSectionii.module.css";
 import Image from "next/image";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
-import styles from "./AboutSectionii.module.css";
 import Img1 from "../../public/images/aboutii.webp";
-import House from "../../public/icons/logo.svg";
+import House from "../../public/icons/asset.svg";
 import Button from "../Button/Button";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";
@@ -30,26 +30,24 @@ const AboutSectionii = () => {
     <div>
       <LayoutWrapper>
         <ContentPadding>
-          <section className={styles.container}>
-            <h2 className={styles.heading}>About us</h2>
+          <motion.section
+            variants={fadeIn("", 0.3)}
+            initial='hidden'
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.3 }}
+            className={styles.container}
+          >
             <div className={styles.content}>
-              <motion.div
-                variants={fadeIn("right", 0.3)}
-                initial='hidden'
-                whileInView={"show"}
-                viewport={{ once: false, amount: 0.3 }}
-                className={styles.right}
-              >
-                <div className={styles.copyContainer}>
-                  <p className={styles.copy}>
-                    Discover the allure of Arizona with Elite Retreat Rentals!
-                    Based in vibrant Phoenix, we offer affordable lodging across
-                    multiple properties, ensuring an unforgettable stay. Book
-                    directly on our website or through top platforms like Airbnb
-                    and VRBO. Your next vacation begins with Elite Retreat
-                    Rentals—where comfort meets adventure!
-                  </p>
+              <div className={styles.right}>
+                <h2 className={styles.heading}>About us</h2>
+                <div className={styles.imgContainerii}>
+                  <Image src={Img1} alt='image' fill className={styles.img} />
                 </div>
+                <p className={styles.copy}>
+                  Book directly on our website or through top platforms like
+                  Airbnb and VRBO. Your next vacation begins with Elite Retreat
+                  Rentals—where comfort meets adventure!
+                </p>
                 {data.map((x, index) => (
                   <div className={styles.iconTextContainer} key={index}>
                     <div className={styles.itextLeft}>{x.icon}</div>
@@ -59,29 +57,21 @@ const AboutSectionii = () => {
                     </div>
                   </div>
                 ))}
-              </motion.div>
-              <motion.div
-                variants={fadeIn("left", 0.3)}
-                initial='hidden'
-                whileInView={"show"}
-                viewport={{ once: false, amount: 0.3 }}
-                className={styles.left}
-              >
+                <div className={styles.btnContainer}>
+                  <Button
+                    href='/about'
+                    text='More about us'
+                    btnType='primary'
+                  />
+                </div>
+              </div>
+              <div className={styles.left}>
                 <div className={styles.imgContainer}>
                   <Image src={Img1} alt='image' fill className={styles.img} />
                 </div>
-              </motion.div>
+              </div>
             </div>
-            <motion.div
-              variants={fadeIn("left", 0.3)}
-              initial='hidden'
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.3 }}
-              className={styles.btnContainer}
-            >
-              <Button href='/about' text='More about us' btnType='secondary' />
-            </motion.div>
-          </section>
+          </motion.section>
         </ContentPadding>
       </LayoutWrapper>
     </div>

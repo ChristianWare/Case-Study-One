@@ -26,8 +26,9 @@ export default function Welcome() {
             </h2>
             <Wave className={styles.wave} />
             <p className={styles.copy}>
-              Lorem ipsum dolor sit amet consectetur. Id facilisis velit velit
-              vitae id malesuada sem feugiat sit. Nisi ipsum suspendisse.
+              Discover the allure of Arizona with Elite Retreat Rentals! Based
+              in vibrant Phoenix, we offer affordable lodging across multiple
+              properties, ensuring an unforgettable stay.
             </p>
           </motion.div>
         </ContentPadding>

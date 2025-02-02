@@ -193,7 +193,7 @@ function Nav() {
             <span className={styles.asset}>
               <Asset width={25} height={25} classname={styles.asset} />
             </span>
-            elt. ret. rentals
+            E. R. Rentals
           </Link>
         </div>
         {!user ? (
