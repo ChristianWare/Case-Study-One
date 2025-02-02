@@ -42,6 +42,12 @@ const tuskerGrotesk = localFont({
   display: "swap",
 });
 
+const TeXGyreAdventor = localFont({
+  src: "../public/fonts/TeXGyreAdventor.otf",
+  variable: "--TeXGyreAdventor",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -53,7 +59,7 @@ export default function RootLayout({
         <PlausibleProvider domain='eliteretreatrentals.com' />
       </head>
       <body
-        className={`${raleway.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} ${inter.variable} `}
+        className={`${raleway.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} ${inter.variable} ${TeXGyreAdventor.variable}`}
       >
         <Globalprovider>
           <Nav />

@@ -37,6 +37,7 @@ a {
   text-decoration: none;
 }
 
+h1,
 h2,
 h3,
 h4,
@@ -46,21 +47,20 @@ span {
   /* font-family: var(--helveticaBold); */
   color: var(--black);
   hyphens: auto;
+  font-family: var(--TeXGyreAdventor);
 }
 
 h1 {
-  font-family: var(--tuskerGrotesk);
-  font-size: 8rem;
+  font-size: 12rem;
   font-weight: 600;
-  line-height: 120%;
+  line-height: 1em;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: var(--black);
   hyphens: auto;
 }
 
 h2 {
-  font-family: var(--tuskerGrotesk);
   font-size: 5rem;
   line-height: 120%;
   text-transform: uppercase;
