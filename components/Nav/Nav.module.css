@@ -1,12 +1,11 @@
 .navbar {
   margin-right: auto;
   margin-left: auto;
-  max-width: 1500px;
+  /* max-width: 1500px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   padding: 3rem;
-  padding-top: 5rem;
   /* padding-bottom: 4rem; */
 }
 
@@ -72,10 +71,11 @@
   font-size: 1.2rem;
   letter-spacing: 1.8px;
   font-weight: 500;
-  color: var(--gray);
+  color: var(--white);
   font-family: var(--TeXGyreAdventor);
   z-index: 998;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .menuContainerMobile {
@@ -87,7 +87,7 @@
 }
 
 .activeLink {
-  color: var(--white);
+  text-decoration: underline;
 }
 
 .bottom {
@@ -175,8 +175,9 @@
 }
 
 .btnContainer {
-  position: relative;
+  
   margin-left: auto;
+  display: grid;
 }
 
 .menuContainer {
@@ -199,17 +200,17 @@
   transition: all 0.4s ease-in;
 }
 
-@media screen and (max-width: 1168px) {
+/* @media screen and (max-width: 1168px) {
   .menuItemsGroup,
   .navMenu {
     gap: 2rem;
   }
-}
+} */
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 1068px) {
   .navbar {
     grid-template-columns: repeat(2, 1fr);
-    padding: 2rem 3rem;
+    /* padding: 2rem 3rem; */
     box-shadow: var(--shadow);
   }
 

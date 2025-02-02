@@ -2,30 +2,15 @@
   position: relative;
   z-index: 1;
   z-index: 998;
-
-  /* transform: skew(-7deg); */
-}
-
-.container::after {
-  position: absolute;
-  content: "";
-  bottom: -5px;
-  right: -5px;
-  background-color: var(--purple2);
-  width: 95%;
-  height: 90%;
-  border-radius: 10px;
-  /* border: 2px solid var(--white); */
-  z-index: -1;
 }
 
 .btn {
-  font-family: var(--tuskerGrotesk);
+  font-family: var(--TeXGyreAdventor);
   text-transform: uppercase;
   font-size: 2rem;
-  letter-spacing: 1px;
+  letter-spacing: 1.8px;
   white-space: nowrap;
-  border-radius: 10px;
+  border-radius: 5px;
   user-select: none;
   transition: all 0.1s ease-in;
   display: inline-block;
@@ -38,10 +23,6 @@
   position: relative;
   z-index: 1;
   width: 100%;
-}
-
-.btn:active {
-  transform: translate(10px, 10px);
 }
 
 .primary {
@@ -69,12 +50,15 @@
 }
 
 .navBtn {
-  padding: 10px 15px;
+  border-radius: 8px;
+  line-height: 1;
+  padding: 1.7rem 5rem;
   font-weight: 600;
   color: var(--white);
-  background-color: var(--black);
+  background-color: var(--blue);
   border: 2px solid var(--black);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--white);
 }
 
 .navBtnii {

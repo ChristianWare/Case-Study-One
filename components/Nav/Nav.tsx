@@ -68,22 +68,38 @@ function Nav() {
   };
 
   const navItems = [
-    {
-      text: "Home",
-      href: "/",
-    },
-    {
-      text: "Properties",
-      href: "/properties",
-    },
+    // {
+    //   text: "Home",
+    //   href: "/",
+    // },
     {
       text: "About",
       href: "/about",
     },
     {
-      text: "Contact",
+      text: "Stay",
+      href: "/properties",
+    },
+    {
+      text: "Spa & Wellness",
       href: "/contact",
     },
+    {
+      text: "Dining",
+      href: "/dining",
+    },
+    // {
+    //   text: "Properties",
+    //   href: "/properties",
+    // },
+    // {
+    //   text: "About",
+    //   href: "/about",
+    // },
+    // {
+    //   text: "Contact",
+    //   href: "/contact",
+    // },
   ];
 
   return (
