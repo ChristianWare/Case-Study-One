@@ -2,14 +2,16 @@
   --purple: #7065f0;
   --purple2: #f1f0fe;
   --purple3: #b0aaee;
-  --black: #132430;
-  --black2: #333333;
-  --blue: #132430;
-  --white: #f6f4ef;
   --gray: #cdcdcd;
   --grayii: #dfdddd;
-  --gold: #BC9E59;
   --shadow: 20px 20px 50px rgba(0, 0, 0, 0.1);
+  /* new colors */
+  --black: #132430;
+  --blue: #132430;
+  --gold: #bc9e59;
+  --white: #f6f4ef;
+  --brown: #907c78;
+  --teal:#3F6F7D;
 }
 
 * {
@@ -63,7 +65,7 @@ h1 {
 
 h2 {
   font-size: 6rem;
-    line-height: 1.05em;
+  line-height: 1.05em;
 }
 
 h3 {
@@ -97,7 +99,7 @@ textarea {
   font-size: 1.6rem;
   line-height: 130%;
   color: var(--black);
-    line-height: 1.6em;
+  line-height: 1.6em;
 }
 
 input:focus,

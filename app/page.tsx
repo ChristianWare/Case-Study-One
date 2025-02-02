@@ -69,8 +69,10 @@ export default async function Home() {
       <Hero />
       <Welcome />
       <AboutSectionii />
+      <Featured data={data} />
       {/* <AboutSectionii />
       <Amenities />
+      
       <Amenitiesii />
       <Featured data={data} />
       <Faqs />

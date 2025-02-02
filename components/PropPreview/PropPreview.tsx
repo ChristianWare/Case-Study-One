@@ -5,8 +5,6 @@ import Image from "next/image";
 import { IRoom } from "../../backend/models/room";
 import Link from "next/link";
 import Button from "../Button/Button";
-import { motion } from "framer-motion";
-import { fadeIn } from "../../animation/variants";
 
 interface Props {
   room: IRoom;
@@ -15,13 +13,7 @@ interface Props {
 const PropPreview = ({ room }: Props) => {
   return (
     <div className={styles.container}>
-      <motion.div
-        variants={fadeIn("right", 0.3)}
-        initial='hidden'
-        whileInView={"show"}
-        viewport={{ once: false, amount: 0.3 }}
-        className={styles.left}
-      >
+      <div className={styles.left}>
         <div className={styles.imgContainer}>
           <Image
             src={
@@ -33,15 +25,15 @@ const PropPreview = ({ room }: Props) => {
             fill
             className={styles.img}
           />
+          {/* Overlay and content added here */}
+          <div className={styles.overlay}></div>
+          <Link href={`/properties/${room?._id}`} className={styles.title}>
+            {room?.name}
+          </Link>
+          <p className={styles.copy}>{room.description}</p>
         </div>
-      </motion.div>
-      <motion.div
-        variants={fadeIn("left", 0.3)}
-        initial='hidden'
-        whileInView={"show"}
-        viewport={{ once: false, amount: 0.3 }}
-        className={styles.right}
-      >
+      </div>
+      {/* <div className={styles.right}>
         <div className={styles.rightTop}>
           <span className={styles.price}>
             $ {room.pricePerNight}{" "}
@@ -66,7 +58,7 @@ const PropPreview = ({ room }: Props) => {
             href={`/properties/${room?._id}`}
           />
         </div>
-      </motion.div>
+      </div> */}
     </div>
   );
 };
