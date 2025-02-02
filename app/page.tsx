@@ -68,7 +68,7 @@ export default async function Home() {
     <div>
       <Hero />
       <Welcome />
-      {/* <AboutSectionii /> */}
+      <AboutSectionii />
       {/* <AboutSectionii />
       <Amenities />
       <Amenitiesii />
