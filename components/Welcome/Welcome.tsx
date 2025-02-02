@@ -22,7 +22,7 @@ export default function Welcome() {
           >
             <SectionHeading title='welome' color='blue' />
             <h2 className={styles.heading}>
-              Indulge in exquisite accommodations and services
+              Indulge in our exquisite accommodations and services
             </h2>
             <Wave className={styles.wave} />
             <p className={styles.copy}>
