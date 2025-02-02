@@ -1,15 +1,25 @@
+"use client";
+
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import styles from "./Welcome.module.css";
 import Wave from "../../public/icons/wave.svg";
 import ContentPadding from "../ContentPadding/ContentPadding";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 export default function Welcome() {
   return (
     <section className={styles.container}>
       <LayoutWrapper>
         <ContentPadding>
-          <div className={styles.content}>
+          <motion.div
+            variants={fadeIn("", 0.3)}
+            initial='hidden'
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.3 }}
+            className={styles.content}
+          >
             <SectionHeading title='welome' color='blue' />
             <h2 className={styles.heading}>
               Indulge in exquisite accommodations and services
@@ -19,7 +29,7 @@ export default function Welcome() {
               Lorem ipsum dolor sit amet consectetur. Id facilisis velit velit
               vitae id malesuada sem feugiat sit. Nisi ipsum suspendisse.
             </p>
-          </div>
+          </motion.div>
         </ContentPadding>
       </LayoutWrapper>
     </section>
