@@ -35,7 +35,6 @@ const ImageGridii = () => {
 
         <div className={styles.box4}>
           <h5>Swimming Pool</h5>
-          <a></a>
         </div>
 
         <div className={styles.box5}>

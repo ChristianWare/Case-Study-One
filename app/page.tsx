@@ -42,15 +42,16 @@ export default async function Home() {
     return <Error error={data} />;
   }
 
-
   return (
     <div>
       <Hero />
       <Welcome />
+      <Featured data={data} />
       <AboutSectionii />
       <Services />
       <Location />
-      <Featured data={data} />
+      <Testimonials />
+
       {/* <AboutSectionii />
       <Amenities />
       

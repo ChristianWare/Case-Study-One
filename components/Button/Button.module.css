@@ -54,9 +54,3 @@
   font-size: 1.2rem;
   border: 1px solid var(--gray);
 }
-
-@media screen and (max-width: 768px) {
-  .btn {
-    font-size: 2rem;
-  }
-}
