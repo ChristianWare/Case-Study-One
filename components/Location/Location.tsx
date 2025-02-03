@@ -1,3 +1,5 @@
+"use client";
+
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import styles from "./Location.module.css";
@@ -6,16 +8,31 @@ import Grand from "../../public/images/grand.jpg";
 import Wave from "../../public/icons/wave.svg";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import Button from "../Button/Button";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
+import Marquee from "../Marquee/Marquee";
 
 export default function Location() {
   return (
     <section className={styles.container}>
       <LayoutWrapper>
         <ContentPadding>
-          <div className={styles.content}>
+          <motion.div
+            variants={fadeIn("", 0.3)}
+            initial='hidden'
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.3 }}
+            className={styles.content}
+          >
             <div className={styles.left}>
               <div className={styles.imgContainer}>
-                <Image src={Grand} title='image' alt='image' fill className={styles.img} />
+                <Image
+                  src={Grand}
+                  title='image'
+                  alt='image'
+                  fill
+                  className={styles.img}
+                />
               </div>
             </div>
             <div className={styles.right}>
@@ -34,9 +51,12 @@ export default function Location() {
                 <Button href='/' text='Show Location' btnType='primary' />
               </div>
             </div>
-          </div>
+          </motion.div>
         </ContentPadding>
       </LayoutWrapper>
+      <div className={styles.marqueContainer}>
+        <Marquee />
+      </div>
     </section>
   );
 }

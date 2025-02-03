@@ -1,35 +1,29 @@
-.iconContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-
 .slider {
   width: 100%;
   overflow: hidden;
-  user-select: none;
-  z-index: 999;
   border-top: 1px solid var(--blue);
   border-bottom: 1px solid var(--blue);
-  padding: 1rem 0rem;
-  background-color: var(--tan);
+  padding: 1rem 0;
   cursor: pointer;
 }
 
 .track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: scroll 60s linear infinite;
   gap: 2rem;
+  animation: scroll 40s linear infinite;
+  width: max-content;
 }
 
-.arrayItems {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
+.imgContainer {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  flex-shrink: 0;
+}
+
+.img {
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 @keyframes scroll {
@@ -37,10 +31,10 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%); 
   }
 }
 
 .slider:hover .track {
-  animation-play-state: paused !important;
+  animation-play-state: paused;
 }

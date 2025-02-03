@@ -1,43 +1,47 @@
+"use client";
+
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import styles from "./Services.module.css";
 import Asset from "../../public/icons/asset.svg";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animation/variants";
 
 const serviceData = [
   {
     id: 1,
-icon: <Asset width={25} height={25} className={styles.icon} />,
+    icon: <Asset width={25} height={25} className={styles.icon} />,
     title: "Personalized Service",
     desc: "Pellentesque gravida integer eu tellus auctor id libero. Suscipit nibh.",
   },
   {
     id: 2,
-icon: <Asset width={25} height={25} className={styles.icon} />,
+    icon: <Asset width={25} height={25} className={styles.icon} />,
     title: "Spa and Wellness Facilities",
     desc: "Pellentesque gravida integer eu tellus auctor id libero. Suscipit nibh.",
   },
   {
     id: 3,
-icon: <Asset width={25} height={25} className={styles.icon} />,
+    icon: <Asset width={25} height={25} className={styles.icon} />,
     title: "Concierge Assistance",
     desc: "Pellentesque gravida integer eu tellus auctor id libero. Suscipit nibh.",
   },
   {
     id: 4,
-icon: <Asset width={25} height={25} className={styles.icon} />,
+    icon: <Asset width={25} height={25} className={styles.icon} />,
     title: "High-Speed Internet Access",
     desc: "Pellentesque gravida integer eu tellus auctor id libero. Suscipit nibh.",
   },
   {
     id: 5,
-icon: <Asset width={25} height={25} className={styles.icon} />,
+    icon: <Asset width={25} height={25} className={styles.icon} />,
     title: "Laundry and Dry Cleaning",
     desc: "Pellentesque gravida integer eu tellus auctor id libero. Suscipit nibh.",
   },
   {
     id: 6,
-icon: <Asset width={25} height={25} className={styles.icon} />,
+    icon: <Asset width={25} height={25} className={styles.icon} />,
     title: "Excursion and Tour Arrangements",
     desc: "Pellentesque gravida integer eu tellus auctor id libero. Suscipit nibh.",
   },
@@ -48,7 +52,13 @@ export default function Services() {
     <section className={styles.container}>
       <LayoutWrapper>
         <ContentPadding>
-          <div className={styles.content}>
+          <motion.div
+            variants={fadeIn("", 0.3)}
+            initial='hidden'
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.3 }}
+            className={styles.content}
+          >
             <div className={styles.top}>
               <SectionHeading title='services' color='blue' />
               <h2 className={styles.heading}>
@@ -64,7 +74,7 @@ export default function Services() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </ContentPadding>
       </LayoutWrapper>
     </section>

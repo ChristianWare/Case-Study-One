@@ -1,28 +1,28 @@
 import styles from "./Marquee.module.css";
-import Heart from "../../../public/icons/heart.svg";
-import Diamond from "../../../public/icons/diamond.svg";
-import Spade from "../../../public/icons/spade.svg";
-import Club from "../../../public/icons/club.svg";
+import Image from "next/image";
+import Img1 from "../../public/images/grand.jpg";
+import Img2 from "../../public/images/featured.jpg";
+import Img3 from "../../public/images/antelope.jpg";
+import Img4 from "../../public/images/desert.jpg";
+import Img5 from "../../public/images/img1.jpg";
+import Img6 from "../../public/images/house.jpg";
+import Img7 from "../../public/images/house2.jpg";
 
 export default function Marquee() {
-  const icons = (
-    <div className={styles.iconContainer}>
-      <Heart width={25} height={25} />
-      <Diamond width={25} height={25} />
-      <Spade width={25} height={25} />
-      <Club width={25} height={25} />
-    </div>
-  );
+  const images = [Img1, Img2, Img3, Img4, Img5, Img6, Img7];
 
   return (
     <div className={styles.slider}>
       <div className={styles.track}>
-        {[...Array(10)].map((_, index) => (
-          <div key={index} className={styles.arrayItems}>
-            {icons}
-            {icons}
-            {icons}
-            {icons}
+        {[...images, ...images].map((img, index) => (
+          <div key={index} className={styles.imgContainer}>
+            <Image
+              src={img}
+              alt=''
+              fill
+              className={styles.img}
+              sizes='(max-width: 768px) 100vw, 300px'
+            />
           </div>
         ))}
       </div>

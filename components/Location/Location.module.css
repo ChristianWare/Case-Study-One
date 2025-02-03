@@ -1,6 +1,7 @@
 .container {
   background-color: var(--blue);
   padding-top: 10rem;
+  padding-bottom: 15rem;
 }
 
 .content {
@@ -45,6 +46,10 @@
 
 .btnContainer {
   margin-top: 3rem;
+}
+
+.marqueContainer {
+  width: 100%;
 }
 
 @media screen and (max-width: 968px) {

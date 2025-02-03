@@ -70,7 +70,7 @@ export default async function Home() {
     <div>
       <Hero />
       <Welcome />
-      <Featured data={data} />
+      {/* <Featured data={data} /> */}
       <AboutSectionii />
       <Services />
       <Location />
