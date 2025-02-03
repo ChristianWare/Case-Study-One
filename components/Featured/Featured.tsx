@@ -11,6 +11,7 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";
+import Button from "../Button/Button";
 
 interface Props {
   data: {
@@ -66,6 +67,13 @@ const Featured = ({ data }: Props) => {
           </div>
         </ContentPadding>
       </LayoutWrapper>
+      <div className={styles.btnContainer}>
+        <Button
+          text='View All Locations'
+          btnType='primary'
+          href='/properties'
+        />
+      </div>
     </motion.section>
   );
 };

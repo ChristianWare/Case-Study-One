@@ -38,7 +38,7 @@ const PropPreview = ({ room }: Props) => {
           <div className={styles.btnContainer}>
             <Button
               text='View Details'
-              btnType='primary'
+              btnType='secondary'
               href={`/properties/${room?._id}`}
             />
           </div>
