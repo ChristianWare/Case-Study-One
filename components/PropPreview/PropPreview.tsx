@@ -35,6 +35,13 @@ const PropPreview = ({ room }: Props) => {
               <p className={styles.copy}>{room.description}</p>
             </div>
           </div>
+          <div className={styles.btnContainer}>
+            <Button
+              text='View Details'
+              btnType='primary'
+              href={`/properties/${room?._id}`}
+            />
+          </div>
         </div>
         {/* <div className={styles.right}>
         <div className={styles.rightTop}>

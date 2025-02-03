@@ -7,7 +7,6 @@ import Owner from "../components/Owner/Owner";
 import Faqs from "../components/Faqs/Faqs";
 import FinalCTA1 from "../components/FinalCTA1/FinalCTA1";
 import Error from "./error";
-import BlogSection from "../components/BlogSection/BlogSection";
 import { revalidatePath } from "next/cache";
 import AboutSectionii from "../components/AboutSectionii/AboutSectionii";
 import Amenities from "../components/Amenities/Amenities";
@@ -43,37 +42,15 @@ export default async function Home() {
     return <Error error={data} />;
   }
 
-  const fs = require("fs");
-  const path = require("path");
-  const matter = require("gray-matter");
-
-  // Determine the correct path to the 'blogs' directory
-  const blogsDirectory = path.join(process.cwd(), "blogs");
-
-  // Use readdirSync to list files in the 'blogs' directory
-  const files = fs.readdirSync(blogsDirectory);
-
-  const blogs = files.map((filename: any) => {
-    const fileContent = fs.readFileSync(
-      path.join(blogsDirectory, filename),
-      "utf-8"
-    );
-
-    const { data: frontMatter } = matter(fileContent);
-    return {
-      meta: frontMatter,
-      slug: filename.replace(".mdx", ""),
-    };
-  });
 
   return (
     <div>
       <Hero />
       <Welcome />
-      {/* <Featured data={data} /> */}
       <AboutSectionii />
       <Services />
       <Location />
+      <Featured data={data} />
       {/* <AboutSectionii />
       <Amenities />
       
@@ -87,7 +64,6 @@ export default async function Home() {
         copy='We redefine the holiday rental experience by directly owning and managing our properties, allowing for unparalleled design, service, and a cohesive experience across our distinctive collection, standing out in the evolving landscape of luxury accommodations.'
       />
       <Testimonials />
-      <BlogSection blogData={blogs} />
       <FinalCTA1 />
       <ContactArea /> */}
     </div>

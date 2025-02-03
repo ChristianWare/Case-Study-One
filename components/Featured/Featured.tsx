@@ -1,8 +1,8 @@
 "use client";
 
+import styles from "./Featured.module.css";
 import { IRoom } from "../../backend/models/room";
 import PropPreview from "../PropPreview/PropPreview";
-import styles from "./Featured.module.css";
 import Img1 from "../../public/images/featured.jpg";
 import Image from "next/image";
 import SectionHeading from "../SectionHeading/SectionHeading";
@@ -36,14 +36,14 @@ const Featured = ({ data }: Props) => {
       <LayoutWrapper>
         <ContentPadding>
           <div className={styles.top}>
-            {/* <SectionHeading title='Featured' color='blue' />
+            <SectionHeading title='Featured' color='blue' />
             <h2 className={styles.heading}>
               Explore our
               <br />
               featured listings
-            </h2> */}
-            {/* <Wave className={styles.wave} /> */}
-            <div className={styles.imgContainer}>
+            </h2>
+            <Wave className={styles.wave} />
+            {/* <div className={styles.imgContainer}>
               <Image
                 src={Img1}
                 alt='image'
@@ -51,7 +51,7 @@ const Featured = ({ data }: Props) => {
                 fill
                 className={styles.img}
               />
-            </div>
+            </div> */}
           </div>
           <div className={styles.content}>
             <div className={styles.bottomContent}>

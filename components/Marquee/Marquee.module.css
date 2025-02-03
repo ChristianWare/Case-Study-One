@@ -9,7 +9,7 @@
 
 .track {
   display: flex;
-  gap: 2rem;
+  gap: 5rem;
   animation: scroll 40s linear infinite;
   width: max-content;
 }
@@ -19,6 +19,10 @@
   width: 300px;
   height: 450px;
   flex-shrink: 0;
+}
+
+.imgContainer:nth-child(odd) {
+  margin-top: 10rem;
 }
 
 .img {
@@ -31,10 +35,20 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%); 
+    transform: translateX(-50%);
   }
 }
 
 .slider:hover .track {
   animation-play-state: paused;
+}
+
+@media screen and (max-width: 568px) {
+  .track {
+    gap: 2rem;
+  }
+
+  .imgContainer:nth-child(odd) {
+    margin-top: 0rem;
+  }
 }
