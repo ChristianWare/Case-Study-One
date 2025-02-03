@@ -48,6 +48,7 @@ const Featured = ({ data }: Props) => {
                 src={Img1}
                 alt='image'
                 title='image'
+                fill
                 className={styles.img}
               />
             </div>

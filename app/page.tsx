@@ -16,6 +16,7 @@ import Amenitiesii from "../components/Amenitiesii/Amenitiesii";
 import Testimonials from "../components/Testimonials/Testimonials";
 import Welcome from "../components/Welcome/Welcome";
 import Services from "../components/Services/Services";
+import Location from "../components/Location/Location";
 
 export const metadata = {
   title: "Home - Elite Retreat Rentals",
@@ -72,6 +73,7 @@ export default async function Home() {
       <Featured data={data} />
       <AboutSectionii />
       <Services />
+      <Location />
       {/* <AboutSectionii />
       <Amenities />
       

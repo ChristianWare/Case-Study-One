@@ -45,7 +45,7 @@ icon: <Asset width={25} height={25} className={styles.icon} />,
 
 export default function Services() {
   return (
-    <section className={styles.contaner}>
+    <section className={styles.container}>
       <LayoutWrapper>
         <ContentPadding>
           <div className={styles.content}>

@@ -27,7 +27,7 @@ const AboutSectionii = () => {
   ];
 
   return (
-    <div>
+    <section className={styles.parent}>
       <LayoutWrapper>
         <ContentPadding>
           <motion.section
@@ -74,7 +74,7 @@ const AboutSectionii = () => {
           </motion.section>
         </ContentPadding>
       </LayoutWrapper>
-    </div>
+    </section>
   );
 };
 export default AboutSectionii;
