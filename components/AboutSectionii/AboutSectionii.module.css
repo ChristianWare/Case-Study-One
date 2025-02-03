@@ -100,6 +100,12 @@
     width: 100%;
   }
 
+  .copy {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .imgContainer {
     display: none;
   }
@@ -113,7 +119,6 @@
     height: 300px;
   }
 
-  .copy,
   .copyii {
     width: 100%;
   }
@@ -149,6 +154,10 @@
 
   .heading {
     text-align: center;
+  }
+
+  .copy {
+    width: 100%;
   }
 
   .imgContainer {

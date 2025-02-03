@@ -39,14 +39,24 @@
   border-radius: 10px;
 }
 
+.content {
+  width: 100%;
+}
+
 .bottomContent {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 968px) {
   .bottomContent {
     grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0rem;
+  }
+
+  .imgContainer {
+    height: 300px;
   }
 }

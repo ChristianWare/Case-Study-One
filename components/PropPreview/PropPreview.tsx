@@ -13,29 +13,30 @@ interface Props {
 const PropPreview = ({ room }: Props) => {
   return (
     <div className={styles.container}>
-      <div className={styles.left}>
-        <div className={styles.imgContainer}>
-          <Image
-            src={
-              room?.images?.length > 0
-                ? room.images[0].url
-                : "/images/default_room_image.jpg"
-            }
-            alt={room.name}
-            fill
-            className={styles.img}
-          />
-          {/* Overlay and content added here */}
-          <div className={styles.overlay}></div>
-          <div className={styles.box}>
-            {/* <Link href={`/properties/${room?._id}`} className={styles.title}> */}
-            <h3 className={styles.title}>{room?.name}</h3>
-            {/* </Link> */}
-            <p className={styles.copy}>{room.description}</p>
+      <Link href={`/properties/${room?._id}`}>
+        <div className={styles.left}>
+          <div className={styles.imgContainer}>
+            <Image
+              src={
+                room?.images?.length > 0
+                  ? room.images[0].url
+                  : "/images/default_room_image.jpg"
+              }
+              alt={room.name}
+              fill
+              className={styles.img}
+            />
+            {/* Overlay and content added here */}
+            <div className={styles.overlay}></div>
+            <div className={styles.box}>
+              {/* <Link href={`/properties/${room?._id}`} className={styles.title}> */}
+              <span className={styles.title}>{room?.name}</span>
+              {/* </Link> */}
+              <p className={styles.copy}>{room.description}</p>
+            </div>
           </div>
         </div>
-      </div>
-      {/* <div className={styles.right}>
+        {/* <div className={styles.right}>
         <div className={styles.rightTop}>
           <span className={styles.price}>
             $ {room.pricePerNight}{" "}
@@ -61,6 +62,7 @@ const PropPreview = ({ room }: Props) => {
           />
         </div>
       </div> */}
+      </Link>
     </div>
   );
 };
