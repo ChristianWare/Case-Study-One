@@ -70,6 +70,7 @@ export default async function Home() {
       <Welcome />
       <AboutSectionii />
       <Featured data={data} />
+
       {/* <AboutSectionii />
       <Amenities />
       
