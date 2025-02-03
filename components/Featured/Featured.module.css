@@ -1,7 +1,7 @@
 .container {
   padding: 1rem;
   background-color: var(--white);
-  padding-top: 10rem;
+  margin-top: -15rem;
 }
 
 .top {
@@ -58,5 +58,11 @@
 
   .imgContainer {
     height: 300px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .container {
+    margin-top: -12rem;
   }
 }

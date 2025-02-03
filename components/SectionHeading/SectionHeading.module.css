@@ -9,7 +9,6 @@
 
 .span {
   letter-spacing: 3.1px;
-  opacity: 0.5;
   text-transform: uppercase;
   user-select: none;
   font-family: var(--TeXGyreAdventor);

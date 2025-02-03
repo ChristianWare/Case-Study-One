@@ -36,13 +36,13 @@ const Featured = ({ data }: Props) => {
       <LayoutWrapper>
         <ContentPadding>
           <div className={styles.top}>
-            <SectionHeading title='Featured' color='blue' />
+            {/* <SectionHeading title='Featured' color='blue' />
             <h2 className={styles.heading}>
               Explore our
               <br />
               featured listings
-            </h2>
-            <Wave className={styles.wave} />
+            </h2> */}
+            {/* <Wave className={styles.wave} /> */}
             <div className={styles.imgContainer}>
               <Image
                 src={Img1}
