@@ -79,7 +79,7 @@ const Testimonials = () => {
               }`}
             >
               <p className={styles.review}>
-                &ldquo;{reviews[currentReviewIndex].review}" &ldquo;
+                &ldquo;{reviews[currentReviewIndex].review}&ldquo;
                 {reviews[currentReviewIndex].review}
               </p>
               <div className={styles.imgContainer}>
