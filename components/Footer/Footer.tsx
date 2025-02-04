@@ -7,265 +7,77 @@ import ArrowRight from "../../public/icons/arrowRight.svg";
 import Logo from "../../public/icons/logo.svg";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
+import Image from "next/image";
+import Img1 from "../../public/images/grand.jpg";
+import Img2 from "../../public/images/featured.jpg";
+import Img3 from "../../public/images/antelope.jpg";
+import Img4 from "../../public/images/desert.jpg";
+import Asset from "../../public/icons/asset.svg";
+import Wave from "../../public/icons/wave.svg";
+import Mail from "../../public/icons/mail.svg";
+import Phone from "../../public/icons/phone.svg";
 
-const Footer = () => {
-  const [selected, setSelected] = useState(null);
+const images = [
+  {
+    id: 1,
+    src: Img1,
+  },
+  {
+    id: 2,
+    src: Img2,
+  },
+  {
+    id: 3,
+    src: Img3,
+  },
+  {
+    id: 4,
+    src: Img4,
+  },
+];
 
-  const toggle = (i: any) => {
-    if (selected === i) {
-      return setSelected(null);
-    }
-
-    setSelected(i);
-  };
-
+export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const footer = [
-    {
-      id: 1,
-      heading: "About",
-      section: [
-        {
-          id: 2,
-          name: "Terms",
-          href: "/terms",
-        },
-        {
-          id: 3,
-          name: "Privacy",
-          href: "/privacy",
-        },
-        {
-          id: 4,
-          name: "Accessibility",
-          href: "/accessibility",
-        },
-        {
-          id: 5,
-          name: "California Disclosures",
-          href: "/california",
-        },
-      ],
-    },
-    {
-      id: 6,
-      heading: "Homes",
-      section: [
-        {
-          id: 7,
-          name: "183rd",
-          href: "/services",
-        },
-        {
-          id: 8,
-          name: "Goodyear",
-          href: "/services",
-        },
-        {
-          id: 9,
-          name: "Coolidge",
-          href: "/services",
-        },
-        {
-          id: 10,
-          name: "Scottsdale",
-          href: "/services",
-        },
-      ],
-    },
-    {
-      id: 11,
-      heading: "Booking",
-      section: [
-        {
-          id: 12,
-          name: "24/7",
-          href: "/contact",
-        },
-        {
-          id: 13,
-          name: "Phoenix",
-          href: "/contact",
-        },
-        {
-          id: 146,
-          name: "Scottsdale",
-          href: "/contact",
-        },
-        {
-          id: 15,
-          name: "West Valley",
-          href: "/contact",
-        },
-      ],
-    },
-    {
-      id: 16,
-      heading: "Contact",
-      section: [
-        {
-          id: 17,
-          name: "Phone",
-          href: "/contact",
-        },
-        {
-          id: 18,
-          name: "Email",
-          href: "/contact",
-        },
-        {
-          id: 19,
-          name: "Address",
-          href: "/contact",
-        },
-        {
-          id: 20,
-          name: "Phone",
-          href: "/contact",
-        },
-      ],
-    },
-  ];
 
   return (
     <footer className={styles.container}>
-      <LayoutWrapper>
-        <ContentPadding>
-          <div className={styles.content}>
-            <div className={styles.topTop}>
-              <div className={styles.left}>
-                <Link href='/' className={styles.logo}>
-                  <Logo width={50} height={50} className={styles.icon} />
-                  <span className={styles.span}>Elite Retreat Rentals</span>
-                </Link>
-                <p className={styles.desc}>
-                  Welcome to Elite Retreat Rentals, Arizona&lsquo;s top
-                  destination for unforgettable vacations, where each stay
-                  promises luxury and sophistication beyond compare.
-                </p>
-                <p className={styles.desc}>
-                  <strong>Admin Office: </strong>
-                  <br />
-                  10105 E Vía Linda Suite A- 101 <br />
-                  Scottsdale, AZ 85258
-                  <br />
-                  <br />
-                  <strong>
-                    Phone: <br />
-                  </strong>
-                  623-665-6778
-                  <br />
-                  <br />
-                  <strong>
-                    Email <br />
-                  </strong>
-                  reservations@eliteretreatrentals.com
-                </p>
-              </div>
-              <div className={styles.right}>
-                <div className={styles.middleDesktop}>
-                  {footer.map((f, index) => (
-                    <div key={index} className={styles.sectionContainer}>
-                      <div className={styles.headingContainer}>
-                        <p className={styles.heading}>{f.heading}</p>
-                      </div>
-                      <div className={styles.footerItemContainer}>
-                        {f.section.map((s, index) => (
-                          <Link
-                            href={s.href}
-                            key={index}
-                            className={styles.footerItem}
-                          >
-                            {s.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.bottomDesktop}>
-                  <div className={styles.bottomLeft}>
-                    <div className={styles.copy}>
-                      &copy; {currentYear} Elite Retreat Rentals || All Rights
-                      Reserved || Designed and Developed by{" "}
-                      <Link
-                        href='https://www.fontsandfooters.com/'
-                        target='_blank'
-                        className={styles.target}
-                      >
-                        The Chris Ware Agency
-                      </Link>{" "}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles.middleMobile}>
-              {footer.map((f, i) => (
-                <div key={f.id} className={styles.sectionContainer}>
-                  <div
-                    className={styles.headingContainer}
-                    onClick={() => toggle(i)}
-                  >
-                    <p className={styles.heading}>{f.heading}</p>
-                    <span className={styles.arrow}>
-                      {selected === i ? (
-                        <ArrowRight
-                          className={styles.arrowFlip}
-                          height={20}
-                          width={20}
-                        />
-                      ) : (
-                        <ArrowRight
-                          className={styles.arrow}
-                          height={20}
-                          width={20}
-                        />
-                      )}
-                    </span>
-                  </div>
-                  <div
-                    className={
-                      selected === i
-                        ? styles.answer + " " + styles.show
-                        : styles.answer
-                    }
-                  >
-                    <div className={styles.footerItemContainer}>
-                      {f.section.map((s, index) => (
-                        <Link
-                          href={s.href}
-                          key={index}
-                          className={styles.footerItem}
-                        >
-                          {s.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className={styles.bottom}>
-              <div className={styles.bottomLeft}>
-                <div className={styles.copy}>
-                  &copy; {currentYear} Elite Retreat Rentals || All Rights
-                  Reserved || Designed and Developed by{" "}
-                  <Link
-                    href='https://www.fontsandfooters.com/'
-                    target='_blank'
-                    className={styles.target}
-                  >
-                    The Chris Ware Agency
-                  </Link>{" "}
-                </div>
-              </div>
-            </div>
+      <div className={styles.top}>
+        {images.map((x) => (
+          <div className={styles.imgContainer} key={x.id}>
+            <Image src={x.src} alt='' title='' fill className={styles.img} />
           </div>
-        </ContentPadding>
-      </LayoutWrapper>
+        ))}
+      </div>
+      <div className={styles.bottom}>
+        <div className={styles.bottomContent}>
+          <div className={styles.left}>
+            <div className={styles.iconContainer}>
+              <Mail className={styles.icon} />
+            </div>
+            <span className={styles.info}>info@yoursite.com</span>
+          </div>
+          <div className={styles.middle}>
+            <div className={styles.logoContainer}>
+              <Link href='/' className={styles.logo}>
+                <span className={styles.asset}>
+                  <Asset width={25} height={25} classname={styles.asset} />
+                </span>
+                E. R. Rentals
+              </Link>
+            </div>
+            <Wave className={styles.wave} />
+            <p className={styles.address}>
+              321 Island Palm Avenue <br /> Palmville, Fiji
+            </p>
+          </div>
+          <div className={styles.right}>
+            <div className={styles.iconContainer}>
+              <Phone className={styles.icon} />
+            </div>
+            <span className={styles.info}>+1 800 123 4567</span>
+          </div>
+        </div>
+      </div>
     </footer>
   );
-};
-export default Footer;
+}
