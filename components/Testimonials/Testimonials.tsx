@@ -3,6 +3,8 @@
 import { useState } from "react";
 import styles from "./Testimonials.module.css";
 import SectionHeading from "../SectionHeading/SectionHeading";
+import Image from "next/image";
+import Img1 from "../../public/images/antelope.jpg";
 
 const reviews = [
   {
@@ -77,11 +79,22 @@ const Testimonials = () => {
               }`}
             >
               <p className={styles.review}>
-                {reviews[currentReviewIndex].review}
+                "{reviews[currentReviewIndex].review}"
               </p>
+              <div className={styles.imgContainer}>
+                <Image
+                  src={Img1}
+                  alt=''
+                  title=''
+                  width={60}
+                  height={60}
+                  className={styles.img}
+                />
+              </div>
               <p className={styles.reviewer}>
                 {reviews[currentReviewIndex].reviewer}
               </p>
+              <p className={styles.from}>From Germany</p>
             </div>
           </div>
 

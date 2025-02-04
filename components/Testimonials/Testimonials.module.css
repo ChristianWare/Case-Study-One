@@ -10,7 +10,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  height: 100%;
+  /* position: relative; */
 }
 
 .reviewContainer {
@@ -19,25 +20,51 @@
   gap: 2rem;
   margin-top: 4rem;
   width: 100%;
-  max-width: 800px;
+  height: 100%;
+  padding: 3rem;
 }
 
 .reviewWrapper {
   flex: 1;
   position: relative;
-  min-height: 200px;
+  height: 300px; 
+  overflow: visible; 
 }
 
 .reviewContent {
   text-align: center;
-  transition: opacity 0.3s ease;
+  position: relative; 
+  width: 100%;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  min-height: auto;
+  padding: 2rem 0;
+}
+
+.imgContainer {
+  width: 60px; 
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden; 
+  margin: 1rem auto;
+}
+
+.img {
+  border-radius: 50% !important;
+  object-fit: cover;
 }
 
 .review {
-  font-size: 1.8rem;
-  line-height: 1.6;
+  max-width: 23em;
+  font-size: 2.4rem; 
+  font-family: var(--fraunces);
+  font-style: italic;
+  font-weight: 300;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.25em;
   margin-bottom: 2rem;
-  color: var(--primary);
+  padding: 0 1rem; 
 }
 
 .reviewer {
@@ -47,12 +74,12 @@
 }
 
 .arrowButton {
-  background: var(--blue);
-  color: white;
+  background: var(--grayiii);
+  color: var(--blue);
   border: none;
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
+  width: 4.6em;
+  height: 4.6em;
   font-size: 2rem;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -110,5 +137,33 @@
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .review {
+    font-size: 1.8rem;
+    max-width: 100%;
+  }
+  
+  .reviewContent {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+  
+  .reviewWrapper {
+    padding: 0;
+  }
+  
+  .reviewContainer {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .arrowButton {
+    width: 3.5em;
+    height: 3.5em;
+    font-size: 1.5rem;
   }
 }
