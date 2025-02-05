@@ -29,6 +29,16 @@
   margin-bottom: 2rem;
 }
 
+.copy {
+  max-width: 14em;
+  font-size: 1.38em;
+  text-align: center;
+  font-weight: 100;
+  line-height: 1.5em;
+  font-style: italic;
+  font-family: var(--fraunces);
+}
+
 @media screen and (max-width: 1068px) {
   .heading {
     font-size: 10vw;

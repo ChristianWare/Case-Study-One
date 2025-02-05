@@ -5,8 +5,6 @@ import { IRoom } from "../../backend/models/room";
 import PropPreview from "../PropPreview/PropPreview";
 import Img1 from "../../public/images/featured.jpg";
 import Image from "next/image";
-import SectionHeading from "../SectionHeading/SectionHeading";
-import Wave from "../../public/icons/wave.svg";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import { motion } from "framer-motion";

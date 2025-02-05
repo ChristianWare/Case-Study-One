@@ -7,6 +7,7 @@ import Wave from "../../public/icons/wave.svg";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";
+import Button from "../Button/Button";
 
 export default function Welcome() {
   return (
@@ -30,6 +31,9 @@ export default function Welcome() {
               in vibrant Phoenix, we offer affordable lodging across multiple
               properties, ensuring an unforgettable stay.
             </p>
+            <div className={styles.btnContainer}>
+              <Button href='/properties' text='Book Now' btnType='primary' />
+            </div>
           </motion.div>
         </ContentPadding>
       </LayoutWrapper>
