@@ -14,7 +14,9 @@ const PageIntro: FC<PageIntroProps> = ({ heading, copy, src }) => {
   return (
     <section className={styles.parent}>
       <div className={styles.container}>
-        <Image src={src} alt='hero' fill className={styles.img} priority />
+        {src && (
+          <Image src={src} alt='hero' fill className={styles.img} priority />
+        )}{" "}
         <div className={styles.imgOverlay}></div>
         <LayoutWrapper>
           <ContentPadding>

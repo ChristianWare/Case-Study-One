@@ -11,7 +11,7 @@ export interface ButtonProps {
 export interface PageIntroProps {
   heading: string;
   copy?: string;
-  src: StaticImageData;
+  src?: StaticImageData | undefined;
 }
 
 export interface OwnerProps {

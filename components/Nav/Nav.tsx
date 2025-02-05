@@ -3,7 +3,7 @@
 import styles from "./Nav.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Button from "../Button/Button";
 import { setIsAuthenticated, setUser } from "../../redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -12,7 +12,17 @@ import Down from "../../public/icons/down.svg";
 import toast from "react-hot-toast";
 import Asset from "../../public/icons/asset.svg";
 
-function Nav() {
+interface Props {
+  color?: string;
+  assetColor?: string;
+  hamburgerColor?: string;
+}
+
+export default function Nav({
+  color = "",
+  assetColor = "",
+  hamburgerColor = "",
+}: Props) {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
 
@@ -56,7 +66,6 @@ function Nav() {
     };
   }, [isOpen]);
 
-  const pathname = usePathname();
   const router = useRouter();
 
   const logoutHandler = () => {
@@ -76,8 +85,8 @@ function Nav() {
       href: "/properties",
     },
     {
-      text: "Spa & Wellness",
-      href: "/contact",
+      text: "Activities",
+      href: "activities",
     },
     {
       text: "Dining",
@@ -158,11 +167,7 @@ function Nav() {
               >
                 <Link
                   href={navItem.href}
-                  className={
-                    pathname === navItem.href
-                      ? `${styles.activeLink}  ${styles.navItem}`
-                      : styles.navItem
-                  }
+                  className={`${styles.navItem} ${styles[color]}`}
                 >
                   {navItem.text}
                 </Link>
@@ -171,9 +176,13 @@ function Nav() {
           ))}
         </ul>
         <div className={styles.logoContainer}>
-          <Link href='/' className={styles.logo}>
+          <Link href='/' className={`${styles.logo} ${styles[color]}`}>
             <span className={styles.asset}>
-              <Asset width={25} height={25} classname={styles.asset} />
+              <Asset
+                width={25}
+                height={25}
+                className={`${styles.asset} ${styles[assetColor]}`}
+              />
             </span>
             E. R. Rentals
           </Link>
@@ -257,12 +266,17 @@ function Nav() {
           }
           onClick={openMenu}
         >
-          <span className={styles.whiteBar}></span>
-          <span className={styles.whiteBar}></span>
-          <span className={styles.whiteBar}></span>
+          <span
+            className={`${styles.whiteBar} ${styles[hamburgerColor]}`}
+          ></span>
+          <span
+            className={`${styles.whiteBar} ${styles[hamburgerColor]}`}
+          ></span>
+          <span
+            className={`${styles.whiteBar} ${styles[hamburgerColor]}`}
+          ></span>
         </span>
       </nav>
     </header>
   );
 }
-export default Nav;

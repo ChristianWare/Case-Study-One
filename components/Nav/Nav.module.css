@@ -6,7 +6,7 @@
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   padding: 3rem 4rem;
-  /* padding-bottom: 4rem; */
+  margin-top: 1rem;
 }
 
 .navBarLeft {
@@ -87,7 +87,7 @@
   white-space: nowrap;
 }
 
-.menuContainerMobile {
+.assetColor .menuContainerMobile {
   display: none;
 }
 
@@ -204,6 +204,19 @@
   border-radius: 10px;
   border: 1px solid var(--purple);
   transition: all 0.4s ease-in;
+}
+
+.blue {
+  color: var(--blue);
+  opacity: 1;
+}
+
+.brown {
+  color: var(--blue);
+}
+
+.blueHamburger {
+  background-color: var(--blue);
 }
 
 @media screen and (max-width: 1100px) {

@@ -1,16 +1,17 @@
 "use client";
 
-import Image from "next/image";
+import styles from "./Hero.module.css";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
-import styles from "./Hero.module.css";
 import Wave from "../../public/icons/wave.svg";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";
+import Nav from "../Nav/Nav";
 
 const Hero = () => {
   return (
     <section className={styles.parent}>
+      <Nav />
       <div className={styles.container}>
         <video preload='auto' autoPlay muted loop className={styles.video}>
           <source src='./video/heroiii.mp4' />

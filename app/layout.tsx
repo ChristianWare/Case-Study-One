@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Raleway, Inter, Fraunces, Miss_Fajardose } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import Nav from "../components/Nav/Nav";
+// import Nav from "../components/Nav/Nav";
 import Footer from "../components/Footer/Footer";
 import { Globalprovider } from "../GlobalProvider";
 import Script from "next/script";
@@ -78,7 +78,7 @@ export default function RootLayout({
         className={`${raleway.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} ${inter.variable} ${TeXGyreAdventor.variable} ${fraunces.variable} ${missFajardose.variable}`}
       >
         <Globalprovider>
-          <Nav />
+          {/* <Nav /> */}
           {children}
           <Footer />
         </Globalprovider>
