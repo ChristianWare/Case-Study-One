@@ -48,7 +48,7 @@
 }
 
 .icon {
-  border: 3px solid var(--purple);
+  border: 3px solid var(--blue);
   border-radius: 50%;
   color: black;
 }
@@ -76,7 +76,7 @@
 
 .labelInputBox label {
   font-weight: 600;
-  color: var(--purple);
+  color: var(--blue);
   margin-bottom: 0.5rem;
 }
 
@@ -86,12 +86,13 @@
   border: none;
   height: 55px;
   width: 100%;
-  background-color: var(--purple2);
+  background-color: var(--white);
+  border: 1px solid var(--gray);
   color: var(--black2);
   padding: 2rem;
   padding-left: 2rem;
   width: 100%;
-  font-weight: 400;
+  font-weight: 300;
   inset: none;
 }
 
@@ -125,7 +126,7 @@
 }
 
 .success {
-  color: var(--purple);
+  color: var(--blue);
 }
 
 @media screen and (max-width: 1100px) {

@@ -1,7 +1,7 @@
 "use client";
 
-import toast from "react-hot-toast";
 import styles from "./ContactForm.module.css";
+import toast from "react-hot-toast";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import FalseButton from "../FalseButton/FalseButton";

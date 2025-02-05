@@ -3,6 +3,7 @@ import Error from "../error";
 import Img1 from "../../public/images/newhero.webp";
 import Propertiesii from "../../components/Propertiesii/Propertiesii";
 import Testimonials from "../../components/Testimonials/Testimonials";
+import Nav from "../../components/Nav/Nav";
 
 export const revalidate = 10;
 
@@ -24,10 +25,11 @@ export default async function PropertiesPage() {
   }
 
   return (
-    <>
+    <main>
+      <Nav />
       <PageIntro heading='Stay' src={Img1} />
       <Propertiesii data={data} />
       <Testimonials />
-    </>
+    </main>
   );
 }

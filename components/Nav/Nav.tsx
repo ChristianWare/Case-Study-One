@@ -89,8 +89,8 @@ export default function Nav({
       href: "activities",
     },
     {
-      text: "Dining",
-      href: "/dining",
+      text: "Contact",
+      href: "/contact",
     },
   ];
 
