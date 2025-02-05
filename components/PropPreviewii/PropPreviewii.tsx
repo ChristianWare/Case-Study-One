@@ -6,11 +6,13 @@ import Link from "next/link";
 
 interface Props {
   room: IRoom;
+  bgColor: string; // 'teal' or 'brown'
+  reversed: boolean; // true to reverse layout
 }
 
-const PropPreviewii = ({ room }: Props) => {
+const PropPreviewii = ({ room, bgColor, reversed }: Props) => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${reversed ? styles.reversed : ""}`}>
       <div className={styles.left}>
         <div className={styles.imgContainer}>
           <Link href={`/properties/${room?._id}`}>
@@ -27,32 +29,17 @@ const PropPreviewii = ({ room }: Props) => {
           </Link>
         </div>
       </div>
-      <div className={styles.right}>
-        <div className={styles.rightTop}>
-          <span className={styles.price}>
-            $ {room.pricePerNight}{" "}
-            <span className={styles.perDay}>/ per day</span>
-          </span>
-          <div className={styles.available}>Available</div>
-        </div>
-        <div className={styles.featuresBox}>
-          <div className={styles.feature}>{room.numOfBeds} Beds</div>
-          <div className={styles.feature}>{room.guestCapacity} Guests</div>
-        </div>
+      <div className={`${styles.right} ${styles[bgColor]}`}>
         <div className={styles.box}>
           <h3 className={styles.title}>{room?.name}</h3>
-          {/* <span className={styles.perDay}>
-            hey!
-          </span> */}
-          <div className={styles.featureii}>{room.description}</div>
-        </div>
-
-        <div className={styles.btnContainer}>
-          <Button
-            text='View Details'
-            btnType='secondary'
-            href={`/properties/${room?._id}`}
-          />
+          <p className={styles.featureii}>{room.description}</p>
+          <div className={styles.btnContainer}>
+            <Button
+              text='View Details'
+              btnType='secondary'
+              href={`/properties/${room?._id}`}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -1,17 +1,7 @@
 import Hero from "../components/Hero/Hero";
-import PostHero from "../components/PostHero/PostHero";
 import Featured from "../components/Featured/Featured";
-import Discover from "../components/Discover/Discover";
-import Properties from "../components/Properties/Properties";
-import Owner from "../components/Owner/Owner";
-import Faqs from "../components/Faqs/Faqs";
-import FinalCTA1 from "../components/FinalCTA1/FinalCTA1";
 import Error from "./error";
-import { revalidatePath } from "next/cache";
 import AboutSectionii from "../components/AboutSectionii/AboutSectionii";
-import Amenities from "../components/Amenities/Amenities";
-import ContactArea from "../components/ContactArea/ContactArea";
-import Amenitiesii from "../components/Amenitiesii/Amenitiesii";
 import Testimonials from "../components/Testimonials/Testimonials";
 import Welcome from "../components/Welcome/Welcome";
 import Services from "../components/Services/Services";
@@ -51,22 +41,6 @@ export default async function Home() {
       <Services />
       <Location />
       <Testimonials />
-
-      {/* <AboutSectionii />
-      <Amenities />
-      
-      <Amenitiesii />
-      <Featured data={data} />
-      <Faqs />
-      <Discover />
-      <Properties data={data} />
-      <Owner
-        heading='“Revolutionizing luxury rentals, we own and manage our properties, ensuring unparalleled design, service, and a cohesive experience across our distinctive collection.”'
-        copy='We redefine the holiday rental experience by directly owning and managing our properties, allowing for unparalleled design, service, and a cohesive experience across our distinctive collection, standing out in the evolving landscape of luxury accommodations.'
-      />
-      <Testimonials />
-      <FinalCTA1 />
-      <ContactArea /> */}
     </div>
   );
 }

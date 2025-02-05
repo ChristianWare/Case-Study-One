@@ -1,8 +1,7 @@
 .slider {
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid var(--blue);
-  border-bottom: 1px solid var(--blue);
+
   padding: 1rem 0;
   cursor: pointer;
 }

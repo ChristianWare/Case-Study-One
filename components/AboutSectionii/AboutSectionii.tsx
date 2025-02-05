@@ -9,6 +9,7 @@ import House from "../../public/icons/asset.svg";
 import Button from "../Button/Button";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";
+import { usePathname } from "next/navigation";
 
 const AboutSectionii = () => {
   const data = [
@@ -25,6 +26,8 @@ const AboutSectionii = () => {
       icon: <House width={30} height={30} className={styles.icon} />,
     },
   ];
+
+  const pathname = usePathname();
 
   return (
     <section className={styles.parent}>
@@ -57,13 +60,15 @@ const AboutSectionii = () => {
                     </div>
                   </div>
                 ))}
-                <div className={styles.btnContainer}>
-                  <Button
-                    href='/about'
-                    text='More about us'
-                    btnType='primary'
-                  />
-                </div>
+                {pathname === "/" && (
+                  <div className={styles.btnContainer}>
+                    <Button
+                      href='/about'
+                      text='More about us'
+                      btnType='primary'
+                    />
+                  </div>
+                )}
               </div>
               <div className={styles.left}>
                 <div className={styles.imgContainer}>

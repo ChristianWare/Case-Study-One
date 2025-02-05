@@ -8,35 +8,27 @@ import ContentPadding from "../ContentPadding/ContentPadding";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";
 import Image from "next/image";
+import Asset from "../../public/icons/asset.svg";
 
 const PageIntro: FC<PageIntroProps> = ({ heading, copy, src }) => {
   return (
     <section className={styles.parent}>
       <div className={styles.container}>
-        <Image
-          src={src}
-          alt='hero'
-          fill
-          className={styles.img}
-          priority
-          // sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 33vw'
-        />
+        <Image src={src} alt='hero' fill className={styles.img} priority />
         <div className={styles.imgOverlay}></div>
         <LayoutWrapper>
           <ContentPadding>
             <div className={styles.content}>
-              <motion.div
+              <motion.h1
                 variants={fadeIn("", 0.3)}
                 initial='hidden'
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0.3 }}
-                className={styles.contentChildren}
+                className={styles.heading}
+                lang='en'
               >
-                <h1 className={styles.heading} lang='en'>
-                  {heading}
-                </h1>
-                {/* <Wave className={styles.wave} /> */}
-              </motion.div>
+                {heading}
+              </motion.h1>
             </div>
           </ContentPadding>
         </LayoutWrapper>
