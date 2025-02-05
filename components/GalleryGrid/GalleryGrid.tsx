@@ -41,7 +41,7 @@ const GalleryGrid = ({ images }: Props) => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading2}>Featured gallery</h2>
+      <h2 className={styles.heading2}>Gallery</h2>
       <div className={styles.gallery}>
         {images.map((slide, index) => (
           <div key={index} className={styles.imgContainer4}>

@@ -33,8 +33,7 @@
 
 .img {
   object-fit: cover;
-  border-radius: 20px;
-}
+border-radius: 7px;}
 
 @media screen and (max-width: 968px) {
   .imgGrid {

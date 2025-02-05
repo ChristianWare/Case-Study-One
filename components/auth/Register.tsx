@@ -27,7 +27,8 @@ const Register = () => {
 
   useEffect(() => {
     if (error && "data" in error) {
-      toast.error(error?.data?.errMessage);
+      // toast.error(error?.data?.errMessage);
+      toast.error("error - register.tsx");
     }
 
     if (isSuccess) {

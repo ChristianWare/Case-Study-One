@@ -34,8 +34,7 @@
 }
 
 .heading {
-  font-family: var(--tuskerGrotesk);
-  text-transform: uppercase;
+  font-family: var(--TeXGyreAdventor);
   color: var(--black2);
 }
 

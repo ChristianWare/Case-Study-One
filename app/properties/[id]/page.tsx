@@ -1,3 +1,4 @@
+import Nav from "../../../components/Nav/Nav";
 import RoomDetails from "../../../components/RoomDetails/RoomDetails";
 import Error from "../../error";
 
@@ -21,9 +22,10 @@ export default async function RoomDetailsPage({ params }: Props) {
   }
 
   return (
-    <div>
+    <main style={{ backgroundColor: "#f6f4ef" }}>
+      <Nav color='blue' assetColor='blue' hamburgerColor='blueHamburger' />
       <RoomDetails data={data} />
-    </div>
+    </main>
   );
 }
 

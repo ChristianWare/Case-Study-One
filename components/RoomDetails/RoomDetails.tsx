@@ -1,8 +1,8 @@
 "use client";
 
+import styles from "./RoomDetails.module.css";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
-import styles from "./RoomDetails.module.css";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import { IRoom } from "../../backend/models/room";
@@ -92,7 +92,12 @@ const RoomDetails = ({ data }: Props) => {
               loading='lazy'
               referrerPolicy='no-referrer-when-downgrade'
               className={styles.map}
-              style={{ height: 350, width: "100%" }}
+              style={{
+                height: 350,
+                width: "100%",
+                borderRadius: "10px",
+                border: "1px solid var(--gray",
+              }}
             ></iframe>
           </div>
           <ListReviews reviews={room?.reviews} />
@@ -102,7 +107,6 @@ const RoomDetails = ({ data }: Props) => {
         </ContentPadding>
       </LayoutWrapper>
       <Discover />
-      <FinalCTA1 />
     </>
   );
 };

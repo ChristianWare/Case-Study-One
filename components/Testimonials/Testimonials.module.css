@@ -11,7 +11,6 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  /* position: relative; */
 }
 
 .reviewContainer {
@@ -27,7 +26,7 @@
 .reviewWrapper {
   flex: 1;
   position: relative;
-  height: 300px; 
+  height: 400px; 
   overflow: visible; 
 }
 

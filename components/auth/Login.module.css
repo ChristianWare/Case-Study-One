@@ -1,16 +1,16 @@
+.container {
+  background-color: var(--white);
+}
+
 .heading {
   text-align: center;
   font-size: 3rem;
   margin-bottom: 3rem;
-  background-color: var(--purple2);
-  width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem;
-  border-radius: 10px;
 }
 
-.container {
+.form {
   margin-left: auto;
   margin-right: auto;
   width: 800px;
@@ -19,6 +19,10 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 2rem;
+}
+
+.content {
+  background-color: var(--white);
 }
 
 .lableInputBox {
@@ -30,6 +34,7 @@
   display: block;
   font-weight: 700;
   opacity: 0.6;
+  margin-bottom: 5px;
 }
 
 .lableInputBox input {
@@ -62,7 +67,7 @@
 
 .link {
   font-weight: 700;
-  color: var(--purple);
+  color: var(--brown);
   text-decoration: underline;
   margin-left: 1rem;
 }
@@ -87,19 +92,19 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .container {
+  .form {
     width: 750px;
   }
 }
 
 @media screen and (max-width: 968px) {
-  .container {
+  .form {
     width: 550px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .container {
+  .form {
     padding-left: 0rem;
     padding-right: 0rem;
     width: 100%;

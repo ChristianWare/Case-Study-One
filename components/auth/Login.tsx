@@ -13,6 +13,7 @@ import FalseButton from "../FalseButton/FalseButton";
 import FinalCTA1 from "../FinalCTA1/FinalCTA1";
 import Button from "../Button/Button";
 import Visibility from "../../public/icons/visibility.svg";
+import Nav from "../Nav/Nav";
 
 const Login = () => {
   const { data: session } = useSession();
@@ -53,74 +54,76 @@ const Login = () => {
   };
 
   return (
-    <>
-      <LayoutWrapper>
-        <ContentPadding>
-          <h1 className={styles.heading}>Login</h1>
-          <form className={styles.container} onSubmit={submitHandler}>
-            {session ? (
-              <>
-                <p>you are now logged in</p>
-                <hr />
-                <Link href='/' onClick={logoutHandler}>
-                  Logout
-                </Link>
-              </>
-            ) : (
-              <>
-                <div className={styles.lableInputBox}>
-                  <label htmlFor='email_field'> Email </label>
-                  <input
-                    type='email'
-                    id='email_field'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-
-                <div className={styles.lableInputBox}>
-                  <label htmlFor='password_field'> Password </label>
-                  <div className={styles.passwordWrapper}>
-                    <input
-                      type={passwordVisible ? "text" : "password"}
-                      id='password_field'
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <Visibility
-                      className={styles.visibilityIcon}
-                      onClick={togglePasswordVisibility}
-                      width={25}
-                      height={25}
-                    />{" "}
-                  </div>
-                </div>
-                <div className={styles.btnContainer}>
-                  <FalseButton
-                    btnType='secondary'
-                    disabled={loading}
-                    text={loading ? "Loading..." : "Login"}
-                  />
-                  <Button
-                    btnType='primary'
-                    text='Forgot password'
-                    href='/password/forgot'
-                  />
-                </div>
-
-                <div>
-                  <span className={styles.newUser}>New User?</span>
-                  <Link href='/register' className={styles.link}>
-                    Register Here{" "}
+    <main>
+      <div className={styles.content}>
+        <Nav color='blue' assetColor='blue' />
+        <LayoutWrapper>
+          <ContentPadding>
+            <h1 className={styles.heading}>Login</h1>
+            <form className={styles.container} onSubmit={submitHandler}>
+              {session ? (
+                <>
+                  <p>you are now logged in</p>
+                  <hr />
+                  <Link href='/' onClick={logoutHandler}>
+                    Logout
                   </Link>
-                </div>
-              </>
-            )}
-          </form>
-        </ContentPadding>
-      </LayoutWrapper>
-      <FinalCTA1 />
-    </>
+                </>
+              ) : (
+                <>
+                  <div className={styles.lableInputBox}>
+                    <label htmlFor='email_field'> Email </label>
+                    <input
+                      type='email'
+                      id='email_field'
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+
+                  <div className={styles.lableInputBox}>
+                    <label htmlFor='password_field'> Password </label>
+                    <div className={styles.passwordWrapper}>
+                      <input
+                        type={passwordVisible ? "text" : "password"}
+                        id='password_field'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <Visibility
+                        className={styles.visibilityIcon}
+                        onClick={togglePasswordVisibility}
+                        width={25}
+                        height={25}
+                      />{" "}
+                    </div>
+                  </div>
+                  <div className={styles.btnContainer}>
+                    <FalseButton
+                      btnType='secondary'
+                      disabled={loading}
+                      text={loading ? "Loading..." : "Login"}
+                    />
+                    <Button
+                      btnType='primary'
+                      text='Forgot password'
+                      href='/password/forgot'
+                    />
+                  </div>
+
+                  <div>
+                    <span className={styles.newUser}>New User?</span>
+                    <Link href='/register' className={styles.link}>
+                      Register Here{" "}
+                    </Link>
+                  </div>
+                </>
+              )}
+            </form>
+          </ContentPadding>
+        </LayoutWrapper>
+      </div>
+    </main>
   );
 };
 export default Login;

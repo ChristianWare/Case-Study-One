@@ -7,6 +7,8 @@ import styles from "../../components/auth/Login.module.css";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import FalseButton from "../FalseButton/FalseButton";
 import { useRouter } from "next/navigation";
+import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
+import Nav from "../Nav/Nav";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +18,8 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (error && "data" in error) {
-      toast.error(error?.data?.errMessage);
+      // toast.error(error?.data?.errMessage);
+      toast.error("Error, Forgotpassword.tsx");
     }
 
     if (isSuccess) {
@@ -40,33 +43,44 @@ const ForgotPassword = () => {
   };
 
   return (
-    <ContentPadding>
-      <h2 className={styles.heading}>Forgot Password</h2>
-      <form className={styles.container} onSubmit={submitHandler}>
-        <div className={styles.lableInputBox}>
-          <label htmlFor='email_field' className='form-label'>
-            {" "}
-            Enter Email{" "}
-          </label>
-          <input
-            type='email'
-            id='email_field'
-            className='form-control'
-            name='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className={styles.btnContainer}>
-          <FalseButton
-            btnType='secondary'
-            text={isLoading ? "Loading..." : "Submit"}
-            disabled={isLoading}
-          />
-          <FalseButton btnType='primary' text={"Go Home"} onClick={goHome} />
-        </div>
-      </form>
-    </ContentPadding>
+    <main>
+      <div className={styles.container}>
+      <Nav color='blue' assetColor='blue' hamburgerColor='blueHamburger' />
+        <LayoutWrapper>
+          <ContentPadding>
+            <h2 className={styles.heading}>Forgot Password</h2>
+            <form className={styles.form} onSubmit={submitHandler}>
+              <div className={styles.lableInputBox}>
+                <label htmlFor='email_field' className='form-label'>
+                  {" "}
+                  Enter Email{" "}
+                </label>
+                <input
+                  type='email'
+                  id='email_field'
+                  className='form-control'
+                  name='email'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className={styles.btnContainer}>
+                <FalseButton
+                  btnType='secondary'
+                  text={isLoading ? "Loading..." : "Submit"}
+                  disabled={isLoading}
+                />
+                <FalseButton
+                  btnType='primary'
+                  text={"Go Home"}
+                  onClick={goHome}
+                />
+              </div>
+            </form>
+          </ContentPadding>
+        </LayoutWrapper>
+      </div>
+    </main>
   );
 };
 export default ForgotPassword;

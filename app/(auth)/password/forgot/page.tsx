@@ -1,3 +1,4 @@
+import Testimonials from "../../../../components/Testimonials/Testimonials";
 import ForgotPassword from "../../../../components/user/ForgotPassword";
 
 export const metadata = {
@@ -6,9 +7,10 @@ export const metadata = {
 
 const ForgotPasswordPage = () => {
   return (
-    <div>
+    <main>
       <ForgotPassword />
-    </div>
+      <Testimonials />
+    </main>
   );
 };
 export default ForgotPasswordPage;
