@@ -7,33 +7,41 @@ import LayoutWrapper from "../LayoutWrapper/LayoutWrapper";
 import ContentPadding from "../ContentPadding/ContentPadding";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../animation/variants";
+import Image from "next/image";
 
-const PageIntro: FC<PageIntroProps> = ({ heading, copy }) => {
+const PageIntro: FC<PageIntroProps> = ({ heading, copy, src }) => {
   return (
-    <div className={styles.top}>
-      <LayoutWrapper>
-        <ContentPadding>
-          <motion.h1
-            variants={fadeIn("down", 0.3)}
-            initial='hidden'
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.3 }}
-            className={styles.heading}
-          >
-            {heading}
-          </motion.h1>
-          <motion.p
-            variants={fadeIn("down", 0.3)}
-            initial='hidden'
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.3 }}
-            className={styles.copy}
-          >
-            {copy}
-          </motion.p>
-        </ContentPadding>
-      </LayoutWrapper>
-    </div>
+    <section className={styles.parent}>
+      <div className={styles.container}>
+        <Image
+          src={src}
+          alt='hero'
+          fill
+          className={styles.img}
+          priority
+          // sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 33vw'
+        />
+        <div className={styles.imgOverlay}></div>
+        <LayoutWrapper>
+          <ContentPadding>
+            <div className={styles.content}>
+              <motion.div
+                variants={fadeIn("", 0.3)}
+                initial='hidden'
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.3 }}
+                className={styles.contentChildren}
+              >
+                <h1 className={styles.heading} lang='en'>
+                  {heading}
+                </h1>
+                {/* <Wave className={styles.wave} /> */}
+              </motion.div>
+            </div>
+          </ContentPadding>
+        </LayoutWrapper>
+      </div>
+    </section>
   );
 };
 export default PageIntro;

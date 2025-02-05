@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface ButtonProps {
   href: string;
   text: string;
@@ -8,7 +10,8 @@ export interface ButtonProps {
 
 export interface PageIntroProps {
   heading: string;
-  copy: string;
+  copy?: string;
+  src: StaticImageData;
 }
 
 export interface OwnerProps {

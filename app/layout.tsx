@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Raleway, Inter, Fraunces } from "next/font/google";
+import { Raleway, Inter, Fraunces, Miss_Fajardose } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Nav from "../components/Nav/Nav";
@@ -21,6 +21,14 @@ const fraunces = Fraunces({
   weight: ["100", "300", "400", "500", "600", "700"],
   style: ["normal"],
   variable: "--fraunces",
+  display: "swap",
+});
+
+const missFajardose = Miss_Fajardose({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"],
+  variable: "--missFajardose",
   display: "swap",
 });
 
@@ -67,7 +75,7 @@ export default function RootLayout({
         <PlausibleProvider domain='eliteretreatrentals.com' />
       </head>
       <body
-        className={`${raleway.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} ${inter.variable} ${TeXGyreAdventor.variable} ${fraunces.variable}`}
+        className={`${raleway.variable} ${helvetica.variable} ${helveticaBold.variable} ${tuskerGrotesk.variable} ${inter.variable} ${TeXGyreAdventor.variable} ${fraunces.variable} ${missFajardose.variable}`}
       >
         <Globalprovider>
           <Nav />

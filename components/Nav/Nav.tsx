@@ -16,8 +16,6 @@ function Nav() {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
 
-  // console.log(user?.avatar.url);
-
   const { data } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenii, setIsOpenii] = useState(false);
@@ -69,10 +67,6 @@ function Nav() {
   };
 
   const navItems = [
-    // {
-    //   text: "Home",
-    //   href: "/",
-    // },
     {
       text: "About",
       href: "/about",
@@ -89,18 +83,6 @@ function Nav() {
       text: "Dining",
       href: "/dining",
     },
-    // {
-    //   text: "Properties",
-    //   href: "/properties",
-    // },
-    // {
-    //   text: "About",
-    //   href: "/about",
-    // },
-    // {
-    //   text: "Contact",
-    //   href: "/contact",
-    // },
   ];
 
   return (
