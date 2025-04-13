@@ -21,12 +21,12 @@
   border-radius: 10px;
   border: 2px solid var(--white);
   cursor: pointer;
-  transition: all 0.1s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .img:hover {
-  border: 2px solid var(--purple);
-  border-radius: 20px;
+  border: 2px solid var(--blue);
+  border-radius: 10px;
   transition: all 0.1s ease-in;
 }
 

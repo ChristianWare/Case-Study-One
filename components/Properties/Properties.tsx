@@ -42,7 +42,7 @@ const Properties = ({ data }: Props) => {
               rooms
                 ?.slice(-3)
                 .reverse()
-                .map((room) => <PropPreviewii key={room._id} room={room} />)
+                .map((room) => <PropPreviewii key={room._id} room={room} bgColor={""} reversed={false} />)
             )}
           </div>
         )}
@@ -54,7 +54,7 @@ const Properties = ({ data }: Props) => {
                 <b>No Rooms.</b>
               </div>
             ) : (
-              rooms?.map((room) => <PropPreviewii key={room._id} room={room} />)
+              rooms?.map((room) => <PropPreviewii key={room._id} room={room} bgColor={""} reversed={false} />)
             )}
           </div>
         )}
